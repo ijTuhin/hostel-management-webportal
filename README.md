@@ -1,2 +1,2 @@
-# *** MessMeal Management System ***
+# ***MessMeal Management System***
 > A MERN stack project
