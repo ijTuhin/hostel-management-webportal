@@ -1,18 +1,21 @@
-import React, { useState } from 'react'
-import DataBox from './DataBox';
+import React, { useState } from "react";
+import DataBox from "./DataBox";
 
 const Home = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [dataBox, setDataBox] = useState([]);
+
+  // Handle Submit Button
   const handleSubmit = (e) => {
     const data = {
       emailId: email,
       password: password,
     };
-    setDataBox((prev) => [...prev, data]);
+
+    setDataBox( prev => [...prev, data])
   };
-  
+
   console.log(dataBox);
   return (
     <div className="space-y-10">
@@ -22,16 +25,12 @@ const Home = () => {
           className="border border-gray-700 px-3 py-1"
           type="text"
           placeholder="enter your email.."
-          name=""
-          id=""
         />
         <input
           onChange={(e) => setPassword(e.target.value)}
           className="border border-gray-700 px-3 py-1"
           type="password"
           placeholder="enter your password.."
-          name=""
-          id=""
         />
         <button
           onClick={(e) => handleSubmit(e)}
@@ -42,11 +41,9 @@ const Home = () => {
       </div>
 
       <div className="mx-auto border-4 border-gray-600 w-fit p-5 rounded-lg">
-        {
-          dataBox.map( (data, index) => (
-            <DataBox data={data} key={index}/>
-          ))
-        }
+        {dataBox.map((data, index) => (
+          <DataBox data={data} key={index} />
+        ))}
       </div>
     </div>
   );
