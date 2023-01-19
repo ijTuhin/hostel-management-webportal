@@ -1,16 +1,17 @@
-import NonResidenceUserLogin from "./Authentications/NonResidenceUserLogin"
-import NonResidenceUserSignup from "./Authentications/NonResidenceUserSignup"
-import ResidenceUserLogin from "./Authentications/ResidenceUserLogin"
-import HomePage from "./Pages/HomePage"
+import NonResidenceUserLogin from "./Authentications/UserPanel/NonResidenceUserLogin";
+import NonResidenceUserSignup from "./Authentications/UserPanel/NonResidenceUserSignup";
+import ResidenceUserLogin from "./Authentications/UserPanel/ResidenceUserLogin";
+import HomePage from "./Pages/HomePage";
 
 function App() {
-
   return (
-    // <HomePage/>
-    // <ResidenceUserLogin/>
-    // <NonResidenceUserLogin/>
-    <NonResidenceUserSignup/>
-  )
+    <div>
+      {/* <HomePage /> */}
+      {/* <ResidenceUserLogin /> */}
+      {/* <NonResidenceUserLogin /> */}
+      <NonResidenceUserSignup />
+    </div>
+  );
 }
 
-export default App
+export default App;
