@@ -1,11 +1,11 @@
-import Signup from "./Authentications/Signup"
+import ResidenceUserLogin from "./Authentications/ResidenceUserLogin"
 import HomePage from "./Pages/HomePage"
 
 function App() {
 
   return (
     // <HomePage/>
-    <Signup/>
+    <ResidenceUserLogin/>
   )
 }
 
