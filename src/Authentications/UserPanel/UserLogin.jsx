@@ -8,7 +8,7 @@ const UserLogin = () => {
     <div>
       <div className="flex justify-end p-5">
         <button onClick={() => setResidence((prev) => !prev)}>
-          {residence ? "Not a residence?" : "Not a residence?"}
+          {residence ? "Not a residence?" : "Are you a residence?"}
         </button>
       </div>
       {residence ? <ResidenceUserLogin /> : <NonResidenceUserLogin />}

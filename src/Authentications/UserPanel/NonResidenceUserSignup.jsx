@@ -1,8 +1,29 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import { FaUserSlash } from "react-icons/fa";
 
 const NonResidenceUserSignup = () => {
-  const [toggleStudent, setToggleStudent] = useState(false);
+  const [guest, setGuest] = useState(false);
+  const [data, setData] = useState({});
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    fetch("http://localhost:5000/non-residence-student-registration", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      });
+  };
 
   return (
     <div className="flex justify-center mt-[10%]">
@@ -11,48 +32,43 @@ const NonResidenceUserSignup = () => {
           <span>
             <FaUserSlash />
           </span>
-          Non-Residence Registration {toggleStudent ? "(Guest)" : "(Student)"}
+          Non-Residence Registration {guest ? "(Guest)" : "(Student)"}
         </div>
-        <form action="" className="flex flex-col gap-y-2">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col gap-y-2"
+        >
           <div className="space-x-2">
             <input
               className="border-b-2 border-slate-500 px-2 py-1"
-              type="text"
-              name=""
-              id=""
+              {...register("email", { required: true })}
               placeholder="Enter your email"
             />
-            {toggleStudent ? (
+            {guest ? (
               <input
                 className="border-b-2 border-slate-500 px-2 py-1"
-                type="text"
-                name=""
-                id=""
+                {...register("nid", { required: true })}
                 placeholder="Enter your NID"
               />
             ) : (
               <input
                 className="border-b-2 border-slate-500 px-2 py-1"
-                type="text"
-                name=""
-                id=""
+                {...register("matricID", { required: true })}
                 placeholder="Enter your matric Id"
               />
             )}
           </div>
           <div className="space-x-2">
             <input
+              id="name"
               className="border-b-2 border-slate-500 px-2 py-1"
-              type="text"
-              name=""
-              id=""
+              {...register("name", { required: true })}
               placeholder="Enter your name"
             />
             <input
+              id="phone"
               className="border-b-2 border-slate-500 px-2 py-1"
-              type="text"
-              name=""
-              id=""
+              {...register("phone", { required: true })}
               placeholder="Phone number"
             />
           </div>
@@ -69,64 +85,68 @@ const NonResidenceUserSignup = () => {
               type="password"
               name=""
               id=""
-              placeholder="Password"
+              {...register("password", { required: true })}
+              placeholder="Confirm Password"
             />
           </div>
-          {toggleStudent ? (
+          {guest ? (
             <div className="space-x-2">
               <input
+                id="referenceID"
                 className="border-b-2 border-slate-500 px-2 py-1"
-                type="text"
-                name=""
-                id=""
+                {...register("referenceID", { required: true })}
                 placeholder="Reference residence Id"
               />
               <input
+                id="relation"
                 className="border-b-2 border-slate-500 px-2 py-1"
-                type="text"
-                name=""
-                id=""
+                {...register("relation", { required: true })}
                 placeholder="Relation with residence"
               />
             </div>
           ) : (
             <div className="flex justify-start items-center gap-x-2">
               <input
+                id="batch"
                 className="border-b-2 border-slate-500 px-2 py-1"
-                type="text"
-                name=""
-                id=""
+                {...register("batch", { required: true })}
                 placeholder="Enter your batch"
               />
               <div>
                 <select
                   className="py-1 text-gray-600 border-b-2 border-slate-500"
-                  name=""
-                  id=""
+                  {...register("department", { required: true })}
                 >
                   <option value="Choose Your Department">
                     Choose Your Department
                   </option>
-                  <option value="Student">Student</option>
-                  <option value="Guest">Guest</option>
+                  <option value="CSE">CSE</option>
+                  <option value="EEE">EEE</option>
+                  <option value="Pharmacy">Pharmacy</option>
+                  <option value="EB">EB</option>
+                  <option value="ELL">ELL</option>
+                  <option value="BBA">BBA</option>
                 </select>
               </div>
             </div>
           )}
           <div className="text-gray-600 pt-1.5 pl-1">
             <span>Choose your picture:</span>
-            <input className="text-xs pl-1.5" type="file" name="" id="" />
+            <input className="text-xs pl-1.5" type="file" {...register("userImg", { required: true })} name="" id="" />
           </div>
           <div className="flex justify-end mt-2.5 gap-x-1 items-end">
             <input
-              onChange={(e) => setToggleStudent(!toggleStudent)}
+              onChange={(e) => setGuest(!guest)}
               type="checkbox"
               name=""
               id=""
             />
             <p className="text-xs">Guest?</p>
           </div>
-          <button className="border-0 w-full bg-slate-600 hover:bg-slate-800 text-gray-200 rounded mt-2.5 px-3 py-1.5">
+          <button
+            type="submit"
+            className="border-0 w-full bg-slate-600 hover:bg-slate-800 text-gray-200 rounded mt-2.5 px-3 py-1.5"
+          >
             Sign up
           </button>
         </form>
