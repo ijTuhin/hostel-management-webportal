@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaUserSlash } from "react-icons/fa";
 
-const NonResidenceUserLogin = () => {
+const LoginNonResidence = () => {
   return (
     <div className="flex justify-center mt-[10%]">
       <div className="border-0 shadow-lg space-y-3 bg-white pb-16 pt-12 px-16 w-96">
@@ -44,4 +44,4 @@ const NonResidenceUserLogin = () => {
   )
 }
 
-export default NonResidenceUserLogin
+export default LoginNonResidence

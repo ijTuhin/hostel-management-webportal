@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import NonResidenceUserLogin from "./NonResidenceUserLogin";
-import ResidenceUserLogin from "./ResidenceUserLogin";
+import LoginNonResidence from "../NonResidence/LoginNonResidence";
+import LoginResidence from "../Residence/LoginResidence";
 
 const UserLogin = () => {
   const [residence, setResidence] = useState(true);
@@ -11,7 +11,7 @@ const UserLogin = () => {
           {residence ? "Not a residence?" : "Are you a residence?"}
         </button>
       </div>
-      {residence ? <ResidenceUserLogin /> : <NonResidenceUserLogin />}
+      {residence ? <LoginResidence /> : <LoginNonResidence />}
     </div>
   );
 };

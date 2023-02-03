@@ -1,12 +1,10 @@
 import React from "react";
-import NonResidenceUserSignup from "../Authentications/UserPanel/NonResidenceUserSignup";
-import Home from "../Components/Home/Home";
+import SignupForm from "../Authentications/UserPanel/SignupForm";
 
 const HomePage = () => {
   return (
     <>
-      <Home />
-      <NonResidenceUserSignup />
+      <SignupForm/>
     </>
   );
 };

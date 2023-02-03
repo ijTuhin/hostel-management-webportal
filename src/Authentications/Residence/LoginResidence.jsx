@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaHouseUser } from "react-icons/fa";
 
-const ResidenceUserLogin = () => {
+const LoginResidence = () => {
   return (
     <div className="flex justify-center mt-[10%]">
       <div className="border-0 shadow-lg space-y-3 bg-white pb-16 pt-12 px-16 w-96">
@@ -37,4 +37,4 @@ const ResidenceUserLogin = () => {
   );
 };
 
-export default ResidenceUserLogin;
+export default LoginResidence;
