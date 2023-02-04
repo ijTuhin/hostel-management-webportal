@@ -1,9 +1,10 @@
 import React from "react";
+import Navbar from "../Common/Navbar";
 
 const Home = () => {
   return (
-    <div className="space-y-10">
-      
+    <div className="relative">
+      <Navbar/>
     </div>
   );
 };

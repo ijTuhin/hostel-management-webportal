@@ -1,10 +1,10 @@
 import React from "react";
-import SignupForm from "../Authentications/UserPanel/SignupForm";
+import Home from "../Components/Home/Home";
 
 const HomePage = () => {
   return (
     <>
-      <SignupForm/>
+    <Home/>
     </>
   );
 };
