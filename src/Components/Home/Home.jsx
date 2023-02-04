@@ -1,16 +1,19 @@
 import React from "react";
 import Navbar from "../Common/Navbar";
 import MealTimeRoute from "./MealTimeRoute";
+import UserProfile from "./UserProfile";
 
 const Home = () => {
   return (
     <div className="relative">
-      <Navbar/>
-      <div className="flex items-center h-screen px-10">
-        {/* Meal Time Route */}
-        <MealTimeRoute/>
-        {/* User Profile Overview */}
-        <div></div>
+      <Navbar />
+      <div className="h-screen flex items-center">
+        <div className="flex items-start justify-between w-screen px-24">
+          {/* Meal Time Route */}
+          <MealTimeRoute />
+          {/* User Profile Overview */}
+          <UserProfile/>
+        </div>
       </div>
     </div>
   );
