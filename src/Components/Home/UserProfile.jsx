@@ -1,13 +1,13 @@
 import React from 'react'
-import userDemo from "../../Images/user-demo.png";
+import userDemo from "../../Images/user.avif";
 
 const UserProfile = () => {
   return (
-    <section className="border-l-2 border-b-2 border-dashed border-green-900 shadow-sm py-10 px-20">
+    <section className="border-l-2 border-b-2 border-dashed border-green-400 shadow-sm py-10 px-20">
         <div>
-            <img className="border-0 rounded-full" src={userDemo} alt="" />
+            <img className="border-0 w-48 h-48 rounded-full" src={userDemo} alt="" />
         </div>
-        <div className="font-medium py-5 text-blue-900">
+        <div className="font-medium py-10 text-blue-900">
             <p>Name: <span className="text-black font-normal px-3">Israt Jahan Tuhin</span></p>
             <p>User Status: <span className="text-black font-normal px-3">Non-residence(Student)</span></p>
             <p>Current meal: <span className="text-black font-normal px-3">Breakfast</span></p>

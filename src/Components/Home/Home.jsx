@@ -8,7 +8,7 @@ const Home = () => {
     <div className="relative">
       <Navbar />
       <div className="h-screen flex items-center">
-        <div className="flex items-start justify-between w-screen px-24">
+        <div className="flex items-center justify-between w-screen px-24">
           {/* Meal Time Route */}
           <MealTimeRoute />
           {/* User Profile Overview */}
