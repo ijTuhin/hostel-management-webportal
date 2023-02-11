@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { FormProvider, useForm, useFormContext } from 'react-hook-form';
 import { AiOutlineArrowRight } from "react-icons/ai";
+import CommonData from './CommonData';
+import GuestData from './GuestData';
+import StudentData from './StudentData';
 
 const UserData = ({setSignupData, setCreateAcc}) => {
   const [guestMode, setGuestMode] = useState(false)
-  const { register, handleSubmit } = useForm();
+  const methods = useForm();
   const onSubmit = async (data) => {
     setSignupData(data)
     console.log(data)
@@ -12,14 +15,11 @@ const UserData = ({setSignupData, setCreateAcc}) => {
   }
   return (
     <div className='space-y-10'>
-      <FormProvider>
+      <FormProvider {...methods}>
         <p className='text-3xl text-green-600 font-mono'>Signup as { guestMode ? 'Guest' : 'Student'}</p>
-        <form onSubmit={handleSubmit(onSubmit)} className='w-96 grid grid-cols-2 gap-x-5 gap-y-3'>
-            <input className='border-b border-green-600 outline-transparent px-2 py-1 col-span-2' type="text" name="" id="" placeholder='Enter your name' {...register("name", { required: true })} />
-            <input className='border-b border-green-600 outline-transparent px-2 py-1' type="text" name="" id="" placeholder='Phone number' {...register("phone", { required: true })} />
-            <input className='border-b border-green-600 outline-transparent px-2 py-1' type="text" name="" id="" placeholder='Enter your NID' {...register("nid", { required: true })} />
-            <input className='border-b border-green-600 outline-transparent px-2 py-1' type="text" name="" id="" placeholder='Reference ID' {...register("referenceID", { required: true })} />
-            <input className='border-b border-green-600 outline-transparent px-2 py-1' type="text" name="" id="" placeholder='Relation' {...register("relation", { required: true })}/>
+        <form onSubmit={methods.handleSubmit(onSubmit)} className='w-96 grid grid-cols-2 gap-x-5 gap-y-3'>
+            <CommonData/>
+            {!guestMode ? <StudentData/> : <GuestData/> }
             <div className='flex justify-center items-center gap-2 col-span-2 pt-2 text-gray-600'>
                 <span>Choose your picture:</span>
                 <input
