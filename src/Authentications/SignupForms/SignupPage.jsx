@@ -9,7 +9,8 @@ const SignupPage = () => {
             <img src={bgLogo} className='w-[75%]' alt="" />
         </div>
         {/* Form */}
-        <UserData/>
+        {/* <UserData/> */}
+        <Signup/>
     </div>
   )
 }
