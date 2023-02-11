@@ -1,5 +1,5 @@
 import React from 'react'
-import bgLogo from '../../Images/signup.jpg';
+import bgLogo from '../../Images/signup-II.jpg';
 import Signup from './Signup';
 import UserData from './UserData';
 const SignupPage = () => {
@@ -9,8 +9,8 @@ const SignupPage = () => {
             <img src={bgLogo} className='w-[75%]' alt="" />
         </div>
         {/* Form */}
-        {/* <UserData/> */}
-        <Signup/>
+        <UserData/>
+        {/* <Signup/> */}
     </div>
   )
 }
