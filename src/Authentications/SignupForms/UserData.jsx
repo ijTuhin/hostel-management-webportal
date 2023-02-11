@@ -2,14 +2,19 @@ import React, { useState } from 'react'
 import { FormProvider, useForm, useFormContext } from 'react-hook-form';
 import { AiOutlineArrowRight } from "react-icons/ai";
 
-const UserData = () => {
+const UserData = ({setSignupData, setCreateAcc}) => {
   const [guestMode, setGuestMode] = useState(false)
-  const { register } = useForm();
+  const { register, handleSubmit } = useForm();
+  const onSubmit = async (data) => {
+    setSignupData(data)
+    console.log(data)
+    setCreateAcc(true)
+  }
   return (
     <div className='space-y-10'>
       <FormProvider>
         <p className='text-3xl text-green-600 font-mono'>Signup as { guestMode ? 'Guest' : 'Student'}</p>
-        <form action="" className='w-96 grid grid-cols-2 gap-x-5 gap-y-3'>
+        <form onSubmit={handleSubmit(onSubmit)} className='w-96 grid grid-cols-2 gap-x-5 gap-y-3'>
             <input className='border-b border-green-600 outline-transparent px-2 py-1 col-span-2' type="text" name="" id="" placeholder='Enter your name' {...register("name", { required: true })} />
             <input className='border-b border-green-600 outline-transparent px-2 py-1' type="text" name="" id="" placeholder='Phone number' {...register("phone", { required: true })} />
             <input className='border-b border-green-600 outline-transparent px-2 py-1' type="text" name="" id="" placeholder='Enter your NID' {...register("nid", { required: true })} />
@@ -27,7 +32,7 @@ const UserData = () => {
             </div>
             <div className='col-span-2 flex justify-between items-center'>
                 <button type='button' onClick={() => setGuestMode(!guestMode)} className='flex items-center gap-x-1 p-1 text-sm text-green-600 hover:text-green-700'>{ guestMode ? 'Student' : 'Guest'}? <span className='hover:underline'>click here</span></button>
-                <button className='flex items-center gap-x-1 p-1 font-medium text-green-600 hover:text-green-hover:font-semibold'><span className='-mt-0.5'>Continue</span><AiOutlineArrowRight/></button>
+                <button type='submit' className='flex items-center gap-x-1 p-1 font-medium text-green-600 hover:text-green-hover:font-semibold'><span className='-mt-0.5'>Continue</span><AiOutlineArrowRight/></button>
             </div>
         </form>
       </FormProvider>
