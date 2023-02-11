@@ -5,7 +5,7 @@ const UserProfile = () => {
   return (
     <section className="border-l-2 border-b-2 border-dashed border-green-400 shadow-sm py-10 px-20">
         <div>
-            <img className="border-0 w-48 h-48 rounded-full" src={userDemo} alt="" />
+            <img className="border-0 w-48 h-48" src={userDemo} alt="" />
         </div>
         <div className="font-medium py-10 text-blue-900">
             <p>Name: <span className="text-black font-normal px-3">Israt Jahan Tuhin</span></p>

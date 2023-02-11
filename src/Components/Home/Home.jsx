@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../Common/Navbar";
+import FeedbackBtn from "./FeedbackBtn";
 import MealTimeRoute from "./MealTimeRoute";
 import UserProfile from "./UserProfile";
 
@@ -15,6 +16,7 @@ const Home = () => {
           <UserProfile/>
         </div>
       </div>
+      <FeedbackBtn/>
     </div>
   );
 };
