@@ -7,6 +7,7 @@ import HomePage from "./Pages/HomePage";
 import UserLogin from "./Authentications/UserPanel/UserLogin";
 import ErrorPage from "./Pages/ErrorPage";
 import SignupPage from "./Authentications/SignupForms/SignupPage";
+import LoginPage from "./Authentications/LoginForm/LoginPage";
 
 const router = createBrowserRouter([
   {
@@ -15,13 +16,13 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/user-login",
-    element: <UserLogin/>,
+    path: "/user-signup",
+    element: <SignupPage/>,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/user-signup",
-    element: <SignupPage/>,
+    path: "/user-login",
+    element: <LoginPage/>,
     errorElement: <ErrorPage />,
   },
 ]);
