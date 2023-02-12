@@ -11,11 +11,12 @@ const SignupPage = () => {
         <img src={bgLogo} className="w-[75%]" alt="" />
       </div>
       {/* Form */}
-      {createAcc ? (
+      <Signup/>
+      {/* {createAcc ? (
         <Signup setSignupData={setSignupData} setCreateAcc={setCreateAcc} />
       ) : (
         <UserData setSignupData={setSignupData} setCreateAcc={setCreateAcc} />
-      )}
+      )} */}
     </div>
   );
 };
