@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { IoMdArrowDropright, IoMdArrowDropdown, IoIosLogOut } from "react-icons/io";
 import ProfileDropdown from "./ProfileDropdown";
 import logo from "../../Images/NavLogo.png";
+import { AuthContext } from "../../Authentications/Authenticate/UserContext";
 const Navbar = () => {
+  const {user} = useContext(AuthContext)
   const [clicked, setClicked] = useState(false);
   return (
     <section className="fixed w-full">

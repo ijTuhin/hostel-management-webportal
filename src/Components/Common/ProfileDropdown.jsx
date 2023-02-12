@@ -1,5 +1,6 @@
 import React from "react";
 import { IoIosLogOut } from "react-icons/io";
+import LogOut from "../../Authentications/LoginForm/LogOut";
 
 const ProfileDropdown = () => {
   return (
@@ -8,12 +9,7 @@ const ProfileDropdown = () => {
         View Profile
       </button>
       <div className="border w-full border-gray-600"></div>
-      <button className="pl-3 pr-5 py-2.5 hover:bg-yellow-600 pt-1 flex items-center">
-        <span className="pr-3">Log Out</span>{" "}
-        <span className="text-base">
-          <IoIosLogOut />
-        </span>
-      </button>
+      <LogOut/>
     </div>
   );
 };

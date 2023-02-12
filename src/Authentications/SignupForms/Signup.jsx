@@ -1,18 +1,27 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from '../../../firebase.config';
+// import { auth, user } from '../../../firebase.config';
+import { AuthContext } from '../Authenticate/UserContext';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Signup = ({setSignupData, setCreateAcc}) => {
+  const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation(); 
+  const from = location.state?.from?.pathname || '/'
+
   const handleSignup = e => {
     e.preventDefault()
     const email = e.target.email.value
     const password = e.target.password.value
-    createUserWithEmailAndPassword(auth, email, password)
+    const displayName = e.target.displayName.value
+    createUser( email, password, displayName)
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
       console.log('Successfull ',user)
+      navigate(from, {replace: true})
       // ...
     })
     .catch((error) => {

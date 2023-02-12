@@ -1,18 +1,25 @@
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import React from 'react'
+import React, { useContext } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../../../firebase.config'
+import { AuthContext } from '../Authenticate/UserContext';
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation(); 
+  const from = location.state?.from?.pathname || '/'
+
   const handleLogin = e => {
     e.preventDefault()
     const email = e.target.email.value
     const password = e.target.password.value
-    signInWithEmailAndPassword(auth, email, password)
+    signIn(auth, email, password)
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
       console.log('Successfully Logged in!')
-      // ...
+      navigate(from, {replace: true})
     })
     .catch((error) => {
       const errorCode = error.code;
