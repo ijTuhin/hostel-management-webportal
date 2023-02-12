@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault()
     const email = e.target.email.value
     const password = e.target.password.value
-    signIn(auth, email, password)
+    signIn(email, password)
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
@@ -22,7 +22,6 @@ const Login = () => {
       navigate(from, {replace: true})
     })
     .catch((error) => {
-      const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorMessage)
     });
