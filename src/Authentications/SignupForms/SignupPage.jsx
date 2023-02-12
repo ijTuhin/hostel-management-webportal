@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import bgLogo from "../../Images/signup-II.jpg";
+import bgLogo from "../../Images/signup-I.jpg";
 import Signup from "./Signup";
 import UserData from "./UserData";
 const SignupPage = () => {
