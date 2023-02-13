@@ -6,11 +6,6 @@ const Authenticate = ({children}) => {
     const {user, loading} = useContext(AuthContext);
     const location = useLocation();
 
-    if(loading){
-        console.log('yes loading found');
-        return <div>Loading...</div>
-    }
-
     if(user && user.uid) {
         return children;
     }

@@ -4,13 +4,27 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import CommonData from './CommonData';
 import GuestData from './GuestData';
 import StudentData from './StudentData';
+import {
+  getDownloadURL,
+  ref,
+  uploadBytes,
+} from "firebase/storage";
+import { storage } from "../../../firebase.config";
 
 const UserData = ({setSignupData, setCreateAcc}) => {
   const [guestMode, setGuestMode] = useState(false)
+  const [image, setimage] = useState();
   const methods = useForm();
+  
   const onSubmit = async (data) => {
-    setSignupData(data)
-    console.log(data)
+    const imageRef = ref(storage, `images/${image.name}${Date.now()}`);
+    await uploadBytes(imageRef, image).then((snapshot) => {
+      getDownloadURL(imageRef).then((url) => {
+        data.userImg = url;
+        setSignupData(data)
+      });
+    });
+
     setCreateAcc(true)
   }
   return (
@@ -27,7 +41,7 @@ const UserData = ({setSignupData, setCreateAcc}) => {
                     type="file"
                     name=""
                     id=""
-                            // onChange={(e) => setimage(e.target.files[0])}
+                    onChange={(e) => setimage(e.target.files[0])}
                 />
             </div>
             <div className='col-span-2 flex justify-between items-center'>
