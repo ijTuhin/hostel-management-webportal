@@ -18,7 +18,7 @@ const Navbar = () => {
           <li className="hover:text-yellow-600"><Link to="/">Home</Link></li>
           <li className="hover:text-yellow-600"><Link to="/order-summary">Order Summary</Link></li>
           <li className="hover:text-yellow-600">Coupon List</li>
-          <li className="hover:text-yellow-600">Payment History</li>
+          <li className="hover:text-yellow-600"><Link to="/payment-history">Payment History</Link></li>
           <button onClick={() => setClicked(!clicked)} className="hover:text-yellow-600 flex items-center">
             <span>My Profile</span>
             <span className="text-xl">

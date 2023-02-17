@@ -11,6 +11,7 @@ import PageContainer from "./Pages/PageContainer";
 import Authenticate from "./Authentications/Authenticate/Authenticate";
 import UserContext from "./Authentications/Authenticate/UserContext";
 import OrderSummaryPage from "./Pages/OrderSummaryPage";
+import PaymentHistoryPage from "./Pages/PaymentHistoryPage";
 
 const router = createBrowserRouter([
   {
@@ -20,11 +21,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: (
-          <Authenticate>
-            <HomePage />
-          </Authenticate>
-        ),
+        element: <HomePage />,
         errorElement: <ErrorPage />,
       },
       {
@@ -32,6 +29,15 @@ const router = createBrowserRouter([
         element: (
           <Authenticate>
             <OrderSummaryPage />
+          </Authenticate>
+        ),
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/payment-history",
+        element: (
+          <Authenticate>
+            <PaymentHistoryPage />
           </Authenticate>
         ),
         errorElement: <ErrorPage />,
