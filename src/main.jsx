@@ -10,6 +10,7 @@ import LoginPage from "./Authentications/LoginForm/LoginPage";
 import PageContainer from "./Pages/PageContainer";
 import Authenticate from "./Authentications/Authenticate/Authenticate";
 import UserContext from "./Authentications/Authenticate/UserContext";
+import OrderSummaryPage from "./Pages/OrderSummaryPage";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,15 @@ const router = createBrowserRouter([
         element: (
           <Authenticate>
             <HomePage />
+          </Authenticate>
+        ),
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/order-summary",
+        element: (
+          <Authenticate>
+            <OrderSummaryPage />
           </Authenticate>
         ),
         errorElement: <ErrorPage />,
