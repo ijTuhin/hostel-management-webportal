@@ -2,9 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="static bottom-0 h-fit bg-black px-64 py-10 text-white space-y-4">
+    <div className="static bottom-0 h-fit bg-black px-64 py-10 text-gray-300 space-y-4">
       <div>
-        <p className="border-b w-40 pb-2">Important Links</p>
+        <p className="border-b w-40 pb-2 text-white">Important Links</p>
       </div>
       <div className="flex justify-between">
         <div className="space-y-3">

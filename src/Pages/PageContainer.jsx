@@ -2,8 +2,9 @@ import React, { useContext } from "react";
 import { Outlet } from "react-router-dom";
 import { AuthContext } from "../Authentications/Authenticate/UserContext";
 import Footer from "../Components/Common/Footer/Footer";
+import Header from "../Components/Common/Header/Header";
 import Loading from "../Components/Common/Loading";
-import Navbar from "../Components/Common/Navbar";
+import Navbar from "../Components/Common/Header/Navbar";
 
 const PageContainer = () => {
   const { loading } = useContext(AuthContext);
@@ -13,10 +14,10 @@ const PageContainer = () => {
         <Loading />
       ) : (
         <div className="relative">
-          <Navbar />
+          <Header />
           {/* Outlet will render the children page element according to the URL or null if it is */}
           <Outlet />
-          <Footer/>
+          <Footer />
         </div>
       )}
     </>
