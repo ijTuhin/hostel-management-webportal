@@ -1,0 +1,30 @@
+[
+    {
+        "_id":"1",
+        "date":"17-02-2023",
+        "meal":"Breakfast",
+        "time":"09.17 pm",
+        "status":"Pending"
+    },
+    {
+        "_id":"2",
+        "date":"17-02-2023",
+        "meal":"Dinner",
+        "time":"04.20 pm",
+        "status":"Done"
+    },
+    {
+        "_id":"3",
+        "date":"17-02-2023",
+        "meal":"Lunch",
+        "time":"10.13 am",
+        "status":"Done"
+    },
+    {
+        "_id":"4",
+        "date":"16-02-2023",
+        "meal":"Breakfast",
+        "time":"11.23 pm",
+        "status":"Done"
+    }
+]

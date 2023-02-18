@@ -5,7 +5,7 @@ const TableData = ({ item }) => {
     <>
       <tr class="bg-white border-b border-green-100 transition duration-300 ease-in-out hover:bg-green-50">
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-          01
+          {item._id}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
           {item.date}
