@@ -1,0 +1,30 @@
+[
+    {
+        "_id":"1",
+        "date":"17-02-2023",
+        "method":"Bkash",
+        "amount":"1000 Tk",
+        "transaction":"jkklDDAlHJDu"
+    },
+    {
+        "_id":"2",
+        "date":"17-01-2023",
+        "method":"Bkash",
+        "amount":"1650 Tk",
+        "transaction":"jkklJKherseDu"
+    },
+    {
+        "_id":"3",
+        "date":"07-12-2022",
+        "method":"Manual",
+        "amount":"2050 Tk",
+        "transaction":"N/A"
+    },
+    {
+        "_id":"4",
+        "date":"07-11-2022",
+        "method":"Bkash",
+        "amount":"1650 Tk",
+        "transaction":"TxsaDAlHJDu"
+    }
+]
