@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import Login from "./Login";
-import LoginLogo from "./LoginLogo";
+import UserLogin from "../Authentications/LoginForm/Login/UserLogin";
+import LoginLogo from "../Authentications/LoginForm/LoginLogo";
 
-const LoginPage = () => {
+const UserLoginPage = () => {
   return (
     <div className="relative">
       <div className="w-full p-6 text-green-600 text-sm font-mono flex justify-end absolute">
@@ -14,12 +14,11 @@ const LoginPage = () => {
         </Link>
       </div>
       <div className="flex justify-center items-center">
-        <LoginLogo/>
-        {/* Form */}
-        <Login />
+        <LoginLogo />
+        <UserLogin />
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default UserLoginPage;
