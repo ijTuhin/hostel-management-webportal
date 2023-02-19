@@ -10,6 +10,7 @@ import { AuthContext } from "../../../Authentications/Authenticate/UserContext";
 import { Link } from "react-router-dom";
 import UserNavMenu from "./UserNavMenu";
 import AdminNavMenu from "./AdminNavMenu";
+import ManagerNavMenu from "./ManagerNavMenu";
 const Navbar = () => {
   const { user } = useContext(AuthContext);
   return (
@@ -22,7 +23,8 @@ const Navbar = () => {
           </p>
         </div>
         {/* <UserNavMenu/> */}
-        <AdminNavMenu/>
+        {/* <AdminNavMenu/> */}
+        <ManagerNavMenu/>
       </nav>
       {/* {clicked && <ProfileDropdown />} */}
     </>
