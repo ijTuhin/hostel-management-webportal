@@ -26,8 +26,9 @@ const ManagerLogin = () => {
   };
 
   return (
-    <div className="space-y-8">
-      <p className="title text-green-600 text-4xl font-mono">Manager Login</p>
+    <div className="space-y-16 border border-green-600 px-10 py-12 rounded-md">
+      <p className="text-gray-50 w-full flex justify-center border-0 bg-green-500 text-lg py-3.5">Meal Manager Panel</p>
+      {/* <p className="title text-green-600 text-4xl font-mono">Login to <br/> Manager Panel</p> */}
       <form onSubmit={handleLogin} className="grid grid-cols-1 w-[20rem]">
         <input
           className="border-b border-green-600 outline-transparent px-2 py-1.5"
