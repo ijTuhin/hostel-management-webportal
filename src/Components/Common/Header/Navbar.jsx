@@ -1,18 +1,9 @@
-import React, { useContext, useState } from "react";
-import {
-  IoMdArrowDropright,
-  IoMdArrowDropdown,
-  IoIosLogOut,
-} from "react-icons/io";
-import ProfileDropdown from "../ProfileDropdown";
+import React from "react";
 import logo from "../../../Images/NavLogo.png";
-import { AuthContext } from "../../../Authentications/Authenticate/UserContext";
-import { Link } from "react-router-dom";
 import UserNavMenu from "./UserNavMenu";
 import AdminNavMenu from "./AdminNavMenu";
 import ManagerNavMenu from "./ManagerNavMenu";
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
   return (
     <>
       <nav className="flex justify-between items-center">
@@ -26,7 +17,6 @@ const Navbar = () => {
         {/* <AdminNavMenu/> */}
         {/* <ManagerNavMenu/> */}
       </nav>
-      {/* {clicked && <ProfileDropdown />} */}
     </>
   );
 };

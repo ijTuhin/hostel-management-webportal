@@ -17,7 +17,7 @@ const LogOut = () => {
   return (
     <>
       <button onClick={handleLogOut} className="w-full flex justify-between items-center">
-        <span>Log Out</span>{" "}
+        <span>Log Out</span>
         <span className="text-base">
           <IoIosLogOut />
         </span>
