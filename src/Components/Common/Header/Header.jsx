@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import { useScrollPosition } from "./useScrollPosition";
 import "../../../Styles/style.css";
+
 const Header = () => {
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
