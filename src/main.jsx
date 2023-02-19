@@ -12,6 +12,8 @@ import Authenticate from "./Authentications/Authenticate/Authenticate";
 import UserContext from "./Authentications/Authenticate/UserContext";
 import OrderSummaryPage from "./Pages/OrderSummaryPage";
 import PaymentHistoryPage from "./Pages/PaymentHistoryPage";
+import AdminLoginPage from "./Pages/AdminLoginPage";
+import ManagerLoginPage from "./Pages/ManagerLoginPage";
 
 const router = createBrowserRouter([
   {
@@ -20,38 +22,63 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/",
+        path: "/user",
         element: <HomePage />,
         errorElement: <ErrorPage />,
+        children: [
+          {
+            path: "/user/order-summary",
+            element: (
+              <Authenticate>
+                <OrderSummaryPage />
+              </Authenticate>
+            ),
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "/user/payment-history",
+            element: (
+              <Authenticate>
+                <PaymentHistoryPage />
+              </Authenticate>
+            ),
+            errorElement: <ErrorPage />,
+          },
+        ],
       },
       {
-        path: "/order-summary",
-        element: (
-          <Authenticate>
-            <OrderSummaryPage />
-          </Authenticate>
-        ),
+        path: "/admin",
+        element: <HomePage />,
         errorElement: <ErrorPage />,
+        children: [],
       },
       {
-        path: "/payment-history",
-        element: (
-          <Authenticate>
-            <PaymentHistoryPage />
-          </Authenticate>
-        ),
+        path: "/manager",
+        element: <HomePage />,
         errorElement: <ErrorPage />,
+        children: [],
       },
     ],
   },
+
   {
-    path: "/user-signup",
+    path: "/user/login",
+    element: <LoginPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/user/signup",
     element: <SignupPage />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/user-login",
-    element: <LoginPage />,
+    path: "/manager/login",
+    element: <ManagerLoginPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/admin/login",
+    element: <AdminLoginPage />,
     errorElement: <ErrorPage />,
   },
 ]);

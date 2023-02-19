@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import bgLogo from "../../Images/login-II.jpg";
 import Login from "./Login";
+import LoginLogo from "./LoginLogo";
 
 const LoginPage = () => {
   return (
@@ -14,9 +14,7 @@ const LoginPage = () => {
         </Link>
       </div>
       <div className="flex justify-center items-center">
-        <div className="w-[40%] h-screen flex items-center">
-          <img src={bgLogo} className="w-[75%]" alt="" />
-        </div>
+        <LoginLogo/>
         {/* Form */}
         <Login />
       </div>

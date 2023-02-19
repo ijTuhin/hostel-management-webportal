@@ -1,7 +1,5 @@
-import { signInWithEmailAndPassword } from 'firebase/auth'
 import React, { useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
-import { auth } from '../../../firebase.config'
 import { AuthContext } from '../Authenticate/UserContext';
 
 const Login = () => {
