@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
+import 'tw-elements';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import HomePage from "./Pages/HomePage";
@@ -22,29 +23,29 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/user",
+        path: "/",
         element: <HomePage />,
         errorElement: <ErrorPage />,
         children: [
-          {
-            path: "/user/order-summary",
-            element: (
-              <Authenticate>
-                <OrderSummaryPage />
-              </Authenticate>
-            ),
-            errorElement: <ErrorPage />,
-          },
-          {
-            path: "/user/payment-history",
-            element: (
-              <Authenticate>
-                <PaymentHistoryPage />
-              </Authenticate>
-            ),
-            errorElement: <ErrorPage />,
-          },
         ],
+      },
+      {
+        path: "/order-summary",
+        element: (
+          <Authenticate>
+            <OrderSummaryPage />
+          </Authenticate>
+        ),
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/payment-history",
+        element: (
+          <Authenticate>
+            <PaymentHistoryPage />
+          </Authenticate>
+        ),
+        errorElement: <ErrorPage />,
       },
       {
         path: "/admin",

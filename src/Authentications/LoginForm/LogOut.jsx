@@ -16,8 +16,8 @@ const LogOut = () => {
   };
   return (
     <>
-      <button onClick={handleLogOut} className="pl-3 pr-5 py-2.5 hover:bg-yellow-600 pt-1 flex items-center">
-        <span className="pr-3">Log Out</span>{" "}
+      <button onClick={handleLogOut} className="w-full flex justify-between items-center">
+        <span>Log Out</span>{" "}
         <span className="text-base">
           <IoIosLogOut />
         </span>

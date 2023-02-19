@@ -9,10 +9,10 @@ const Footer = () => {
       <div className="flex justify-between">
         <div className="space-y-3">
           <ul className="text-sm space-y-1">
-            <li className="hover:text-amber-500"><button>About us</button></li>
-            <li className="hover:text-amber-500"><button>Guideline</button></li>
-            <li className="hover:text-amber-500"><button>Notices</button></li>
-            <li className="hover:text-amber-500"><button>Contact Us</button></li>
+            <li className="hover:text-green-400"><button>About us</button></li>
+            <li className="hover:text-green-400"><button>Guideline</button></li>
+            <li className="hover:text-green-400"><button>Notices</button></li>
+            <li className="hover:text-green-400"><button>Contact Us</button></li>
           </ul>
         </div>
         <div className="w-[45%] grid grid-cols-3 gap-y-3 ">

@@ -15,16 +15,16 @@ const Navbar = () => {
   const { user } = useContext(AuthContext);
   return (
     <>
-      <nav className="flex justify-between items-center relative">
+      <nav className="flex justify-between items-center">
         <div className="flex justify-center items-center">
           <img className="w-8 h-8 rounded-full" src={logo} alt="" />
           <p className="font-mono px-2 text-green-500 font-semibold">
             MessMeal
           </p>
         </div>
-        {/* <UserNavMenu/> */}
+        <UserNavMenu/>
         {/* <AdminNavMenu/> */}
-        <ManagerNavMenu/>
+        {/* <ManagerNavMenu/> */}
       </nav>
       {/* {clicked && <ProfileDropdown />} */}
     </>
