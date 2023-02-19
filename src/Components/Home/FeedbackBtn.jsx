@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { TbMessages } from "react-icons/tb";
-import { VscFeedback } from "react-icons/vsc";
 
 const FeedbackBtn = () => {
     const [feedbackForm, setFeedbackForm] = useState(false);

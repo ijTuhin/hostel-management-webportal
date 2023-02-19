@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../../Images/NavLogo.png";
+import logo from "../../Images/NavLogo.png";
 import UserNavMenu from "./UserNavMenu";
 import AdminNavMenu from "./AdminNavMenu";
 import ManagerNavMenu from "./ManagerNavMenu";
@@ -13,7 +13,7 @@ const Navbar = () => {
             MessMeal
           </p>
         </div>
-        <UserNavMenu/>
+        <UserNavMenu />
         {/* <AdminNavMenu/> */}
         {/* <ManagerNavMenu/> */}
       </nav>

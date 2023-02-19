@@ -4,7 +4,6 @@ import { AuthContext } from "../Authentications/Authenticate/UserContext";
 import Footer from "../Components/Common/Footer/Footer";
 import Header from "../Components/Common/Header/Header";
 import Loading from "../Components/Common/Loading";
-import Navbar from "../Components/Common/Header/Navbar";
 
 const PageContainer = () => {
   const { loading } = useContext(AuthContext);

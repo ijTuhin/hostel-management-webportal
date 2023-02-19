@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "./Navbar";
 import { useScrollPosition } from "./useScrollPosition";
 import "../../../Styles/style.css";
+import Navbar from "../../../Utilities/Navbar/Navbar";
 
 const Header = () => {
   function classNames(...classes) {
