@@ -5,7 +5,7 @@ import TableHead from "./TableHead";
 const PaymentTable = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("payment.json")
+    fetch("http://localhost:5000/payments")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
