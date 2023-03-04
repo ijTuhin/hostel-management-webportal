@@ -19,7 +19,7 @@ const Signup = ({ setSignupData, signupData, setCreateAcc }) => {
   const handleSignup = (e) => {
     e.preventDefault();
     /* ************************************ */
-    fetch("http://localhost:5000/non-residence-student-registration", {
+    fetch("http://localhost:5000/user", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
