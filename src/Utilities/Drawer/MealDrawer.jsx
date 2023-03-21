@@ -24,7 +24,7 @@ const MealDrawer = () => {
       <CssBaseline />
       <AppBar
         position="fixed"
-        style={{ marginTop: "5rem", backgroundColor: "#22c55e" }}
+        style={{ marginTop: "5rem", backgroundColor: "#16a34a" }}
         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
       >
         <Toolbar>
