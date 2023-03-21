@@ -1,13 +1,10 @@
 import React from "react";
-import SideNav from "../../Utilities/Drawer/SideNav";
-import FeedbackBtn from "./FeedbackBtn";
-import MealTimeRoute from "./MealTimeRoute";
-import UserProfile from "./UserProfile";
+import MealDrawer from "../../Utilities/Drawer/MealDrawer";
 
 const Home = () => {
   return (
     <>
-      <SideNav/>
+      <MealDrawer />
     </>
   );
 };

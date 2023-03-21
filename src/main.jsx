@@ -9,6 +9,8 @@ import PageContainer from "./Pages/PageContainer";
 import Authenticate from "./Authentications/Authenticate/Authenticate";
 import UserContext from "./Authentications/Authenticate/UserContext";
 import LoginPage from "./Pages/LoginPage";
+import MealDrawer from "./Utilities/Drawer/MealDrawer";
+import OrderSummary from "./Components/OrderSummary/OrderSummary";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,27 @@ const router = createBrowserRouter([
         ),
         errorElement: <ErrorPage />,
         children: [],
+      },
+      {
+        path: "/meal",
+        element: (
+          <Authenticate>
+            <MealDrawer />
+          </Authenticate>
+        ),
+        errorElement: <ErrorPage />,
+        children: [
+          {
+            path: "/meal/orders",
+            element: (
+              <Authenticate>
+                <OrderSummary />
+              </Authenticate>
+            ),
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+        ],
       },
     ],
   },
