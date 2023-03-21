@@ -6,15 +6,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import HomePage from "./Pages/HomePage";
 import ErrorPage from "./Pages/ErrorPage";
-import SignupPage from "./Authentications/SignupForms/SignupPage";
 import PageContainer from "./Pages/PageContainer";
 import Authenticate from "./Authentications/Authenticate/Authenticate";
 import UserContext from "./Authentications/Authenticate/UserContext";
-import OrderSummaryPage from "./Pages/OrderSummaryPage";
-import PaymentHistoryPage from "./Pages/PaymentHistoryPage";
-import AdminLoginPage from "./Pages/AdminLoginPage";
-import ManagerLoginPage from "./Pages/ManagerLoginPage";
-import UserLoginPage from "./Pages/UserLoginPage";
 import LoginPage from "./Pages/LoginPage";
 
 const router = createBrowserRouter([
