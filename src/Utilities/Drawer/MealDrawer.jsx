@@ -53,44 +53,56 @@ const MealDrawer = () => {
         <Box sx={{ overflow: "auto" }}>
           <List style={{ marginTop: "5rem" }}>
             <ListItem disablePadding>
-              <NavLink to="/meal/orders">
-                <ListItemButton>
+              <ListItemButton>
+                <NavLink
+                  to="/meal"
+                  className="flex justify-evenly items-center"
+                >
                   <ListItemIcon>
                     <RestaurantIcon />
                   </ListItemIcon>
                   <ListItemText primary="Meal Orders" />
-                </ListItemButton>
-              </NavLink>
+                </NavLink>
+              </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <NavLink to="/meal/payments">
-                <ListItemButton>
+              <ListItemButton>
+                <NavLink
+                  to="/meal/payments"
+                  className="flex justify-evenly items-center"
+                >
                   <ListItemIcon>
                     <CreditScoreIcon />
                   </ListItemIcon>
                   <ListItemText primary="Payment Status" />
-                </ListItemButton>
-              </NavLink>
+                </NavLink>
+              </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <NavLink to="/meal/groceries">
-                <ListItemButton>
+              <ListItemButton>
+                <NavLink
+                  to="/meal/groceries"
+                  className="flex justify-evenly items-center"
+                >
                   <ListItemIcon>
                     <LocalGroceryStoreOutlinedIcon />
                   </ListItemIcon>
                   <ListItemText primary="Groceries" />
-                </ListItemButton>
-              </NavLink>
+                </NavLink>
+              </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <NavLink to="/meal/summary">
-                <ListItemButton>
+              <ListItemButton>
+                <NavLink
+                  to="/meal/summary"
+                  className="flex justify-evenly items-center"
+                >
                   <ListItemIcon>
                     <SummarizeOutlinedIcon />
                   </ListItemIcon>
                   <ListItemText primary="Summary" />
-                </ListItemButton>
-              </NavLink>
+                </NavLink>
+              </ListItemButton>
             </ListItem>
           </List>
         </Box>

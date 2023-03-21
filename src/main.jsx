@@ -11,6 +11,7 @@ import UserContext from "./Authentications/Authenticate/UserContext";
 import LoginPage from "./Pages/LoginPage";
 import MealDrawer from "./Utilities/Drawer/MealDrawer";
 import OrderSummary from "./Components/OrderSummary/OrderSummary";
+import WardenDrawer from "./Utilities/Drawer/WardenDrawer";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,28 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
           {
-            path: "/meal/orders",
+            path: "/meal",
+            element: (
+              <Authenticate>
+                <OrderSummary />
+              </Authenticate>
+            ),
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+        ],
+      },
+      {
+        path: "/warden",
+        element: (
+          <Authenticate>
+            <WardenDrawer />
+          </Authenticate>
+        ),
+        errorElement: <ErrorPage />,
+        children: [
+          {
+            path: "/warden",
             element: (
               <Authenticate>
                 <OrderSummary />

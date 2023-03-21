@@ -4,7 +4,6 @@ import MealDrawer from "../../Utilities/Drawer/MealDrawer";
 const Home = () => {
   return (
     <>
-      <MealDrawer />
     </>
   );
 };
