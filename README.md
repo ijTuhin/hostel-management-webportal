@@ -17,6 +17,6 @@
 
 ___________________________________________________________
 ### Important links ###
->*[Hostel Management Server](https://github.com/ijTuhin/hostel-management-server)*<br/>
->*[Hostel User App](https://github.com/ijTuhin/hostel-management-server)*<br/>
+>*Hostel Management [Server](https://github.com/ijTuhin/hostel-management-server)*<br/>
+>*Hostel [User App](https://github.com/ijTuhin/hostel-management-server)*<br/>
 >*View [Web Portal](https://github.com/ijTuhin/hostel-management-server)*<br/>
