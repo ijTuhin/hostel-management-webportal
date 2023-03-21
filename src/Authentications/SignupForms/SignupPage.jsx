@@ -9,7 +9,7 @@ const SignupPage = () => {
   return (
     <div className="relative">
       <div className="w-full p-6 text-green-600 text-sm font-mono flex justify-end absolute">
-        <Link to="/user-login">
+        <Link to="/login">
           <span className="hover:underline px-3 py-1.5">Already a user ?</span>
         </Link>
       </div>
@@ -19,7 +19,11 @@ const SignupPage = () => {
         </div>
         {/* Form */}
         {createAcc ? (
-          <Signup signupData={signupData} setSignupData={setSignupData} setCreateAcc={setCreateAcc} />
+          <Signup
+            signupData={signupData}
+            setSignupData={setSignupData}
+            setCreateAcc={setCreateAcc}
+          />
         ) : (
           <UserData setSignupData={setSignupData} setCreateAcc={setCreateAcc} />
         )}

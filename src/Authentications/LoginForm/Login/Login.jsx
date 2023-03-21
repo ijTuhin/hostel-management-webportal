@@ -1,7 +1,7 @@
 import React from "react";
 import LoginForm from "../LoginForm";
 
-const UserLogin = () => {
+const Login = () => {
   return (
     <div className="space-y-8">
       <p className="title text-green-600 text-3xl font-mono">
@@ -12,4 +12,4 @@ const UserLogin = () => {
   );
 };
 
-export default UserLogin;
+export default Login;

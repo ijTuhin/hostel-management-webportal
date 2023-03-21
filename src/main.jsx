@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import 'tw-elements';
+import "tw-elements";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import HomePage from "./Pages/HomePage";
@@ -15,6 +15,7 @@ import PaymentHistoryPage from "./Pages/PaymentHistoryPage";
 import AdminLoginPage from "./Pages/AdminLoginPage";
 import ManagerLoginPage from "./Pages/ManagerLoginPage";
 import UserLoginPage from "./Pages/UserLoginPage";
+import LoginPage from "./Pages/LoginPage";
 
 const router = createBrowserRouter([
   {
@@ -24,62 +25,19 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <HomePage />,
-        errorElement: <ErrorPage />,
-        children: [
-        ],
-      },
-      {
-        path: "/order-summary",
         element: (
           <Authenticate>
-            <OrderSummaryPage />
+            <HomePage />
           </Authenticate>
         ),
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/payment-history",
-        element: (
-          <Authenticate>
-            <PaymentHistoryPage />
-          </Authenticate>
-        ),
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/admin",
-        element: <HomePage />,
-        errorElement: <ErrorPage />,
-        children: [],
-      },
-      {
-        path: "/manager",
-        element: <HomePage />,
         errorElement: <ErrorPage />,
         children: [],
       },
     ],
   },
-
   {
-    path: "/user/login",
-    element: <UserLoginPage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/user/signup",
-    element: <SignupPage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/manager/login",
-    element: <ManagerLoginPage />,
-    errorElement: <ErrorPage />,
-  }, 
-  {
-    path: "/admin/login",
-    element: <AdminLoginPage />,
+    path: "/login",
+    element: <LoginPage />,
     errorElement: <ErrorPage />,
   },
 ]);
