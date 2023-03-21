@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <section
       className={classNames(
-        scrollPosition > 0 ? "shadow py-3 px-10" : "shadow-none py-6 px-10",
+        scrollPosition > 0 ? "shadow py-3" : "shadow-none py-6",
         "fixed z-10 w-full bg-white text-gray-600 font-semibold navMenuFont"
       )}
     >

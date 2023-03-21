@@ -1,6 +1,6 @@
 import { getAuth } from "firebase/auth";
 import React, { useContext } from "react";
-import { IoIosLogOut } from "react-icons/io";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 import { AuthContext } from "../Authenticate/UserContext";
 const auth = getAuth();
 const LogOut = () => {
@@ -15,14 +15,13 @@ const LogOut = () => {
       });
   };
   return (
-    <>
-      <button onClick={handleLogOut} className="w-full flex justify-between items-center">
-        <span>Log Out</span>
-        <span className="text-base">
-          <IoIosLogOut />
-        </span>
-      </button>
-    </>
+    <button
+      onClick={handleLogOut}
+      className="hover:bg-green-500 border rounded-md border-green-500 hover:text-white text-green-600 hover:decoration-2 px-2.5 py-1.5"
+    >
+      Sign Out
+      {/* <RiLogoutCircleRLine /> */}
+    </button>
   );
 };
 
