@@ -6,15 +6,15 @@ const Footer = () => {
       {/* <div>
         <p className="border-b w-40 pb-2 text-white">Important Links</p>
       </div> */}
-      <div className="w-64 flex flex-wrap justify-center">
-        <div className="space-y-3 space-x-5 text-xs text-gray-300">
+      <div className="w-64 flex flex-wrap justify-center items-center">
+        <div className="space-y-3 space-x-3 text-xs text-gray-300">
           <button className="hover:text-green-400">About us</button>
-          <span className="border-r h-4"></span>
+          <span className="border-r"></span>
           <button className="hover:text-green-400">Guideline</button>
-          <span className="border-r h-4"></span>
+          <span className="border-r"></span>
           <button className="hover:text-green-400">Notices</button>
           <button className="hover:text-green-400">Contact Us</button>
-          <span className="border-r h-4"></span>
+          <span className="border-r"></span>
           <button className="hover:text-green-400">Contact Us</button>
         </div>
       </div>
