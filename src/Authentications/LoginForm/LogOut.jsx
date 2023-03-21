@@ -17,10 +17,8 @@ const LogOut = () => {
   return (
     <button
       onClick={handleLogOut}
-      className="hover:bg-green-600 border rounded-md border-green-500 hover:text-white text-green-600 hover:decoration-2 px-2.5 py-1.5"
     >
       Sign Out
-      {/* <RiLogoutCircleRLine /> */}
     </button>
   );
 };

@@ -16,7 +16,7 @@ const PageContainer = () => {
           <Header />
           {/* Outlet will render the children page element according to the URL or null if it is */}
           <Outlet />
-          <Footer />
+          {/* <Footer /> */}
         </div>
       )}
     </>

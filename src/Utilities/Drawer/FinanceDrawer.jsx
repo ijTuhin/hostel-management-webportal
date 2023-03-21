@@ -38,7 +38,7 @@ const FinanceDrawer = () => {
                 noWrap
                 component="div"
               >
-                Room Management Panel
+                Account Management Panel
               </Typography>
             </Toolbar>
           </AppBar>
