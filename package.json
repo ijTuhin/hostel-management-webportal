@@ -21,6 +21,7 @@
     "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.7.0",
     "react-spinners": "^0.13.8",
+    "react-virtuoso": "^4.1.0",
     "styled-components": "^5.3.9",
     "tw-elements": "^1.0.0-alpha13"
   },

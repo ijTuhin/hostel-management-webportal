@@ -26,7 +26,7 @@ const WardenDrawer = () => {
           <CssBaseline />
           <AppBar
             position="fixed"
-            style={{ marginTop: "5rem", backgroundColor: "#10b981" }}
+            style={{ marginTop: "4.35rem", backgroundColor: "#10b981" }}
             sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
           >
             <Toolbar>
@@ -53,7 +53,7 @@ const WardenDrawer = () => {
           >
             <Toolbar />
             <Box sx={{ overflow: "auto" }}>
-              <List style={{ marginTop: "5rem" }}>
+              <List style={{ marginTop: "4.35rem" }}>
                 <ListItem disablePadding>
                   <ListItemButton>
                     <NavLink

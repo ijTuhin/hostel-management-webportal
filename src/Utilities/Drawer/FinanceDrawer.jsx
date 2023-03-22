@@ -28,7 +28,7 @@ const FinanceDrawer = () => {
           <CssBaseline />
           <AppBar
             position="fixed"
-            style={{ marginTop: "5rem", backgroundColor: "#14b8a6" }}
+            style={{ marginTop: "4.35rem", backgroundColor: "#14b8a6" }}
             sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
           >
             <Toolbar>
@@ -55,7 +55,7 @@ const FinanceDrawer = () => {
           >
             <Toolbar />
             <Box sx={{ overflow: "auto" }}>
-              <List style={{ marginTop: "5rem" }}>
+              <List style={{ marginTop: "4.35rem" }}>
                 <ListItem disablePadding>
                   <ListItemButton>
                     <NavLink

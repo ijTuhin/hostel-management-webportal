@@ -16,6 +16,7 @@ import FinanceDrawer from "./Utilities/Drawer/FinanceDrawer";
 import UserDetailPage from "./Pages/UserDetailPage";
 import StudentData from "./Components/UserDetails/StudentData";
 import GuestData from "./Components/UserDetails/GuestData";
+import StudentTable from "./Components/UserDetails/StudentTable";
 
 const router = createBrowserRouter([
   {
@@ -117,7 +118,7 @@ const router = createBrowserRouter([
             path: "/users-detail/students",
             element: (
               <Authenticate>
-                <StudentData />
+                <StudentTable />
               </Authenticate>
             ),
             errorElement: <ErrorPage />,

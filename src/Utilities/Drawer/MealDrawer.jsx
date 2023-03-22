@@ -24,7 +24,7 @@ const MealDrawer = () => {
       <CssBaseline />
       <AppBar
         position="fixed"
-        style={{ marginTop: "5rem", backgroundColor: "#16a34a" }}
+        style={{ marginTop: "4.35rem", backgroundColor: "#16a34a" }}
         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
       >
         <Toolbar>
@@ -51,7 +51,7 @@ const MealDrawer = () => {
       >
         <Toolbar />
         <Box sx={{ overflow: "auto" }}>
-          <List style={{ marginTop: "5rem" }}>
+          <List style={{ marginTop: "4.35rem" }}>
             <ListItem disablePadding>
               <ListItemButton>
                 <NavLink
