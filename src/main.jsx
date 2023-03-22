@@ -14,6 +14,8 @@ import OrderSummary from "./Components/OrderSummary/OrderSummary";
 import WardenDrawer from "./Utilities/Drawer/WardenDrawer";
 import FinanceDrawer from "./Utilities/Drawer/FinanceDrawer";
 import UserDetailPage from "./Pages/UserDetailPage";
+import StudentData from "./Components/UserDetails/StudentData";
+import GuestData from "./Components/UserDetails/GuestData";
 
 const router = createBrowserRouter([
   {
@@ -115,7 +117,7 @@ const router = createBrowserRouter([
             path: "/users-detail/students",
             element: (
               <Authenticate>
-                <HomePage />
+                <StudentData />
               </Authenticate>
             ),
             errorElement: <ErrorPage />,
@@ -125,7 +127,7 @@ const router = createBrowserRouter([
             path: "/users-detail/guests",
             element: (
               <Authenticate>
-                <HomePage />
+                <GuestData />
               </Authenticate>
             ),
             errorElement: <ErrorPage />,
