@@ -13,6 +13,7 @@ import MealDrawer from "./Utilities/Drawer/MealDrawer";
 import OrderSummary from "./Components/OrderSummary/OrderSummary";
 import WardenDrawer from "./Utilities/Drawer/WardenDrawer";
 import FinanceDrawer from "./Utilities/Drawer/FinanceDrawer";
+import UserDetailPage from "./Pages/UserDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,8 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [],
       },
+
+
       {
         path: "/meal",
         element: (
@@ -51,6 +54,8 @@ const router = createBrowserRouter([
           },
         ],
       },
+
+
       {
         path: "/warden",
         element: (
@@ -72,6 +77,8 @@ const router = createBrowserRouter([
           },
         ],
       },
+
+
       {
         path: "/finance-management",
         element: (
@@ -93,16 +100,41 @@ const router = createBrowserRouter([
           },
         ],
       },
+
+
       {
         path: "/users-detail",
         element: (
           <Authenticate>
-            <HomePage />
+            <UserDetailPage />
           </Authenticate>
         ),
         errorElement: <ErrorPage />,
-        children: [],
+        children: [
+          {
+            path: "/users-detail/students",
+            element: (
+              <Authenticate>
+                <HomePage />
+              </Authenticate>
+            ),
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+          {
+            path: "/users-detail/guests",
+            element: (
+              <Authenticate>
+                <HomePage />
+              </Authenticate>
+            ),
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+        ],
       },
+
+
       {
         path: "/create-notice",
         element: (
@@ -115,6 +147,8 @@ const router = createBrowserRouter([
       },
     ],
   },
+
+
   {
     path: "/login",
     element: <LoginPage />,
