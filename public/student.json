@@ -7,7 +7,8 @@
         "date":"17-02-2023",
         "room":"302",
         "dept":"CSE",
-        "status":"Pending"
+        "status":"Pending",
+        "validity":1
     },
     {
         "_id":"2",
@@ -17,7 +18,8 @@
         "date":"17-02-2023",
         "room":"603",
         "dept":"EB",
-        "status":"Done"
+        "status":"Done",
+        "validity":1
     },
     {
         "_id":"3",
@@ -27,7 +29,8 @@
         "date":"17-02-2023",
         "room":"402",
         "dept":"EEE",
-        "status":"Done"
+        "status":"Done",
+        "validity":0
     },
     {
         "_id":"4",
@@ -37,7 +40,8 @@
         "date":"17-02-2023",
         "room":"505",
         "dept":"Pharmacy",
-        "status":"Pending"
+        "status":"Pending",
+        "validity":0
     },
     {
         "_id":"5",
@@ -47,7 +51,8 @@
         "date":"17-02-2023",
         "room":"603",
         "dept":"EB",
-        "status":"Done"
+        "status":"Done",
+        "validity":1
     },
     {
         "_id":"6",
@@ -57,7 +62,8 @@
         "date":"17-02-2023",
         "room":"402",
         "dept":"EEE",
-        "status":"Done"
+        "status":"Done",
+        "validity":1
     },
     {
         "_id":"7",
@@ -67,7 +73,8 @@
         "date":"17-02-2023",
         "room":"606",
         "dept":"EEE",
-        "status":"Done"
+        "status":"Done",
+        "validity":0
     },
     {
         "_id":"8",
@@ -77,7 +84,8 @@
         "date":"17-02-2023",
         "room":"603",
         "dept":"EB",
-        "status":"Done"
+        "status":"Done",
+        "validity":1
     },
     {
         "_id":"9",
@@ -87,6 +95,7 @@
         "date":"17-02-2023",
         "room":"402",
         "dept":"EEE",
-        "status":"Done"
+        "status":"Done",
+        "validity":1
     }
 ]

@@ -15,6 +15,7 @@ import WardenDrawer from "./Utilities/Drawer/WardenDrawer";
 import FinanceDrawer from "./Utilities/Drawer/FinanceDrawer";
 import UserPage from "./Pages/UserPage";
 import UserDetails from "./Components/Users/UserDetails/UserDetails";
+import ManageAccount from "./Components/Users/ManageAccount/ManageAccount";
 
 const router = createBrowserRouter([
   {
@@ -119,10 +120,10 @@ const router = createBrowserRouter([
             children: [],
           },
           {
-            path: "/users/non-resident",
+            path: "/users/manage-account",
             element: (
               <Authenticate>
-                <UserDetails/>
+                <ManageAccount/>
               </Authenticate>
             ),
             errorElement: <ErrorPage />,
