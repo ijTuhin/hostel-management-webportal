@@ -1,48 +1,76 @@
-import React from 'react'
-import { NavLink, Outlet } from 'react-router-dom';
+import React from "react";
+import { NavLink, Outlet } from "react-router-dom";
 
 const UsersMenu = () => {
-    return (
-        <div className="absolute top-[4.35rem] w-full">
-          <nav className="w-full text-gray-200 grid grid-cols-5 text-center gap-x-[0.05rem]">
-              <NavLink
-                to="/users-detail/students"
-                className={({ isActive }) => (isActive ? "bg-emerald-700 py-5" : "bg-teal-700 hover:bg-emerald-700 py-5")}
-              >
-                Create new
-              </NavLink>
+  return (
+    <nav className="w-full text-gray-200 grid grid-cols-6 text-center gap-x-[0.05rem]">
+      <NavLink
+        to="/users/create-new"
+        className={({ isActive }) =>
+          isActive
+            ? "bg-teal-800 py-5"
+            : "bg-teal-700 hover:bg-teal-800 py-5"
+        }
+      >
+        Create new
+      </NavLink>
 
-              <NavLink
-                to="/users-detail/guests"
-                className={({ isActive }) => (isActive ? "bg-emerald-700 py-5" : "bg-teal-600 hover:bg-emerald-700 py-5")}
-              >
-                User Details
-              </NavLink>
+      <NavLink
+        to="/users/detail"
+        className={({ isActive }) =>
+          isActive
+            ? "bg-teal-800 py-5"
+            : "bg-teal-600 hover:bg-teal-800 py-5"
+        }
+      >
+        User Details
+      </NavLink>
 
-              <NavLink
-                to="/users-detail/guests"
-                className={({ isActive }) => (isActive ? "bg-emerald-700 py-5" : "bg-teal-700 hover:bg-emerald-700 py-5")}
-              >
-                Manage User
-              </NavLink>
+      <NavLink
+        to="/users/manage-user"
+        className={({ isActive }) =>
+          isActive
+            ? "bg-teal-800 py-5"
+            : "bg-teal-700 hover:bg-teal-800 py-5"
+        }
+      >
+        Manage User
+      </NavLink>
 
-              <NavLink
-                to="/users-detail/students"
-                className={({ isActive }) => (isActive ? "bg-emerald-700 py-5" : "bg-teal-600 hover:bg-emerald-700 py-5")}
-              >
-                Non-residents
-              </NavLink>
+      <NavLink
+        to="/users/non-residents"
+        className={({ isActive }) =>
+          isActive
+            ? "bg-teal-800 py-5"
+            : "bg-teal-600 hover:bg-teal-800 py-5"
+        }
+      >
+        Non-residents
+      </NavLink>
 
-              <NavLink
-                to="/users-detail/students"
-                className={({ isActive }) => (isActive ? "bg-emerald-700 py-5" : "bg-teal-700 hover:bg-emerald-700 py-5")}
-              >
-                Manage Account
-              </NavLink>
-          </nav>
-          <Outlet/>
-        </div>
-      );
-}
+      <NavLink
+        to="/users/manage-account"
+        className={({ isActive }) =>
+          isActive
+            ? "bg-teal-800 py-5"
+            : "bg-teal-700 hover:bg-teal-800 py-5"
+        }
+      >
+        Manage Account
+      </NavLink>
 
-export default UsersMenu
+      <NavLink
+        to="/users/anonymous-feedback"
+        className={({ isActive }) =>
+          isActive
+            ? "bg-teal-800 py-5"
+            : "bg-teal-600 hover:bg-teal-800 py-5"
+        }
+      >
+        Feedback
+      </NavLink>
+    </nav>
+  );
+};
+
+export default UsersMenu;

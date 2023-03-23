@@ -13,11 +13,8 @@ import MealDrawer from "./Utilities/Drawer/MealDrawer";
 import OrderSummary from "./Components/OrderSummary/OrderSummary";
 import WardenDrawer from "./Utilities/Drawer/WardenDrawer";
 import FinanceDrawer from "./Utilities/Drawer/FinanceDrawer";
-import UserDetailPage from "./Pages/UserDetailPage";
-import StudentData from "./Components/UserDetails/StudentData";
-import GuestData from "./Components/UserDetails/GuestData";
-import StudentTable from "./Components/UserDetails/StudentTable";
 import UserPage from "./Pages/UserPage";
+import UserDetails from "./Components/Users/UserDetails/UserDetails";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +32,6 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [],
       },
-
 
       {
         path: "/meal",
@@ -59,7 +55,6 @@ const router = createBrowserRouter([
         ],
       },
 
-
       {
         path: "/warden",
         element: (
@@ -81,7 +76,6 @@ const router = createBrowserRouter([
           },
         ],
       },
-
 
       {
         path: "/finance-management",
@@ -105,9 +99,8 @@ const router = createBrowserRouter([
         ],
       },
 
-
       {
-        path: "/users-detail",
+        path: "/users",
         element: (
           <Authenticate>
             <UserPage />
@@ -116,20 +109,20 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
           {
-            path: "/users-detail/students",
+            path: "/users/detail",
             element: (
               <Authenticate>
-                <StudentTable />
+                <UserDetails />
               </Authenticate>
             ),
             errorElement: <ErrorPage />,
             children: [],
           },
           {
-            path: "/users-detail/guests",
+            path: "/users/non-resident",
             element: (
               <Authenticate>
-                <GuestData />
+                <UserDetails/>
               </Authenticate>
             ),
             errorElement: <ErrorPage />,
@@ -137,7 +130,6 @@ const router = createBrowserRouter([
           },
         ],
       },
-
 
       {
         path: "/create-notice",
@@ -151,7 +143,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-
 
   {
     path: "/login",

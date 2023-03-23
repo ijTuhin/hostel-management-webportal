@@ -1,6 +1,6 @@
 import React from "react";
 
-const StudentData = ({ item }) => {
+const TableData = ({ item }) => {
   return (
     <>
       <tr class="bg-white border-b border-green-100 transition duration-300 ease-in-out hover:bg-green-50">
@@ -23,11 +23,13 @@ const StudentData = ({ item }) => {
           {item.status}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-center text-sm">
-          <button className="hover:border-green-500 hover:text-green-500 border border-gray-300 rounded px-2 py-1.5 text-gray-400">Mess manager</button>
+          <button className="hover:border-green-500 hover:text-green-500 border border-gray-300 rounded px-2 py-1.5 text-gray-400">
+            Mess manager
+          </button>
         </td>
       </tr>
     </>
   );
 };
 
-export default StudentData;
+export default TableData;
