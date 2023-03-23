@@ -17,6 +17,7 @@ import UserDetailPage from "./Pages/UserDetailPage";
 import StudentData from "./Components/UserDetails/StudentData";
 import GuestData from "./Components/UserDetails/GuestData";
 import StudentTable from "./Components/UserDetails/StudentTable";
+import UserPage from "./Pages/UserPage";
 
 const router = createBrowserRouter([
   {
@@ -109,7 +110,7 @@ const router = createBrowserRouter([
         path: "/users-detail",
         element: (
           <Authenticate>
-            <UserDetailPage />
+            <UserPage />
           </Authenticate>
         ),
         errorElement: <ErrorPage />,
