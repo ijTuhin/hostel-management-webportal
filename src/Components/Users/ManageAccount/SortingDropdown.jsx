@@ -4,7 +4,7 @@ import { RxCaretSort } from "react-icons/rx";
 const SortingDropdown = () => {
   return (
     <div className="dropdown dropdown-end">
-      <label tabIndex={0} className="">
+      <label tabIndex={0}>
         <p className="flex gap-x-1 justify-center items-center text-lg cursor-pointer px-2 py-1.5 hover:bg-stone-100 rounded">
           <span className="text-base">Sort</span>
           <RxCaretSort />

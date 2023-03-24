@@ -28,7 +28,18 @@ const TableData = ({ item }) => {
           </button>
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-xl flex justify-center">
-          {item.validity ? <span className="text-green-500"><GiCheckMark /></span> : <FcCancel />}
+          {item.validity ? (
+            <span className="text-green-500">
+              <GiCheckMark />
+            </span>
+          ) : (
+            <FcCancel />
+          )}
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-center text-sm">
+          <button className="hover:bg-green-500 border-green-500 hover:text-white py-1.5 text-green-500 border rounded px-3">
+            Update
+          </button>
         </td>
       </tr>
     </>
