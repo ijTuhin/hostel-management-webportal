@@ -16,6 +16,7 @@ import FinanceDrawer from "./Utilities/Drawer/FinanceDrawer";
 import UserPage from "./Pages/UserPage";
 import UserDetails from "./Components/Users/UserDetails/UserDetails";
 import ManageAccount from "./Components/Users/ManageAccount/ManageAccount";
+import Feedback from "./Components/Users/Feedback/Feedback";
 
 const router = createBrowserRouter([
   {
@@ -135,7 +136,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/users/anonymous-feedback",
-            element: <ManageAccount />,
+            element: <Feedback />,
             errorElement: <ErrorPage />,
             children: [],
           },
