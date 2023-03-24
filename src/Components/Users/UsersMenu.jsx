@@ -8,7 +8,7 @@ const UsersMenu = () => {
         to="/users/create-new"
         className={({ isActive }) =>
           isActive
-            ? "bg-teal-800 py-5"
+            ? "bg-white text-teal-800 border-2 border-b-0 border-teal-600 py-5 mx-0.5"
             : "bg-teal-700 hover:bg-teal-800 py-5"
         }
       >
@@ -19,7 +19,7 @@ const UsersMenu = () => {
         to="/users/detail"
         className={({ isActive }) =>
           isActive
-            ? "bg-teal-800 py-5"
+            ? "bg-white text-teal-800 border-2 border-b-0 border-teal-600 py-5 mx-0.5"
             : "bg-teal-600 hover:bg-teal-800 py-5"
         }
       >
@@ -30,7 +30,7 @@ const UsersMenu = () => {
         to="/users/manage-user"
         className={({ isActive }) =>
           isActive
-            ? "bg-teal-800 py-5"
+            ? "bg-white text-teal-800 border-2 border-b-0 border-teal-600 py-5 mx-0.5"
             : "bg-teal-700 hover:bg-teal-800 py-5"
         }
       >
@@ -41,7 +41,7 @@ const UsersMenu = () => {
         to="/users/non-residents"
         className={({ isActive }) =>
           isActive
-            ? "bg-teal-800 py-5"
+            ? "bg-white text-teal-800 border-2 border-b-0 border-teal-600 py-5 mx-0.5"
             : "bg-teal-600 hover:bg-teal-800 py-5"
         }
       >
@@ -52,7 +52,7 @@ const UsersMenu = () => {
         to="/users/manage-account"
         className={({ isActive }) =>
           isActive
-            ? "bg-teal-800 py-5"
+            ? "bg-white text-teal-800 border-2 border-b-0 border-teal-600 py-5 mx-0.5"
             : "bg-teal-700 hover:bg-teal-800 py-5"
         }
       >
@@ -63,7 +63,7 @@ const UsersMenu = () => {
         to="/users/anonymous-feedback"
         className={({ isActive }) =>
           isActive
-            ? "bg-teal-800 py-5"
+            ? "bg-white text-teal-800 border-2 border-b-0 border-teal-600 py-5 mx-0.5"
             : "bg-teal-600 hover:bg-teal-800 py-5"
         }
       >
