@@ -1,15 +1,33 @@
 import React from "react";
+import { useScrollPosition } from "../../../Utilities/ScrollStyleHook/useScrollPosition";
 import SearchBar from "./SearchBar";
 import SortingDropdown from "./SortingDropdown";
 
 const Heading = ({ total }) => {
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+  }
+  const styles = {
+    zIndex: 1300,
+  };
+  const scrollPosition = useScrollPosition();
+
   return (
-    <div className="flex justify-between items-end">
-      {/* <div className="flex gap-3 font-medium px-2">
-        <p>Total Accounts: </p>
-        <p>{total}</p>
-      </div> */}
-      <SearchBar/>
+    <div
+      className={classNames(
+        scrollPosition > 0 ? "justify-end" : "justify-between",
+        "flex items-end"
+      )}
+    >
+      <div
+        style={styles}
+        className={classNames(
+          scrollPosition > 0 ? "fixed top-3 right-96" : "",
+          ""
+        )}
+      >
+        <SearchBar />
+      </div>
       <SortingDropdown />
     </div>
   );
