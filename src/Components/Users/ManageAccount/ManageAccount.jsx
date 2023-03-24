@@ -21,8 +21,8 @@ const ManageAccount = () => {
               <table class="min-w-full">
                 <TableHead />
                 <tbody>
-                  {data?.map((item) => (
-                    <TableData key={item._id} item={item} />
+                  {data?.map((item, index) => (
+                    <TableData key={item._id} index={index+1} item={item} />
                   ))}
                 </tbody>
               </table>

@@ -5,7 +5,7 @@ const UsersMenu = () => {
   return (
     <nav className="w-full text-gray-200 grid grid-cols-6 text-center gap-x-[0.05rem]">
       <NavLink
-        to="/users/create-new"
+        to="/users/create-account"
         className={({ isActive }) =>
           isActive
             ? "bg-white text-teal-800 border-2 border-b-0 border-teal-600 py-5 mx-0.5"

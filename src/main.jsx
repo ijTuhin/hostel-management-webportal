@@ -111,21 +111,37 @@ const router = createBrowserRouter([
         children: [
           {
             path: "/users/detail",
-            element: (
-              <Authenticate>
-                <UserDetails />
-              </Authenticate>
-            ),
+            element: <UserDetails />,
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "/users/manage-account",
-            element: (
-              <Authenticate>
-                <ManageAccount/>
-              </Authenticate>
-            ),
+            element: <ManageAccount />,
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+          {
+            path: "/users/create-account",
+            element: <ManageAccount />,
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+          {
+            path: "/users/manage-user",
+            element: <ManageAccount />,
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+          {
+            path: "/users/anonymous-feedback",
+            element: <ManageAccount />,
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+          {
+            path: "/users/non-residents",
+            element: <ManageAccount />,
             errorElement: <ErrorPage />,
             children: [],
           },
