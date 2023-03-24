@@ -31,9 +31,9 @@ const MasonryLayout = () => {
     <div className="flex justify-center">
       <Box
         sx={{
-          width: "50rem",
+          width: "80rem",
           minHeight: 393,
-          margin: "5rem 0",
+          margin: "2rem 0",
         }}
       >
         <Masonry columns={4} spacing={2}>
