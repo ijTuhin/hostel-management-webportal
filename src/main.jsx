@@ -17,6 +17,7 @@ import UserPage from "./Pages/UserPage";
 import UserDetails from "./Components/Users/UserDetails/UserDetails";
 import ManageAccount from "./Components/Users/ManageAccount/ManageAccount";
 import Feedback from "./Components/Users/Feedback/Feedback";
+import CreateNewUser from "./Components/Users/CreateNewUser/CreateNewUser";
 
 const router = createBrowserRouter([
   {
@@ -124,7 +125,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/users/create-account",
-            element: <ManageAccount />,
+            element: <CreateNewUser />,
             errorElement: <ErrorPage />,
             children: [],
           },
