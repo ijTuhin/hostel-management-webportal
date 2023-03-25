@@ -1,5 +1,5 @@
 import React from "react";
-
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 const TableData = ({ item }) => {
   return (
     <>
@@ -20,11 +20,20 @@ const TableData = ({ item }) => {
           {item.date}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+          {item.session}
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+          {item.date}
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
           {item.status}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-center text-sm">
-          <button className="hover:border-green-500 hover:text-green-500 border border-gray-300 rounded px-2 py-1.5 text-gray-400">
-            Mess manager
+          {item.phone}
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-center text-sm">
+          <button className="w-full flex justify-center items-center gap-x-1 font-medium hover:text-green-600 hover:text-sm">
+            <span className="text-xs">view Profile</span> <MdKeyboardDoubleArrowRight />
           </button>
         </td>
       </tr>

@@ -8,6 +8,13 @@
         "room":"302",
         "dept":"CSE",
         "status":"Pending",
+        "account":1,
+        "role":1,
+        "session":"Autumn'19",
+        "address":"K.B Aman Ali road, Rahattarpul, Chattogram, 4000",
+        "phone":"0176482936",
+        "meal":1,
+        "coupon":15,
         "validity":1
     },
     {
@@ -19,6 +26,13 @@
         "room":"603",
         "dept":"EB",
         "status":"Done",
+        "account":1,
+        "role":1,
+        "session":"Autumn'19",
+        "address":"K.B Aman Ali road, Rahattarpul, Chattogram, 4000",
+        "phone":"0176482936",
+        "meal":1,
+        "coupon":15,
         "validity":1
     },
     {
@@ -30,7 +44,14 @@
         "room":"402",
         "dept":"EEE",
         "status":"Done",
-        "validity":0
+        "account":0,
+        "role":0,
+        "session":"Autumn'19",
+        "address":"K.B Aman Ali road, Rahattarpul, Chattogram, 4000",
+        "phone":"0176482936",
+        "meal":1,
+        "coupon":15,
+        "validity":1
     },
     {
         "_id":"4",
@@ -41,7 +62,14 @@
         "room":"505",
         "dept":"Pharmacy",
         "status":"Pending",
-        "validity":0
+        "account":0,
+        "role":0,
+        "session":"Autumn'19",
+        "address":"K.B Aman Ali road, Rahattarpul, Chattogram, 4000",
+        "phone":"0176482936",
+        "meal":1,
+        "coupon":15,
+        "validity":1
     },
     {
         "_id":"5",
@@ -52,6 +80,13 @@
         "room":"603",
         "dept":"EB",
         "status":"Done",
+        "account":1,
+        "role":1,
+        "session":"Autumn'19",
+        "address":"K.B Aman Ali road, Rahattarpul, Chattogram, 4000",
+        "phone":"0176482936",
+        "meal":1,
+        "coupon":15,
         "validity":1
     },
     {
@@ -63,6 +98,13 @@
         "room":"402",
         "dept":"EEE",
         "status":"Done",
+        "account":1,
+        "role":1,
+        "session":"Autumn'19",
+        "address":"K.B Aman Ali road, Rahattarpul, Chattogram, 4000",
+        "phone":"0176482936",
+        "meal":1,
+        "coupon":15,
         "validity":1
     },
     {
@@ -74,7 +116,14 @@
         "room":"606",
         "dept":"EEE",
         "status":"Done",
-        "validity":0
+        "account":0,
+        "role":0,
+        "session":"Autumn'19",
+        "address":"K.B Aman Ali road, Rahattarpul, Chattogram, 4000",
+        "phone":"0176482936",
+        "meal":1,
+        "coupon":15,
+        "validity":1
     },
     {
         "_id":"8",
@@ -85,6 +134,13 @@
         "room":"603",
         "dept":"EB",
         "status":"Done",
+        "account":1,
+        "role":1,
+        "session":"Autumn'19",
+        "address":"K.B Aman Ali road, Rahattarpul, Chattogram, 4000",
+        "phone":"0176482936",
+        "meal":1,
+        "coupon":15,
         "validity":1
     },
     {
@@ -96,6 +152,13 @@
         "room":"402",
         "dept":"EEE",
         "status":"Done",
+        "account":1,
+        "role":1,
+        "session":"Autumn'19",
+        "address":"K.B Aman Ali road, Rahattarpul, Chattogram, 4000",
+        "phone":"0176482936",
+        "meal":1,
+        "coupon":15,
         "validity":1
     }
 ]

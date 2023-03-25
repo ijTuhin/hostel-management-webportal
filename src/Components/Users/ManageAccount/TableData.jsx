@@ -28,7 +28,7 @@ const TableData = ({ item, index }) => {
           </button>
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-xl flex justify-center">
-          {item.validity ? (
+          {item.account ? (
             <span className="text-green-500">
               <GiCheckMark />
             </span>
