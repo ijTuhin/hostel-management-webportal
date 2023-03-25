@@ -11,7 +11,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className={`w-96 flex items-center gap-x-2 border rounded-full py-2 px-3 ${
+    <div className={`w-96 flex items-center gap-x-2 border rounded-full py-2 px-3 bg-white ${
         isActive
           ? "text-green-500 border-2 border-green-500"
           : "text-gray-600 border-gray-400"

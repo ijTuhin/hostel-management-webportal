@@ -19,11 +19,7 @@ const heights = [
 ];
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
-  padding: theme.spacing(0.5),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
 }));
 
 const MasonryLayout = () => {
@@ -31,14 +27,13 @@ const MasonryLayout = () => {
     <div className="flex justify-center">
       <Box
         sx={{
-          width: "80rem",
-          minHeight: 393,
-          margin: "2rem 0",
+          width: "75rem",
+          padding: "2rem 0",
         }}
       >
-        <Masonry columns={4} spacing={2}>
+        <Masonry columns={4} spacing={1}>
           {heights.map((height, index) => (
-            <Item style={{width: '10rem', padding: "10px", backgroundColor: "#ffedd5"}} key={index}>
+            <Item style={{width: '10rem', padding: "15px", backgroundColor: "white"}} key={index}>
               {height}
             </Item>
           ))}
