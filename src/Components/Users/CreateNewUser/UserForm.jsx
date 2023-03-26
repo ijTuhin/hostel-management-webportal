@@ -3,9 +3,12 @@ import { FormProvider, useForm } from "react-hook-form";
 import Academic from "./Academic";
 import Personal from "./Personal";
 
-const UserForm = () => {
+const UserForm = ({setData, setChange}) => {
   const methods = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    setData(data);
+    setChange(true);
+  }
   return (
     <div className="px-[27rem] py-16 space-y-5">
       <p className="italic text-xl font-medium text-gray-500">

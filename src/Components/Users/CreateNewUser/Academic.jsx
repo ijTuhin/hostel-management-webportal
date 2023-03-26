@@ -30,7 +30,7 @@ const Academic = () => {
         placeholder="Last Session"
         {...register("last", { required: true })}
       />
-      <select
+      <select {...register("dept")}
         id="countries"
         className="text-gray-500 text-sm block w-full px-1.5 py-2 border border-gray-400 rounded"
       >
