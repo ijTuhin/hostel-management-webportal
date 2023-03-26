@@ -8,7 +8,7 @@ const UsersMenu = () => {
         to="/users/create-account"
         className={({ isActive }) =>
           isActive
-            ? "bg-white text-teal-800 border-2 border-b-0 border-teal-600 py-5 mx-0.5"
+            ? "bg-emerald-600/25 text-teal-800 border-2 border-b-0 border-teal-600 py-5 mx-0.5"
             : "bg-teal-700 hover:bg-teal-800 py-5"
         }
       >

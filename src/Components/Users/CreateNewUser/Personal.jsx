@@ -15,33 +15,33 @@ const Personal = () => {
   return (
     <div className="flex flex-col gap-y-6">
       <input
-        className="text-sm outline-none p-2 border-b border-gray-400"
+        className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Enter name"
         {...register("name", { required: true })}
       />
       <input
-        className="text-sm outline-none p-2 border-b border-gray-400"
+        className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="District"
         {...register("district", { required: true })}
       />
       <input
-        className="text-sm outline-none p-2 border-b border-gray-400"
+        className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Thana"
         {...register("thana", { required: true })}
       />
       <input
-        className="text-sm outline-none p-2 border-b border-gray-400"
+        className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Address"
         {...register("address", { required: true })}
       />
       <input
-        className="text-sm outline-none p-2 border-b border-gray-400"
+        className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Phone number"
         {...register("phone", { required: true })}
       />
       <input
         value={enrolled}
-        className="text-sm outline-none p-2 border-b border-gray-400"
+        className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Enrollment date"
         {...register("enrolled", { required: true })}
       />

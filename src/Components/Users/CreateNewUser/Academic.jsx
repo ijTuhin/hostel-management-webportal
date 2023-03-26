@@ -6,33 +6,33 @@ const Academic = () => {
   return (
     <div className="flex flex-col gap-y-6">
       <input
-        className="text-sm outline-none p-2 border-b border-gray-400"
+        className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Enter Gsuite"
         {...register("Gsuite", { required: true })}
       />
       <input
-        className="text-sm outline-none p-2 border-b border-gray-400"
+        className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Matric ID"
         {...register("matric", { required: true })}
       />
       <input
-        className="text-sm outline-none p-2 border-b border-gray-400"
+        className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Semester"
         {...register("sem", { required: true })}
       />
       <input
-        className="text-sm outline-none p-2 border-b border-gray-400"
+        className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Current Session"
         {...register("current", { required: true })}
       />
       <input
-        className="text-sm outline-none p-2 border-b border-gray-400"
+        className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Last Session"
         {...register("last", { required: true })}
       />
       <select {...register("dept")}
         id="countries"
-        className="text-gray-500 text-sm block w-full px-1.5 py-2 border border-gray-400 rounded"
+        className="text-gray-500 text-sm block w-full px-1.5 py-2 border border-gray-600 rounded"
       >
         <option disabled>Choose Department</option>
         <option value="CSE">CSE</option>
