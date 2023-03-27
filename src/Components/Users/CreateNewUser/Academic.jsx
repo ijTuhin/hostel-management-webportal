@@ -13,22 +13,22 @@ const Academic = () => {
       <input
         className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Matric ID"
-        {...register("matric", { required: true })}
+        {...register("matric")}
       />
       <input
         className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Semester"
-        {...register("sem", { required: true })}
+        {...register("sem")}
       />
       <input
         className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Current Session"
-        {...register("current", { required: true })}
+        {...register("current")}
       />
       <input
         className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Last Session"
-        {...register("last", { required: true })}
+        {...register("last")}
       />
       <select {...register("dept")}
         id="countries"

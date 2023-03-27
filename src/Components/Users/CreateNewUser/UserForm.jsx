@@ -11,7 +11,7 @@ const UserForm = ({ setData, setChange }) => {
   };
   return (
     <div className="w-full px-28 py-20 bg-white space-y-12">
-      <p className="italic text-xl font-medium text-gray-500">
+      <p className="italic text-xl font-medium text-teal-600">
         *** User Information ***
       </p>
       <FormProvider {...methods}>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Create from "./Create";
 import UserForm from "./UserForm";
 
-const CreateNewUser = () => {
+const CreateUser = () => {
   const [data, setData] = useState("");
   const [change, setChange] = useState(true);
   return (
@@ -13,4 +13,4 @@ const CreateNewUser = () => {
   );
 };
 
-export default CreateNewUser;
+export default CreateUser;

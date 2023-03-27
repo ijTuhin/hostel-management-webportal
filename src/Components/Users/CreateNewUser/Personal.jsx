@@ -17,33 +17,33 @@ const Personal = () => {
       <input
         className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Enter name"
-        {...register("name", { required: true })}
+        {...register("name")}
       />
       <input
         className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="District"
-        {...register("district", { required: true })}
+        {...register("district")}
       />
       <input
         className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Thana"
-        {...register("thana", { required: true })}
+        {...register("thana")}
       />
       <input
         className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Address"
-        {...register("address", { required: true })}
+        {...register("address")}
       />
       <input
         className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Phone number"
-        {...register("phone", { required: true })}
+        {...register("phone")}
       />
       <input
         value={enrolled}
         className="text-sm outline-none p-2 border-b border-gray-600"
         placeholder="Enrollment date"
-        {...register("enrolled", { required: true })}
+        {...register("enrolled")}
       />
     </div>
   );
