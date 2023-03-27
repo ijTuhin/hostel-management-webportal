@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import CreateUserMenu from "../../../Utilities/Drawer/CreateUserMenu";
+import Drawers from "../../../Utilities/Drawer/Drawers";
 import Create from "./Create";
 import SideMenu from "./SideMenu";
 import UserForm from "./UserForm";
@@ -8,7 +10,7 @@ const CreateUser = () => {
   const [change, setChange] = useState(true);
   return (
     <div>
-      <SideMenu/>
+      <Drawers item={4} title={null} />
       {/* <div className="flex justify-between h-[35rem]">
         <UserForm setData={setData} setChange={setChange} />
         <div

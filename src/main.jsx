@@ -19,6 +19,8 @@ import ManageAccount from "./Components/Users/ManageAccount/ManageAccount";
 import Feedback from "./Components/Users/Feedback/Feedback";
 import CreateUser from "./Components/Users/CreateNewUser/CreateUser";
 import Drawers from "./Utilities/Drawer/Drawers";
+import Academic from "./Components/Users/CreateNewUser/Academic";
+import UserForm from "./Components/Users/CreateNewUser/UserForm";
 
 const router = createBrowserRouter([
   {
@@ -125,10 +127,17 @@ const router = createBrowserRouter([
             children: [],
           },
           {
-            path: "/users/create-account",
+            path: "/users/create",
             element: <CreateUser />,
             errorElement: <ErrorPage />,
-            children: [],
+            children: [
+              {
+                path: "/users/create/academic",
+                element: <UserForm />,
+                errorElement: <ErrorPage />,
+                children: [],
+              },
+            ],
           },
           {
             path: "/users/manage-user",
