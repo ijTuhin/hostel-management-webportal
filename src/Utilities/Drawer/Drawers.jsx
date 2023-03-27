@@ -51,15 +51,13 @@ const Drawers = ({ item, title }) => {
           },
         }}
       >
-        <Toolbar />
         {item == 1 && <Meal />}
         {item == 2 && <Finance />}
         {item == 3 && <Warden />}
         {item == 4 && <CreateUserMenu />}
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <Toolbar />
-        <Outlet />
+      <Box component="main" sx={{ flexGrow: 1 }}>
+        <Outlet classNameclassName={` shadow-lg ${ title ? "h-screen" : "h-[82.26vh]"}`} />
       </Box>
     </Box>
   );

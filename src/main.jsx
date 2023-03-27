@@ -21,6 +21,8 @@ import CreateUser from "./Components/Users/CreateNewUser/CreateUser";
 import Drawers from "./Utilities/Drawer/Drawers";
 import Academic from "./Components/Users/CreateNewUser/Academic";
 import UserForm from "./Components/Users/CreateNewUser/UserForm";
+import AcademicData from "./Components/Users/CreateNewUser/AcademicData";
+import PersonalData from "./Components/Users/CreateNewUser/PersonalData";
 
 const router = createBrowserRouter([
   {
@@ -133,7 +135,13 @@ const router = createBrowserRouter([
             children: [
               {
                 path: "/users/create/academic",
-                element: <UserForm />,
+                element: <AcademicData/>,
+                errorElement: <ErrorPage />,
+                children: [],
+              },
+              {
+                path: "/users/create/personal",
+                element: <PersonalData/>,
                 errorElement: <ErrorPage />,
                 children: [],
               },
