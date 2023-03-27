@@ -10,70 +10,65 @@ import CreditScoreIcon from "@mui/icons-material/CreditScore";
 import LocalGroceryStoreOutlinedIcon from "@mui/icons-material/LocalGroceryStoreOutlined";
 import SummarizeOutlinedIcon from "@mui/icons-material/SummarizeOutlined";
 import { NavLink } from "react-router-dom";
-
+import {FaUniversity} from "react-icons/fa";
+import {MdPersonAddAlt1} from "react-icons/md";
+import {IoPersonSharp, IoPersonAddSharp} from "react-icons/io5";
+import {BsPersonBoundingBox,BsFillPersonLinesFill, BsPersonCircle} from "react-icons/bs";
 const CreateUserMenu = () => {
   return (
     <Box sx={{ overflow: "hidden", position: "absolute", width: "100%" }}>
       <List>
         <ListItem disablePadding>
+          <ListItemButton>
           <NavLink
             to="/users/create/academic"
             className={({ isActive }) =>
-              isActive ? "w-full text-green-500" : "w-full"
+              isActive ? "flex justify-between items-center gap-x-5 text-green-500" : "flex justify-between items-center gap-x-5"
             }
           >
-            <ListItemButton>
-              <ListItemIcon>
-                <RestaurantIcon />
-              </ListItemIcon>
+              <FaUniversity/>
               <ListItemText primary="Academic" />
-            </ListItemButton>
           </NavLink>
+            </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
+          <ListItemButton>
           <NavLink
             to="/users/create/personal"
             className={({ isActive }) =>
-              isActive ? "w-full text-green-500" : "w-full"
+              isActive ? "flex justify-between items-center gap-x-5 text-green-500" : "flex justify-between items-center gap-x-5"
             }
           >
-            <ListItemButton>
-              <ListItemIcon>
-                <CreditScoreIcon />
-              </ListItemIcon>
+              <IoPersonSharp/>
               <ListItemText primary="Personal" />
-            </ListItemButton>
           </NavLink>
+            </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
+          <ListItemButton>
           <NavLink
             to="/users/create/overview"
             className={({ isActive }) =>
-              isActive ? "w-full text-green-500" : "w-full"
+              isActive ? "flex justify-between items-center gap-x-5 text-green-500" : "flex justify-between items-center gap-x-5"
             }
           >
-            <ListItemButton>
-              <ListItemIcon>
-                <LocalGroceryStoreOutlinedIcon />
-              </ListItemIcon>
+              <BsFillPersonLinesFill/>
               <ListItemText primary="Overview" />
-            </ListItemButton>
           </NavLink>
+            </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
+          <ListItemButton>
           <NavLink
             to="/users/create/account"
             className={({ isActive }) =>
-              isActive ? "w-full text-green-500" : "w-full"
+              isActive ? "flex justify-between items-center gap-x-5 text-green-500" : "flex justify-between items-center gap-x-5"
             }
           >
-            <ListItemButton>
-              <ListItemIcon>
-                <SummarizeOutlinedIcon />
-              </ListItemIcon>
+              <IoPersonAddSharp/>
               <ListItemText primary="Create" />
-            </ListItemButton>
           </NavLink>
+            </ListItemButton>
         </ListItem>
       </List>
     </Box>
