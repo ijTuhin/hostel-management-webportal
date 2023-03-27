@@ -1,11 +1,8 @@
 import React from "react";
-import MealDrawer from "../../Utilities/Drawer/MealDrawer";
+import MealDrawer from "../../Utilities/Drawer/Meal";
 
 const Home = () => {
-  return (
-    <>
-    </>
-  );
+  return <></>;
 };
 
 export default Home;

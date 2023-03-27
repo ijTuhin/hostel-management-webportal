@@ -9,15 +9,16 @@ import PageContainer from "./Pages/PageContainer";
 import Authenticate from "./Authentications/Authenticate/Authenticate";
 import UserContext from "./Authentications/Authenticate/UserContext";
 import LoginPage from "./Pages/LoginPage";
-import MealDrawer from "./Utilities/Drawer/MealDrawer";
+import MealDrawer from "./Utilities/Drawer/Meal";
 import OrderSummary from "./Components/OrderSummary/OrderSummary";
-import WardenDrawer from "./Utilities/Drawer/WardenDrawer";
-import FinanceDrawer from "./Utilities/Drawer/FinanceDrawer";
+import WardenDrawer from "./Utilities/Drawer/Warden";
+import FinanceDrawer from "./Utilities/Drawer/Finance";
 import UserPage from "./Pages/UserPage";
 import UserDetails from "./Components/Users/UserDetails/UserDetails";
 import ManageAccount from "./Components/Users/ManageAccount/ManageAccount";
 import Feedback from "./Components/Users/Feedback/Feedback";
 import CreateUser from "./Components/Users/CreateNewUser/CreateUser";
+import Drawers from "./Utilities/Drawer/Drawers";
 
 const router = createBrowserRouter([
   {
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
         path: "/meal",
         element: (
           <Authenticate>
-            <MealDrawer />
+            <Drawers item={1} title={"Mess Management Panel"} />
           </Authenticate>
         ),
         errorElement: <ErrorPage />,
@@ -62,7 +63,7 @@ const router = createBrowserRouter([
         path: "/warden",
         element: (
           <Authenticate>
-            <WardenDrawer />
+            <Drawers item={2} title={"Rome Management Panel"} />
           </Authenticate>
         ),
         errorElement: <ErrorPage />,
@@ -84,7 +85,7 @@ const router = createBrowserRouter([
         path: "/finance-management",
         element: (
           <Authenticate>
-            <FinanceDrawer />
+            <Drawers item={3} title={"Finance Management Panel"} />
           </Authenticate>
         ),
         errorElement: <ErrorPage />,
