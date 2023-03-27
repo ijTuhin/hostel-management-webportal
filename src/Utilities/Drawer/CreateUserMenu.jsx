@@ -19,56 +19,56 @@ const CreateUserMenu = () => {
     <Box sx={{ overflow: "hidden", position: "absolute", width: "100%" }}>
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
           <NavLink
             to="/users/create/academic"
             className={({ isActive }) =>
-              isActive ? "flex justify-between items-center gap-x-5 text-green-500" : "flex justify-between items-center gap-x-5"
+              isActive ? "border-l-2 border-teal-500 ml-3 w-full items-center gap-x-5 text-teal-500" : " border-l-2 border-gray-200 ml-3 w-full items-center gap-x-5 text-gray-400"
             }
-          >
+            >
+            <ListItemButton className="space-x-5">
               <FaUniversity/>
               <ListItemText primary="Academic" />
-          </NavLink>
             </ListItemButton>
+          </NavLink>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton>
           <NavLink
             to="/users/create/personal"
             className={({ isActive }) =>
-              isActive ? "flex justify-between items-center gap-x-5 text-green-500" : "flex justify-between items-center gap-x-5"
+              isActive ? "border-l-2 border-teal-500 ml-3 w-full items-center gap-x-5 text-teal-500" : "border-l-2 border-gray-200 ml-3 w-full items-center gap-x-5 text-gray-400"
             }
-          >
+            >
+            <ListItemButton className="space-x-5">
               <IoPersonSharp/>
               <ListItemText primary="Personal" />
-          </NavLink>
             </ListItemButton>
+          </NavLink>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton>
           <NavLink
             to="/users/create/overview"
             className={({ isActive }) =>
-              isActive ? "flex justify-between items-center gap-x-5 text-green-500" : "flex justify-between items-center gap-x-5"
+              isActive ? "border-l-2 border-teal-500 ml-3 w-full items-center gap-x-5 text-teal-500" : "border-l-2 border-gray-200 ml-3 w-full items-center gap-x-5 text-gray-400"
             }
-          >
+            >
+            <ListItemButton className="space-x-5">
               <BsFillPersonLinesFill/>
               <ListItemText primary="Overview" />
-          </NavLink>
             </ListItemButton>
+          </NavLink>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton>
           <NavLink
             to="/users/create/account"
             className={({ isActive }) =>
-              isActive ? "flex justify-between items-center gap-x-5 text-green-500" : "flex justify-between items-center gap-x-5"
+              isActive ? "border-l-2 border-teal-500 ml-3 w-full items-center gap-x-5 text-teal-500" : "border-l-2 border-gray-200 ml-3 w-full items-center gap-x-5 text-gray-400"
             }
-          >
+            >
+            <ListItemButton className="space-x-5">
               <IoPersonAddSharp/>
               <ListItemText primary="Create" />
-          </NavLink>
             </ListItemButton>
+          </NavLink>
         </ListItem>
       </List>
     </Box>

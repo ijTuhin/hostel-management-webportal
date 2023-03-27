@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-import CreateUserMenu from "../../../Utilities/Drawer/CreateUserMenu";
 import Drawers from "../../../Utilities/Drawer/Drawers";
-import Create from "./Create";
-import SideMenu from "./SideMenu";
-import UserForm from "./UserForm";
 
 const CreateUser = () => {
   const [data, setData] = useState("");

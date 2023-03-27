@@ -12,7 +12,7 @@ import Warden from "./Warden";
 import CreateUserMenu from "./CreateUserMenu";
 
 const Drawers = ({ item, title }) => {
-  const drawerWidth = 249.5;
+  const drawerWidth = 254;
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />

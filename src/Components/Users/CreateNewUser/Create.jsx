@@ -41,38 +41,40 @@ const Create = () => {
   };
 
   return (
-    <form onSubmit={handleSignup} className="flex flex-col w-80 gap-4">
-      <input
-        className="border-b border-green-600 outline-transparent px-2 py-1.5"
-        type="text"
-        name="displayName"
-        id="username"
-        placeholder="Username"
-        required
-      />
-      <input
-        className="border-b border-green-600 outline-transparent px-2 py-1.5"
-        type="email"
-        name="email"
-        id="email"
-        placeholder="Enter your email"
-        required
-      />
-      <input
-        className="border-b border-green-600 outline-transparent px-2 py-1.5"
-        type="password"
-        name="password"
-        id="password"
-        placeholder="Create password"
-        required
-      />
-      <button
-        type="submit"
-        className="border px-3 py-1 border-green-600 rounded text-green-600 hover:text-white hover:bg-green-600"
-      >
-        Sign up
-      </button>
-    </form>
+    <div className='w-full h-full flex justify-center p-40 space-y-4 bg-gray-50'>
+      <form onSubmit={handleSignup} className="flex flex-col w-96 gap-4">
+          <input
+            className="border-b border-teal-600 outline-transparent px-2 py-1.5 bg-inherit"
+            type="text"
+            name="displayName"
+            id="username"
+            placeholder="Username"
+            required
+          />
+          <input
+            className="border-b border-teal-600 outline-transparent px-2 py-1.5 bg-inherit"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email address"
+            required
+          />
+          <input
+            className="border-b border-teal-600 outline-transparent px-2 py-1.5 bg-inherit"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Create password"
+            required
+          />
+          <button
+            type="submit"
+            className="border p-3 bg-teal-600 rounded text-white hover:bg-teal-700"
+          >
+            Create Account
+          </button>
+      </form>
+    </div>
   );
 };
 
