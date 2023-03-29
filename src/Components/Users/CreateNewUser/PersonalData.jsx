@@ -7,22 +7,17 @@ const PersonalData = () => {
   const date = d.getDate();
   const month = d.getMonth() + 1;
   const year = d.getFullYear();
-  const enrolled = date + "/" + month + "/" + year;
+  const enrolled = d.getDate() + "/" + month + "/" + d.getFullYear();
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
   return (
-    <div className="w-full h-full py-32 px-40  bg-gray-50">
+    <div className="w-full h-full py-28 px-40  bg-gray-50">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="space-y-1 flex justify-end items-end"
+        className="space-y-1 flex justify-end items-end border-t-2 border-teal-600"
       >
-        <div className="space-y-5 border-t border-teal-600 py-3.5">
+        <div className="space-y-5 py-3.5">
           <div>
             <p className="text-xl font-semibold font-serif text-teal-600">
               Personal Information

@@ -9,18 +9,13 @@ import PageContainer from "./Pages/PageContainer";
 import Authenticate from "./Authentications/Authenticate/Authenticate";
 import UserContext from "./Authentications/Authenticate/UserContext";
 import LoginPage from "./Pages/LoginPage";
-import MealDrawer from "./Utilities/Drawer/Meal";
 import OrderSummary from "./Components/OrderSummary/OrderSummary";
-import WardenDrawer from "./Utilities/Drawer/Warden";
-import FinanceDrawer from "./Utilities/Drawer/Finance";
 import UserPage from "./Pages/UserPage";
 import UserDetails from "./Components/Users/UserDetails/UserDetails";
 import ManageAccount from "./Components/Users/ManageAccount/ManageAccount";
 import Feedback from "./Components/Users/Feedback/Feedback";
 import CreateUser from "./Components/Users/CreateNewUser/CreateUser";
 import Drawers from "./Utilities/Drawer/Drawers";
-import Academic from "./Components/Users/CreateNewUser/Academic";
-import UserForm from "./Components/Users/CreateNewUser/UserForm";
 import AcademicData from "./Components/Users/CreateNewUser/AcademicData";
 import PersonalData from "./Components/Users/CreateNewUser/PersonalData";
 import Overview from "./Components/Users/CreateNewUser/Overview";
@@ -137,25 +132,25 @@ const router = createBrowserRouter([
             children: [
               {
                 path: "/users/create/academic",
-                element: <AcademicData/>,
+                element: <AcademicData />,
                 errorElement: <ErrorPage />,
                 children: [],
               },
               {
                 path: "/users/create/personal",
-                element: <PersonalData/>,
+                element: <PersonalData />,
                 errorElement: <ErrorPage />,
                 children: [],
               },
               {
                 path: "/users/create/overview",
-                element: <Overview/>,
+                element: <Overview />,
                 errorElement: <ErrorPage />,
                 children: [],
               },
               {
                 path: "/users/create/account",
-                element: <Create/>,
+                element: <Create />,
                 errorElement: <ErrorPage />,
                 children: [],
               },

@@ -7,16 +7,6 @@ const CreateUser = () => {
   return (
     <div>
       <Drawers item={4} title={null} />
-      {/* <div className="flex justify-between h-[35rem]">
-        <UserForm setData={setData} setChange={setChange} />
-        <div
-          className={`w-full px-20 flex items-center ${
-            !change ? "hidden" : "visible"
-          }`}
-        >
-          <Create data={data} />
-        </div>
-      </div> */}
     </div>
   );
 };

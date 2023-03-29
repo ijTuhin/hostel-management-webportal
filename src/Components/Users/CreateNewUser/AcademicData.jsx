@@ -3,12 +3,7 @@ import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 
 const AcademicData = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
   return (
     <div className="w-full h-full py-14 px-40 bg-gray-50">
@@ -29,7 +24,7 @@ const AcademicData = () => {
             <input
               className="border-2 border-slate-300 outline-teal-500 bg-white px-2 py-1.5 w-80 rounded"
               placeholder="Enter Gsuite"
-              {...register("Gsuite", { required: true })}
+              {...register("gsuite", { required: true })}
             />
             <input
               className="border-2 border-slate-300 outline-teal-500 bg-white px-2 py-1.5 w-80 rounded"
