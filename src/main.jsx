@@ -14,12 +14,12 @@ import UserPage from "./Pages/UserPage";
 import UserDetails from "./Components/Users/UserDetails/UserDetails";
 import ManageAccount from "./Components/Users/ManageAccount/ManageAccount";
 import Feedback from "./Components/Users/Feedback/Feedback";
-import CreateUser from "./Components/Users/CreateNewUser/CreateUser";
-import Drawers from "./Utilities/Drawer/Drawers";
 import AcademicData from "./Components/Users/CreateNewUser/AcademicData";
 import PersonalData from "./Components/Users/CreateNewUser/PersonalData";
 import Overview from "./Components/Users/CreateNewUser/Overview";
 import Create from "./Components/Users/CreateNewUser/Create";
+import PaymentHistory from "./Components/PaymentHistory/PaymentHistory";
+import DrawerContainer from "./Utilities/Drawer/DrawerContainer";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +42,8 @@ const router = createBrowserRouter([
         path: "/meal",
         element: (
           <Authenticate>
-            <Drawers item={1} title={"Mess Management Panel"} />
+            {/* <Drawers item={1} title={"Mess Management Panel"} /> */}
+            <DrawerContainer item={1} title={"Mess Management Panel"}/>
           </Authenticate>
         ),
         errorElement: <ErrorPage />,
@@ -57,6 +58,16 @@ const router = createBrowserRouter([
             errorElement: <ErrorPage />,
             children: [],
           },
+          {
+            path: "/meal/sd",
+            element: (
+              <Authenticate>
+                <PaymentHistory />
+              </Authenticate>
+            ),
+            errorElement: <ErrorPage />,
+            children: [],
+          },
         ],
       },
 
@@ -64,7 +75,7 @@ const router = createBrowserRouter([
         path: "/warden",
         element: (
           <Authenticate>
-            <Drawers item={2} title={"Rome Management Panel"} />
+            <DrawerContainer item={2} title={"Warden Panel"} />
           </Authenticate>
         ),
         errorElement: <ErrorPage />,
@@ -86,7 +97,7 @@ const router = createBrowserRouter([
         path: "/finance-management",
         element: (
           <Authenticate>
-            <Drawers item={3} title={"Finance Management Panel"} />
+            <DrawerContainer item={3} title={"Finance Management Panel"} />
           </Authenticate>
         ),
         errorElement: <ErrorPage />,
@@ -127,7 +138,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/users/create",
-            element: <CreateUser />,
+            element: <DrawerContainer item={4} />,
             errorElement: <ErrorPage />,
             children: [
               {
