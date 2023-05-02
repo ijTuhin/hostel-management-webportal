@@ -1,9 +1,5 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Drawer from "./Drawer";
-import DrawerContent from "./FinanceDrawer";
-import DrawerTitle from "./DrawerTitle";
-import MealDrawerContent from "./MealDrawer";
 import MealDrawer from "./MealDrawer";
 import WardenDrawer from "./WardenDrawer";
 import FinanceDrawer from "./FinanceDrawer";
@@ -17,8 +13,8 @@ const DrawerContainer = ({ item, title }) => {
           {title}
         </div>
       )}
-      <div className="grid grid-cols-6">
-        <div className={`${ title ? "" : "mr-1"}`}>
+      <div className="grid grid-cols-6 h-screen">
+        <div className={`${ title ? "" : "mr-1"} h-full shadow-md text-gray-500`}>
           {item === 1 && <MealDrawer />}
           {item === 2 && <WardenDrawer />}
           {item === 3 && <FinanceDrawer />}

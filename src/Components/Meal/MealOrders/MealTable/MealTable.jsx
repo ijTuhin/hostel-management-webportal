@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import TableData from "./TableData";
 import TableHead from "./TableHead";
+import TableData from "./TableData";
 
-const OrderTable = () => {
+const MealTable = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("order.json")
+    fetch("../../../../../public/order.json")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -31,4 +31,4 @@ const OrderTable = () => {
   );
 };
 
-export default OrderTable;
+export default MealTable;

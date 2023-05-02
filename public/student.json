@@ -128,11 +128,11 @@
     {
         "_id":"8",
         "email":"sameer2@sam.com",
-        "matric":"EB190233",
+        "matric":"B190233",
         "name":"Ismat Ara",
         "date":"17-02-2023",
         "room":"603",
-        "dept":"EB",
+        "dept":"BBA",
         "status":"Done",
         "account":1,
         "role":1,

@@ -9,7 +9,6 @@ import PageContainer from "./Pages/PageContainer";
 import Authenticate from "./Authentications/Authenticate/Authenticate";
 import UserContext from "./Authentications/Authenticate/UserContext";
 import LoginPage from "./Pages/LoginPage";
-import OrderSummary from "./Components/OrderSummary/OrderSummary";
 import UserPage from "./Pages/UserPage";
 import UserDetails from "./Components/Users/UserDetails/UserDetails";
 import ManageAccount from "./Components/Users/ManageAccount/ManageAccount";
@@ -20,6 +19,7 @@ import Overview from "./Components/Users/CreateNewUser/Overview";
 import Create from "./Components/Users/CreateNewUser/Create";
 import PaymentHistory from "./Components/PaymentHistory/PaymentHistory";
 import DrawerContainer from "./Utilities/Drawer/DrawerContainer";
+import MealOrdersPage from "./Components/Meal/MealOrders/MealOrdersPage";
 
 const router = createBrowserRouter([
   {
@@ -49,11 +49,9 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
           {
-            path: "/meal",
+            path: "/meal/orders",
             element: (
-              <Authenticate>
-                <OrderSummary />
-              </Authenticate>
+              <MealOrdersPage/>
             ),
             errorElement: <ErrorPage />,
             children: [],
@@ -84,7 +82,7 @@ const router = createBrowserRouter([
             path: "/warden",
             element: (
               <Authenticate>
-                <OrderSummary />
+                <PaymentHistory />
               </Authenticate>
             ),
             errorElement: <ErrorPage />,
@@ -106,7 +104,7 @@ const router = createBrowserRouter([
             path: "/finance-management",
             element: (
               <Authenticate>
-                <OrderSummary />
+                <PaymentHistory />
               </Authenticate>
             ),
             errorElement: <ErrorPage />,

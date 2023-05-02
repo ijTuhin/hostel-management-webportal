@@ -1,41 +1,51 @@
 [
     {
         "_id":"1",
-        "email":"sameer1@sam.com",
+        "matric":"C230256",
         "date":"17-02-2023",
         "meal":"Breakfast",
+        "dept":"CSE",
+        "room":"506",
         "time":"09.17 pm",
         "status":"Pending"
     },
     {
         "_id":"2",
-        "email":"sameer@sam.com",
+        "matric":"B190233",
         "date":"17-02-2023",
         "meal":"Dinner",
+        "dept":"BBA",
+        "room":"503",
         "time":"04.20 pm",
         "status":"Done"
     },
     {
         "_id":"3",
-        "email":"sameer2@sam.com",
+        "matric":"P200280",
         "date":"17-02-2023",
         "meal":"Lunch",
+        "dept":"Pharmacy",
+        "room":"606",
         "time":"10.13 am",
-        "status":"Done"
+        "status":"Pending"
     },
     {
         "_id":"4",
-        "email":"sameera@sam.com",
+        "matric":"E193205",
         "date":"16-02-2023",
         "meal":"Breakfast",
+        "dept":"EEE",
+        "room":"506",
         "time":"11.23 pm",
         "status":"Done"
     },
     {
         "_id":"5",
-        "email":"sanju@sam.com",
+        "matric":"E220258",
         "date":"16-02-2023",
         "meal":"Dinner",
+        "dept":"EEE",
+        "room":"502",
         "time":"5.23 pm",
         "status":"Done"
     }
