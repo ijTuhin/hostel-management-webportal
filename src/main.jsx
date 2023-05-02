@@ -20,6 +20,7 @@ import Create from "./Components/Users/CreateNewUser/Create";
 import PaymentHistory from "./Components/PaymentHistory/PaymentHistory";
 import DrawerContainer from "./Utilities/Drawer/DrawerContainer";
 import MealOrdersPage from "./Components/Meal/MealOrders/MealOrdersPage";
+import PaymentStatusPage from "./Components/Meal/PaymentStatus/PaymentStatusPage PaymentStatusPage";
 
 const router = createBrowserRouter([
   {
@@ -57,11 +58,9 @@ const router = createBrowserRouter([
             children: [],
           },
           {
-            path: "/meal/sd",
+            path: "/meal/payment-status",
             element: (
-              <Authenticate>
-                <PaymentHistory />
-              </Authenticate>
+              <PaymentStatusPage/>
             ),
             errorElement: <ErrorPage />,
             children: [],

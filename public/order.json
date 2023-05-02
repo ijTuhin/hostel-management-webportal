@@ -1,13 +1,13 @@
 [
     {
-        "_id":"1",
+        "_id":1,
         "matric":"C230256",
         "date":"17-02-2023",
         "meal":"Breakfast",
         "dept":"CSE",
         "room":"506",
         "time":"09.17 pm",
-        "status":"Pending"
+        "status":0
     },
     {
         "_id":"2",
@@ -17,7 +17,7 @@
         "dept":"BBA",
         "room":"503",
         "time":"04.20 pm",
-        "status":"Done"
+        "status":1
     },
     {
         "_id":"3",
@@ -27,7 +27,7 @@
         "dept":"Pharmacy",
         "room":"606",
         "time":"10.13 am",
-        "status":"Pending"
+        "status":0
     },
     {
         "_id":"4",
@@ -37,7 +37,7 @@
         "dept":"EEE",
         "room":"506",
         "time":"11.23 pm",
-        "status":"Done"
+        "status":1
     },
     {
         "_id":"5",
@@ -47,6 +47,6 @@
         "dept":"EEE",
         "room":"502",
         "time":"5.23 pm",
-        "status":"Done"
+        "status":1
     }
 ]

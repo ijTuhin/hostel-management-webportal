@@ -19,7 +19,7 @@ const MealDrawer = () => {
       </li>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/meal/sd"
+          to="/meal/payment-status"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">
