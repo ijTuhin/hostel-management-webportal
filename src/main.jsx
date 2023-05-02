@@ -21,6 +21,7 @@ import PaymentHistory from "./Components/PaymentHistory/PaymentHistory";
 import DrawerContainer from "./Utilities/Drawer/DrawerContainer";
 import MealOrdersPage from "./Components/Meal/MealOrders/MealOrdersPage";
 import PaymentStatusPage from "./Components/Meal/PaymentStatus/PaymentStatusPage PaymentStatusPage";
+import GroceriesPage from "./Components/Meal/Groceries/GroceriesPage";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,22 @@ const router = createBrowserRouter([
           },
           {
             path: "/meal/payment-status",
+            element: (
+              <PaymentStatusPage/>
+            ),
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+          {
+            path: "/meal/grocery-list",
+            element: (
+              <GroceriesPage/>
+            ),
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+          {
+            path: "/meal/summary",
             element: (
               <PaymentStatusPage/>
             ),
