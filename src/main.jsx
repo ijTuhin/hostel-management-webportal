@@ -28,6 +28,7 @@ import SalariesPage from "./Components/Finance/Salaries/SalariesPage";
 import UtilityBillPage from "./Components/Finance/UtilityBill/UtilityBillPage";
 import GroceryCostPage from "./Components/Finance/GroceryCost/GroceryCostPage";
 import RentStatusPage from "./Components/Warden/RentStatus/RentStatusPage";
+import SeatDetailsPage from "./Components/Warden/SeatDetails/SeatDetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -104,6 +105,14 @@ const router = createBrowserRouter([
             path: "/warden/rent-status",
             element: (
               <RentStatusPage/>
+            ),
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+          {
+            path: "/warden/seat-details",
+            element: (
+              <SeatDetailsPage/>
             ),
             errorElement: <ErrorPage />,
             children: [],
