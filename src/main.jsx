@@ -26,6 +26,7 @@ import MealBillPage from "./Components/Finance/MealBill/MealBillPage";
 import SeatRentPage from "./Components/Finance/SeatRent/SeatRentPage";
 import SalariesPage from "./Components/Finance/Salaries/SalariesPage";
 import UtilityBillPage from "./Components/Finance/UtilityBill/UtilityBillPage";
+import GroceryCostPage from "./Components/Finance/GroceryCost/GroceryCostPage";
 
 const router = createBrowserRouter([
   {
@@ -139,7 +140,7 @@ const router = createBrowserRouter([
           {
             path: "/finance-management/grocery-cost",
             element: (
-              <MealBillPage/>
+              <GroceryCostPage/>
             ),
             errorElement: <ErrorPage />,
             children: [],
