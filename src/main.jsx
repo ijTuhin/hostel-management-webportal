@@ -24,6 +24,7 @@ import PaymentStatusPage from "./Components/Meal/PaymentStatus/PaymentStatusPage
 import GroceriesPage from "./Components/Meal/Groceries/GroceriesPage";
 import MealBillPage from "./Components/Finance/MealBill/MealBillPage";
 import SeatRentPage from "./Components/Finance/SeatRent/SeatRentPage";
+import SalariesPage from "./Components/Finance/Salaries/SalariesPage";
 
 const router = createBrowserRouter([
   {
@@ -153,7 +154,7 @@ const router = createBrowserRouter([
           {
             path: "/finance-management/salaries",
             element: (
-              <MealBillPage/>
+              <SalariesPage/>
             ),
             errorElement: <ErrorPage />,
             children: [],
