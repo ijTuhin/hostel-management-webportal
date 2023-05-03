@@ -9,7 +9,7 @@ const FinanceDrawer = () => {
     <ul>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/finance-management"
+          to="/finance-management/meal-bill"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">
@@ -19,7 +19,7 @@ const FinanceDrawer = () => {
       </li>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/finance-management/sd"
+          to="/finance-management/seat-rent"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">
@@ -29,7 +29,7 @@ const FinanceDrawer = () => {
       </li>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/finance-management/hj"
+          to="/finance-management/grocery-cost"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">
@@ -39,7 +39,7 @@ const FinanceDrawer = () => {
       </li>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/finance-management/hj"
+          to="/finance-management/utility-bills"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">
@@ -49,7 +49,7 @@ const FinanceDrawer = () => {
       </li>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/finance-management/hj"
+          to="/finance-management/salaries"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">
@@ -59,7 +59,7 @@ const FinanceDrawer = () => {
       </li>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/finance-management/hj"
+          to="/finance-management/balance-sheet"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">
@@ -69,7 +69,7 @@ const FinanceDrawer = () => {
       </li>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/finance-management/hj"
+          to="/finance-management/summary"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">

@@ -22,6 +22,7 @@ import DrawerContainer from "./Utilities/Drawer/DrawerContainer";
 import MealOrdersPage from "./Components/Meal/MealOrders/MealOrdersPage";
 import PaymentStatusPage from "./Components/Meal/PaymentStatus/PaymentStatusPage PaymentStatusPage";
 import GroceriesPage from "./Components/Meal/Groceries/GroceriesPage";
+import MealBillPage from "./Components/Finance/MealBill/MealBillPage";
 
 const router = createBrowserRouter([
   {
@@ -117,11 +118,49 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
           {
-            path: "/finance-management",
+            path: "/finance-management/meal-bill",
             element: (
-              <Authenticate>
-                <PaymentHistory />
-              </Authenticate>
+              <MealBillPage/>
+            ),
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+          {
+            path: "/finance-management/seat-rent",
+            element: (
+              <MealBillPage/>
+            ),
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+          {
+            path: "/finance-management/grocery-cost",
+            element: (
+              <MealBillPage/>
+            ),
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+          {
+            path: "/finance-management/utility-bills",
+            element: (
+              <MealBillPage/>
+            ),
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+          {
+            path: "/finance-management/salaries",
+            element: (
+              <MealBillPage/>
+            ),
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+          {
+            path: "/finance-management/balance-sheet",
+            element: (
+              <MealBillPage/>
             ),
             errorElement: <ErrorPage />,
             children: [],
