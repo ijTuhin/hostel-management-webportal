@@ -1,14 +1,14 @@
 import React from "react";
-import MealBillTable from "./MealBillTable";
+import SeatRentTable from "./SeatRentTable";
 import FinanceSearchBar from "../SearchBar/FinanceSearchBar";
 
-const MealBillPage = () => {
+const SeatRentPage = () => {
   return (
     <div className="px-32 py-12">
       <FinanceSearchBar />
-      <MealBillTable />
+      <SeatRentTable />
     </div>
   );
 };
 
-export default MealBillPage;
+export default SeatRentPage;
