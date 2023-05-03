@@ -27,6 +27,7 @@ import SeatRentPage from "./Components/Finance/SeatRent/SeatRentPage";
 import SalariesPage from "./Components/Finance/Salaries/SalariesPage";
 import UtilityBillPage from "./Components/Finance/UtilityBill/UtilityBillPage";
 import GroceryCostPage from "./Components/Finance/GroceryCost/GroceryCostPage";
+import RentStatusPage from "./Components/Warden/RentStatus/RentStatusPage";
 
 const router = createBrowserRouter([
   {
@@ -100,11 +101,9 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
           {
-            path: "/warden",
+            path: "/warden/rent-status",
             element: (
-              <Authenticate>
-                <PaymentHistory />
-              </Authenticate>
+              <RentStatusPage/>
             ),
             errorElement: <ErrorPage />,
             children: [],

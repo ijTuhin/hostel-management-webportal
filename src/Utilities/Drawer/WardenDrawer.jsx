@@ -9,7 +9,7 @@ const WardenDrawer = () => {
     <ul>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/warden"
+          to="/warden/room-allocation"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">
@@ -19,7 +19,7 @@ const WardenDrawer = () => {
       </li>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/warden/sd"
+          to="/warden/rent-status"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">
@@ -29,7 +29,7 @@ const WardenDrawer = () => {
       </li>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/warden/hj"
+          to="/warden/seat-details"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">
@@ -39,7 +39,7 @@ const WardenDrawer = () => {
       </li>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/warden/hj"
+          to="/warden/utility-bills"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">
@@ -49,7 +49,7 @@ const WardenDrawer = () => {
       </li>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/warden/hj"
+          to="/warden/attendance"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">
@@ -59,7 +59,7 @@ const WardenDrawer = () => {
       </li>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/warden/hj"
+          to="/warden/summary"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">
