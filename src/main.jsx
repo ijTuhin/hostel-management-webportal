@@ -31,6 +31,7 @@ import RentStatusPage from "./Components/Warden/RentStatus/RentStatusPage";
 import SeatDetailsPage from "./Components/Warden/SeatDetails/SeatDetailsPage";
 import WardenUtilityBillPage from "./Components/Warden/UtilityBill/WardenUtilityBillPage";
 import RoomAllocationPage from "./Components/Warden/RoomAllocation/RoomAllocationPage";
+import AttendancePage from "./Components/Warden/Attendance/AttendancePage";
 
 const router = createBrowserRouter([
   {
@@ -104,6 +105,14 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
           {
+            path: "/warden/room-allocation",
+            element: (
+              <RoomAllocationPage/>
+            ),
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+          {
             path: "/warden/rent-status",
             element: (
               <RentStatusPage/>
@@ -128,13 +137,13 @@ const router = createBrowserRouter([
             children: [],
           },
           {
-            path: "/warden/room-allocation",
+            path: "/warden/attendance",
             element: (
-              <RoomAllocationPage/>
+              <AttendancePage/>
             ),
             errorElement: <ErrorPage />,
             children: [],
-          },
+          }
         ],
       },
 
