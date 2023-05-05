@@ -9,7 +9,6 @@ import PageContainer from "./Pages/PageContainer";
 import Authenticate from "./Authentications/Authenticate/Authenticate";
 import UserContext from "./Authentications/Authenticate/UserContext";
 import LoginPage from "./Pages/LoginPage";
-import UserPage from "./Pages/UserPage";
 import UserDetails from "./Components/Users/UserDetails/UserDetails";
 import ManageAccount from "./Components/Users/ManageAccount/ManageAccount";
 import Feedback from "./Components/Users/Feedback/Feedback";
@@ -17,7 +16,6 @@ import AcademicData from "./Components/Users/CreateNewUser/AcademicData";
 import PersonalData from "./Components/Users/CreateNewUser/PersonalData";
 import Overview from "./Components/Users/CreateNewUser/Overview";
 import Create from "./Components/Users/CreateNewUser/Create";
-import PaymentHistory from "./Components/PaymentHistory/PaymentHistory";
 import DrawerContainer from "./Utilities/Drawer/DrawerContainer";
 import MealOrdersPage from "./Components/Meal/MealOrders/MealOrdersPage";
 import PaymentStatusPage from "./Components/Meal/PaymentStatus/PaymentStatusPage PaymentStatusPage";
@@ -32,6 +30,7 @@ import SeatDetailsPage from "./Components/Warden/SeatDetails/SeatDetailsPage";
 import WardenUtilityBillPage from "./Components/Warden/UtilityBill/WardenUtilityBillPage";
 import RoomAllocationPage from "./Components/Warden/RoomAllocation/RoomAllocationPage";
 import AttendancePage from "./Components/Warden/Attendance/AttendancePage";
+import UsersPage from "./Components/Users/UsersPage";
 
 const router = createBrowserRouter([
   {
@@ -55,40 +54,32 @@ const router = createBrowserRouter([
         element: (
           <Authenticate>
             {/* <Drawers item={1} title={"Mess Management Panel"} /> */}
-            <DrawerContainer item={1} title={"Mess Management Panel"}/>
+            <DrawerContainer item={1} title={"Mess Management Panel"} />
           </Authenticate>
         ),
         errorElement: <ErrorPage />,
         children: [
           {
             path: "/meal/orders",
-            element: (
-              <MealOrdersPage/>
-            ),
+            element: <MealOrdersPage />,
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "/meal/payment-status",
-            element: (
-              <PaymentStatusPage/>
-            ),
+            element: <PaymentStatusPage />,
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "/meal/grocery-list",
-            element: (
-              <GroceriesPage/>
-            ),
+            element: <GroceriesPage />,
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "/meal/summary",
-            element: (
-              <PaymentStatusPage/>
-            ),
+            element: <PaymentStatusPage />,
             errorElement: <ErrorPage />,
             children: [],
           },
@@ -106,44 +97,34 @@ const router = createBrowserRouter([
         children: [
           {
             path: "/warden/room-allocation",
-            element: (
-              <RoomAllocationPage/>
-            ),
+            element: <RoomAllocationPage />,
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "/warden/rent-status",
-            element: (
-              <RentStatusPage/>
-            ),
+            element: <RentStatusPage />,
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "/warden/seat-details",
-            element: (
-              <SeatDetailsPage/>
-            ),
+            element: <SeatDetailsPage />,
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "/warden/utility-bills",
-            element: (
-              <WardenUtilityBillPage/>
-            ),
+            element: <WardenUtilityBillPage />,
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "/warden/attendance",
-            element: (
-              <AttendancePage/>
-            ),
+            element: <AttendancePage />,
             errorElement: <ErrorPage />,
             children: [],
-          }
+          },
         ],
       },
 
@@ -158,49 +139,37 @@ const router = createBrowserRouter([
         children: [
           {
             path: "/finance-management/meal-bill",
-            element: (
-              <MealBillPage/>
-            ),
+            element: <MealBillPage />,
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "/finance-management/seat-rent",
-            element: (
-              <SeatRentPage/>
-            ),
+            element: <SeatRentPage />,
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "/finance-management/grocery-cost",
-            element: (
-              <GroceryCostPage/>
-            ),
+            element: <GroceryCostPage />,
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "/finance-management/utility-bills",
-            element: (
-              <UtilityBillPage/>
-            ),
+            element: <UtilityBillPage />,
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "/finance-management/salaries",
-            element: (
-              <SalariesPage/>
-            ),
+            element: <SalariesPage />,
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "/finance-management/balance-sheet",
-            element: (
-              <MealBillPage/>
-            ),
+            element: <MealBillPage />,
             errorElement: <ErrorPage />,
             children: [],
           },
@@ -211,7 +180,7 @@ const router = createBrowserRouter([
         path: "/users",
         element: (
           <Authenticate>
-            <UserPage />
+            <UsersPage />
           </Authenticate>
         ),
         errorElement: <ErrorPage />,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import MealDrawer from "./MealDrawer";
 import WardenDrawer from "./WardenDrawer";
@@ -6,6 +6,7 @@ import FinanceDrawer from "./FinanceDrawer";
 import CreateUserDrawer from "./CreateUserDrawer";
 
 const DrawerContainer = ({ item, title }) => {
+  const [value, setValue] = useState('true')
   return (
     <div className={`${ title ? "pt-[4.35rem]" : ""} absolute w-full`}>
       {title && (
@@ -21,7 +22,7 @@ const DrawerContainer = ({ item, title }) => {
           {item === 4 && <CreateUserDrawer />}
         </div>
         <div className="col-span-5">
-          <Outlet />
+          <Outlet context={{setValue}} />
         </div>
       </div>
     </div>
