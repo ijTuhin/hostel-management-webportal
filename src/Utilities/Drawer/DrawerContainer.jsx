@@ -6,7 +6,7 @@ import FinanceDrawer from "./FinanceDrawer";
 import CreateUserDrawer from "./CreateUserDrawer";
 
 const DrawerContainer = ({ item, title }) => {
-  const [value, setValue] = useState('true')
+  const [value, setValue] = useState({})
   return (
     <div className={`${ title ? "pt-[4.35rem]" : ""} absolute w-full`}>
       {title && (
@@ -22,7 +22,7 @@ const DrawerContainer = ({ item, title }) => {
           {item === 4 && <CreateUserDrawer />}
         </div>
         <div className="col-span-5">
-          <Outlet context={{setValue}} />
+          <Outlet context={[value, setValue]} />
         </div>
       </div>
     </div>
