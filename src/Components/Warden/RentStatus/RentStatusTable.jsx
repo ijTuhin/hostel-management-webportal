@@ -5,7 +5,7 @@ import TableData from './TableData';
 const RentStatusTable = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-      fetch("../../../../../public/order.json")
+      fetch("http://localhost:5000/user")
         .then((res) => res.json())
         .then((data) => {
           setData(data);
