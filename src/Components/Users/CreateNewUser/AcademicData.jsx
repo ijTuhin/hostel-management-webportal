@@ -16,7 +16,7 @@ const AcademicData = () => {
     });
   }; */
   return (
-    <div className="w-full h-full py-14 px-40 bg-gray-50">
+    <div className="w-full h-full py-6 px-40 bg-gray-50">
       <form className=" space-y-4">
         <div className="flex justify-between items-center border-b border-slate-200 py-3.5">
           <div>
@@ -56,25 +56,42 @@ const AcademicData = () => {
           <p className="text-xl font-semibold font-serif text-gray-600">
             Department
           </p>
-          <select
-            name="dept"
-            onChange={e => {
-              setValue({
-                ...value,
-                dept: e.target.value,
-              });
-            }}
-            id="dept"
-            className="border-2 border-slate-300 outline-teal-500 bg-white p-2 w-80 rounded"
-          >
-            <option disabled>Choose Department</option>
-            <option value="CSE">CSE</option>
-            <option value="Pharmacy">Pharmacy</option>
-            <option value="EEE">EEE</option>
-            <option value="BBA">BBA</option>
-            <option value="EB">EB</option>
-            <option value="ELL">ELL</option>
-          </select>
+          <div className="flex flex-col gap-y-3">
+            <select
+              name="program"
+              onChange={(e) => {
+                setValue({
+                  ...value,
+                  program: e.target.value,
+                });
+              }}
+              id="program"
+              className="border-2 border-slate-300 outline-teal-500 bg-white p-2 w-80 rounded"
+            >
+              <option disabled>Choose Program</option>
+              <option value="Bachelor's">Bachelor's</option>
+              <option value="Master's">Master's</option>
+            </select>
+            <select
+              name="dept"
+              onChange={(e) => {
+                setValue({
+                  ...value,
+                  dept: e.target.value,
+                });
+              }}
+              id="dept"
+              className="border-2 border-slate-300 outline-teal-500 bg-white p-2 w-80 rounded"
+            >
+              <option disabled>Choose Department</option>
+              <option value="CSE">CSE</option>
+              <option value="Pharmacy">Pharmacy</option>
+              <option value="EEE">EEE</option>
+              <option value="BBA">BBA</option>
+              <option value="EB">EB</option>
+              <option value="ELL">ELL</option>
+            </select>
+          </div>
         </div>
         <div className="flex justify-between items-center border-b border-slate-200 py-3.5">
           <div>

@@ -1,7 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import Signup from "../../../Authentications/SignupForms/Signup";
-import bgLogo from "../../../Images/signup-I.jpg";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Authentications/Authenticate/UserContext";
 
 const Create = ({ setSignupData, signupData, setCreateAcc }) => {
