@@ -5,7 +5,7 @@ import TableData from './TableData';
 const SeatDetailsTable = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-      fetch("../../../../../public/order.json")
+      fetch("http://localhost:5000/seat")
         .then((res) => res.json())
         .then((data) => {
           setData(data);
