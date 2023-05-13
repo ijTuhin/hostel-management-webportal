@@ -18,8 +18,8 @@ const TableData = ({ item }) => {
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
           {parseInt(item.bill) + parseInt(item.due)}
         </td>
-        <td class={`${item.status ? "text-green-500" : "text-gray-300"} px-6 py-4 whitespace-nowrap text-sm font-semibold`}>
-          {item.status ? "Paid" : <div>Pending <PayBillBtn/></div>}
+        <td class={`${item.status ? "text-green-500" : ""} px-6 py-4 whitespace-nowrap text-sm font-semibold`}>
+          {item.status ? "Paid" : <div>Pending <PayBillBtn data={item}/></div>}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
           {item.payDate ? <>{item.payDate}</> : "---"}
