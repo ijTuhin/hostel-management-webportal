@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import TableHead from './TableHead';
 import TableData from './TableData';
+import { useLoaderData } from 'react-router-dom';
 
 const UtilityTable = () => {
-    const [data, setData] = useState([]);
+  const utilityData = useLoaderData();
+  const data = Object.values(utilityData);
+    /* const [data, setData] = useState([]);
     useEffect(() => {
       fetch("../../../../../public/order.json")
         .then((res) => res.json())
         .then((data) => {
           setData(data);
         });
-    }, []);
+    }, []); */
     return (
       <div class="w-full flex flex-col">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -19,8 +22,8 @@ const UtilityTable = () => {
               <table class="min-w-full text-center">
                 <TableHead />
                 <tbody>
-                  {data?.map((item) => (
-                    <TableData key={item._id} item={item} />
+                  {data?.slice(1,6).map((item) => (
+                    <TableData key={item.name} item={item} />
                   ))}
                 </tbody>
               </table>

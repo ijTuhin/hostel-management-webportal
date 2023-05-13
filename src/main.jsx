@@ -160,6 +160,7 @@ const router = createBrowserRouter([
           {
             path: "/finance-management/utility-bills",
             element: <UtilityBillPage />,
+            loader: () => fetch(`http://localhost:5000/utility/current`),
             errorElement: <ErrorPage />,
             children: [],
           },

@@ -4,31 +4,36 @@
             "name":"electricity",
             "status":1,
             "payDate":"28-01-2023",
-            "bill":"5000"
-        },
-        "groceries":{
-            "name":"groceries",
-            "status":1,
-            "payDate":"28-01-2023",
-            "bill":"35000"
+            "bill":5000,
+            "due": 0
         },
         "water":{
             "name":"water",
             "status":1,
             "payDate":"28-01-2023",
-            "bill":"2000"
+            "bill":2000,
+            "due": 0
         },
         "gas":{
             "name":"gas",
             "status":1,
             "payDate":"28-01-2023",
-            "bill":"6000"
+            "bill":6000,
+            "due": 0
+        },
+        "groceries":{
+            "name":"groceries",
+            "status":1,
+            "payDate":"28-01-2023",
+            "bill":35000,
+            "due": 0
         },
         "wifi":{
             "name":"wifi",
             "status":1,
             "payDate":"28-01-2023",
-            "bill":"2000"
+            "bill":2000,
+            "due": 0
         },
         "record":"January-2023",
         "month":0
@@ -37,32 +42,37 @@
         "electricity":{
             "name":"electricity",
             "status":1,
-            "payDate":"28-01-2023",
-            "bill":"5000"
-        },
-        "groceries":{
-            "name":"groceries",
-            "status":1,
-            "payDate":"28-01-2023",
-            "bill":"35000"
+            "payDate":"25-02-2023",
+            "bill":5000,
+            "due": 0
         },
         "water":{
             "name":"water",
             "status":1,
-            "payDate":"28-01-2023",
-            "bill":"2000"
+            "payDate":"25-02-2023",
+            "bill":2000,
+            "due": 0
         },
         "gas":{
             "name":"gas",
             "status":1,
-            "payDate":"28-01-2023",
-            "bill":"6000"
+            "payDate":"25-02-2023",
+            "bill":6000,
+            "due": 0
+        },
+        "groceries":{
+            "name":"groceries",
+            "status":1,
+            "payDate":"25-02-2023",
+            "bill":35000,
+            "due": 0
         },
         "wifi":{
             "name":"wifi",
             "status":1,
-            "payDate":"28-01-2023",
-            "bill":"2000"
+            "payDate":"25-02-2023",
+            "bill":2000,
+            "due": 0
         },
         "record":"February-2023",
         "month":0
@@ -71,32 +81,37 @@
         "electricity":{
             "name":"electricity",
             "status":1,
-            "payDate":"28-01-2023",
-            "bill":"5000"
-        },
-        "groceries":{
-            "name":"groceries",
-            "status":1,
-            "payDate":"28-01-2023",
-            "bill":"35000"
+            "payDate":"28-03-2023",
+            "bill":5000,
+            "due": 0
         },
         "water":{
             "name":"water",
             "status":1,
-            "payDate":"28-01-2023",
-            "bill":"2000"
+            "payDate":"28-03-2023",
+            "bill":2000,
+            "due": 0
         },
         "gas":{
             "name":"gas",
             "status":1,
-            "payDate":"28-01-2023",
-            "bill":"6000"
+            "payDate":"28-03-2023",
+            "bill":6000,
+            "due": 0
+        },
+        "groceries":{
+            "name":"groceries",
+            "status":1,
+            "payDate":"28-03-2023",
+            "bill":35000,
+            "due": 0
         },
         "wifi":{
             "name":"wifi",
             "status":1,
-            "payDate":"28-01-2023",
-            "bill":"2000"
+            "payDate":"28-03-2023",
+            "bill":2000,
+            "due": 0
         },
         "record":"March-2023",
         "month":0
@@ -105,32 +120,37 @@
         "electricity":{
             "name":"electricity",
             "status":1,
-            "payDate":"28-01-2023",
-            "bill":"5000"
-        },
-        "groceries":{
-            "name":"groceries",
-            "status":1,
-            "payDate":"28-01-2023",
-            "bill":"35000"
+            "payDate":"28-04-2023",
+            "bill":5000,
+            "due": 0
         },
         "water":{
             "name":"water",
             "status":1,
-            "payDate":"28-01-2023",
-            "bill":"2000"
+            "payDate":"28-04-2023",
+            "bill":2000,
+            "due": 0
         },
         "gas":{
             "name":"gas",
             "status":0,
-            "payDate":"28-01-2023",
-            "bill":"6000"
+            "payDate":0,
+            "bill":6000,
+            "due": 0
+        },
+        "groceries":{
+            "name":"groceries",
+            "status":1,
+            "payDate":"28-04-2023",
+            "bill":35000,
+            "due": 0
         },
         "wifi":{
             "name":"wifi",
             "status":1,
-            "payDate":"28-01-2023",
-            "bill":"2000"
+            "payDate":"28-04-2023",
+            "bill":2000,
+            "due": 0
         },
         "record":"April-2023",
         "month":1

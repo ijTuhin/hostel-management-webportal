@@ -14,13 +14,13 @@ const TableHead = () => {
           scope="col"
           class="px-6 py-4 border border-white"
         >
-          Monthly Bill
+          Bill
         </th>
         <th
           scope="col"
           class="px-6 py-4 border border-white"
         >
-          Weekly Bill
+          Due
         </th>
         <th
           scope="col"
