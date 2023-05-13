@@ -53,7 +53,6 @@ const router = createBrowserRouter([
         path: "/meal",
         element: (
           <Authenticate>
-            {/* <Drawers item={1} title={"Mess Management Panel"} /> */}
             <DrawerContainer item={1} title={"Mess Management Panel"} />
           </Authenticate>
         ),
@@ -118,6 +117,7 @@ const router = createBrowserRouter([
           {
             path: "/warden/utility-bills",
             element: <WardenUtilityBillPage />,
+            loader: () => fetch(`http://localhost:5000/utility/current`),
             errorElement: <ErrorPage />,
             children: [],
           },

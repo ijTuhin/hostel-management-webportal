@@ -8,10 +8,10 @@ const TableData = ({ item }) => {
     <>
       <tr class="bg-white border-b border-zinc-200 transition duration-300 ease-in-out text-gray-900 hover:bg-zinc-50">
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.matric}
+          {item.name}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex justify-center">
-          {item.status ? (
+          {!item.status ? (
             <>
               {billInput ? (
                 <AddBill />
@@ -20,7 +20,7 @@ const TableData = ({ item }) => {
               )}
             </>
           ) : (
-            <>{item.room}</>
+            <>{item.bill}</>
           )}
         </td>
         <td
@@ -31,7 +31,7 @@ const TableData = ({ item }) => {
           {item.status ? "Paid" : "Pending"}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.date}
+          {item.payDate}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
           <button className="flex w-full justify-center items-center gap-x-1.5 hover:underline decoration-2 underline-offset-4">
