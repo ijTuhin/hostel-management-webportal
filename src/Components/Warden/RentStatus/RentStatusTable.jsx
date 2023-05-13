@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import TableHead from './TableHead';
 import TableData from './TableData';
+import { useLoaderData } from 'react-router-dom';
 
 const RentStatusTable = () => {
-    const [data, setData] = useState([]);
+  const userData = useLoaderData()
+    /* const [data, setData] = useState([]);
     useEffect(() => {
       fetch("http://localhost:5000/user")
         .then((res) => res.json())
         .then((data) => {
           setData(data);
         });
-    }, []);
+    }, []); */
     return (
       <div class="w-full flex flex-col">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -19,7 +21,7 @@ const RentStatusTable = () => {
               <table class="min-w-full text-center">
                 <TableHead />
                 <tbody>
-                  {data?.map((item) => (
+                  {userData.map((item) => (
                     <TableData key={item._id} item={item} />
                   ))}
                 </tbody>

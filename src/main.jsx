@@ -105,11 +105,13 @@ const router = createBrowserRouter([
             path: "/warden/rent-status",
             element: <RentStatusPage />,
             errorElement: <ErrorPage />,
+            loader: () => fetch(`http://localhost:5000/user`),
             children: [],
           },
           {
             path: "/warden/seat-details",
             element: <SeatDetailsPage />,
+            loader: () => fetch(`http://localhost:5000/seat`),
             errorElement: <ErrorPage />,
             children: [],
           },

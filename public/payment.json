@@ -1,41 +1,41 @@
 [
     {
         "_id":"1",
-        "email":"sameer1@sam.com",
+        "matric":"",
         "date":"17-02-2023",
-        "method":"Bkash",
+        "sector":"meal",
         "amount":"1000 Tk",
         "transaction":"jkklDDAlHJDu"
     },
     {
         "_id":"2",
-        "email":"sameer@sam.com",
+        "matric":"",
         "date":"17-01-2023",
-        "method":"Bkash",
+        "sector":"meal",
         "amount":"1650 Tk",
         "transaction":"jkklJKherseDu"
     },
     {
         "_id":"3",
-        "email":"sameer2@sam.com",
+        "matric":"",
         "date":"07-12-2022",
-        "method":"Manual",
+        "sector":"rent",
         "amount":"2050 Tk",
         "transaction":"N/A"
     },
     {
         "_id":"4",
-        "email":"sameera@sam.com",
+        "matric":"",
         "date":"07-11-2022",
-        "method":"Bkash",
+        "sector":"meal",
         "amount":"1650 Tk",
         "transaction":"TxsaDAlHJDu"
     },
     {
         "_id":"5",
-        "email":"sanju@sam.com",
+        "matric":"",
         "date":"07-10-2022",
-        "method":"Bkash",
+        "sector":"meal",
         "amount":"1650 Tk",
         "transaction":"KluxDAlHJDu"
     }
