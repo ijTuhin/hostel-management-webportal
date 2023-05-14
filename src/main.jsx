@@ -117,7 +117,7 @@ const router = createBrowserRouter([
           {
             path: "/warden/utility-bills",
             element: <WardenUtilityBillPage />,
-            loader: () => fetch(`http://localhost:5000/utility/current`),
+            loader: () => fetch(`http://localhost:5000/utility-bill`),
             errorElement: <ErrorPage />,
             children: [],
           },

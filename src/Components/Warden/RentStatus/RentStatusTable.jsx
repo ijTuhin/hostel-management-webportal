@@ -5,14 +5,6 @@ import { useLoaderData } from 'react-router-dom';
 
 const RentStatusTable = () => {
   const userData = useLoaderData()
-    /* const [data, setData] = useState([]);
-    useEffect(() => {
-      fetch("http://localhost:5000/user")
-        .then((res) => res.json())
-        .then((data) => {
-          setData(data);
-        });
-    }, []); */
     return (
       <div class="w-full flex flex-col">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
