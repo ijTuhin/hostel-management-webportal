@@ -1,0 +1,37 @@
+[
+    {
+        "name":"electricity",
+        "status":1,
+        "payDate":"28-04-2023",
+        "bill":5000,
+        "due": 0
+    },
+    {
+        "name":"water",
+        "status":1,
+        "payDate":"28-04-2023",
+        "bill":2000,
+        "due": 0
+    },
+    {
+        "name":"gas",
+        "status":0,
+        "payDate":0,
+        "bill":6000,
+        "due": 0
+    },
+    {
+        "name":"groceries",
+        "status":1,
+        "payDate":"28-04-2023",
+        "bill":35000,
+        "due": 0
+    },
+    {
+        "name":"wifi",
+        "status":1,
+        "payDate":"28-04-2023",
+        "bill":2000,
+        "due": 0
+    }
+]

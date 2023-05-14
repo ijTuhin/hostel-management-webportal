@@ -1,8 +1,28 @@
 import React from "react";
-import {SiFampay} from "react-icons/si"
-import {RxDoubleArrowRight} from "react-icons/rx"
-import PayBillBtn from "./PayBillBtn";
+import { RxDoubleArrowRight } from "react-icons/rx";
 const TableData = ({ item }) => {
+  const d = new Date();
+  const month = d.getMonth() + 1;
+  const enrolled = d.getDate() + "-" + month + "-" + d.getFullYear();
+  const updatePayBill = () => {
+    const value = {
+      status: 1,
+      payDate: enrolled,
+    };
+    fetch(`http://localhost:5000/utility-bill/${item._id}`, {
+      method: "PUT", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(value),
+    })
+      .then((response) => response.json())
+      .then((value) => {
+        console.log("DB Success:", value);
+      });
+
+    window.location.reload(true); /* *************Have to fix it************ */
+  };
   return (
     <>
       <tr class="bg-white border-b border-zinc-200 transition duration-300 ease-in-out text-gray-900 hover:bg-zinc-50">
@@ -18,14 +38,32 @@ const TableData = ({ item }) => {
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
           {parseInt(item.bill) + parseInt(item.due)}
         </td>
-        <td class={`${item.status ? "text-green-500" : ""} px-6 py-4 whitespace-nowrap text-sm font-semibold`}>
-          {item.status ? "Paid" : <div>Pending <PayBillBtn data={item}/></div>}
+        <td
+          class={`${
+            item.status ? "text-green-500" : ""
+          } px-6 py-4 whitespace-nowrap text-sm font-semibold`}
+        >
+          {item.status ? (
+            "Paid"
+          ) : (
+            <div>
+              Pending{" "}
+              <button
+                onClick={updatePayBill}
+                className="border border-gray-300 text-gray-300 font-normal px-3.5 py-1 rounded hover:bg-green-500 hover:text-white"
+              >
+                Pay
+              </button>
+            </div>
+          )}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
           {item.payDate ? <>{item.payDate}</> : "---"}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          <button className="flex w-full justify-center items-center gap-x-1.5 hover:underline decoration-2 underline-offset-4"><span className="mb-0.5">view record</span> <RxDoubleArrowRight/></button>
+          <button className="flex w-full justify-center items-center gap-x-1.5 hover:underline decoration-2 underline-offset-4">
+            <span className="mb-0.5">view record</span> <RxDoubleArrowRight />
+          </button>
         </td>
       </tr>
     </>

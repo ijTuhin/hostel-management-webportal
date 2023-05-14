@@ -4,16 +4,7 @@ import TableData from './TableData';
 import { useLoaderData } from 'react-router-dom';
 
 const UtilityTable = () => {
-  const utilityData = useLoaderData();
-  const data = Object.values(utilityData);
-    /* const [data, setData] = useState([]);
-    useEffect(() => {
-      fetch("../../../../../public/order.json")
-        .then((res) => res.json())
-        .then((data) => {
-          setData(data);
-        });
-    }, []); */
+  const data = useLoaderData();
     return (
       <div class="w-full flex flex-col">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -22,8 +13,8 @@ const UtilityTable = () => {
               <table class="min-w-full text-center">
                 <TableHead />
                 <tbody>
-                  {data?.slice(1,6).map((item) => (
-                    <TableData key={item.name} item={item} />
+                  {data.map((item) => (
+                    <TableData key={item._id} item={item} />
                   ))}
                 </tbody>
               </table>
