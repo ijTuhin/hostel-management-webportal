@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
 import { AuthContext } from "../../../Authentications/Authenticate/UserContext";
 
-const Create = ({ setSignupData, signupData, setCreateAcc }) => {
-  const data = signupData;
+const Create = () => {
+  const [value, setValue] = useOutletContext();
   const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -13,8 +13,25 @@ const Create = ({ setSignupData, signupData, setCreateAcc }) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const displayName = e.target.displayName.value;
-    createUser(email, password, displayName)
+
+    
+    /* ************************************ */
+    fetch("http://localhost:3001/user/signup", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(value),
+    })
+      .then((response) => response.json())
+      .then((value) => {
+        console.log("DB Success:", value);
+      });
+    /* ************************************ */
+
+
+    // const displayName = e.target.displayName.value;
+    createUser(email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
@@ -25,6 +42,7 @@ const Create = ({ setSignupData, signupData, setCreateAcc }) => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        console.log(errorCode, errorMessage)
         // ..
       });
   };
@@ -33,14 +51,14 @@ const Create = ({ setSignupData, signupData, setCreateAcc }) => {
     <div className='w-full h-full flex justify-center p-40 space-y-4 bg-gray-50'>
       <form
         onSubmit={handleCreateUser} className="flex flex-col w-96 gap-4">
-          <input
+          {/* <input
             className="border-b border-teal-600 outline-transparent px-2 py-1.5 bg-inherit"
             type="text"
             name="displayName"
             id="username"
             placeholder="Username"
             required
-          />
+          /> */}
           <input
             className="border-b border-teal-600 outline-transparent px-2 py-1.5 bg-inherit"
             type="email"

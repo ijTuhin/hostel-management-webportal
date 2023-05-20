@@ -3,31 +3,6 @@ import { NavLink, useOutletContext } from "react-router-dom";
 
 const Overview = () => {
   const [value, setValue] = useOutletContext();
-  const d = new Date();
-  const date = d.getDate();
-  const month = d.getMonth() + 1;
-  const year = d.getFullYear();
-  const enrolled = d.getDate() + "/" + month + "/" + d.getFullYear();
-  const handlePostData = () => {
-    setValue({
-      ...value,
-      enrollDate: enrolled,
-    });
-
-    /* ************************************ */
-    fetch("http://localhost:5000/user", {
-      method: "POST", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(value),
-    })
-      .then((response) => response.json())
-      .then((value) => {
-        console.log("DB Success:", value);
-      });
-    /* ************************************ */
-  };
   return (
     <div className="w-full h-full py-14 px-40 space-y-4 bg-gray-50">
       <div className="grid grid-cols-2 border-b border-slate-200 py-3.5">
@@ -118,7 +93,6 @@ const Overview = () => {
           <NavLink to="/users/create/academic">Cancel</NavLink>
         </button>
         <button
-          onClick={handlePostData}
           type="button"
           className="border-2 rounded-md px-8 py-1.5 bg-teal-600 hover:bg-teal-700 text-white"
         >

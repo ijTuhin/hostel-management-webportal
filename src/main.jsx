@@ -31,6 +31,7 @@ import WardenUtilityBillPage from "./Components/Warden/UtilityBill/WardenUtility
 import RoomAllocationPage from "./Components/Warden/RoomAllocation/RoomAllocationPage";
 import AttendancePage from "./Components/Warden/Attendance/AttendancePage";
 import UsersPage from "./Components/Users/UsersPage";
+import Demo from "./Components/Demo/Demo";
 
 const m = new Date().getMonth();
 const months = [
@@ -277,9 +278,7 @@ const router = createBrowserRouter([
       {
         path: "/create-notice",
         element: (
-          <Authenticate>
-            <HomePage />
-          </Authenticate>
+          <Demo/>
         ),
         errorElement: <ErrorPage />,
         children: [],
