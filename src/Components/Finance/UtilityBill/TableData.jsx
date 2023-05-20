@@ -1,11 +1,12 @@
 import React from "react";
 import { RxDoubleArrowRight } from "react-icons/rx";
 const TableData = ({ item }) => {
+  const total = item.bill + item.Due
   const d = new Date();
   const month = d.getMonth() + 1;
   const enrolled = d.getDate() + "-" + month + "-" + d.getFullYear();
   const updatePayBill = () => {
-    const value = {
+    /* const value = {
       status: 1,
       payDate: enrolled,
     };
@@ -21,7 +22,7 @@ const TableData = ({ item }) => {
         console.log("DB Success:", value);
       });
 
-    window.location.reload(true); /* *************Have to fix it************ */
+    window.location.reload(true); */ /* *************Have to fix it************ */
   };
   return (
     <>
@@ -33,17 +34,17 @@ const TableData = ({ item }) => {
           {item.bill}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.due}
+          {item.Due}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {parseInt(item.bill) + parseInt(item.due)}
+          {total}
         </td>
         <td
           class={`${
-            item.status ? "text-green-500" : ""
+            !item.status ? "text-green-500" : ""
           } px-6 py-4 whitespace-nowrap text-sm font-semibold`}
         >
-          {item.status ? (
+          {!item.status ? (
             "Paid"
           ) : (
             <div>
@@ -58,7 +59,7 @@ const TableData = ({ item }) => {
           )}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.payDate ? <>{item.payDate}</> : "---"}
+          {item.Date}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
           <button className="flex w-full justify-center items-center gap-x-1.5 hover:underline decoration-2 underline-offset-4">

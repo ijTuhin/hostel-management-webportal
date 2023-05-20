@@ -11,7 +11,7 @@ const TableData = ({ item }) => {
           {item.name}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex justify-center">
-          {!item.status ? (
+          {item.status ? (
             <>
               {billInput ? (
                 <AddBill />
@@ -25,13 +25,13 @@ const TableData = ({ item }) => {
         </td>
         <td
           class={`${
-            item.status ? "text-green-500" : "text-gray-300"
+            !item.status ? "text-green-500" : "text-gray-300"
           } px-6 py-4 whitespace-nowrap text-sm font-semibold`}
         >
-          {item.status ? "Paid" : "Pending"}
+          {!item.status ? "Paid" : "Pending"}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.payDate}
+          {item.Date}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
           <button className="flex w-full justify-center items-center gap-x-1.5 hover:underline decoration-2 underline-offset-4">

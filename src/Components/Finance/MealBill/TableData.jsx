@@ -15,13 +15,13 @@ const TableData = ({ item }) => {
           {item.room}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.room}
+          {item.bill}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.room}
+          {item.date}
         </td>
-        <td class={`${item.status ? "text-pink-500" : "text-gray-500"} px-6 py-4 whitespace-nowrap text-sm font-semibold flex justify-center`}>
-          {item.status ? <SiFampay /> : "Manual"}
+        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+          {item.transaction}
         </td>
         <td class={`${item.status ? "text-green-500" : "text-gray-300"} px-6 py-4 whitespace-nowrap text-sm font-semibold`}>
           {item.status ? "Received" : <div>Pending <button className="border px-2 py-1 rounded hover:bg-red-500 hover:text-white">Change</button></div>}

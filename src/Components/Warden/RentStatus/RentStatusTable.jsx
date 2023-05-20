@@ -5,6 +5,7 @@ import { useLoaderData } from 'react-router-dom';
 
 const RentStatusTable = () => {
   const userData = useLoaderData()
+  console.log(userData)
     return (
       <div class="w-full flex flex-col">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -13,7 +14,7 @@ const RentStatusTable = () => {
               <table class="min-w-full text-center">
                 <TableHead />
                 <tbody>
-                  {userData.map((item) => (
+                  {userData?.map((item) => (
                     <TableData key={item._id} item={item} />
                   ))}
                 </tbody>

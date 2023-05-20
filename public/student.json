@@ -9,13 +9,11 @@
         "last":"Spr'22",
         "phone":"22223334",
         "room":"506",
-        "meal":1,
-        "coupon":0,
-        "rent":1,
+        "meal":true,
+        "rent":true,
         "district":"Dhaka",
         "thana":"Gazipur",
-        "address":"BoroBhabanipur. 1346. Dhaka Gazipur.",
-        "enrollDate":"5/5/2023"
+        "address":"BoroBhabanipur. 1346. Dhaka Gazipur."
     },
     {
         "name":"Asfia Najnin",
@@ -27,13 +25,11 @@
         "last":"Spr'22",
         "phone":"22223334",
         "room":"506",
-        "meal":0,
-        "coupon":0,
-        "rent":1,
+        "meal":false,
+        "rent":true,
         "district":"Dhaka",
         "thana":"Gazipur",
-        "address":"BoroBhabanipur. 1346. Dhaka Gazipur.",
-        "enrollDate":"5/5/2023"
+        "address":"BoroBhabanipur. 1346. Dhaka Gazipur."
     },
     {
         "name":"Fairoz Jalal",
@@ -45,13 +41,11 @@
         "last":"Spr'22",
         "phone":"22223334",
         "room":"506",
-        "meal":1,
-        "coupon":0,
-        "rent":1,
+        "meal":true,
+        "rent":true,
         "district":"Dhaka",
         "thana":"Gazipur",
-        "address":"BoroBhabanipur. 1346. Dhaka Gazipur.",
-        "enrollDate":"5/5/2023"
+        "address":"BoroBhabanipur. 1346. Dhaka Gazipur."
     },
     {
         "name":"Asfia Najnin",
@@ -63,13 +57,11 @@
         "last":"Spr'22",
         "phone":"22223334",
         "room":"506",
-        "meal":1,
-        "coupon":0,
-        "rent":1,
+        "meal":true,
+        "rent":true,
         "district":"Dhaka",
         "thana":"Gazipur",
-        "address":"BoroBhabanipur. 1346. Dhaka Gazipur.",
-        "enrollDate":"5/5/2023"
+        "address":"BoroBhabanipur. 1346. Dhaka Gazipur."
     },
     {
         "name":"Fairoz Jalal",
@@ -81,13 +73,11 @@
         "last":"Spr'22",
         "phone":"22223334",
         "room":"506",
-        "meal":1,
-        "coupon":0,
-        "rent":0,
+        "meal":true,
+        "rent":false,
         "district":"Dhaka",
         "thana":"Gazipur",
-        "address":"BoroBhabanipur. 1346. Dhaka Gazipur.",
-        "enrollDate":"5/5/2023"
+        "address":"BoroBhabanipur. 1346. Dhaka Gazipur."
     },
     {
         "name":"Sanjida Islam",
@@ -99,13 +89,11 @@
         "last":"Spr'22",
         "phone":"22223334",
         "room":"506",
-        "meal":0,
-        "coupon":0,
-        "rent":0,
+        "meal":false,
+        "rent":false,
         "district":"Dhaka",
         "thana":"Gazipur",
-        "address":"BoroBhabanipur. 1346. Dhaka Gazipur.",
-        "enrollDate":"5/5/2023"
+        "address":"BoroBhabanipur. 1346. Dhaka Gazipur."
     },
     {
         "name":"Asfia Najnin",
@@ -117,13 +105,11 @@
         "last":"Spr'22",
         "phone":"22223334",
         "room":"506",
-        "meal":1,
-        "coupon":0,
-        "rent":0,
+        "meal":true,
+        "rent":false,
         "district":"Dhaka",
         "thana":"Gazipur",
-        "address":"BoroBhabanipur. 1346. Dhaka Gazipur.",
-        "enrollDate":"5/5/2023"
+        "address":"BoroBhabanipur. 1346. Dhaka Gazipur."
     },
     {
         "name":"Sanjida Islam",
@@ -135,13 +121,11 @@
         "last":"Spr'22",
         "phone":"22223334",
         "room":"506",
-        "meal":0,
-        "coupon":0,
-        "rent":1,
+        "meal":false,
+        "rent":true,
         "district":"Dhaka",
         "thana":"Gazipur",
-        "address":"BoroBhabanipur. 1346. Dhaka Gazipur.",
-        "enrollDate":"5/5/2023"
+        "address":"BoroBhabanipur. 1346. Dhaka Gazipur."
     },
     {
         "name":"Asfia Najnin",
@@ -153,13 +137,11 @@
         "last":"Spr'22",
         "phone":"22223334",
         "room":"506",
-        "meal":1,
-        "coupon":0,
-        "rent":1,
+        "meal":true,
+        "rent":true,
         "district":"Dhaka",
         "thana":"Gazipur",
-        "address":"BoroBhabanipur. 1346. Dhaka Gazipur.",
-        "enrollDate":"5/5/2023"
+        "address":"BoroBhabanipur. 1346. Dhaka Gazipur."
     },
     {
         "name":"Sanjida Islam",
@@ -171,13 +153,11 @@
         "last":"Spr'22",
         "phone":"22223334",
         "room":"506",
-        "meal":1,
-        "coupon":0,
-        "rent":1,
+        "meal":true,
+        "rent":true,
         "district":"Dhaka",
         "thana":"Gazipur",
-        "address":"BoroBhabanipur. 1346. Dhaka Gazipur.",
-        "enrollDate":"5/5/2023"
+        "address":"BoroBhabanipur. 1346. Dhaka Gazipur."
     },
     {
         "name":"Fairoz Jalal",
@@ -189,13 +169,11 @@
         "last":"Spr'22",
         "phone":"22223334",
         "room":"506",
-        "meal":0,
-        "coupon":0,
-        "rent":0,
+        "meal":false,
+        "rent":false,
         "district":"Dhaka",
         "thana":"Gazipur",
-        "address":"BoroBhabanipur. 1346. Dhaka Gazipur.",
-        "enrollDate":"5/5/2023"
+        "address":"BoroBhabanipur. 1346. Dhaka Gazipur."
     },
     {
         "name":"Amena Rahman",
@@ -207,13 +185,11 @@
         "last":"Spr'22",
         "phone":"22223334",
         "room":"506",
-        "meal":1,
-        "coupon":0,
-        "rent":1,
+        "meal":true,
+        "rent":true,
         "district":"Dhaka",
         "thana":"Gazipur",
-        "address":"BoroBhabanipur. 1346. Dhaka Gazipur.",
-        "enrollDate":"5/5/2023"
+        "address":"BoroBhabanipur. 1346. Dhaka Gazipur."
     },
     {
         "name":"Ismat Ara",
@@ -225,12 +201,10 @@
         "last":"Spr'22",
         "phone":"22223334",
         "room":"506",
-        "meal":0,
-        "coupon":0,
-        "rent":1,
+        "meal":false,
+        "rent":true,
         "district":"Dhaka",
         "thana":"Gazipur",
-        "address":"K.B Aman Ali road, Rahattarpul, Chattogram, 4000.",
-        "enrollDate":"5/5/2023"
+        "address":"K.B Aman Ali road, Rahattarpul, Chattogram, 4000."
     }
 ]

@@ -26,7 +26,7 @@ const TableHead = () => {
           scope="col"
           class="px-6 py-4 border border-white"
         >
-          Paid rent
+          Bill Amount
         </th>
         <th
           scope="col"
@@ -38,7 +38,7 @@ const TableHead = () => {
           scope="col"
           class="px-6 py-4 border border-white"
         >
-          Payment Method
+          Transaction ID
         </th>
         <th
           scope="col"

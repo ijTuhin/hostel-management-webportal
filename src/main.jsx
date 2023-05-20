@@ -32,6 +32,11 @@ import RoomAllocationPage from "./Components/Warden/RoomAllocation/RoomAllocatio
 import AttendancePage from "./Components/Warden/Attendance/AttendancePage";
 import UsersPage from "./Components/Users/UsersPage";
 
+const m = new Date().getMonth();
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+const month = months[m];
+const date = new Date().toLocaleDateString();
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -68,6 +73,7 @@ const router = createBrowserRouter([
             path: "/meal/payment-status",
             element: <PaymentStatusPage />,
             errorElement: <ErrorPage />,
+            loader: () => fetch(`http://localhost:3001/user/meal`),
             children: [],
           },
           {
@@ -104,20 +110,20 @@ const router = createBrowserRouter([
             path: "/warden/rent-status",
             element: <RentStatusPage />,
             errorElement: <ErrorPage />,
-            loader: () => fetch(`http://localhost:5000/user`),
+            loader: () => fetch(`http://localhost:3001/user/rent`),
             children: [],
           },
           {
             path: "/warden/seat-details",
             element: <SeatDetailsPage />,
-            loader: () => fetch(`http://localhost:5000/seat`),
+            loader: () => fetch(`http://localhost:3001/seat`),
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "/warden/utility-bills",
             element: <WardenUtilityBillPage />,
-            loader: () => fetch(`http://localhost:5000/utility-bill`),
+            loader: () => fetch(`http://localhost:3001/utility?month=${month}`),
             errorElement: <ErrorPage />,
             children: [],
           },
@@ -143,12 +149,14 @@ const router = createBrowserRouter([
             path: "/finance-management/meal-bill",
             element: <MealBillPage />,
             errorElement: <ErrorPage />,
+            loader: () => fetch(`http://localhost:3001/payment?item=meal`),
             children: [],
           },
           {
             path: "/finance-management/seat-rent",
             element: <SeatRentPage />,
             errorElement: <ErrorPage />,
+            loader: () => fetch(`http://localhost:3001/payment?item=rent`),
             children: [],
           },
           {
@@ -160,7 +168,7 @@ const router = createBrowserRouter([
           {
             path: "/finance-management/utility-bills",
             element: <UtilityBillPage />,
-            loader: () => fetch(`http://localhost:5000/utility-bill`),
+            loader: () => fetch(`http://localhost:3001/utility?month=${month}`),
             errorElement: <ErrorPage />,
             children: [],
           },

@@ -14,8 +14,8 @@ const TableData = ({ item }) => {
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
           {item.room}
         </td>
-        <td class={`${item.status ? "text-green-500" : "text-red-500"} px-6 py-4 whitespace-nowrap text-sm font-semibold flex justify-center`}>
-          {item.status ? <AiOutlineCheck /> : <RxCross2 />}
+        <td class={`${item.meal ? "text-green-500" : "text-red-500"} px-6 py-4 whitespace-nowrap text-sm font-semibold flex justify-center`}>
+          {item.meal ? <AiOutlineCheck /> : <RxCross2 />}
         </td>
       </tr>
     </>
