@@ -14,14 +14,14 @@ const DrawerContainer = ({ item, title }) => {
           {title}
         </div>
       )}
-      <div className="grid grid-cols-6 h-screen">
-        <div className={`${ title ? "" : "mr-1"} h-full shadow-md text-gray-500`}>
+      <div className={`grid h-screen ${ title ? "grid-cols-6" : "grid-cols-4"} `}>
+        <div className="h-full shadow-md text-gray-500">
           {item === 1 && <MealDrawer />}
           {item === 2 && <WardenDrawer />}
           {item === 3 && <FinanceDrawer />}
           {item === 4 && <CreateUserDrawer />}
         </div>
-        <div className="col-span-5">
+        <div className={`${ title ? "col-span-5" : "col-span-3"} `}>
           <Outlet context={[value, setValue]} />
         </div>
       </div>

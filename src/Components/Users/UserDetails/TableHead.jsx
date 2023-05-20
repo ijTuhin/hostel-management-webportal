@@ -26,6 +26,12 @@ const TableHead = () => {
           scope="col"
           class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
         >
+          Semester
+        </th>
+        <th
+          scope="col"
+          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+        >
           Room No.
         </th>
         <th
@@ -33,30 +39,6 @@ const TableHead = () => {
           class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
         >
           Enrollment
-        </th>
-        <th
-          scope="col"
-          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-        >
-          Session
-        </th>
-        <th
-          scope="col"
-          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-        >
-          Validity till
-        </th>
-        <th
-          scope="col"
-          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-        >
-          Payment
-        </th>
-        <th
-          scope="col"
-          class="text-sm font-medium text-gray-900 px-6 py-4 text-center"
-        >
-          Phone No.
         </th>
         <th
           scope="col"

@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 
 const CreateUserDrawer = () => {
   return (
-    <ul className="space-y-2  px-2">
+    <ul className="space-y-2 px-2">
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
           to="/users/create/academic"

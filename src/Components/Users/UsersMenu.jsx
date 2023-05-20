@@ -3,7 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const UsersMenu = () => {
   return (
-    <nav className="w-full text-gray-200 grid grid-cols-6 text-center gap-x-[0.05rem]">
+    <nav className="w-full text-gray-200 grid grid-cols-4 text-center gap-x-[0.05rem]">
       <NavLink
         to="/users/create"
         className={({ isActive }) =>
@@ -37,7 +37,7 @@ const UsersMenu = () => {
         Manage User
       </NavLink>
 
-      <NavLink
+      {/* <NavLink
         to="/users/non-residents"
         className={({ isActive }) =>
           isActive
@@ -46,9 +46,9 @@ const UsersMenu = () => {
         }
       >
         Non-residents
-      </NavLink>
+      </NavLink> */}
 
-      <NavLink
+      {/* <NavLink
         to="/users/manage-account"
         className={({ isActive }) =>
           isActive
@@ -57,7 +57,7 @@ const UsersMenu = () => {
         }
       >
         Manage Account
-      </NavLink>
+      </NavLink> */}
 
       <NavLink
         to="/users/anonymous-feedback"

@@ -10,7 +10,7 @@ import Authenticate from "./Authentications/Authenticate/Authenticate";
 import UserContext from "./Authentications/Authenticate/UserContext";
 import LoginPage from "./Pages/LoginPage";
 import UserDetails from "./Components/Users/UserDetails/UserDetails";
-import ManageAccount from "./Components/Users/ManageAccount/ManageAccount";
+import ManageUser from "./Components/Users/ManageUser/ManageUser";
 import Feedback from "./Components/Users/Feedback/Feedback";
 import AcademicData from "./Components/Users/CreateNewUser/AcademicData";
 import PersonalData from "./Components/Users/CreateNewUser/PersonalData";
@@ -33,7 +33,20 @@ import AttendancePage from "./Components/Warden/Attendance/AttendancePage";
 import UsersPage from "./Components/Users/UsersPage";
 
 const m = new Date().getMonth();
-const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 const month = months[m];
 const date = new Date().toLocaleDateString();
 
@@ -200,11 +213,12 @@ const router = createBrowserRouter([
             path: "/users/detail",
             element: <UserDetails />,
             errorElement: <ErrorPage />,
+            loader: () => fetch(`http://localhost:3001/user/data`),
             children: [],
           },
           {
             path: "/users/manage-account",
-            element: <ManageAccount />,
+            element: <ManageUser />,
             errorElement: <ErrorPage />,
             children: [],
           },
@@ -241,7 +255,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/users/manage-user",
-            element: <ManageAccount />,
+            element: <ManageUser />,
             errorElement: <ErrorPage />,
             children: [],
           },
@@ -253,7 +267,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/users/non-residents",
-            element: <ManageAccount />,
+            element: <ManageUser />,
             errorElement: <ErrorPage />,
             children: [],
           },
