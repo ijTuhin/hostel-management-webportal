@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Demo = () => {
+  const navigate = useNavigate();
   const mealBill = () => {
     const value = {
         item: "meal"
@@ -9,13 +11,18 @@ const Demo = () => {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem('access-token')}`
       },
       body: JSON.stringify(value),
     })
       .then((response) => response.json())
       .then((value) => {
         console.log("Meal Bill:", value);
-      });
+      })
+      .catch(()=>{
+        console.log("Authentication failed!")
+        navigate("/", { replace: true });
+      })
   };
   return (
     <div className="pt-[4.35rem] flex flex-col items-center space-y-2">
