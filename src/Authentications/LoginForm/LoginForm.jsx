@@ -6,17 +6,37 @@ const LoginForm = () => {
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = /* location.state?.from?.pathname || */ "/";
 
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const value = {
+      email,
+      password,
+    };
+
     signIn(email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log("Successfully Logged in!");
+
+        /* ************************************ */
+        fetch("http://localhost:3001/user/login", {
+          method: "POST", // or 'PUT'
+          headers: {
+            Authorization: "Bearer my-token",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(value),
+        })
+          .then((response) => response.json())
+          .then((value) => {
+            console.log(value.message);
+            localStorage.setItem("access token", value.token);
+          });
+        /* ************************************ */
         navigate(from, { replace: true });
       })
       .catch((error) => {

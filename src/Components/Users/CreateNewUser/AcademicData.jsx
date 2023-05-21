@@ -34,7 +34,7 @@ const AcademicData = () => {
             />
             <input
               className="border-2 border-slate-300 outline-teal-500 bg-white px-2 py-1.5 w-80 rounded"
-              name="gsuit"
+              name="email"
               onChange={updateData}
               placeholder="Enter Gsuite"
             />

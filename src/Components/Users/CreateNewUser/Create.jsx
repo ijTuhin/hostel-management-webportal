@@ -7,13 +7,14 @@ const Create = () => {
   const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = /* location.state?.from?.pathname || */ "/";
 
   const handleCreateUser = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-
+    setValue({...value, password: password})
+    console.log(value, password)
     
     /* ************************************ */
     fetch("http://localhost:3001/user/signup", {
