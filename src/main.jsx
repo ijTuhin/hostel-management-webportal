@@ -94,6 +94,7 @@ const router = createBrowserRouter([
             path: "/meal/grocery-list",
             element: <GroceriesPage />,
             errorElement: <ErrorPage />,
+            loader: () => fetch(`http://localhost:3001/grocery?month=${month}`),
             children: [],
           },
           {

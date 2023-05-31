@@ -1,8 +1,9 @@
 import React from "react";
+import AddItemBtn from "./AddItemBtn";
 
 const AddItemForm = () => {
   return (
-    <div>
+    <div className="w-fit flex justify-center">
       <form className="space-y-1">
         <label htmlFor="itemName">Grocery Item</label>
         <input
@@ -43,9 +44,9 @@ const AddItemForm = () => {
             </div>
           </div>
         </div>
-        <div className="border-t border-gray-400 flex justify-between">
-          <p>Total Cost</p>
-          <p>= <span>2300</span> Taka</p>
+        <div className="border-t border-gray-400 flex justify-between items-center">
+          <p>Cost = <span>2300</span> Taka</p>
+          <AddItemBtn/>
         </div>
       </form>
     </div>
