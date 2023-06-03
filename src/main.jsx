@@ -48,7 +48,7 @@ const months = [
   "Nov",
   "Dec",
 ];
-const month = months[m];
+const month = months[new Date().getMonth()] + "-" + new Date().getFullYear();
 const date = new Date().toLocaleDateString();
 
 const router = createBrowserRouter([
@@ -113,6 +113,7 @@ const router = createBrowserRouter([
             <DrawerContainer item={2} title={"Warden Panel"} />
           </Authenticate>
         ),
+        loader: () => fetch(`http://localhost:3001/utility?month=${month}`),
         errorElement: <ErrorPage />,
         children: [
           {
@@ -158,6 +159,7 @@ const router = createBrowserRouter([
             <DrawerContainer item={3} title={"Finance Management Panel"} />
           </Authenticate>
         ),
+        loader: () => fetch(`http://localhost:3001/utility?month=${month}`),
         errorElement: <ErrorPage />,
         children: [
           {
@@ -278,9 +280,7 @@ const router = createBrowserRouter([
 
       {
         path: "/create-notice",
-        element: (
-          <Demo/>
-        ),
+        element: <Demo />,
         errorElement: <ErrorPage />,
         children: [],
       },
@@ -295,9 +295,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <UserContext>
-      <RouterProvider router={router} />
-    </UserContext>
-  </React.StrictMode>
+  <UserContext>
+    <RouterProvider router={router} />
+  </UserContext>
 );
