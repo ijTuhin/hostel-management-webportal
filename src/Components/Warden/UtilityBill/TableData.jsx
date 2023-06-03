@@ -11,10 +11,10 @@ const TableData = ({ item }) => {
           {item.name}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex justify-center">
-          {item.status ? (
+          {!item.bill ? (
             <>
               {billInput ? (
-                <AddBill />
+                <AddBill id={item._id} setBillInput={setBillInput} />
               ) : (
                 <AddBillBtn setBillInput={setBillInput} />
               )}
