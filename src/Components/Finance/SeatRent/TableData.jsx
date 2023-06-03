@@ -5,14 +5,14 @@ const TableData = ({ item }) => {
   return (
     <>
       <tr class="bg-white border-b border-blue-200 transition duration-300 ease-in-out text-gray-900 hover:bg-green-50">
-        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.matric}
+      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+          {item.user.matric}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.dept}
+          {item.user.dept}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.room}
+          {item.user.room}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
           {item.bill}
