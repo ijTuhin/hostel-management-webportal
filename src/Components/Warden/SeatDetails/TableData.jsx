@@ -1,6 +1,7 @@
 import React from "react";
-import {SiFampay} from "react-icons/si"
-import {RxDoubleArrowRight} from "react-icons/rx"
+import { SiFampay } from "react-icons/si";
+import { RxDoubleArrowRight } from "react-icons/rx";
+import SeatUser from "./SeatUser";
 const TableData = ({ item }) => {
   return (
     <>
@@ -9,46 +10,46 @@ const TableData = ({ item }) => {
           {item.room}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {
-            item.member[1] ? <button className="flex w-full justify-center items-center gap-x-1.5 hover:underline decoration-2 underline-offset-4 uppercase"><span className="mb-0.5">{item.member[1]}</span> <RxDoubleArrowRight/></button>
-            :
+          {item.member[1] ? (
+            <SeatUser id={item.member[1]} />
+          ) : (
             <p className="text-red-500 font-semibold">vacant</p>
-          }
+          )}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {
-            item.member[2] ? <button className="flex w-full justify-center items-center gap-x-1.5 hover:underline decoration-2 underline-offset-4 uppercase"><span className="mb-0.5">{item.member[2]}</span> <RxDoubleArrowRight/></button>
-            :
+          {item.member[2] ? (
+            <SeatUser id={item.member[2]} />
+          ) : (
             <p className="text-red-500 font-semibold">vacant</p>
-          }
+          )}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {
-            item.member[3] ? <button className="flex w-full justify-center items-center gap-x-1.5 hover:underline decoration-2 underline-offset-4 uppercase"><span className="mb-0.5">{item.member[3]}</span> <RxDoubleArrowRight/></button>
-            :
+          {item.member[3] ? (
+            <SeatUser id={item.member[3]} />
+          ) : (
             <p className="text-red-500 font-semibold">vacant</p>
-          }
+          )}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {
-            item.member[4] ? <button className="flex w-full justify-center items-center gap-x-1.5 hover:underline decoration-2 underline-offset-4 uppercase"><span className="mb-0.5">{item.member[4]}</span> <RxDoubleArrowRight/></button>
-            :
+          {item.member[4] ? (
+            <SeatUser id={item.member[4]} />
+          ) : (
             <p className="text-red-500 font-semibold">vacant</p>
-          }
+          )}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {
-            item.member[5] ? <button className="flex w-full justify-center items-center gap-x-1.5 hover:underline decoration-2 underline-offset-4 uppercase"><span className="mb-0.5">{item.member[5]}</span> <RxDoubleArrowRight/></button>
-            :
+          {item.member[5] ? (
+            <SeatUser id={item.member[5]} />
+          ) : (
             <p className="text-red-500 font-semibold">vacant</p>
-          }
+          )}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {
-            item.member[6] ? <button className="flex w-full justify-center items-center gap-x-1.5 hover:underline decoration-2 underline-offset-4 uppercase"><span className="mb-0.5">{item.member[6]}</span> <RxDoubleArrowRight/></button>
-            :
+          {item.member[6] ? (
+            <SeatUser id={item.member[6]} />
+          ) : (
             <p className="text-red-500 font-semibold">vacant</p>
-          }
+          )}
         </td>
       </tr>
     </>
