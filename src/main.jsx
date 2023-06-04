@@ -126,7 +126,7 @@ const router = createBrowserRouter([
             path: "/warden/rent-status",
             element: <RentStatusPage />,
             errorElement: <ErrorPage />,
-            loader: () => fetch(`http://localhost:3001/user/rent`),
+            loader: () => fetch(`http://localhost:3001/payment?month=${month}&item=rent`),
             children: [],
           },
           {
