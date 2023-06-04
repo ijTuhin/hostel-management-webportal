@@ -2,7 +2,6 @@ import React from "react";
 import { SiFampay } from "react-icons/si";
 import { RxDoubleArrowRight } from "react-icons/rx";
 const TableData = ({ item }) => {
-  const m = new Date().getMonth();
   const months = [
     "Jan",
     "Feb",
@@ -17,7 +16,7 @@ const TableData = ({ item }) => {
     "Nov",
     "Dec",
   ];
-  const month = months[m-1] + "-" + new Date().getFullYear();
+  const month = months[new Date().getMonth()] + "-" + new Date().getFullYear();
   let status = 0;
   let salary = item.record[item.record.length -1]
   console.log(item.record[item.record.length -1])
