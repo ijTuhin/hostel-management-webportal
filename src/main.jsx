@@ -191,6 +191,7 @@ const router = createBrowserRouter([
           {
             path: "/finance-management/salaries",
             element: <SalariesPage />,
+            loader: () => fetch(`http://localhost:3001/staff`),
             errorElement: <ErrorPage />,
             children: [],
           },

@@ -20,25 +20,19 @@ const TableHead = () => {
           scope="col"
           class="px-6 py-4 border border-white"
         >
+          Salary
+        </th>
+        <th
+          scope="col"
+          class="px-6 py-4 border border-white"
+        >
           Payment Status
         </th>
         <th
           scope="col"
           class="px-6 py-4 border border-white"
         >
-          Paid Salary
-        </th>
-        <th
-          scope="col"
-          class="px-6 py-4 border border-white"
-        >
           Payment Date
-        </th>
-        <th
-          scope="col"
-          class="px-6 py-4 border border-white"
-        >
-          Payment Method
         </th>
         <th
           scope="col"
