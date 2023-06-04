@@ -64,6 +64,7 @@ const router = createBrowserRouter([
             <HomePage />
           </Authenticate>
         ),
+        loader: () => fetch(`http://localhost:3001/utility?month=${month}`),
         errorElement: <ErrorPage />,
         children: [],
       },
@@ -113,7 +114,6 @@ const router = createBrowserRouter([
             <DrawerContainer item={2} title={"Warden Panel"} />
           </Authenticate>
         ),
-        loader: () => fetch(`http://localhost:3001/utility?month=${month}`),
         errorElement: <ErrorPage />,
         children: [
           {
@@ -159,7 +159,6 @@ const router = createBrowserRouter([
             <DrawerContainer item={3} title={"Finance Management Panel"} />
           </Authenticate>
         ),
-        loader: () => fetch(`http://localhost:3001/utility?month=${month}`),
         errorElement: <ErrorPage />,
         children: [
           {

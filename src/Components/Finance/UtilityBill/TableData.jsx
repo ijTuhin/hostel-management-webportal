@@ -1,28 +1,18 @@
 import React from "react";
 import { RxDoubleArrowRight } from "react-icons/rx";
 const TableData = ({ item }) => {
-  const total = item.bill + item.due
-  const d = new Date();
-  const month = d.getMonth() + 1;
-  const enrolled = d.getDate() + "-" + month + "-" + d.getFullYear();
+  const total = item.bill + item.due.bill;
   const updatePayBill = () => {
-    /* const value = {
-      status: 1,
-      payDate: enrolled,
-    };
-    fetch(`http://localhost:5000/utility-bill/${item._id}`, {
+    fetch(`http://localhost:3001/utility/pay-due/${item._id}`, {
       method: "PUT", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
-      },
-      body: JSON.stringify(value),
+      }
     })
       .then((response) => response.json())
-      .then((value) => {
-        console.log("DB Success:", value);
+      .then((item) => {
+        console.log(item);
       });
-
-    window.location.reload(true); */ /* *************Have to fix it************ */
   };
   return (
     <>
@@ -34,11 +24,9 @@ const TableData = ({ item }) => {
           {item.bill}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.due}
+          {item.due.bill}
         </td>
-        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {total}
-        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">{total}</td>
         <td
           class={`${
             !item.status ? "text-green-500" : ""

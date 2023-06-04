@@ -2,10 +2,9 @@ import React, { useState } from "react";
 
 const AddBill = ({ setBillInput, id }) => {
   const [bill, setBill] = useState("");
-  const [billBtn, setBillBtn] = useState(false);
   const handleInput = (event) => {
+    setBill(event.target.value);
     if (event.keyCode == 13) {
-      setBill(event.target.value);
       fetch(`http://localhost:3001/utility/insert-bill/${id}`, {
         method: "PUT", // or 'PUT'
         headers: {
