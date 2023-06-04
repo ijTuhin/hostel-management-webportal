@@ -6,9 +6,9 @@ import Debit from "./Debit";
 const BalanceSheetPage = () => {
   const data = useLoaderData();
   return (
-    <div className="px-32 py-12 grid grid-cols-2 gap-x-1">
-      <Debit data={data}/>
-      <Credit data={data}/>
+    <div className="px-32 py-12 grid grid-cols-2">
+      <Debit data={data} />
+      <Credit data={data} />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 
 const Debit = ({ data }) => {
   return (
-    <div className="border-2 border-b-0 w-full">
+    <div className="border border-b-0 border-gray-400 w-full">
       <p className="w-full py-3 bg-gray-400 text-center">Debit</p>
       <div className="h-full flex flex-col justify-between">
         <div className="px-10 py-5 space-y-2">
@@ -26,7 +26,9 @@ const Debit = ({ data }) => {
             </div>
           </div>
         </div>
-        <p className="flex justify-end border-t-2 px-8 py-2">= {data.debit}/-</p>
+        <p className="flex justify-end border-t-2 px-8 py-2">
+          = {data.debit}/-
+        </p>
       </div>
     </div>
   );
