@@ -165,14 +165,14 @@ const router = createBrowserRouter([
             path: "/finance-management/meal-bill",
             element: <MealBillPage />,
             errorElement: <ErrorPage />,
-            loader: () => fetch(`http://localhost:3001/payment?item=meal`),
+            loader: () => fetch(`http://localhost:3001/payment?month=${month}&item=meal`),
             children: [],
           },
           {
             path: "/finance-management/seat-rent",
             element: <SeatRentPage />,
             errorElement: <ErrorPage />,
-            loader: () => fetch(`http://localhost:3001/payment?item=rent`),
+            loader: () => fetch(`http://localhost:3001/payment?month=${month}&item=rent`),
             children: [],
           },
           {
