@@ -32,6 +32,7 @@ import RoomAllocationPage from "./Components/Warden/RoomAllocation/RoomAllocatio
 import AttendancePage from "./Components/Warden/Attendance/AttendancePage";
 import UsersPage from "./Components/Users/UsersPage";
 import Demo from "./Components/Demo/Demo";
+import BalanceSheetPage from "./Components/Finance/BalanceSheet/BalanceSheetPage";
 
 const m = new Date().getMonth();
 const months = [
@@ -197,7 +198,8 @@ const router = createBrowserRouter([
           },
           {
             path: "/finance-management/balance-sheet",
-            element: <MealBillPage />,
+            element: <BalanceSheetPage/>,
+            loader: () => fetch(`http://localhost:3001/balanceSheet?month=May-2023`),
             errorElement: <ErrorPage />,
             children: [],
           },
