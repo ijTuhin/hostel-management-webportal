@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import TableHead from './TableHead';
 import TableData from './TableData';
+import { useLoaderData } from 'react-router-dom';
 
-const TableAttendance = () => {
-    const [data, setData] = useState([]);
-    useEffect(() => {
-      fetch("../../../../../public/order.json")
-        .then((res) => res.json())
-        .then((data) => {
-          setData(data);
-        });
-    }, []);
+const TableAttendance = ({date}) => {
+  const data = useLoaderData()
+  console.log(data)
     return (
       <div class="w-full flex flex-col">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -20,7 +15,7 @@ const TableAttendance = () => {
                 <TableHead />
                 <tbody>
                   {data?.map((item) => (
-                    <TableData key={item._id} item={item} />
+                    <TableData key={item._id} item={item} date={date} />
                   ))}
                 </tbody>
               </table>

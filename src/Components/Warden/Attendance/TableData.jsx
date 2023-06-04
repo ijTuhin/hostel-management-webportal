@@ -1,7 +1,10 @@
 import React from "react";
-import {AiOutlineCheck} from "react-icons/ai"
-import {RxCross2} from "react-icons/rx"
-const TableData = ({ item }) => {
+import { AiOutlineCheck } from "react-icons/ai";
+const TableData = ({ item, date }) => {
+  const attendance = item.attendance[item.attendance.length - 1];
+  let status;
+  if(item.attendance.length && attendance.date === date) status = 1
+  else status = 0
   return (
     <>
       <tr class="bg-white border-b border-amber-100 transition duration-300 ease-in-out text-gray-900 hover:bg-amber-50">
@@ -12,10 +15,19 @@ const TableData = ({ item }) => {
           {item.dept}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.room}
+          {item.dept}
         </td>
-        <td class={`${item.status ? "text-green-500" : "text-red-500"} px-6 py-4 whitespace-nowrap text-sm font-semibold flex justify-center`}>
-          {item.status ? <AiOutlineCheck /> : "Absent"}
+        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+          {
+            status ? <>{attendance.time}</> : "---"
+          }
+        </td>
+        <td
+          class={`${
+            status ? "text-green-500" : "text-red-500"
+          } px-6 py-4 whitespace-nowrap text-sm font-semibold flex justify-center`}
+        >
+          {status ? <AiOutlineCheck /> : "Absent"}
         </td>
       </tr>
     </>

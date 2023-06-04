@@ -65,7 +65,6 @@ const router = createBrowserRouter([
             <HomePage />
           </Authenticate>
         ),
-        loader: () => fetch(`http://localhost:3001/utility?month=${month}`),
         errorElement: <ErrorPage />,
         children: [],
       },
@@ -147,6 +146,7 @@ const router = createBrowserRouter([
           {
             path: "/warden/attendance",
             element: <AttendancePage />,
+            loader: () => fetch(`http://localhost:3001/user/attendance`),
             errorElement: <ErrorPage />,
             children: [],
           },

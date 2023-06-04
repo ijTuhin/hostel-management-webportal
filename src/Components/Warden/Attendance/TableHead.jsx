@@ -26,6 +26,12 @@ const TableHead = () => {
           scope="col"
           class="px-6 py-4"
         >
+          Time
+        </th>
+        <th
+          scope="col"
+          class="px-6 py-4"
+        >
           Attendance
         </th>
       </tr>
