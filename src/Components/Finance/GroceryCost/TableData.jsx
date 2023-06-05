@@ -14,7 +14,7 @@ const TableData = ({ item }) => {
           </button>
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.total}
+          {item.total}/-
         </td>
       </tr>
     </>

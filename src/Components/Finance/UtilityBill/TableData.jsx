@@ -36,13 +36,16 @@ const TableData = ({ item }) => {
             "Paid"
           ) : (
             <div>
-              Pending{" "}
-              <button
-                onClick={updatePayBill}
-                className="border border-gray-300 text-gray-300 font-normal px-3.5 py-1 rounded hover:bg-green-500 hover:text-white"
-              >
-                Pay
-              </button>
+              {
+                total ? 
+                <button
+                  onClick={updatePayBill}
+                  className="border border-gray-300 text-gray-300 font-normal px-3.5 py-1 rounded hover:bg-green-500 hover:text-white"
+                >
+                  Pay
+                </button>
+                : <p className="text-gray-300">Pending</p>
+              }
             </div>
           )}
         </td>

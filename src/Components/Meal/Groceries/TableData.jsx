@@ -9,7 +9,7 @@ const TableData = ({ item }) => {
           <span>{item.amount} </span><span>of {item.name}</span>
         </p>
         <p className="text-left">
-          = <span>{item.cost}</span>/- <span>(rate. {item.rate}/-)</span>
+          = <span>{item.price}</span>/- <span>(rate. {item.rate}/-)</span>
         </p>
       </div>
     </>

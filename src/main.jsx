@@ -95,7 +95,7 @@ const router = createBrowserRouter([
             path: "/meal/grocery-list",
             element: <GroceriesPage />,
             errorElement: <ErrorPage />,
-            loader: () => fetch(`http://localhost:3001/grocery?month=${month}`),
+            loader: () => fetch(`http://localhost:3001/grocery?date=${date}`),
             children: [],
           },
           {
@@ -200,7 +200,7 @@ const router = createBrowserRouter([
           {
             path: "/finance-management/balance-sheet",
             element: <BalanceSheetPage/>,
-            loader: () => fetch(`http://localhost:3001/balanceSheet?month=May-2023`),
+            loader: () => fetch(`http://localhost:3001/balanceSheet?month=${month}`),
             errorElement: <ErrorPage />,
             children: [],
           },
