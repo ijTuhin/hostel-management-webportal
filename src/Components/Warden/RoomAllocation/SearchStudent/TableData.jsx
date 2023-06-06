@@ -1,12 +1,11 @@
 import React from "react";
 import { FaPlus } from "react-icons/fa";
 import { ImBlocked } from "react-icons/im";
-import { useOutletContext } from "react-router-dom";
 const TableData = ({ item, data }) => {
   const abc = data
   const cancelSeat = () => {
     fetch(`http://localhost:3001/seat/${item.room}/remove/${item.matric}`, {
-      method: "PUT", // or 'PUT'
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -25,17 +24,6 @@ const TableData = ({ item, data }) => {
           room: data
         })
       });
-
-    /* fetch(`http://localhost:3001/seat/${item.room}/add/${item.matric}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      }
-    })
-      .then((res) => res.json())
-      .then((i) => {
-        console.log(i);
-      }); */
   };
   return (
     <>

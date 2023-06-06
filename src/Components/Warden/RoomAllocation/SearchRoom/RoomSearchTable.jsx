@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TableHead from "./TableHead";
 import TableData from "./TableData";
 
 const RoomSearchTable = ({ data }) => {
-  console.log(data);
   return (
     <div class="w-full flex flex-col">
       <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -15,7 +14,7 @@ const RoomSearchTable = ({ data }) => {
                   <TableHead />
                   <tbody>
                     {data.room?.map((item) => (
-                      <TableData key={item._id} item={item} />
+                      <TableData matric={data.user} key={item._id} item={item} />
                     ))}
                   </tbody>
                 </>
