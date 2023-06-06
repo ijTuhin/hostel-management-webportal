@@ -1,33 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Demo = () => {
-  const navigate = useNavigate();
-  const mealBill = () => {
-    const value = {
-        item: "meal"
-    }
-    fetch("http://localhost:3001/payment", {
-      method: "POST", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${localStorage.getItem('access-token')}`
-      },
-      body: JSON.stringify(value),
-    })
-      .then((response) => response.json())
-      .then((value) => {
-        console.log("Meal Bill:", value);
-      })
-      .catch(()=>{
-        console.log("Authentication failed!")
-        navigate("/", { replace: true });
-      })
-  };
+  const [date, setDate] = useState(new Date());
+  useEffect(() => {
+    const timerID = setInterval(() => tick(), 1000);
+    return function cleanup() {
+      clearInterval(timerID);
+    };
+  });
+  function tick() {
+    setDate(new Date());
+  }
   return (
     <div className="pt-[4.35rem] flex flex-col items-center space-y-2">
+      <p className="text-xl font-bold">{date.toLocaleTimeString()}</p>
       <button
-        onClick={mealBill}
         className="px-3.5 py-2.5 border-2 rounded bg-gray-100"
       >
         Meal Bill
