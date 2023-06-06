@@ -179,7 +179,7 @@ const router = createBrowserRouter([
           {
             path: "/finance-management/grocery-cost",
             element: <GroceryCostPage />,
-            loader: () => fetch(`http://localhost:3001/grocery?date=${date}`),
+            loader: () => fetch(`http://localhost:3001/grocery?month=${month}`),
             errorElement: <ErrorPage />,
             children: [],
           },

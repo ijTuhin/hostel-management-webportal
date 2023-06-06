@@ -1,6 +1,4 @@
 import React from "react";
-import { AiOutlineCheck } from "react-icons/ai";
-import { RxCross2 } from "react-icons/rx";
 const TableData = ({ item }) => {
   return (
     <>

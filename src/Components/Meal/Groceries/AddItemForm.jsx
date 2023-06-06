@@ -15,7 +15,6 @@ const AddItemForm = () => {
   value.amount = parseFloat(value.amount);
   value.price = value.amount * value.rate;
   const updateData = () => {
-    value.price = price;
     let data = {
       list: value,
     };
@@ -75,6 +74,7 @@ const AddItemForm = () => {
               <input
                 onBlur={() => {
                   setPrice(value.price);
+                  console.log(value)
                 }}
                 onChange={(e) => {
                   setValue({
@@ -89,7 +89,7 @@ const AddItemForm = () => {
               />
               <select
                 name="unit"
-                onChange={(e) => {
+                onClick={(e) => {
                   setValue({
                     ...value,
                     unit: e.target.value,
