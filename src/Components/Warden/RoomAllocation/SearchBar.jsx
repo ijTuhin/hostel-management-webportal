@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TbSearch } from "react-icons/tb";
-import { useScrollPosition } from "../../../Utilities/ScrollStyleHook/useScrollPosition";
 const SearchBar = () => {
+  const [input, setInput] = useState("");
   const [isActive, setIsActive] = useState(false);
-  const handleClick = () => {
-    setIsActive(true);
-  };
-  const handleBlur = () => {
-    setIsActive(false);
+  let entity;
+  const handleInput = (event) => {
+    setInput(event.target.value);
+    function isMatric(str) {
+      return /[0-9]/.test(str);
+    }
+    if (event.keyCode == 13) {
+      console.log(input, isMatric(input))
+      if(isMatric(input)) {entity = 'matric'}
+      else {entity = 'name'}
+      fetch(`http://localhost:3001/user/search?${entity}=${input}`)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
+    }
   };
 
   return (
@@ -15,9 +26,9 @@ const SearchBar = () => {
         isActive
           ? "text-green-500 border-2 border-green-500"
           : "text-gray-600 border-gray-400"
-      }`} onClick={handleClick} onBlur={handleBlur}>
+      }`} onClick={() => setIsActive(true)} onBlur={() => setIsActive(false)}>
       <TbSearch />
-      <input
+      <input onKeyUp={handleInput}
         type="search"
         className="outline-none text-sm w-full text-gray-700"
         placeholder="search name or matric Id"
