@@ -1,7 +1,7 @@
 import React from "react";
 import Clock from "../../../Utilities/Clock/Clock";
 
-const MealHeading = ({ total }) => {
+const MealHeading = () => {
   /* const event = new Date().toTimeString();
   const a = event.split(":")[0] + ":" + event.split(":")[1]; */
   const time = parseInt(new Date().toTimeString().split(":")[0]);
@@ -17,7 +17,7 @@ const MealHeading = ({ total }) => {
     <div className="relative py-6">
       <Clock />
       <div className="absolute bottom-0 w-full">
-        <p className="text-center text-white text-lg py-2 bg-amber-600">{meal} - {total}</p>
+        <p className="text-center text-white text-lg py-2 bg-amber-600">{meal}</p>
       </div>
       {/* <div className="p-2.5 border-8 border-r-0 border-slate-600/50">
         <p className="underline text-lg font-bold underline-offset-2 text-gray-500">
