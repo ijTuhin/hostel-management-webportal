@@ -18,7 +18,6 @@ const SearchBar = () => {
           .then((res) => res.json())
           .then((data) => {
             setUser(data)
-            console.log(typeof data, data)
           });
     }
   };

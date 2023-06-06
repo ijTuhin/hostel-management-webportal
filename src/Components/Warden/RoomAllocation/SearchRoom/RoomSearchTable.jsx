@@ -14,7 +14,7 @@ const RoomSearchTable = ({ data }) => {
                   <TableHead />
                   <tbody>
                     {data.room?.map((item) => (
-                      <TableData matric={data.user} key={item._id} item={item} />
+                      <TableData matric={data.user} previous={data.previous} key={item._id} item={item} />
                     ))}
                   </tbody>
                 </>

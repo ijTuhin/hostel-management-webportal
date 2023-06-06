@@ -2,7 +2,7 @@ import React from "react";
 import { FaPlus } from "react-icons/fa";
 import { ImBlocked } from "react-icons/im";
 const TableData = ({ item, data }) => {
-  const abc = data
+  const abc = data;
   const cancelSeat = () => {
     fetch(`http://localhost:3001/seat/${item.room}/remove/${item.matric}`, {
       method: "PUT",
@@ -14,15 +14,28 @@ const TableData = ({ item, data }) => {
       .then((i) => {
         console.log(i);
       });
+      window.location.reload()
+      window.onload(alert(`Removed User ${item.matric} from Room ${item.room}`));
   };
-  const allocateUser = () => {
+  const fetchRoomData = () => {
+    console.log("Room Data");
     fetch(`http://localhost:3001/seat/vacant`)
       .then((res) => res.json())
       .then((data) => {
+        let value = data
+        let previous = 0
+        if(item.room){
+          value = data.filter((i)=>{
+            if(i.room === item.room) return false;
+            else return true;
+          });
+          previous = item.room;
+        }
         abc({
           user: item.matric,
-          room: data
-        })
+          room: value,
+          previous
+        });
       });
   };
   return (
@@ -43,7 +56,7 @@ const TableData = ({ item, data }) => {
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white  flex justify-center gap-x-4">
           {!item.room ? (
             <button
-              onClick={allocateUser}
+              onClick={fetchRoomData}
               className="flex items-center gap-x-2 px-3 py-2 rounded bg-blue-700 hover:bg-blue-800"
             >
               <span>Allocate</span>
@@ -51,7 +64,10 @@ const TableData = ({ item, data }) => {
             </button>
           ) : (
             <>
-              <button className="flex items-center gap-x-2 px-3 py-2 rounded bg-blue-700 hover:bg-blue-800">
+              <button
+                onClick={fetchRoomData}
+                className="flex items-center gap-x-2 px-3 py-2 rounded bg-blue-700 hover:bg-blue-800"
+              >
                 <span>Change Room</span>
                 <FaPlus />
               </button>
