@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import TableData from "./TableData";
 import { useOutletContext } from "react-router-dom";
 
-const StudentSearchTable = () => {
+const StudentSearchTable = ({passData}) => {
   const [user, setUser] = useOutletContext();
   console.log(typeof user, user.length);
   return (
@@ -16,7 +16,7 @@ const StudentSearchTable = () => {
                 {user.length && (
                   <>
                     {user?.map((item) => (
-                      <TableData key={item._id} item={item} />
+                      <TableData key={item._id} data={passData} item={item} />
                     ))}
                   </>
                 )}
