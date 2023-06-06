@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { TbSearch } from "react-icons/tb";
+import { useOutletContext } from "react-router-dom";
 const SearchBar = () => {
+  const [user, setUser] = useOutletContext();
   const [input, setInput] = useState("");
   const [isActive, setIsActive] = useState(false);
   let entity;
@@ -10,13 +12,13 @@ const SearchBar = () => {
       return /[0-9]/.test(str);
     }
     if (event.keyCode == 13) {
-      console.log(input, isMatric(input))
       if(isMatric(input)) {entity = 'matric'}
       else {entity = 'name'}
       fetch(`http://localhost:3001/user/search?${entity}=${input}`)
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            setUser(data)
+            console.log(typeof data, data)
           });
     }
   };

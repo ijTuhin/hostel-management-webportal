@@ -1,17 +1,17 @@
 import React from "react";
 import { FaPlus } from "react-icons/fa";
 import { ImBlocked } from "react-icons/im";
-const TableData = () => {
+const TableData = ({item}) => {
   return (
     <>
       <tr class="bg-white border-2 border-l-0 border-r-0 border-zinc-300 transition duration-300 ease-in-out text-gray-900">
-        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">C230256</td>
-        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">CSE</td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">{item.matric}</td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">{item.dept}</td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          Spring'23
+        {item.current}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          504
+        {item.room}
           {/* {item.status ? <>{item.room}</> : "N/A"} */}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white  flex justify-center gap-x-4">
