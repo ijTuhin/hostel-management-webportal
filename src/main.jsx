@@ -224,12 +224,6 @@ const router = createBrowserRouter([
             children: [],
           },
           {
-            path: "/users/manage-account",
-            element: <ManageUser />,
-            errorElement: <ErrorPage />,
-            children: [],
-          },
-          {
             path: "/users/create",
             element: <DrawerContainer item={4} />,
             errorElement: <ErrorPage />,
@@ -264,17 +258,12 @@ const router = createBrowserRouter([
             path: "/users/manage-user",
             element: <ManageUser />,
             errorElement: <ErrorPage />,
+            loader: () => fetch(`http://localhost:3001/user/data`),
             children: [],
           },
           {
             path: "/users/anonymous-feedback",
             element: <Feedback />,
-            errorElement: <ErrorPage />,
-            children: [],
-          },
-          {
-            path: "/users/non-residents",
-            element: <ManageUser />,
             errorElement: <ErrorPage />,
             children: [],
           },

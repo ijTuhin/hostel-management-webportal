@@ -33,9 +33,6 @@ const TableData = ({ item, index }) => {
             Change
           </button>
         </td>
-        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-          {item.status}
-        </td>
         <td class="px-6 py-4 whitespace-nowrap text-center text-sm">
           <button className="hover:border-green-500 hover:text-green-500 border border-gray-300 rounded px-2 py-1.5 text-gray-400">
             Mess manager

@@ -2,16 +2,11 @@ import React, { useEffect, useState } from "react";
 import Heading from "./Heading";
 import TableData from "./TableData";
 import TableHead from "./TableHead";
+import { useLoaderData } from "react-router-dom";
 
 const ManageUser = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    fetch("/public/student.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-      });
-  }, []);
+  const data = useLoaderData()
+  console.log(data)
   return (
     <div class="w-full flex flex-col lg:px-52 px-20 py-14">
       <Heading total={data.length} />
