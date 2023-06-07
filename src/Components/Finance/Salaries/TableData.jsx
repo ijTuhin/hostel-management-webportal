@@ -21,6 +21,19 @@ const TableData = ({ item }) => {
   let salary = item.record[item.record.length -1]
   console.log(item.record[item.record.length -1])
   if (salary.month === month) status=1;
+  const paySalary = () => {
+    fetch(`http://localhost:3001/salary/${item._id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+      .then((response) => response.json())
+      .then((item) => {
+        console.log(item);
+        window.location.reload()
+      });
+  }
   return (
     <>
       <tr class="bg-white border-b border-zinc-200 transition duration-300 ease-in-out text-gray-900 hover:bg-zinc-50">
@@ -43,7 +56,7 @@ const TableData = ({ item }) => {
           ) : (
             <div>
               Pending{" "}
-              <button className="border px-2 py-1 rounded hover:bg-red-500 hover:text-white">
+              <button onClick={paySalary} className="border px-2 py-1 rounded hover:bg-red-500 hover:text-white">
                 Pay
               </button>
             </div>
