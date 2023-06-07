@@ -1,5 +1,6 @@
 import React from "react";
 import LoginForm from "../LoginForm";
+import GoogleSignIn from "../GoogleSignIn";
 
 const Login = () => {
   return (
@@ -8,6 +9,7 @@ const Login = () => {
         <span className="text-4xl">W</span>elcome back !!!
       </p>
       <LoginForm />
+      <GoogleSignIn/>
     </div>
   );
 };
