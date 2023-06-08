@@ -56,10 +56,7 @@ const Home = () => {
       )}
       {role === "accountant" && (
         <div className="grid grid-cols-7 h-full">
-          <div className="col-span-5">
-            <AttendancePage date={date} data={attendance} />
-          </div>
-          <MealDisplay />
+          
         </div>
       )}
     </div>

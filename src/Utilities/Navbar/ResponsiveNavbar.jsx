@@ -98,32 +98,6 @@ const ResponsiveNavbar = ({ i, role }) => {
           </MenuItem>
         )}
         {role === "warden" && (
-          <MenuItem onClick={handleClose}>
-            <Avatar />
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"
-              }
-              to="/warden"
-            >
-              Warden Panel
-            </NavLink>
-          </MenuItem>
-        )}
-        {role === "accountant" && (
-          <MenuItem onClick={handleClose}>
-            <Avatar />
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"
-              }
-              to="/finance-management"
-            >
-              Finance Panel
-            </NavLink>
-          </MenuItem>
-        )}
-        {i && (
           <>
             <MenuItem onClick={handleClose}>
               <Avatar />
@@ -142,12 +116,38 @@ const ResponsiveNavbar = ({ i, role }) => {
                 className={({ isActive }) =>
                   isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"
                 }
-                to="/create-notice"
+                to="/warden"
               >
-                Notices
+                Warden Panel
               </NavLink>
             </MenuItem>
           </>
+        )}
+        {role === "accountant" && (
+          <MenuItem onClick={handleClose}>
+            <Avatar />
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"
+              }
+              to="/finance-management"
+            >
+              Finance Panel
+            </NavLink>
+          </MenuItem>
+        )}
+        {i && (
+          <MenuItem onClick={handleClose}>
+            <Avatar />
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"
+              }
+              to="/create-notice"
+            >
+              Notices
+            </NavLink>
+          </MenuItem>
         )}
         <Divider />
         <MenuItem onClick={handleClose}>
