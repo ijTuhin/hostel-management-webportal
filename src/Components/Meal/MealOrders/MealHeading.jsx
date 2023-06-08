@@ -15,7 +15,7 @@ const MealHeading = () => {
   }
   return (
     <div className="relative py-6">
-      <Clock />
+      {/* <Clock /> */}
       <div className="absolute bottom-0 w-full">
         <p className="text-center text-white text-lg py-2 bg-amber-600">{meal}</p>
       </div>

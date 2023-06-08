@@ -12,8 +12,8 @@ const Clock = () => {
     setDate(new Date());
   }
   return (
-    <div className="w-40 h-40 rounded-full border-8 flex items-center justify-center border-red-300/25">
-      <p className="text-xl font-bold">{date.toLocaleTimeString()}</p>
+    <div className="w-96 h-96 rounded-full border-0 flex items-center justify-center bg-green-700/10 border-black/25">
+      <p className="text-4xl text-green-700 font-bold">{date.toLocaleTimeString()}</p>
     </div>
   );
 };
