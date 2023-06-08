@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { TbSearch } from "react-icons/tb";
-import { useScrollPosition } from "../../../Utilities/ScrollStyleHook/useScrollPosition";
 const SearchBar = () => {
   const [isActive, setIsActive] = useState(false);
   const handleClick = () => {
