@@ -6,7 +6,7 @@ const AddBill = ({ setBillInput, id }) => {
     setBill(event.target.value);
     if (event.keyCode == 13) {
       fetch(`http://localhost:3001/utility/insert-bill/${id}`, {
-        method: "PUT", // or 'PUT'
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },

@@ -1,13 +1,24 @@
 import React from "react";
 import { FcCancel } from "react-icons/fc";
 import { GiCheckMark } from "react-icons/gi";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const TableData = ({ item, index }) => {
-  const matric = item.matric
   const navigate = useNavigate();
-  const location = useLocation();
-  const navigateToAllocation = () => {
-    navigate('/warden/room-allocation',{state:{id:1,name:item.name}}, { replace: true });
+  const makeMealManager = () => {
+    fetch("http://localhost:3001/admin/create-meal-manager", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: item.name,
+        email: item.email,
+      }),
+    })
+      .then((response) => response.json())
+      .then((value) => {
+        console.log(value.message);
+      });
   };
   return (
     <>
@@ -27,14 +38,23 @@ const TableData = ({ item, index }) => {
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
           <button
-            onClick={() => navigate('/warden/room-allocation',{state:{id:1,name:item.matric}}, { replace: true })}
+            onClick={() =>
+              navigate(
+                "/warden/room-allocation",
+                { state: { id: 1, name: item.matric } },
+                { replace: true }
+              )
+            }
             className="hover:bg-red-500 hover:text-white border border-red-400 rounded px-2 py-1.5 text-red-400"
           >
             Change
           </button>
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-center text-sm">
-          <button className="hover:border-green-500 hover:text-green-500 border border-gray-300 rounded px-2 py-1.5 text-gray-400">
+          <button
+            onClick={makeMealManager}
+            className="hover:border-green-500 hover:text-green-500 border border-gray-300 rounded px-2 py-1.5 text-gray-400"
+          >
             Mess manager
           </button>
         </td>
