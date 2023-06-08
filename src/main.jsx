@@ -33,6 +33,7 @@ import AttendancePage from "./Components/Warden/Attendance/AttendancePage";
 import UsersPage from "./Components/Users/UsersPage";
 import Demo from "./Components/Demo/Demo";
 import BalanceSheetPage from "./Components/Finance/BalanceSheet/BalanceSheetPage";
+import FullDetails from "./Components/Users/User/FullDetails";
 
 const m = new Date().getMonth();
 const months = [
@@ -126,7 +127,8 @@ const router = createBrowserRouter([
             path: "/warden/rent-status",
             element: <RentStatusPage />,
             errorElement: <ErrorPage />,
-            loader: () => fetch(`http://localhost:3001/payment?month=${month}&item=rent`),
+            loader: () =>
+              fetch(`http://localhost:3001/payment?month=${month}&item=rent`),
             children: [],
           },
           {
@@ -166,14 +168,16 @@ const router = createBrowserRouter([
             path: "/finance-management/meal-bill",
             element: <MealBillPage />,
             errorElement: <ErrorPage />,
-            loader: () => fetch(`http://localhost:3001/payment?month=${month}&item=meal`),
+            loader: () =>
+              fetch(`http://localhost:3001/payment?month=${month}&item=meal`),
             children: [],
           },
           {
             path: "/finance-management/seat-rent",
             element: <SeatRentPage />,
             errorElement: <ErrorPage />,
-            loader: () => fetch(`http://localhost:3001/payment?month=${month}&item=rent`),
+            loader: () =>
+              fetch(`http://localhost:3001/payment?month=${month}&item=rent`),
             children: [],
           },
           {
@@ -199,8 +203,9 @@ const router = createBrowserRouter([
           },
           {
             path: "/finance-management/balance-sheet",
-            element: <BalanceSheetPage/>,
-            loader: () => fetch(`http://localhost:3001/balanceSheet?month=${month}`),
+            element: <BalanceSheetPage />,
+            loader: () =>
+              fetch(`http://localhost:3001/balanceSheet?month=${month}`),
             errorElement: <ErrorPage />,
             children: [],
           },
@@ -264,6 +269,12 @@ const router = createBrowserRouter([
           {
             path: "/users/anonymous-feedback",
             element: <Feedback />,
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+          {
+            path: "/users/manage-user/update",
+            element: <FullDetails />,
             errorElement: <ErrorPage />,
             children: [],
           },

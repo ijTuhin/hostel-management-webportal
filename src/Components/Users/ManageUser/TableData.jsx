@@ -68,7 +68,16 @@ const TableData = ({ item, index }) => {
           )}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-center text-sm">
-          <button className="hover:bg-green-500 border-green-500 hover:text-white py-1.5 text-green-500 border rounded px-3">
+          <button
+            onClick={() =>
+              navigate(
+                "/users/manage-user/update",
+                { state: { id: 2, name: item.matric } },
+                { replace: true }
+              )
+            }
+            className="hover:bg-green-500 border-green-500 hover:text-white py-1.5 text-green-500 border rounded px-3"
+          >
             Update
           </button>
         </td>
