@@ -1,21 +1,18 @@
 import React from "react";
-import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
-import Settings from '@mui/icons-material/Settings';
-import Logout from '@mui/icons-material/Logout';
-import MenuIcon from '@mui/icons-material/Menu';
+import Box from "@mui/material/Box";
+import Avatar from "@mui/material/Avatar";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
+import Logout from "@mui/icons-material/Logout";
+import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
 import LogOut from "../../Authentications/LoginForm/LogOut";
 
-const ResponsiveNavbar = () => {
+const ResponsiveNavbar = ({ i, role }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -37,7 +34,7 @@ const ResponsiveNavbar = () => {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
           >
-            <MenuIcon/>
+            <MenuIcon />
           </IconButton>
         </Tooltip>
       </Box>
@@ -77,29 +74,89 @@ const ResponsiveNavbar = () => {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem onClick={handleClose}>
-          <Avatar /> <NavLink className={({isActive}) => isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"} to="/">Home</NavLink>
+          <Avatar />
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"
+            }
+            to="/"
+          >
+            Home
+          </NavLink>
         </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Avatar /> <NavLink className={({isActive}) => isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"} to="/users-detail">Users Detail</NavLink>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Avatar /> <NavLink className={({isActive}) => isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"} to="/meal">Meal Management</NavLink>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Avatar /> <NavLink className={({isActive}) => isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"} to="/warden">Warden Panel</NavLink>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Avatar /> <NavLink className={({isActive}) => isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"} to="/finance-management">Finance Panel</NavLink>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Avatar /> <NavLink className={({isActive}) => isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"} to="/create-notice">Notices</NavLink>
-        </MenuItem>
+        {role === "meal" && (
+          <MenuItem onClick={handleClose}>
+            <Avatar />
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"
+              }
+              to="/meal"
+            >
+              Meal Management
+            </NavLink>
+          </MenuItem>
+        )}
+        {role === "warden" && (
+          <MenuItem onClick={handleClose}>
+            <Avatar />
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"
+              }
+              to="/warden"
+            >
+              Warden Panel
+            </NavLink>
+          </MenuItem>
+        )}
+        {role === "accountant" && (
+          <MenuItem onClick={handleClose}>
+            <Avatar />
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"
+              }
+              to="/finance-management"
+            >
+              Finance Panel
+            </NavLink>
+          </MenuItem>
+        )}
+        {i && (
+          <>
+            <MenuItem onClick={handleClose}>
+              <Avatar />
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"
+                }
+                to="/users-detail"
+              >
+                Users Detail
+              </NavLink>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+              <Avatar />
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"
+                }
+                to="/create-notice"
+              >
+                Notices
+              </NavLink>
+            </MenuItem>
+          </>
+        )}
         <Divider />
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
-          <span className="text-sm pl-1.5"><LogOut/></span>
+          <span className="text-sm pl-1.5">
+            <LogOut />
+          </span>
         </MenuItem>
       </Menu>
     </>

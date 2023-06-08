@@ -23,7 +23,7 @@ const LoginForm = () => {
         const user = userCredential.user;
 
         /* ************************************ */
-        fetch("http://localhost:3001/user/login", {
+        fetch("http://localhost:3001/admin/login", {
           method: "POST", // or 'PUT'
           headers: {
             Authorization: "Bearer my-token",
@@ -35,6 +35,7 @@ const LoginForm = () => {
           .then((value) => {
             console.log(value.message);
             localStorage.setItem("access-token", value.token);
+            localStorage.setItem("admin-role", value.role);
           });
         /* ************************************ */
         navigate(from, { replace: true });

@@ -17,28 +17,32 @@ const GoogleSignIn = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            email: email
+            email: email,
           }),
         })
           .then((response) => response.json())
           .then((value) => {
             localStorage.setItem("admin-access", value.token);
+            localStorage.setItem("admin-role", value.role);
             if (value.token) {
               navigate("/", { replace: true });
-            } else {
-                error = <p className="text-red-500 text-center">Please use valid account!!</p>;
-                console.log('Not matched')
             }
+          })
+          .catch(() => {
+            console.log("error");
           });
         /* ************************************ */
       })
       .catch(() => {
-        console.log("error");
+        error = (
+          <p className="text-red-500 text-center">Please use valid account!!</p>
+        );
+        console.log("Not matched");
       });
   };
   return (
     <div>
-        {error}
+      {error}
       <button onClick={handleLogin} className="shadow-lg py-3 px-10">
         GoogleSignIn
       </button>

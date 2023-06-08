@@ -13,9 +13,7 @@ const Home = () => {
     })
       .then((response) => response.json())
       .then((item) => {
-        console.log(item);
       });
-    console.log(date);
     // Create new Utility month record
     fetch(`http://localhost:3001/utility`, {
       method: "POST", // or 'PUT'
@@ -25,9 +23,7 @@ const Home = () => {
     })
       .then((response) => response.json())
       .then((item) => {
-        console.log(item);
       });
-    console.log(date);
   }, []);
 
   return <></>;
