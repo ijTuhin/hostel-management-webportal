@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { MdDelete } from "react-icons/md";
 import StaffUpdateForm from "./StaffUpdateForm";
+import DeleteStaffButton from "./DeleteStaffButton";
 const TableData = ({ item, index }) => {
   const [form, setForm] = useState(true);
   return (
     <>
       <tr
-        class={`border-b border-gray-100 transition duration-300 ease-in-out ${
+        class={`border-b border-gray-100 transition duration-300 ease-in-out group ${
           index % 2 ? `bg-white ` : `bg-gray-50 `
         }`}
       >
@@ -24,7 +26,7 @@ const TableData = ({ item, index }) => {
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-center">
           {item.salary}
         </td>
-        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-center">
+        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 flex items-center justify-center text-center">
           <button
             onClick={() => {
               setForm((prev) => !prev);
@@ -33,9 +35,10 @@ const TableData = ({ item, index }) => {
           >
             {form ? "Update" : "Cancel"}
           </button>
+          <DeleteStaffButton item={item}/>
         </td>
       </tr>
-      <StaffUpdateForm active={form} item={item}/>
+      <StaffUpdateForm active={form} item={item} />
     </>
   );
 };
