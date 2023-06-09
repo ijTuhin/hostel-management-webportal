@@ -1,26 +1,8 @@
 import React from "react";
-import { SiFampay } from "react-icons/si";
 import { RxDoubleArrowRight } from "react-icons/rx";
+import getCurrentMonthSalary from "../../../Utilities/Hooks/SalaryHook";
 const TableData = ({ item }) => {
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  const month = months[new Date().getMonth()] + "-" + new Date().getFullYear();
-  let status = 0;
-  let salary = item.record[item.record.length -1]
-  console.log(item.record[item.record.length -1])
-  if (salary.month === month) status=1;
+  getCurrentMonthSalary(item)
   const paySalary = () => {
     fetch(`http://localhost:3001/salary/${item._id}`, {
       method: "POST",
