@@ -105,7 +105,7 @@ const ResponsiveNavbar = ({ i, role }) => {
                 className={({ isActive }) =>
                   isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"
                 }
-                to="/users-detail"
+                to="/user"
               >
                 Users Detail
               </NavLink>
@@ -119,6 +119,17 @@ const ResponsiveNavbar = ({ i, role }) => {
                 to="/warden"
               >
                 Warden Panel
+              </NavLink>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+              <Avatar />
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"
+                }
+                to="/staff"
+              >
+                Staff
               </NavLink>
             </MenuItem>
           </>

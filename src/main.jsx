@@ -34,6 +34,7 @@ import UsersPage from "./Components/Users/UsersPage";
 import Demo from "./Components/Demo/Demo";
 import BalanceSheetPage from "./Components/Finance/BalanceSheet/BalanceSheetPage";
 import FullDetails from "./Components/Users/User/FullDetails";
+import StaffPage from "./Components/Staff/StaffPage";
 
 const m = new Date().getMonth();
 const months = [
@@ -97,12 +98,6 @@ const router = createBrowserRouter([
             element: <GroceriesPage />,
             errorElement: <ErrorPage />,
             loader: () => fetch(`http://localhost:3001/grocery?date=${date}`),
-            children: [],
-          },
-          {
-            path: "/meal/summary",
-            element: <PaymentStatusPage />,
-            errorElement: <ErrorPage />,
             children: [],
           },
         ],
@@ -207,6 +202,38 @@ const router = createBrowserRouter([
             loader: () =>
               fetch(`http://localhost:3001/balanceSheet?month=${month}`),
             errorElement: <ErrorPage />,
+            children: [],
+          },
+        ],
+      },
+
+      {
+        path: "/staff",
+        element: (
+          <Authenticate>
+            <StaffPage/>
+          </Authenticate>
+        ),
+        errorElement: <ErrorPage />,
+        children: [
+          {
+            path: "/staff/add",
+            element: <MealOrdersPage />,
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+          {
+            path: "/staff/manage",
+            element: <PaymentStatusPage />,
+            errorElement: <ErrorPage />,
+            loader: () => fetch(`http://localhost:3001/user/meal`),
+            children: [],
+          },
+          {
+            path: "/staff/salaries",
+            element: <GroceriesPage />,
+            errorElement: <ErrorPage />,
+            loader: () => fetch(`http://localhost:3001/grocery?date=${date}`),
             children: [],
           },
         ],
