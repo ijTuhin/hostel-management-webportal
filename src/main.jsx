@@ -35,6 +35,7 @@ import Demo from "./Components/Demo/Demo";
 import BalanceSheetPage from "./Components/Finance/BalanceSheet/BalanceSheetPage";
 import FullDetails from "./Components/Users/User/FullDetails";
 import StaffPage from "./Components/Staff/StaffPage";
+import AddStaffPage from "./Components/Staff/AddStaff/AddStaffPage";
 
 const m = new Date().getMonth();
 const months = [
@@ -218,7 +219,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: "/staff/add",
-            element: <MealOrdersPage />,
+            element: <AddStaffPage />,
             errorElement: <ErrorPage />,
             children: [],
           },

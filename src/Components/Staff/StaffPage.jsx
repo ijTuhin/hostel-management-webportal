@@ -9,7 +9,7 @@ const StaffPage = () => {
       zIndex: 1301,
     };
     return (
-      <div className="absolute top-[4.35rem] w-full">
+      <div className="py-[4.35rem] w-full h-screen">
         <div style={styles}>
           <SecondaryNavbar item={item} />
         </div>
