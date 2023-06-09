@@ -3,10 +3,20 @@ import React, { useState } from "react";
 const AddStaffPage = () => {
   const [value, setValue] = useState();
   const addStaffData = (e) => {
-    e.preventDefault();
     if (!value) {
       return false;
     }
+    fetch(`http://localhost:3001/staff`, {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(value),
+    })
+      .then((response) => response.json())
+      .then((value) => {
+        console.log("DB Success:", value);
+      });
     console.log(value);
   };
   return (
@@ -56,7 +66,7 @@ const AddStaffPage = () => {
             onChange={(e) => {
               setValue({
                 ...value,
-                salary: e.target.value,
+                salary: parseInt(e.target.value),
               });
             }}
             type="text"
@@ -67,7 +77,7 @@ const AddStaffPage = () => {
           />
         </div>
         <div className="px-3 text-gray-500">
-            <p className="text-gray-600">Choose Position:</p>
+          <p className="text-gray-600">Choose Position:</p>
           <div className="flex items-center gap-x-3">
             <input
               type="radio"

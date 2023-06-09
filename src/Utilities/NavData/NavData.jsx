@@ -26,15 +26,15 @@ const UsersNavMenuData = [
   ]
 const StaffNavMenuData = [
     {
-      title: "Add new",
-      route: "/staff/add",
-      style: "bg-emerald-700 hover:bg-emerald-800",
-      activeStyle: "bg-white text-emerald-800 border-emerald-600"
-    },
-    {
       title: "Manage Staff",
       route: "/staff/manage",
       style: "bg-emerald-600 hover:bg-emerald-800",
+      activeStyle: "bg-white text-emerald-800 border-emerald-600"
+    },
+    {
+      title: "Add new",
+      route: "/staff/add",
+      style: "bg-emerald-700 hover:bg-emerald-800",
       activeStyle: "bg-white text-emerald-800 border-emerald-600"
     },
     {
