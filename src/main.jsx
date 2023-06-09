@@ -37,6 +37,7 @@ import FullDetails from "./Components/Users/User/FullDetails";
 import StaffPage from "./Components/Staff/StaffPage";
 import AddStaffPage from "./Components/Staff/AddStaff/AddStaffPage";
 import SalaryDetailPage from "./Components/Staff/Salary/SalaryDetailPage";
+import ManageStaffPage from "./Components/Staff/ManageStaff/ManageStaffPage";
 
 const m = new Date().getMonth();
 const months = [
@@ -226,7 +227,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/staff/manage",
-            element: <SalaryDetailPage />,
+            element: <ManageStaffPage />,
             errorElement: <ErrorPage />,
             loader: () => fetch(`http://localhost:3001/staff`),
             children: [],
