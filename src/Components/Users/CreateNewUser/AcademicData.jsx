@@ -9,12 +9,6 @@ const AcademicData = () => {
       [e.target.name]: e.target.value,
     });
   };
-  /* const handleSelect = () => {
-    setValue({
-      ...value,
-      dept: e.target.value,
-    });
-  }; */
   return (
     <div className="w-full h-full py-6 px-40 bg-gray-50">
       <form className=" space-y-4">

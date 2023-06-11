@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+import { IoSend } from "react-icons/io5";
+import DropdownBtn from "../../../Utilities/Dropdown/DropdownBtn";
+import { useOutletContext } from "react-router-dom";
 
 const AddNoticePage = () => {
+  const [select, setSelect] = useState();
   const [value, setValue] = useState();
   const addStaffData = (e) => {
     if (!value) {
       return false;
     }
-    fetch(`http://localhost:3001/staff`, {
+    /* fetch(`http://localhost:3001/staff`, {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -16,47 +20,35 @@ const AddNoticePage = () => {
       .then((response) => response.json())
       .then((value) => {
         console.log("DB Success:", value);
-      });
+      }); */
     console.log(value);
   };
   return (
-    <div className="h-full w-full flex justify-center py-20">
-      <form className="w-1/3">
+    <div className="h-full w-full flex justify-center py-28">
+      <form className="w-1/3 relative">
         <div className="flex justify-end gap-x-3">
-          <input
-            onChange={(e) => {
-              setValue({
-                ...value,
-                name: e.target.value,
-              });
-            }}
-            type="text"
-            placeholder="Enter name"
-            className="invisible outline-none border border-gray-600 w-full px-6 py-2"
-            name=""
-            id=""
-          />
-          <div className="flex item-center gap-x-2">
-            <p className="mt-2">To:</p>
-            <select
-              name="dept"
-              onChange={(e) => {
-                setValue({
-                  ...value,
-                  dept: e.target.value,
-                });
-              }}
-              id="dept"
-              className="border-0 border-gray-600 outline-teal-500 bg-white p-2 rounded"
-            >
-              <option value=""></option>
-              <option value="CSE">CSE</option>
-              <option value="Pharmacy">Pharmacy</option>
-              <option value="EEE">EEE</option>
-              <option value="BBA">BBA</option>
-              <option value="EB">EB</option>
-              <option value="ELL">ELL</option>
-            </select>
+          <div className="absolute -top-12 w-full">
+            <div className="w-full flex justify-start items-start gap-x-2">
+              <input
+                onChange={(e) => {
+                  setValue({
+                    ...value,
+                    name: e.target.value,
+                  });
+                }}
+                type="text"
+                placeholder="matric ID"
+                className={`${
+                  select === '1' ? "visible" : "invisible"
+                } outline-none border border-gray-600 w-full px-6 py-2`}
+                name=""
+                id=""
+              />
+              <div className="flex justify-center items-start gap-x-2">
+                <p>To:</p>
+                <DropdownBtn setSelect={setSelect} />
+              </div>
+            </div>
           </div>
         </div>
         <input
@@ -73,7 +65,7 @@ const AddNoticePage = () => {
           id=""
         />
         <fieldset className="border border-gray-600 px-5">
-          <legend className="px-2">Enter Notice</legend>
+          <legend className="px-2">Notice Body</legend>
           <textarea
             className="outline-none border-0 w-full px-3 py-2"
             placeholder="200 characters only..."
@@ -84,11 +76,11 @@ const AddNoticePage = () => {
         </fieldset>
         <button
           onClick={addStaffData}
-          className={`w-full py-2.5 bg-emerald-700 text-white ${
-            value ? "hover:bg-emerald-800" : "cursor-not-allowed"
+          className={`my-3 flex justify-center items-center gap-x-3 w-full py-2.5 bg-teal-700 text-white ${
+            value ? "hover:bg-teal-800" : "cursor-not-allowed"
           }`}
         >
-          Insert Data
+          Upload Notice <IoSend />
         </button>
       </form>
     </div>
