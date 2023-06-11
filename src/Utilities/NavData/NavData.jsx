@@ -45,4 +45,19 @@ const StaffNavMenuData = [
     }
   ]
 
-export {StaffNavMenuData, UsersNavMenuData};
+const NoticeNavMenuData = [
+    {
+      title: "All Notices",
+      route: "/notice/all",
+      style: "bg-emerald-700 hover:bg-emerald-800 w-1/3 rounded-l-full",
+      activeStyle: "bg-white text-emerald-800 w-1/3 rounded-l-full border-emerald-600"
+    },
+    {
+      title: "Add new",
+      route: "/notice/add",
+      style: "bg-emerald-700 hover:bg-emerald-800 w-1/3 rounded-r-full",
+      activeStyle: "bg-white text-emerald-800 w-1/3 rounded-r-full border-emerald-600"
+    }
+  ]
+
+export {StaffNavMenuData, UsersNavMenuData, NoticeNavMenuData};

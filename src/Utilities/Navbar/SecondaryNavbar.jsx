@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const SecondaryNavbar = ({ item }) => {
     const grid = "grid-cols-"+item.length
   return (
-    <nav className={`w-full text-gray-200 grid ${grid} text-center gap-x-[0.05rem]`}>
+    <nav className={`w-full text-gray-200 ${item.length === 2 ? "flex justify-center" : "grid"} ${grid} text-center gap-x-[0.05rem]`}>
       {item.map((i) => {
         return <NavLink
           to={i.route}
