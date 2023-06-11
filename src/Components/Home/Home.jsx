@@ -11,39 +11,36 @@ const theme = createTheme({
   },
 });
 const Home = () => {
-  const [attendance, setAttendance] = useState([]);
-  const [page, setPage] = useState(1);
   let i = 1;
   const role = localStorage.getItem("admin-role");
   if (role === "meal") i = null;
   const date = new Date().toLocaleDateString();
+  const [pageItem, setPageItem] = useState([]);
+  const [page, setPage] = useState(1);
   useEffect(() => {
     // Create new grocery daily record
     fetch(`http://localhost:3001/grocery?date=${date}`, {
-      method: "POST", // or 'PUT'
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
     })
       .then((response) => response.json())
-      .then((item) => {});
     // Create new Utility month record
     fetch(`http://localhost:3001/utility`, {
-      method: "POST", // or 'PUT'
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
     })
       .then((response) => response.json())
-      .then((item) => {});
     // Get Current Attendance
     fetch(`http://localhost:3001/user/attendance?page=${page - 1}&size=${8}`)
       .then((response) => response.json())
       .then((item) => {
-        setAttendance(item);
+        setPageItem(item);
       });
   }, [8, page]);
-  const pages = Math.ceil(attendance.total / 8);
   return (
     <div className="py-[4.35rem] h-screen">
       {role === "accountant" ? (
@@ -57,12 +54,12 @@ const Home = () => {
           )}
           {role === "warden" && (
             <div className="col-span-5 space-y-2 py-8">
-              <AttendancePage date={date} data={attendance.data} />
+              <AttendancePage date={date} data={pageItem.data} />
               <div className="flex justify-center">
                 <ThemeProvider theme={theme}>
                   <Pagination
                     color="primary"
-                    count={pages}
+                    count={Math.ceil(pageItem.total / 8)}
                     page={page}
                     onChange={(e, i) => setPage(i)}
                   />
