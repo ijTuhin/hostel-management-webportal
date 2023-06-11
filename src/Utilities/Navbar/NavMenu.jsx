@@ -91,7 +91,7 @@ const NavMenu = ({ i, role }) => {
                 ? "underline underline-offset-8 text-green-600 decoration-2"
                 : ""
             }
-            to="/create-notice"
+            to="/notice"
           >
             Notices
           </NavLink>

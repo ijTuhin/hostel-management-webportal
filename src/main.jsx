@@ -38,6 +38,7 @@ import StaffPage from "./Components/Staff/StaffPage";
 import AddStaffPage from "./Components/Staff/AddStaff/AddStaffPage";
 import SalaryDetailPage from "./Components/Staff/Salary/SalaryDetailPage";
 import ManageStaffPage from "./Components/Staff/ManageStaff/ManageStaffPage";
+import NoticePage from "./Components/Notice/NoticePage";
 
 const m = new Date().getMonth();
 const months = [
@@ -211,6 +212,30 @@ const router = createBrowserRouter([
       },
 
       {
+        path: "/notice",
+        element: (
+          <Authenticate>
+            <NoticePage/>
+          </Authenticate>
+        ),
+        errorElement: <ErrorPage />,
+        children: [
+          {
+            path: "/notice/add",
+            element: <AddStaffPage />,
+            errorElement: <ErrorPage />,
+            children: [],
+          },
+          {
+            path: "/notice/all",
+            element: <ManageStaffPage />,
+            errorElement: <ErrorPage />,
+            loader: () => fetch(`http://localhost:3001/staff`),
+            children: [],
+          },
+        ],
+      },
+      {
         path: "/staff",
         element: (
           <Authenticate>
@@ -309,13 +334,6 @@ const router = createBrowserRouter([
             children: [],
           },
         ],
-      },
-
-      {
-        path: "/create-notice",
-        element: <Demo />,
-        errorElement: <ErrorPage />,
-        children: [],
       },
     ],
   },

@@ -154,7 +154,7 @@ const ResponsiveNavbar = ({ i, role }) => {
               className={({ isActive }) =>
                 isActive ? "text-green-600 text-sm px-1.5" : "text-sm pl-1.5"
               }
-              to="/create-notice"
+              to="/notice"
             >
               Notices
             </NavLink>
