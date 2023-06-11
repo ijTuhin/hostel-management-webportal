@@ -4,7 +4,7 @@ import TableData from "../../Warden/Attendance/TableData";
 
 const AttendancePage = ({ date, data }) => {
   return (
-    <div className="px-32 py-12">
+    <div className="px-32">
       <div className="w-full bg-amber-300/30 text-center py-5">
         <div>
           Date: <span className="text-lg">{date}</span>
