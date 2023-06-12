@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import { SlArrowRight } from "react-icons/sl";
 import "../../App.css";
 
-const data = [
-  { id: 1, label: "Student" },
-  { id: 2, label: "Warden" },
-  { id: 3, label: "Finance" },
-];
-
-const DropdownBtn = ({setSelect}) => {
+const DropdownBtn = ({setSelect, data}) => {
   const [isOpen, setOpen] = useState(false);
   const [items, setItem] = useState(data);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -38,12 +32,12 @@ const DropdownBtn = ({setSelect}) => {
       </div>
       <div
         className={`border-t-[1px] border-green-300 ${
-          isOpen ? "visible bg-emerald-700/95 text-white" : "invisible"
+          isOpen ? "block bg-teal-700/95 text-white" : "hidden"
         }`}
       >
         {items.map((item) => (
           <div
-            className="hover:cursor-pointer hover:bg-emerald-700 border border-green-600 px-3 py-1.5"
+            className="hover:cursor-pointer hover:bg-teal-600 border border-teal-600 px-3 py-1.5 text-sm"
             onClick={(e) => handleItemClick(e.target.id)}
             id={item.id}
           >

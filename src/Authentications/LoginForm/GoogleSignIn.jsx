@@ -13,7 +13,7 @@ const GoogleSignIn = () => {
         fetch("http://localhost:3001/admin/meal/login", {
           method: "POST", // or 'PUT'
           headers: {
-            Authorization: "Bearer my-token",
+            Authorization: "Bearer admin-access",
             "Content-Type": "application/json",
           },
           body: JSON.stringify({

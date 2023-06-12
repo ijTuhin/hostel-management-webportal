@@ -26,7 +26,7 @@ const LoginForm = () => {
         fetch("http://localhost:3001/admin/login", {
           method: "POST", // or 'PUT'
           headers: {
-            Authorization: "Bearer my-token",
+            Authorization: "Bearer admin-access",
             "Content-Type": "application/json",
           },
           body: JSON.stringify(value),
@@ -34,7 +34,7 @@ const LoginForm = () => {
           .then((response) => response.json())
           .then((value) => {
             console.log(value.message);
-            localStorage.setItem("access-token", value.token);
+            localStorage.setItem("admin-access", value.token);
             localStorage.setItem("admin-role", value.role);
           });
         /* ************************************ */
