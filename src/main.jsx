@@ -247,7 +247,7 @@ const router = createBrowserRouter([
             element: <MyAllNoticePage />,
             errorElement: <ErrorPage />,
             loader: async () => {
-              return fetch(`http://localhost:3001/notice`, {
+              return fetch(`http://localhost:3001/notice/get`, {
                 headers: {
                   Authorization: `Bearer ${token}`,
                 },
