@@ -47,18 +47,22 @@ const StaffNavMenuData = [
 
 const NoticeNavMenuData = [
   {
-    title: "Add new",
-    route: "/notice/add",
-    style: "bg-teal-700 hover:bg-teal-800 w-1/3 rounded-l-full",
-    activeStyle:
-      "bg-white text-teal-800 w-1/3 rounded-l-full border-teal-600",
-  },
-  {
     title: "All Notices",
     route: "/notice/all",
+    style: "bg-teal-700 hover:bg-teal-800 w-1/3 rounded-l-full",
+    activeStyle: "bg-teal-800 w-1/3 border-0 mx-0 rounded-l-full",
+  },
+  {
+    title: "Add new",
+    route: "/notice/add",
+    style: "bg-teal-700 hover:bg-teal-800 w-1/3",
+    activeStyle: "bg-teal-800 w-1/3 border-0 mx-0",
+  },
+  {
+    title: "All Posted",
+    route: "/notice/posted",
     style: "bg-teal-700 hover:bg-teal-800 w-1/3 rounded-r-full",
-    activeStyle:
-      "bg-white text-teal-800 w-1/3 rounded-r-full border-teal-600",
+    activeStyle: "bg-teal-800 w-1/3 border-0 mx-0 rounded-r-full",
   },
 ];
 

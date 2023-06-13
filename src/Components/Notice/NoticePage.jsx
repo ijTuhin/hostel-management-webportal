@@ -11,7 +11,7 @@ const NoticePage = () => {
   return (
     <div className="py-[4.35rem] h-screen">
     <div style={styles}>
-      <SecondaryNavbar item={item} />
+      <SecondaryNavbar item={item} center={1}/>
     </div>
     <Outlet />
     </div>

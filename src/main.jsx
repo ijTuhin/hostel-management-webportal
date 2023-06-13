@@ -40,6 +40,8 @@ import SalaryDetailPage from "./Components/Staff/Salary/SalaryDetailPage";
 import ManageStaffPage from "./Components/Staff/ManageStaff/ManageStaffPage";
 import NoticePage from "./Components/Notice/NoticePage";
 import AddNoticePage from "./Components/Notice/AddNotice/AddNoticePage";
+import MyAllNoticePage from "./Components/Notice/MyAllNotice/MyAllNoticePage";
+import token from "./Utilities/Hooks/CommonHooks";
 
 const m = new Date().getMonth();
 const months = [
@@ -216,31 +218,50 @@ const router = createBrowserRouter([
         path: "/notice",
         element: (
           <Authenticate>
-            <NoticePage/>
+            <NoticePage />
           </Authenticate>
         ),
         errorElement: <ErrorPage />,
         children: [
           {
             path: "/notice/add",
-            element: <AddNoticePage/>,
+            element: <AddNoticePage />,
             errorElement: <ErrorPage />,
             children: [],
           },
           {
-            path: "/notice/all",
-            element: <ManageStaffPage />,
+            path: "/notice/posted",
+            element: <MyAllNoticePage />,
             errorElement: <ErrorPage />,
-            loader: () => fetch(`http://localhost:3001/staff`),
+            loader: async () => {
+              return fetch(`http://localhost:3001/notice`, {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              });
+            },
             children: [],
           },
+          {
+            path: "/notice/all",
+            element: <MyAllNoticePage />,
+            errorElement: <ErrorPage />,
+            loader: async () => {
+              return fetch(`http://localhost:3001/notice`, {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              });
+            },
+            children: [],
+          }
         ],
       },
       {
         path: "/staff",
         element: (
           <Authenticate>
-            <StaffPage/>
+            <StaffPage />
           </Authenticate>
         ),
         errorElement: <ErrorPage />,
