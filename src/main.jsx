@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import UserContext from "./Authentications/Authenticate/UserContext";
 import HomePage from "./Pages/HomePage";
 import ErrorPage from "./Pages/ErrorPage";
 import PageContainer from "./Pages/PageContainer";
 import Authenticate from "./Authentications/Authenticate/Authenticate";
-import UserContext from "./Authentications/Authenticate/UserContext";
 import LoginPage from "./Pages/LoginPage";
 import UserDetails from "./Components/Users/UserDetails/UserDetails";
 import ManageUser from "./Components/Users/ManageUser/ManageUser";
@@ -31,7 +30,6 @@ import WardenUtilityBillPage from "./Components/Warden/UtilityBill/WardenUtility
 import RoomAllocationPage from "./Components/Warden/RoomAllocation/RoomAllocationPage";
 import AttendancePage from "./Components/Warden/Attendance/AttendancePage";
 import UsersPage from "./Components/Users/UsersPage";
-import Demo from "./Components/Demo/Demo";
 import BalanceSheetPage from "./Components/Finance/BalanceSheet/BalanceSheetPage";
 import FullDetails from "./Components/Users/User/FullDetails";
 import StaffPage from "./Components/Staff/StaffPage";
@@ -44,7 +42,6 @@ import MyAllNoticePage from "./Components/Notice/MyAllNotice/MyAllNoticePage";
 import token from "./Utilities/Hooks/CommonHooks";
 import PostedNoticePage from "./Components/Notice/PostedNotice/PostedNoticePage";
 
-const m = new Date().getMonth();
 const months = [
   "Jan",
   "Feb",
@@ -89,20 +86,19 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
           {
-            path: "/meal/orders",
+            index: true,
             element: <MealOrdersPage />,
             errorElement: <ErrorPage />,
-            children: [],
           },
           {
-            path: "/meal/payment-status",
+            path: "payment-status",
             element: <PaymentStatusPage />,
             errorElement: <ErrorPage />,
             loader: () => fetch(`http://localhost:3001/user/meal`),
             children: [],
           },
           {
-            path: "/meal/grocery-list",
+            path: "grocery-list",
             element: <GroceriesPage />,
             errorElement: <ErrorPage />,
             loader: () => fetch(`http://localhost:3001/grocery?date=${date}`),
@@ -121,13 +117,12 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
           {
-            path: "/warden/room-allocation",
+            index: true,
             element: <RoomAllocationPage />,
             errorElement: <ErrorPage />,
-            children: [],
           },
           {
-            path: "/warden/rent-status",
+            path: "rent-status",
             element: <RentStatusPage />,
             errorElement: <ErrorPage />,
             loader: () =>
@@ -135,21 +130,21 @@ const router = createBrowserRouter([
             children: [],
           },
           {
-            path: "/warden/seat-details",
+            path: "seat-details",
             element: <SeatDetailsPage />,
             loader: () => fetch(`http://localhost:3001/seat`),
             errorElement: <ErrorPage />,
             children: [],
           },
           {
-            path: "/warden/utility-bills",
+            path: "utility-bills",
             element: <WardenUtilityBillPage />,
             loader: () => fetch(`http://localhost:3001/utility?month=${month}`),
             errorElement: <ErrorPage />,
             children: [],
           },
           {
-            path: "/warden/attendance",
+            path: "attendance",
             element: <AttendancePage />,
             loader: () => fetch(`http://localhost:3001/user/attendance`),
             errorElement: <ErrorPage />,
@@ -205,12 +200,11 @@ const router = createBrowserRouter([
             children: [],
           },
           {
-            path: "/finance-management/balance-sheet",
+            index: true,
             element: <BalanceSheetPage />,
             loader: () =>
               fetch(`http://localhost:3001/balanceSheet?month=${month}`),
             errorElement: <ErrorPage />,
-            children: [],
           },
         ],
       },
@@ -225,10 +219,9 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
           {
-            path: "/notice/add",
+            index: true,
             element: <AddNoticePage />,
             errorElement: <ErrorPage />,
-            children: [],
           },
           {
             path: "/notice/posted",
@@ -255,7 +248,7 @@ const router = createBrowserRouter([
               });
             },
             children: [],
-          }
+          },
         ],
       },
       {
@@ -268,10 +261,9 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
           {
-            path: "/staff/add",
+            index: true,
             element: <AddStaffPage />,
             errorElement: <ErrorPage />,
-            children: [],
           },
           {
             path: "/staff/manage",
@@ -300,11 +292,11 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
           {
-            path: "/users/detail",
+            //   path: "/users",
+            index: true,
             element: <UserDetails />,
             errorElement: <ErrorPage />,
             loader: () => fetch(`http://localhost:3001/user/data`),
-            children: [],
           },
           {
             path: "/users/create",

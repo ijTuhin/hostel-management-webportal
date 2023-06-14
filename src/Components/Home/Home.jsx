@@ -40,7 +40,7 @@ const Home = () => {
       .then((item) => {
         setPageItem(item);
       });
-  }, []);
+  }, [8,page]);
   return (
     <div className="py-[4.35rem] h-screen">
       {role === "accountant" ? (

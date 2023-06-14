@@ -40,7 +40,7 @@ const TableData = ({ item, index }) => {
           <button
             onClick={() =>
               navigate(
-                "/warden/room-allocation",
+                "/warden",
                 { state: { id: 1, name: item.matric } },
                 { replace: true }
               )

@@ -9,8 +9,9 @@ const MealDrawer = () => {
     <ul>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/meal/orders"
+          to="/meal"
           className={({ isActive }) => (isActive ? "text-green-500" : "")}
+          end
         >
           <p className="flex items-center gap-x-5">
             <GiMeal /> Meal Orders

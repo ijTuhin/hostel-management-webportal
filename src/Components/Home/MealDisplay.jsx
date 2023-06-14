@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const MealDisplay = () => {
   const navigate = useNavigate();
   const navigateToMealOrderPage = () => {
-    navigate("/meal/orders", { replace: true });
+    navigate("/meal", { replace: true });
   };
   return (
     <div className="col-span-2 h-full flex flex-col justify-center gap-y-2">

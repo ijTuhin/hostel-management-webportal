@@ -11,6 +11,7 @@ const FinanceDrawer = () => {
         <NavLink
           to="/finance-management/meal-bill"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
+          end
         >
           <p className="flex items-center gap-x-5">
             <GiMeal /> Meal Bill
@@ -59,7 +60,7 @@ const FinanceDrawer = () => {
       </li>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/finance-management/balance-sheet"
+          to="/finance-management"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">
