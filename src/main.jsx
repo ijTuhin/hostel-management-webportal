@@ -42,6 +42,7 @@ import NoticePage from "./Components/Notice/NoticePage";
 import AddNoticePage from "./Components/Notice/AddNotice/AddNoticePage";
 import MyAllNoticePage from "./Components/Notice/MyAllNotice/MyAllNoticePage";
 import token from "./Utilities/Hooks/CommonHooks";
+import PostedNoticePage from "./Components/Notice/PostedNotice/PostedNoticePage";
 
 const m = new Date().getMonth();
 const months = [
@@ -231,7 +232,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/notice/posted",
-            element: <MyAllNoticePage />,
+            element: <PostedNoticePage />,
             errorElement: <ErrorPage />,
             loader: async () => {
               return fetch(`http://localhost:3001/notice`, {
