@@ -18,7 +18,7 @@ const AddItemForm = () => {
     let data = {
       list: value,
     };
-    fetch(`http://localhost:3001/grocery?date=${date}`, {
+    fetch(`https://hms-server-side.onrender.com/grocery?date=${date}`, {
       method: "PUT", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -74,7 +74,7 @@ const AddItemForm = () => {
               <input
                 onBlur={() => {
                   setPrice(value.price);
-                  console.log(value)
+                  console.log(value);
                 }}
                 onChange={(e) => {
                   setValue({

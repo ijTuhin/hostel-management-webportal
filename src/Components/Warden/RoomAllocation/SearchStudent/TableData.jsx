@@ -4,29 +4,32 @@ import { ImBlocked } from "react-icons/im";
 const TableData = ({ item, data }) => {
   const abc = data;
   const cancelSeat = () => {
-    fetch(`http://localhost:3001/seat/${item.room}/remove/${item.matric}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      `https://hms-server-side.onrender.com/seat/${item.room}/remove/${item.matric}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((i) => {
         console.log(i);
       });
-      window.location.reload()
-      window.onload(alert(`Removed User ${item.matric} from Room ${item.room}`));
+    window.location.reload();
+    window.onload(alert(`Removed User ${item.matric} from Room ${item.room}`));
   };
   const fetchRoomData = () => {
     console.log("Room Data");
-    fetch(`http://localhost:3001/seat/vacant`)
+    fetch(`https://hms-server-side.onrender.com/seat/vacant`)
       .then((res) => res.json())
       .then((data) => {
-        let value = data
-        let previous = 0
-        if(item.room){
-          value = data.filter((i)=>{
-            if(i.room === item.room) return false;
+        let value = data;
+        let previous = 0;
+        if (item.room) {
+          value = data.filter((i) => {
+            if (i.room === item.room) return false;
             else return true;
           });
           previous = item.room;
@@ -34,7 +37,7 @@ const TableData = ({ item, data }) => {
         abc({
           user: item.matric,
           room: value,
-          previous
+          previous,
         });
       });
   };

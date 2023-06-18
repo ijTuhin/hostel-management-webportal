@@ -23,7 +23,7 @@ const DrawerContainer = ({ item, title }) => {
           {item === 3 && <FinanceDrawer />}
           {item === 4 && <CreateUserDrawer />}
         </div>
-        <div className={`${title ? "col-span-5" : "col-span-3"} `}>
+        <div className={`${title ? "col-span-5" : "col-span-3"} px-32 py-12`}>
           <Outlet context={[value, setValue]} />
         </div>
       </div>

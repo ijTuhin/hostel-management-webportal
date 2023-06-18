@@ -41,6 +41,7 @@ import AddNoticePage from "./Components/Notice/AddNotice/AddNoticePage";
 import MyAllNoticePage from "./Components/Notice/MyAllNotice/MyAllNoticePage";
 import token from "./Utilities/Hooks/CommonHooks";
 import PostedNoticePage from "./Components/Notice/PostedNotice/PostedNoticePage";
+import UtilityRecordPage from "./Components/Common/Records/Page/UtilityRecordPage";
 
 const months = [
   "Jan",
@@ -75,7 +76,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [],
       },
-
+      /* ========Meal======= */
       {
         path: "/meal",
         element: (
@@ -94,19 +95,23 @@ const router = createBrowserRouter([
             path: "payment-status",
             element: <PaymentStatusPage />,
             errorElement: <ErrorPage />,
-            loader: () => fetch(`http://localhost:3001/user/meal`),
+            loader: () =>
+              fetch(`https://hms-server-side.onrender.com/user/meal`),
             children: [],
           },
           {
             path: "grocery-list",
             element: <GroceriesPage />,
             errorElement: <ErrorPage />,
-            loader: () => fetch(`http://localhost:3001/grocery?date=${date}`),
+            loader: () =>
+              fetch(
+                `https://hms-server-side.onrender.com/grocery?date=${date}`
+              ),
             children: [],
           },
         ],
       },
-
+      /* ========Warden======= */
       {
         path: "/warden",
         element: (
@@ -126,33 +131,43 @@ const router = createBrowserRouter([
             element: <RentStatusPage />,
             errorElement: <ErrorPage />,
             loader: () =>
-              fetch(`http://localhost:3001/payment?month=${month}&item=rent`),
+              fetch(
+                `https://hms-server-side.onrender.com/payment?month=${month}&item=rent`
+              ),
             children: [],
           },
           {
             path: "seat-details",
             element: <SeatDetailsPage />,
-            loader: () => fetch(`http://localhost:3001/seat`),
+            loader: () => fetch(`https://hms-server-side.onrender.com/seat`),
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "utility-bills",
             element: <WardenUtilityBillPage />,
-            loader: () => fetch(`http://localhost:3001/utility?month=${month}`),
+            loader: () =>
+              fetch(
+                `https://hms-server-side.onrender.com/utility?month=${month}`
+              ),
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "attendance",
             element: <AttendancePage />,
-            loader: () => fetch(`http://localhost:3001/user/attendance`),
+            loader: () =>
+              fetch(`https://hms-server-side.onrender.com/user/attendance`),
             errorElement: <ErrorPage />,
             children: [],
           },
+          {
+            path: "records",
+            element: <UtilityRecordPage />,
+          },
         ],
       },
-
+      /* ========Finance======= */
       {
         path: "/finance-management",
         element: (
@@ -167,7 +182,9 @@ const router = createBrowserRouter([
             element: <MealBillPage />,
             errorElement: <ErrorPage />,
             loader: () =>
-              fetch(`http://localhost:3001/payment?month=${month}&item=meal`),
+              fetch(
+                `https://hms-server-side.onrender.com/payment?month=${month}&item=meal`
+              ),
             children: [],
           },
           {
@@ -175,27 +192,35 @@ const router = createBrowserRouter([
             element: <SeatRentPage />,
             errorElement: <ErrorPage />,
             loader: () =>
-              fetch(`http://localhost:3001/payment?month=${month}&item=rent`),
+              fetch(
+                `https://hms-server-side.onrender.com/payment?month=${month}&item=rent`
+              ),
             children: [],
           },
           {
             path: "/finance-management/grocery-cost",
             element: <GroceryCostPage />,
-            loader: () => fetch(`http://localhost:3001/grocery?month=${month}`),
+            loader: () =>
+              fetch(
+                `https://hms-server-side.onrender.com/grocery?month=${month}`
+              ),
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "/finance-management/utility-bills",
             element: <UtilityBillPage />,
-            loader: () => fetch(`http://localhost:3001/utility?month=${month}`),
+            loader: () =>
+              fetch(
+                `https://hms-server-side.onrender.com/utility?month=${month}`
+              ),
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "/finance-management/salaries",
             element: <SalariesPage />,
-            loader: () => fetch(`http://localhost:3001/staff`),
+            loader: () => fetch(`https://hms-server-side.onrender.com/staff`),
             errorElement: <ErrorPage />,
             children: [],
           },
@@ -203,12 +228,14 @@ const router = createBrowserRouter([
             index: true,
             element: <BalanceSheetPage />,
             loader: () =>
-              fetch(`http://localhost:3001/balanceSheet?month=${month}`),
+              fetch(
+                `https://hms-server-side.onrender.com/balanceSheet?month=${month}`
+              ),
             errorElement: <ErrorPage />,
           },
         ],
       },
-
+      /* ========Notice======= */
       {
         path: "/notice",
         element: (
@@ -228,7 +255,7 @@ const router = createBrowserRouter([
             element: <PostedNoticePage />,
             errorElement: <ErrorPage />,
             loader: async () => {
-              return fetch(`http://localhost:3001/notice`, {
+              return fetch(`https://hms-server-side.onrender.com/notice`, {
                 headers: {
                   Authorization: `Bearer ${token}`,
                 },
@@ -241,7 +268,7 @@ const router = createBrowserRouter([
             element: <MyAllNoticePage />,
             errorElement: <ErrorPage />,
             loader: async () => {
-              return fetch(`http://localhost:3001/notice/get`, {
+              return fetch(`https://hms-server-side.onrender.com/notice/get`, {
                 headers: {
                   Authorization: `Bearer ${token}`,
                 },
@@ -251,6 +278,7 @@ const router = createBrowserRouter([
           },
         ],
       },
+      /* ========Staff======= */
       {
         path: "/staff",
         element: (
@@ -269,19 +297,19 @@ const router = createBrowserRouter([
             path: "/staff/manage",
             element: <ManageStaffPage />,
             errorElement: <ErrorPage />,
-            loader: () => fetch(`http://localhost:3001/staff`),
+            loader: () => fetch(`https://hms-server-side.onrender.com/staff`),
             children: [],
           },
           {
             path: "/staff/salaries",
             element: <SalaryDetailPage />,
             errorElement: <ErrorPage />,
-            loader: () => fetch(`http://localhost:3001/staff`),
+            loader: () => fetch(`https://hms-server-side.onrender.com/staff`),
             children: [],
           },
         ],
       },
-
+      /* ========Users======= */
       {
         path: "/users",
         element: (
@@ -296,7 +324,8 @@ const router = createBrowserRouter([
             index: true,
             element: <UserDetails />,
             errorElement: <ErrorPage />,
-            loader: () => fetch(`http://localhost:3001/user/data`),
+            loader: () =>
+              fetch(`https://hms-server-side.onrender.com/user/data`),
           },
           {
             path: "/users/create",
@@ -333,7 +362,8 @@ const router = createBrowserRouter([
             path: "/users/manage-user",
             element: <ManageUser />,
             errorElement: <ErrorPage />,
-            loader: () => fetch(`http://localhost:3001/user/data`),
+            loader: () =>
+              fetch(`https://hms-server-side.onrender.com/user/data`),
             children: [],
           },
           {

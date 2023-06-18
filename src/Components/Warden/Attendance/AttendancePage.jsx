@@ -4,7 +4,7 @@ import TableAttendance from "./TableAttendance";
 const AttendancePage = () => {
   const date = new Date().toLocaleDateString();
   return (
-    <div className="px-32 py-12">
+    <div>
       <div className="w-full bg-amber-300/30 text-center py-5">
         <div>
           Date: <span className="text-lg">{date}</span>

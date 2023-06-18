@@ -3,16 +3,16 @@ import { RxDoubleArrowRight } from "react-icons/rx";
 const TableData = ({ item }) => {
   const total = item.bill + item.due.bill;
   const updatePayBill = () => {
-    fetch(`http://localhost:3001/utility/pay-due/${item._id}`, {
+    fetch(`https://hms-server-side.onrender.com/utility/pay-due/${item._id}`, {
       method: "PUT", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
-      }
+      },
     })
       .then((response) => response.json())
       .then((item) => {
         console.log(item);
-        window.location.reload()
+        window.location.reload();
       });
   };
   return (
@@ -37,16 +37,16 @@ const TableData = ({ item }) => {
             "Paid"
           ) : (
             <div>
-              {
-                total ? 
+              {total ? (
                 <button
                   onClick={updatePayBill}
                   className="border border-gray-300 text-gray-300 font-normal px-3.5 py-1 rounded hover:bg-green-500 hover:text-white"
                 >
                   Pay
                 </button>
-                : <p className="text-gray-300">Pending</p>
-              }
+              ) : (
+                <p className="text-gray-300">Pending</p>
+              )}
             </div>
           )}
         </td>

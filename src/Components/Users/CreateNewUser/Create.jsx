@@ -13,11 +13,11 @@ const Create = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    setValue({...value, password: password})
-    console.log(value, password)
-    
+    setValue({ ...value, password: password });
+    console.log(value, password);
+
     /* ************************************ */
-    fetch("http://localhost:3001/user/signup", {
+    fetch("https://hms-server-side.onrender.com/user/signup", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -29,7 +29,6 @@ const Create = () => {
         console.log("DB Success:", value);
       });
     /* ************************************ */
-
 
     // const displayName = e.target.displayName.value;
     createUser(email, password)
@@ -43,16 +42,15 @@ const Create = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage)
+        console.log(errorCode, errorMessage);
         // ..
       });
   };
 
   return (
-    <div className='w-full h-full flex justify-center p-40 space-y-4 bg-gray-50'>
-      <form
-        onSubmit={handleCreateUser} className="flex flex-col w-96 gap-4">
-          {/* <input
+    <div className="w-full h-full flex justify-center p-40 space-y-4 bg-gray-50">
+      <form onSubmit={handleCreateUser} className="flex flex-col w-96 gap-4">
+        {/* <input
             className="border-b border-teal-600 outline-transparent px-2 py-1.5 bg-inherit"
             type="text"
             name="displayName"
@@ -60,27 +58,25 @@ const Create = () => {
             placeholder="Username"
             required
           /> */}
-          <input
-            className="border-b border-teal-600 outline-transparent px-2 py-1.5 bg-inherit"
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Email address"
-            required
-          />
-          <input
-            className="border-b border-teal-600 outline-transparent px-2 py-1.5 bg-inherit"
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Create password"
-            required
-          />
-          <button
-            className="border p-3 bg-teal-600 rounded text-white hover:bg-teal-700"
-          >
-            Create Account
-          </button>
+        <input
+          className="border-b border-teal-600 outline-transparent px-2 py-1.5 bg-inherit"
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email address"
+          required
+        />
+        <input
+          className="border-b border-teal-600 outline-transparent px-2 py-1.5 bg-inherit"
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Create password"
+          required
+        />
+        <button className="border p-3 bg-teal-600 rounded text-white hover:bg-teal-700">
+          Create Account
+        </button>
       </form>
     </div>
   );

@@ -9,7 +9,7 @@ const MealOrdersPage = () => {
   ================================================ */
   const date = new Date();
   let time = date.toTimeString().split(":")[0];
-  time = parseInt(time)
+  time = parseInt(time);
   const today = date.toLocaleDateString();
   date.setDate(date.getDate() + 1);
   const tomorrow = date.toLocaleDateString();
@@ -22,20 +22,22 @@ const MealOrdersPage = () => {
     meal = "Dinner";
   } else if (time === 23 || time < 9) {
     meal = "Breakfast";
-    if(time === 23){day = tomorrow;}
+    if (time === 23) {
+      day = tomorrow;
+    }
   }
   /* ============================================= */
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:3001/meal?meal=${meal}&date=${day}`)
+    fetch(`https://hms-server-side.onrender.com/meal?meal=${meal}&date=${day}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);
       });
   }, []);
-  console.log(data,time, day, meal);
+  console.log(data, time, day, meal);
   return (
-    <div className="flex flex-col gap-y-10 items-center mx-32">
+    <div className="flex flex-col gap-y-10 items-center">
       <MealHeading />
       <div class="w-full flex flex-col">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">

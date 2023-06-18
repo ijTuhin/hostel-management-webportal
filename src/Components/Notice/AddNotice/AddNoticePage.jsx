@@ -15,15 +15,15 @@ const AddNoticePage = () => {
   const addStaffData = (e) => {
     e.preventDefault();
     if (select !== "2") {
-      value.to = data.find((item) => item.id == select).label
+      value.to = data.find((item) => item.id == select).label;
     }
     if (!value) {
       return false;
     }
-    fetch(`http://localhost:3001/notice`, {
+    fetch(`https://hms-server-side.onrender.com/notice`, {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(value),

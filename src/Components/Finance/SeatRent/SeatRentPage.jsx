@@ -4,7 +4,7 @@ import FinanceSearchBar from "../SearchBar/FinanceSearchBar";
 
 const SeatRentPage = () => {
   return (
-    <div className="px-32 py-12">
+    <div>
       <FinanceSearchBar />
       <SeatRentTable />
     </div>

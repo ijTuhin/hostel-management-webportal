@@ -5,18 +5,17 @@ const AddBill = ({ setBillInput, id }) => {
   const handleInput = (event) => {
     setBill(event.target.value);
     if (event.keyCode == 13) {
-      fetch(`http://localhost:3001/utility/insert-bill/${id}`, {
+      fetch(`https://hms-server-side.onrender.com/utility/insert-bill/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({bill}),
+        body: JSON.stringify({ bill }),
       })
         .then((response) => response.json())
-        .then((item) => {
-          console.log(item);
+        .then(() => {
+          setBillInput(false);
         });
-      setBillInput(false);
     }
   };
   return (

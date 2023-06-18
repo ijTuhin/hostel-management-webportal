@@ -1,25 +1,25 @@
 import React, { useState } from "react";
 import { IoSend } from "react-icons/io5";
 
-const StaffUpdateForm = ({active, item}) => {
-    const [value, setValue] = useState(true);
-    const handleUpdate = () => {
-      if(value.name === '') delete value.name;
-      if(value.position === '') delete value.position;
-      if(value.salary === '') delete value.salary;
-      if(value.phone === '') delete value.phone;
-      fetch(`http://localhost:3001/staff/${item._id}`, {
-        method: "PUT", // or 'PUT'
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(value),
-      })
-        .then((response) => response.json())
-        .then((value) => {
-          console.log("DB Success:", value);
-        });
-    };
+const StaffUpdateForm = ({ active, item }) => {
+  const [value, setValue] = useState(true);
+  const handleUpdate = () => {
+    if (value.name === "") delete value.name;
+    if (value.position === "") delete value.position;
+    if (value.salary === "") delete value.salary;
+    if (value.phone === "") delete value.phone;
+    fetch(`https://hms-server-side.onrender.com/staff/${item._id}`, {
+      method: "PUT", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(value),
+    })
+      .then((response) => response.json())
+      .then((value) => {
+        console.log("DB Success:", value);
+      });
+  };
   return (
     <tr className={`${active && "hidden"}`}>
       <td>

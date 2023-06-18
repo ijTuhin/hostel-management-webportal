@@ -15,7 +15,7 @@ const RoomAllocationPage = () => {
   }
   console.log(navigated);
   return (
-    <div className="px-32 py-12 space-y-3">
+    <div className="space-y-3">
       <div className="flex justify-between">
         <SearchBar search={navigated} />
         <button className="flex items-center gap-x-1.5 text-gray-600 hover:text-green-500"

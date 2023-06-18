@@ -17,7 +17,9 @@ const SearchBar = ({ search }) => {
       } else {
         entity = "name";
       }
-      fetch(`http://localhost:3001/user/search?${entity}=${input}`)
+      fetch(
+        `https://hms-server-side.onrender.com/user/search?${entity}=${input}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setUser(data);
@@ -25,7 +27,7 @@ const SearchBar = ({ search }) => {
     }
   };
   if (search && !input) {
-    fetch(`http://localhost:3001/user/search?matric=${search}`)
+    fetch(`https://hms-server-side.onrender.com/user/search?matric=${search}`)
       .then((res) => res.json())
       .then((data) => {
         setUser(data);
@@ -45,7 +47,7 @@ const SearchBar = ({ search }) => {
       <TbSearch />
       <input
         onKeyUp={handleInput}
-        onClick={()=> search = null}
+        onClick={() => (search = null)}
         type="search"
         className="outline-none text-sm w-full text-gray-700"
         placeholder="search name or matric Id"

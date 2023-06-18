@@ -3,7 +3,7 @@ import RentStatusTable from './RentStatusTable'
 
 const RentStatusPage = () => {
   return (
-    <div className='px-32 py-12'><RentStatusTable/></div>
+    <div><RentStatusTable/></div>
   )
 }
 

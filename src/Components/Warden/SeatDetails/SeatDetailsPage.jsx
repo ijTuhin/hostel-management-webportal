@@ -3,7 +3,7 @@ import SeatDetailsTable from './SeatDetailsTable'
 
 const SeatDetailsPage = () => {
   return (
-    <div className='px-32 py-12'>
+    <div>
         <SeatDetailsTable/>
     </div>
   )

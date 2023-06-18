@@ -9,7 +9,7 @@ const FullDetails = () => {
   const matric = location?.state?.name;
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:3001/user/update?matric=${matric}`)
+    fetch(`https://hms-server-side.onrender.com/user/update?matric=${matric}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -17,8 +17,11 @@ const FullDetails = () => {
   }, []);
   return (
     <div className="p-10">
-      <button onClick={() => navigate("/users/manage-user", { replace: true })} className="flex items-center justify-start gap-x-2 hover:text-green-500">
-        <IoReturnUpBackOutline/> Back
+      <button
+        onClick={() => navigate("/users/manage-user", { replace: true })}
+        className="flex items-center justify-start gap-x-2 hover:text-green-500"
+      >
+        <IoReturnUpBackOutline /> Back
       </button>
       <div className="flex justify-center">
         <UpdateForm item={data} />

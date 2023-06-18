@@ -2,20 +2,20 @@ import React from "react";
 import { RxDoubleArrowRight } from "react-icons/rx";
 import getCurrentMonthSalary from "../../../Utilities/Hooks/SalaryHook";
 const TableData = ({ item }) => {
-  getCurrentMonthSalary(item)
+  getCurrentMonthSalary(item);
   const paySalary = () => {
-    fetch(`http://localhost:3001/salary/${item._id}`, {
+    fetch(`https://hms-server-side.onrender.com/salary/${item._id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-      }
+      },
     })
       .then((response) => response.json())
       .then((item) => {
         console.log(item);
-        window.location.reload()
+        window.location.reload();
       });
-  }
+  };
   return (
     <>
       <tr class="bg-white border-b border-zinc-200 transition duration-300 ease-in-out text-gray-900 hover:bg-zinc-50">
@@ -38,15 +38,16 @@ const TableData = ({ item }) => {
           ) : (
             <div>
               Pending{" "}
-              <button onClick={paySalary} className="border px-2 py-1 rounded hover:bg-red-500 hover:text-white">
+              <button
+                onClick={paySalary}
+                className="border px-2 py-1 rounded hover:bg-red-500 hover:text-white"
+              >
                 Pay
               </button>
             </div>
           )}
         </td>
-        <td
-          class="text-gray-500 px-6 py-4 whitespace-nowrap text-sm font-semibold flex justify-center"
-        >
+        <td class="text-gray-500 px-6 py-4 whitespace-nowrap text-sm font-semibold flex justify-center">
           {!status ? "---" : <>{salary.date}</>}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">

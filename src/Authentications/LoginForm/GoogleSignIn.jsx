@@ -10,7 +10,7 @@ const GoogleSignIn = () => {
       .then((userCredential) => {
         const email = userCredential.user.email;
         /* ************************************ */
-        fetch("http://localhost:3001/admin/meal/login", {
+        fetch("https://hms-server-side.onrender.com/admin/meal/login", {
           method: "POST", // or 'PUT'
           headers: {
             Authorization: "Bearer admin-access",

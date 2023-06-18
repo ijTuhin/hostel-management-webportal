@@ -6,7 +6,7 @@ const UpdateForm = ({ item }) => {
   const [value, setValue] = useState({});
   const updateData = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:3001/user/update/${item._id}`, {
+    fetch(`https://hms-server-side.onrender.com/user/update/${item._id}`, {
       method: "PUT", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

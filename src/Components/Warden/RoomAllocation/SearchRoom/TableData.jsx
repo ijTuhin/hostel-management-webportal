@@ -2,13 +2,16 @@ import React, { useState } from "react";
 const TableData = ({ item, matric, previous }) => {
   const [btn, setBtn] = useState(false);
   const selectRoom = () => {
-    fetch(`http://localhost:3001/seat/${matric}/allocate/${item.room}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ previous }),
-    })
+    fetch(
+      `https://hms-server-side.onrender.com/seat/${matric}/allocate/${item.room}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ previous }),
+      }
+    )
       .then((res) => res.json())
       .then((i) => {
         console.log(i);

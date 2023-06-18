@@ -7,7 +7,7 @@ const GroceriesPage = () => {
   const date = new Date().toLocaleDateString();
   const data = useLoaderData();
   return (
-    <div className="px-32 py-6 w-full space-y-8">
+    <div className="w-full space-y-8">
       <AddItemForm />
       <div className="flex flex-col gap-y-3">
         <div className="py-3 w-full bg-emerald-700/25 text-center text-lg">

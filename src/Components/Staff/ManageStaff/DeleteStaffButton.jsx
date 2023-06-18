@@ -3,11 +3,11 @@ import { MdDelete } from "react-icons/md";
 
 const DeleteStaffButton = ({ item }) => {
   const deleteStaff = () => {
-    fetch(`http://localhost:3001/staff/${item._id}`, {
+    fetch(`https://hms-server-side.onrender.com/staff/${item._id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-      }
+      },
     })
       .then((response) => response.json())
       .then((value) => {

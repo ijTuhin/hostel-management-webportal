@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const TableData = ({ item, index }) => {
   const navigate = useNavigate();
   const makeMealManager = () => {
-    fetch("http://localhost:3001/admin/create-meal-manager", {
+    fetch("https://hms-server-side.onrender.com/admin/create-meal-manager", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

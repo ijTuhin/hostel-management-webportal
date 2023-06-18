@@ -19,28 +19,30 @@ const Home = () => {
   const [page, setPage] = useState(1);
   useEffect(() => {
     // Create new grocery daily record
-    fetch(`http://localhost:3001/grocery?date=${date}`, {
+    fetch(`https://hms-server-side.onrender.com/grocery?date=${date}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-    })
-      .then((response) => response.json())
+    }).then((response) => response.json());
     // Create new Utility month record
-    fetch(`http://localhost:3001/utility`, {
+    fetch(`https://hms-server-side.onrender.com/utility`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-    })
-      .then((response) => response.json())
+    }).then((response) => response.json());
     // Get Current Attendance
-    fetch(`http://localhost:3001/user/attendance?page=${page - 1}&size=${8}`)
+    fetch(
+      `https://hms-server-side.onrender.com/user/attendance?page=${
+        page - 1
+      }&size=${8}`
+    )
       .then((response) => response.json())
       .then((item) => {
         setPageItem(item);
       });
-  }, [8,page]);
+  }, [8, page]);
   return (
     <div className="py-[4.35rem] h-screen">
       {role === "accountant" ? (

@@ -23,7 +23,7 @@ const LoginForm = () => {
         const user = userCredential.user;
 
         /* ************************************ */
-        fetch("http://localhost:3001/admin/login", {
+        fetch("https://hms-server-side.onrender.com/admin/login", {
           method: "POST", // or 'PUT'
           headers: {
             Authorization: "Bearer admin-access",
