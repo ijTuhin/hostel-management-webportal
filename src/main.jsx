@@ -195,7 +195,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
           {
-            path: "/finance-management/meal-bill",
+            path: "meal-bill",
             element: <MealBillPage />,
             errorElement: <ErrorPage />,
             loader: () => {
@@ -207,7 +207,7 @@ const router = createBrowserRouter([
             children: [],
           },
           {
-            path: "/finance-management/seat-rent",
+            path: "seat-rent",
             element: <SeatRentPage />,
             errorElement: <ErrorPage />,
             loader: () => {
@@ -219,7 +219,7 @@ const router = createBrowserRouter([
             children: [],
           },
           {
-            path: "/finance-management/grocery-cost",
+            path: "grocery-cost",
             element: <GroceryCostPage />,
             loader: () => {
               return fetch(
@@ -231,7 +231,7 @@ const router = createBrowserRouter([
             children: [],
           },
           {
-            path: "/finance-management/utility-bills",
+            path: "utility-bills",
             element: <UtilityBillPage />,
             loader: () => {
               return fetch(
@@ -243,7 +243,7 @@ const router = createBrowserRouter([
             children: [],
           },
           {
-            path: "/finance-management/salaries",
+            path: "salaries",
             element: <SalariesPage />,
             loader: () => {
               return fetch(`https://hms-server-side.onrender.com/staff`, {
@@ -359,7 +359,6 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
           {
-            //   path: "/users",
             index: true,
             element: <UserDetails />,
             errorElement: <ErrorPage />,

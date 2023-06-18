@@ -2,7 +2,6 @@ import React from "react";
 import { FcCancel } from "react-icons/fc";
 import { GiCheckMark } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
-import changeAcountValidity from "./ManageBtn";
 import token from "../../../Utilities/Hooks/CommonHooks";
 const TableData = ({ item, index }) => {
   const navigate = useNavigate();

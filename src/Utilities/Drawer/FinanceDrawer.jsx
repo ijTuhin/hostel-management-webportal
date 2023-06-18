@@ -9,7 +9,7 @@ const FinanceDrawer = () => {
     <ul>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/finance-management/meal-bill"
+          to="meal-bill"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
           end
         >
@@ -20,7 +20,7 @@ const FinanceDrawer = () => {
       </li>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/finance-management/seat-rent"
+          to="seat-rent"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">
@@ -30,7 +30,7 @@ const FinanceDrawer = () => {
       </li>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/finance-management/grocery-cost"
+          to="grocery-cost"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">
@@ -40,7 +40,7 @@ const FinanceDrawer = () => {
       </li>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/finance-management/utility-bills"
+          to="utility-bills"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">
@@ -50,7 +50,7 @@ const FinanceDrawer = () => {
       </li>
       <li className="px-3 py-2 hover:bg-gray-100 border-l-2">
         <NavLink
-          to="/finance-management/salaries"
+          to="salaries"
           className={({ isActive }) => (isActive ? "text-green-700" : "")}
         >
           <p className="flex items-center gap-x-5">
