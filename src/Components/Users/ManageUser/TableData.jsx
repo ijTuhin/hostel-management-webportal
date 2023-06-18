@@ -2,6 +2,8 @@ import React from "react";
 import { FcCancel } from "react-icons/fc";
 import { GiCheckMark } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
+import changeAcountValidity from "./ManageBtn";
+import token from "../../../Utilities/Hooks/CommonHooks";
 const TableData = ({ item, index }) => {
   const navigate = useNavigate();
   const makeMealManager = () => {
@@ -18,6 +20,20 @@ const TableData = ({ item, index }) => {
       .then((response) => response.json())
       .then((value) => {
         console.log(value.message);
+      });
+  };
+  const changeAcountValidity = () => {
+    console.log(item._id, token);
+    fetch(`https://hms-server-side.onrender.com/user/account/${item._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Beared ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((value) => {
+        window.location.reload();
       });
   };
   return (
@@ -58,13 +74,28 @@ const TableData = ({ item, index }) => {
             Mess manager
           </button>
         </td>
-        <td class="px-6 py-4 whitespace-nowrap text-xl flex justify-center">
+        <td class="px-6 py-4 whitespace-nowrap text-xl flex justify-center group">
           {item.account ? (
-            <span className="text-green-500">
+            <div className="text-green-500 flex justify-center items-center">
               <GiCheckMark />
-            </span>
+              <button
+                onClick={changeAcountValidity}
+                className="px-3.5 py-2 text-2xl invisible group-hover:visible hover:text-red-500 text-red-400"
+              >
+                <FcCancel />
+              </button>
+            </div>
           ) : (
-            <FcCancel />
+            <div className="text-green-500 flex justify-center items-center">
+              <FcCancel />
+              <button
+                onClick={changeAcountValidity}
+                className="px-3.5 py-2 text-2xl invisible group-hover:visible hover:text-green-500 text-green-400"
+              >
+                <GiCheckMark />
+              </button>
+            </div>
+            // <FcCancel />
           )}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-center text-sm">

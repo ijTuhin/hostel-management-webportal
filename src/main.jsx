@@ -405,7 +405,7 @@ const router = createBrowserRouter([
             element: <ManageUser />,
             errorElement: <ErrorPage />,
             loader: () => {
-              return fetch(`https://hms-server-side.onrender.com/user/data`, {
+              return fetch(`https://hms-server-side.onrender.com/user`, {
                 headers: { Authorization: `Beared ${token}` },
               });
             },
