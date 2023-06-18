@@ -95,18 +95,23 @@ const router = createBrowserRouter([
             path: "payment-status",
             element: <PaymentStatusPage />,
             errorElement: <ErrorPage />,
-            loader: () =>
-              fetch(`https://hms-server-side.onrender.com/user/meal`),
+            loader: () => {
+              return fetch(`https://hms-server-side.onrender.com/user/meal`, {
+                headers: { Authorization: `Beared ${token}` },
+              });
+            },
             children: [],
           },
           {
             path: "grocery-list",
             element: <GroceriesPage />,
             errorElement: <ErrorPage />,
-            loader: () =>
-              fetch(
-                `https://hms-server-side.onrender.com/grocery?date=${date}`
-              ),
+            loader: () => {
+              return fetch(
+                `https://hms-server-side.onrender.com/grocery?date=${date}`,
+                { headers: { Authorization: `Beared ${token}` } }
+              );
+            },
             children: [],
           },
         ],
@@ -130,34 +135,46 @@ const router = createBrowserRouter([
             path: "rent-status",
             element: <RentStatusPage />,
             errorElement: <ErrorPage />,
-            loader: () =>
-              fetch(
-                `https://hms-server-side.onrender.com/payment?month=${month}&item=rent`
-              ),
+            loader: () => {
+              return fetch(
+                `https://hms-server-side.onrender.com/payment?month=${month}&item=rent`,
+                { headers: { Authorization: `Beared ${token}` } }
+              );
+            },
             children: [],
           },
           {
             path: "seat-details",
             element: <SeatDetailsPage />,
-            loader: () => fetch(`https://hms-server-side.onrender.com/seat`),
+            loader: () => {
+              return fetch(`https://hms-server-side.onrender.com/seat`, {
+                headers: { Authorization: `Beared ${token}` },
+              });
+            },
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "utility-bills",
             element: <WardenUtilityBillPage />,
-            loader: () =>
-              fetch(
-                `https://hms-server-side.onrender.com/utility?month=${month}`
-              ),
+            loader: () => {
+              return fetch(
+                `https://hms-server-side.onrender.com/utility?month=${month}`,
+                { headers: { Authorization: `Beared ${token}` } }
+              );
+            },
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "attendance",
             element: <AttendancePage />,
-            loader: () =>
-              fetch(`https://hms-server-side.onrender.com/user/attendance`),
+            loader: () => {
+              return fetch(
+                `https://hms-server-side.onrender.com/user/attendance`,
+                { headers: { Authorization: `Beared ${token}` } }
+              );
+            },
             errorElement: <ErrorPage />,
             children: [],
           },
@@ -181,56 +198,70 @@ const router = createBrowserRouter([
             path: "/finance-management/meal-bill",
             element: <MealBillPage />,
             errorElement: <ErrorPage />,
-            loader: () =>
-              fetch(
-                `https://hms-server-side.onrender.com/payment?month=${month}&item=meal`
-              ),
+            loader: () => {
+              return fetch(
+                `https://hms-server-side.onrender.com/payment?month=${month}&item=meal`,
+                { headers: { Authorization: `Beared ${token}` } }
+              );
+            },
             children: [],
           },
           {
             path: "/finance-management/seat-rent",
             element: <SeatRentPage />,
             errorElement: <ErrorPage />,
-            loader: () =>
-              fetch(
-                `https://hms-server-side.onrender.com/payment?month=${month}&item=rent`
-              ),
+            loader: () => {
+              return fetch(
+                `https://hms-server-side.onrender.com/payment?month=${month}&item=rent`,
+                { headers: { Authorization: `Beared ${token}` } }
+              );
+            },
             children: [],
           },
           {
             path: "/finance-management/grocery-cost",
             element: <GroceryCostPage />,
-            loader: () =>
-              fetch(
-                `https://hms-server-side.onrender.com/grocery?month=${month}`
-              ),
+            loader: () => {
+              return fetch(
+                `https://hms-server-side.onrender.com/grocery?month=${month}`,
+                { headers: { Authorization: `Beared ${token}` } }
+              );
+            },
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "/finance-management/utility-bills",
             element: <UtilityBillPage />,
-            loader: () =>
-              fetch(
-                `https://hms-server-side.onrender.com/utility?month=${month}`
-              ),
+            loader: () => {
+              return fetch(
+                `https://hms-server-side.onrender.com/utility?month=${month}`,
+                { headers: { Authorization: `Beared ${token}` } }
+              );
+            },
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             path: "/finance-management/salaries",
             element: <SalariesPage />,
-            loader: () => fetch(`https://hms-server-side.onrender.com/staff`),
+            loader: () => {
+              return fetch(`https://hms-server-side.onrender.com/staff`, {
+                headers: { Authorization: `Beared ${token}` },
+              });
+            },
             errorElement: <ErrorPage />,
             children: [],
           },
           {
             index: true,
             element: <BalanceSheetPage />,
-            loader: () =>
-              fetch(
-                `https://hms-server-side.onrender.com/balanceSheet?month=${month}`
-              ),
+            loader: () => {
+              return fetch(
+                `https://hms-server-side.onrender.com/balanceSheet?month=${month}`,
+                { headers: { Authorization: `Beared ${token}` } }
+              );
+            },
             errorElement: <ErrorPage />,
           },
         ],
@@ -297,14 +328,22 @@ const router = createBrowserRouter([
             path: "/staff/manage",
             element: <ManageStaffPage />,
             errorElement: <ErrorPage />,
-            loader: () => fetch(`https://hms-server-side.onrender.com/staff`),
+            loader: () => {
+              return fetch(`https://hms-server-side.onrender.com/staff`, {
+                headers: { Authorization: `Beared ${token}` },
+              });
+            },
             children: [],
           },
           {
             path: "/staff/salaries",
             element: <SalaryDetailPage />,
             errorElement: <ErrorPage />,
-            loader: () => fetch(`https://hms-server-side.onrender.com/staff`),
+            loader: () => {
+              return fetch(`https://hms-server-side.onrender.com/staff`, {
+                headers: { Authorization: `Beared ${token}` },
+              });
+            },
             children: [],
           },
         ],
@@ -324,8 +363,11 @@ const router = createBrowserRouter([
             index: true,
             element: <UserDetails />,
             errorElement: <ErrorPage />,
-            loader: () =>
-              fetch(`https://hms-server-side.onrender.com/user/data`),
+            loader: () => {
+              return fetch(`https://hms-server-side.onrender.com/user/data`, {
+                headers: { Authorization: `Beared ${token}` },
+              });
+            },
           },
           {
             path: "/users/create",
@@ -362,8 +404,11 @@ const router = createBrowserRouter([
             path: "/users/manage-user",
             element: <ManageUser />,
             errorElement: <ErrorPage />,
-            loader: () =>
-              fetch(`https://hms-server-side.onrender.com/user/data`),
+            loader: () => {
+              return fetch(`https://hms-server-side.onrender.com/user/data`, {
+                headers: { Authorization: `Beared ${token}` },
+              });
+            },
             children: [],
           },
           {

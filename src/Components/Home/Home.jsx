@@ -3,6 +3,7 @@ import MealDisplay from "./MealDisplay";
 import AttendancePage from "./Attendance/AttendancePage";
 import Clock from "../../Utilities/Clock/Clock";
 import { Pagination, ThemeProvider, createTheme } from "@mui/material";
+import token from "../../Utilities/Hooks/CommonHooks";
 const theme = createTheme({
   palette: {
     primary: {
@@ -23,6 +24,7 @@ const Home = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Beared ${token}`,
       },
     }).then((response) => response.json());
     // Create new Utility month record
@@ -30,13 +32,17 @@ const Home = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Beared ${token}`,
       },
     }).then((response) => response.json());
     // Get Current Attendance
     fetch(
       `https://hms-server-side.onrender.com/user/attendance?page=${
         page - 1
-      }&size=${8}`
+      }&size=${8}`,
+      {
+        headers: { Authorization: `Beared ${token}` },
+      }
     )
       .then((response) => response.json())
       .then((item) => {
