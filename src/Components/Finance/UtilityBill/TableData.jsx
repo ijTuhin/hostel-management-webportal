@@ -1,5 +1,6 @@
 import React from "react";
 import { RxDoubleArrowRight } from "react-icons/rx";
+import token from "../../../Utilities/Hooks/CommonHooks";
 const TableData = ({ item }) => {
   const total = item.bill + item.due.bill;
   const updatePayBill = () => {
@@ -7,6 +8,7 @@ const TableData = ({ item }) => {
       method: "PUT", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Beared ${token}`
       },
     })
       .then((response) => response.json())

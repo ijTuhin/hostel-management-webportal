@@ -1,6 +1,7 @@
 import React from "react";
 import { RxDoubleArrowRight } from "react-icons/rx";
 import getCurrentMonthSalary from "../../../Utilities/Hooks/SalaryHook";
+import token from "../../../Utilities/Hooks/CommonHooks";
 const TableData = ({ item }) => {
   getCurrentMonthSalary(item);
   const paySalary = () => {
@@ -8,6 +9,7 @@ const TableData = ({ item }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Beared ${token}`,
       },
     })
       .then((response) => response.json())

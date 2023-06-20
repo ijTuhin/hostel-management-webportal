@@ -2,7 +2,6 @@ import React from 'react'
 import { useLoaderData } from 'react-router-dom';
 import TableHead from './TableHead';
 import TableData from './TableData';
-import StaffUpdateForm from './StaffUpdateForm';
 
 const ManageStaffPage = () => {
     const data = useLoaderData()
@@ -14,7 +13,7 @@ const ManageStaffPage = () => {
               <table class="min-w-full">
                 <TableHead />
                 <tbody>
-                  {data?.map((item, index) => (
+                  {data && data?.map((item, index) => (
                     <TableData key={item._id} index={index + 1} item={item} />
                   ))}
                 </tbody>

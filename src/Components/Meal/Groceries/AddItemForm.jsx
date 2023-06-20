@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
+import token from "../../../Utilities/Hooks/CommonHooks";
 
 const AddItemForm = () => {
   const date = new Date().toLocaleDateString();
@@ -22,6 +23,7 @@ const AddItemForm = () => {
       method: "PUT", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Beared ${token}`
       },
       body: JSON.stringify({
         list: value,

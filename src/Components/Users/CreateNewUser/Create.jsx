@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
 import { AuthContext } from "../../../Authentications/Authenticate/UserContext";
+import token from "../../../Utilities/Hooks/CommonHooks";
 
 const Create = () => {
   const [value, setValue] = useOutletContext();
@@ -21,6 +22,7 @@ const Create = () => {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Beared ${token}`,
       },
       body: JSON.stringify(value),
     })
@@ -50,14 +52,6 @@ const Create = () => {
   return (
     <div className="w-full h-full flex justify-center p-40 space-y-4 bg-gray-50">
       <form onSubmit={handleCreateUser} className="flex flex-col w-96 gap-4">
-        {/* <input
-            className="border-b border-teal-600 outline-transparent px-2 py-1.5 bg-inherit"
-            type="text"
-            name="displayName"
-            id="username"
-            placeholder="Username"
-            required
-          /> */}
         <input
           className="border-b border-teal-600 outline-transparent px-2 py-1.5 bg-inherit"
           type="email"

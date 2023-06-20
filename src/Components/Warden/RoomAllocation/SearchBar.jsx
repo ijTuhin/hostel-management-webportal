@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { TbSearch } from "react-icons/tb";
 import { useOutletContext } from "react-router-dom";
+import token from "../../../Utilities/Hooks/CommonHooks";
 const SearchBar = ({ search }) => {
   const [user, setUser] = useOutletContext();
   const [input, setInput] = useState("");
@@ -18,7 +19,8 @@ const SearchBar = ({ search }) => {
         entity = "name";
       }
       fetch(
-        `https://hms-server-side.onrender.com/user/search?${entity}=${input}`
+        `https://hms-server-side.onrender.com/user/search?${entity}=${input}`,
+        { headers: { Authorization: `Beared ${token}` } }
       )
         .then((res) => res.json())
         .then((data) => {
@@ -27,7 +29,9 @@ const SearchBar = ({ search }) => {
     }
   };
   if (search && !input) {
-    fetch(`https://hms-server-side.onrender.com/user/search?matric=${search}`)
+    fetch(`https://hms-server-side.onrender.com/user/search?matric=${search}`, {
+      headers: { Authorization: `Beared ${token}` },
+    })
       .then((res) => res.json())
       .then((data) => {
         setUser(data);

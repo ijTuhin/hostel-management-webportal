@@ -1,6 +1,7 @@
 import React from "react";
 import { FaPlus } from "react-icons/fa";
 import { ImBlocked } from "react-icons/im";
+import token from "../../../../Utilities/Hooks/CommonHooks";
 const TableData = ({ item, data }) => {
   const abc = data;
   const cancelSeat = () => {
@@ -10,6 +11,7 @@ const TableData = ({ item, data }) => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Beared ${token}`,
         },
       }
     )
@@ -22,7 +24,9 @@ const TableData = ({ item, data }) => {
   };
   const fetchRoomData = () => {
     console.log("Room Data");
-    fetch(`https://hms-server-side.onrender.com/seat/vacant`)
+    fetch(`https://hms-server-side.onrender.com/seat/vacant`, {
+      headers: { Authorization: `Beared ${token}` },
+    })
       .then((res) => res.json())
       .then((data) => {
         let value = data;

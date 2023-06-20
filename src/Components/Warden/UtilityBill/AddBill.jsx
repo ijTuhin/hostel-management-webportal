@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import token from "../../../Utilities/Hooks/CommonHooks";
 
 const AddBill = ({ setBillInput, id }) => {
   const [bill, setBill] = useState("");
@@ -9,6 +10,7 @@ const AddBill = ({ setBillInput, id }) => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Beared ${token}`,
         },
         body: JSON.stringify({ bill }),
       })

@@ -8,15 +8,15 @@ const Credit = ({ data }) => {
         <div className="px-10 py-5 space-y-2">
           <p className="flex justify-between">
             <span>Meal Bill</span>
-            <span>= {data.mealBill}/-</span>
+            <span>= {data?.mealBill}/-</span>
           </p>
           <p className="flex justify-between">
             <span>Seat Rent</span>
-            <span>= {data.seatRent}/-</span>
+            <span>= {data?.seatRent}/-</span>
           </p>
         </div>
         <p className="flex justify-end border-t-2 px-8 py-2">
-          = {data.credit}/-
+          = {data?.credit}/-
         </p>
       </div>
     </div>

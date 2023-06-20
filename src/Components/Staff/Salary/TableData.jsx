@@ -1,7 +1,5 @@
 import React from "react";
-import { FcCancel } from "react-icons/fc";
 import { GiCheckMark } from "react-icons/gi";
-import { useNavigate } from "react-router-dom";
 import getCurrentMonthSalary from "../../../Utilities/Hooks/SalaryHook";
 const TableData = ({ item, index }) => {
   getCurrentMonthSalary(item)

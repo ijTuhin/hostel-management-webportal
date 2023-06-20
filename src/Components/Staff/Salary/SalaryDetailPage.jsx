@@ -13,7 +13,7 @@ const SalaryDetailPage = () => {
               <table class="min-w-full">
                 <TableHead />
                 <tbody>
-                  {data?.map((item, index) => (
+                  {data && data?.map((item, index) => (
                     <TableData key={item._id} index={index + 1} item={item} />
                   ))}
                 </tbody>

@@ -1,6 +1,4 @@
 import React from "react";
-import { SiFampay } from "react-icons/si";
-import { RxDoubleArrowRight } from "react-icons/rx";
 import SeatUser from "./SeatUser";
 const TableData = ({ item }) => {
   return (

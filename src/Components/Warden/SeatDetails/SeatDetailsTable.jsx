@@ -4,7 +4,7 @@ import TableData from './TableData';
 import { useLoaderData } from 'react-router-dom';
 
 const SeatDetailsTable = () => {
-    const seatData = useLoaderData();
+    const data = useLoaderData();
     return (
       <div class="w-full flex flex-col">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -13,7 +13,7 @@ const SeatDetailsTable = () => {
               <table class="min-w-full text-center">
                 <TableHead />
                 <tbody>
-                  {seatData?.map((item) => (
+                  {data && data?.map((item) => (
                     <TableData key={item._id} item={item} />
                   ))}
                 </tbody>

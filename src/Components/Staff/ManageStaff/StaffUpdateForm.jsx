@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { IoSend } from "react-icons/io5";
+import token from "../../../Utilities/Hooks/CommonHooks";
 
 const StaffUpdateForm = ({ active, item }) => {
   const [value, setValue] = useState(true);
@@ -12,6 +13,7 @@ const StaffUpdateForm = ({ active, item }) => {
       method: "PUT", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Beared ${token}`,
       },
       body: JSON.stringify(value),
     })

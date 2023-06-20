@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import token from "../../../../Utilities/Hooks/CommonHooks";
 
 const UtilityRecordPage = () => {
   const [data, setData] = useState();
   const location = useLocation();
   const link = location?.state?.data;
   useEffect(() => {
-    fetch(link)
+    fetch(link, { headers: { Authorization: `Beared ${token}` } })
       .then((res) => res.json())
       .then((i) => setData(i));
   }, []);

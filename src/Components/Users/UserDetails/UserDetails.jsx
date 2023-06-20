@@ -16,7 +16,7 @@ const UserDetails = () => {
             <table class="min-w-full">
               <TableHead />
               <tbody>
-                {data?.map((item) => (
+                {data && data?.map((item) => (
                   <TableData key={item._id} item={item} />
                 ))}
               </tbody>

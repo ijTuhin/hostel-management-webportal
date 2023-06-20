@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MealHeading from "./MealHeading";
 import TableData from "./TableData";
 import TableHead from "./TableHead";
+import token from "../../../Utilities/Hooks/CommonHooks";
 
 const MealOrdersPage = () => {
   /* ================================================
@@ -29,7 +30,12 @@ const MealOrdersPage = () => {
   /* ============================================= */
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch(`https://hms-server-side.onrender.com/meal?meal=${meal}&date=${day}`)
+    fetch(
+      `https://hms-server-side.onrender.com/meal?meal=${meal}&date=${day}`,
+      {
+        headers: { Authorization: `Beared ${token}` },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -46,7 +52,7 @@ const MealOrdersPage = () => {
               <table class="min-w-full">
                 <TableHead />
                 <tbody>
-                  {data?.map((item) => (
+                  {data && data?.map((item) => (
                     <TableData key={item._id} item={item} />
                   ))}
                 </tbody>

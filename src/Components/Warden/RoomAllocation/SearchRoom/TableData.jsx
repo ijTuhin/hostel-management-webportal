@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import token from "../../../../Utilities/Hooks/CommonHooks";
 const TableData = ({ item, matric, previous }) => {
   const [btn, setBtn] = useState(false);
   const selectRoom = () => {
@@ -8,6 +9,7 @@ const TableData = ({ item, matric, previous }) => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Beared ${token}`,
         },
         body: JSON.stringify({ previous }),
       }

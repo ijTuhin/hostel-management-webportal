@@ -1,6 +1,4 @@
 import React from "react";
-import {SiFampay} from "react-icons/si"
-import {RxCross2} from "react-icons/rx"
 const TableData = ({ item }) => {
   return (
     <>

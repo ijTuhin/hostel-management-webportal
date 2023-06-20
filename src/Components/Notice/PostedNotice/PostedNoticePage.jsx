@@ -10,13 +10,13 @@ const PostedNoticePage = () => {
       <div className="flex justify-center">
         <div className="border w-1/2 py-5 px-8 bg-teal-600 text-gray-50">
           <p className="border-b py-1 text-lg font-medium">
-            <span>{data[0].title}</span>
+            <span>{data && data[0].title}</span>
             <span className="flex justify-end text-base capitalize text-gray-500 font-light">
-              ({data[0].to})
+              ({data && data[0].to})
             </span>
           </p>
           <p className="text-justify text-sm">
-            <span>{data[0].notice}</span>
+            <span>{data && data[0].notice}</span>
           </p>
         </div>
       </div>

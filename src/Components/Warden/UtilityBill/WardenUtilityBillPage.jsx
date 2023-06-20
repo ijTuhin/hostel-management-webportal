@@ -14,7 +14,7 @@ const WardenUtilityBillPage = () => {
               <table class="min-w-full text-center">
                 <TableHead />
                 <tbody>
-                  {data?.map((item) => (
+                  {data && data?.map((item) => (
                     <TableData key={item.name} item={item} />
                   ))}
                 </tbody>

@@ -15,7 +15,7 @@ const GroceriesPage = () => {
         </div>
         <div className="w-full flex justify-center">
           <div className="w-fit">
-            {data[0]?.list.map((item) => (
+            {data && data[0]?.list.map((item) => (
               <TableData key={item._id} item={item} />
             ))}
           </div>

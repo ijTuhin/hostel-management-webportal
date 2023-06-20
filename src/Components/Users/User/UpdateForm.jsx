@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import token from "../../../Utilities/Hooks/CommonHooks";
 
 const UpdateForm = ({ item }) => {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ const UpdateForm = ({ item }) => {
       method: "PUT", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Beared ${token}`,
       },
       body: JSON.stringify(value),
     })

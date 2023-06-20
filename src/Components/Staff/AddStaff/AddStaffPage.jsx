@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import token from "../../../Utilities/Hooks/CommonHooks";
 
 const AddStaffPage = () => {
   const [value, setValue] = useState();
@@ -10,6 +11,7 @@ const AddStaffPage = () => {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Beared ${token}`,
       },
       body: JSON.stringify(value),
     })
