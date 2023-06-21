@@ -33,7 +33,7 @@ const LoginForm = () => {
         })
           .then((response) => response.json())
           .then((value) => {
-            console.log(value.message);
+            console.log(value.message, value.role, "Admin");
             localStorage.setItem("admin-access", value.token);
             localStorage.setItem("admin-role", value.role);
           });

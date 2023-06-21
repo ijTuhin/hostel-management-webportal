@@ -1,6 +1,6 @@
 import React from "react";
 import TableHead from "../../Warden/Attendance/TableHead";
-import TableData from "../../Warden/Attendance/TableData";
+import TableData from "./TableData";
 
 const AttendancePage = ({ date, data }) => {
   return (
@@ -21,7 +21,7 @@ const AttendancePage = ({ date, data }) => {
                 <TableHead />
                 <tbody>
                   {data && data?.map((item) => (
-                    <TableData key={item._id} item={item} date={date} />
+                    <TableData key={item._id} item={item} />
                   ))}
                 </tbody>
               </table>
