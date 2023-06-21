@@ -39,7 +39,7 @@ import ManageStaffPage from "./Components/Staff/ManageStaff/ManageStaffPage";
 import NoticePage from "./Components/Notice/NoticePage";
 import AddNoticePage from "./Components/Notice/AddNotice/AddNoticePage";
 import MyAllNoticePage from "./Components/Notice/MyAllNotice/MyAllNoticePage";
-import token from "./Utilities/Hooks/CommonHooks";
+import { token } from "./Utilities/Hooks/CommonHooks";
 import PostedNoticePage from "./Components/Notice/PostedNotice/PostedNoticePage";
 import UtilityRecordPage from "./Components/Common/Records/Page/UtilityRecordPage";
 
@@ -96,9 +96,12 @@ const router = createBrowserRouter([
             element: <PaymentStatusPage />,
             errorElement: <ErrorPage />,
             loader: () => {
-              return fetch(`https://hms-server-side.onrender.com/user`, {
-                headers: { Authorization: `Beared ${token}` },
-              });
+              return fetch(
+                `https://hms-server-side.onrender.com/user/meal-status`,
+                {
+                  headers: { Authorization: `Beared ${token}` },
+                }
+              );
             },
             children: [],
           },
@@ -137,7 +140,7 @@ const router = createBrowserRouter([
             errorElement: <ErrorPage />,
             loader: () => {
               return fetch(
-                `https://hms-server-side.onrender.com/payment?month=${month}&item=rent`,
+                `https://hms-server-side.onrender.com/user/rent-status`,
                 { headers: { Authorization: `Beared ${token}` } }
               );
             },

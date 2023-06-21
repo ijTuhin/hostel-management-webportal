@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import token from "../../../Utilities/Hooks/CommonHooks";
+import { token } from "../../../Utilities/Hooks/CommonHooks";
 
 const AddStaffPage = () => {
   const [value, setValue] = useState();

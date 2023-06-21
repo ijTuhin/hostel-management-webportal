@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import UpdateForm from "./UpdateForm";
 import { IoReturnUpBackOutline } from "react-icons/io5";
-import token from "../../../Utilities/Hooks/CommonHooks";
+import { token } from "../../../Utilities/Hooks/CommonHooks";
 
 const FullDetails = () => {
   const navigate = useNavigate();

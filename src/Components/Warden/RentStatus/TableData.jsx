@@ -1,21 +1,32 @@
 import React from "react";
-import {AiOutlineCheck} from "react-icons/ai"
-import {RxCross2} from "react-icons/rx"
+import { AiOutlineCheck } from "react-icons/ai";
+import { RxCross2 } from "react-icons/rx";
+import { month } from "../../../Utilities/Hooks/CommonHooks";
 const TableData = ({ item }) => {
+  const check = item?.payments?.filter((i) => {
+    if (i.item === "rent" && i.month === month) return i;
+  });
   return (
     <>
       <tr class="bg-white border-b border-amber-100 transition duration-300 ease-in-out text-gray-900 hover:bg-amber-50">
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.user.matric}
+          {item.matric}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.user.dept}
+          {item.dept}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.user.room}
+          {item.room}
+        </td>
+        <td
+          class={`px-6 py-4 whitespace-nowrap text-sm font-medium ${
+            item.rent ? "text-green-500" : "text-gray-300"
+          }`}
+        >
+          {item.rent ? "Paid" : "Pending"}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.date}
+          {item.rent ? <>{check[0]?.date}</> : "---"}
         </td>
       </tr>
     </>

@@ -1,6 +1,6 @@
 import React from "react";
 import { MdDelete } from "react-icons/md";
-import token from "../../../Utilities/Hooks/CommonHooks";
+import { token } from "../../../Utilities/Hooks/CommonHooks";
 
 const DeleteStaffButton = ({ item }) => {
   const deleteStaff = () => {
@@ -8,7 +8,7 @@ const DeleteStaffButton = ({ item }) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Beared ${token}`
+        Authorization: `Beared ${token}`,
       },
     })
       .then((response) => response.json())

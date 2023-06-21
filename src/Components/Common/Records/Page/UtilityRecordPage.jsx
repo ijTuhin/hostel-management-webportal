@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import token from "../../../../Utilities/Hooks/CommonHooks";
+import { token } from "../../../../Utilities/Hooks/CommonHooks";
 
 const UtilityRecordPage = () => {
   const [data, setData] = useState();

@@ -3,7 +3,7 @@ import MealDisplay from "./MealDisplay";
 import AttendancePage from "./Attendance/AttendancePage";
 import Clock from "../../Utilities/Clock/Clock";
 import { Pagination, ThemeProvider, createTheme } from "@mui/material";
-import token from "../../Utilities/Hooks/CommonHooks";
+import { token } from "../../Utilities/Hooks/CommonHooks";
 import FinanceDisplay from "./FinanceDisplay";
 const theme = createTheme({
   palette: {
@@ -39,14 +39,16 @@ const Home = () => {
     if (role === "warden") {
       // Get Current Attendance
       fetch(
-        `https://hms-server-side.onrender.com/attendance?page=${page - 1}&size=${8}&date=${date}`,
+        `https://hms-server-side.onrender.com/attendance?page=${
+          page - 1
+        }&size=${8}&date=${date}`,
         {
           headers: { Authorization: `Beared ${token}` },
         }
       )
         .then((response) => response.json())
         .then((item) => {
-          console.log(item)
+          console.log(item);
           setPageItem(item);
         });
     } else if (role === "accountant") {
@@ -56,7 +58,7 @@ const Home = () => {
       })
         .then((response) => response.json())
         .then((item) => {
-          console.log(total)
+          console.log(total);
           setPageItem(item);
         });
     }

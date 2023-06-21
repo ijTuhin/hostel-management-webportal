@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IoSend } from "react-icons/io5";
-import token from "../../../Utilities/Hooks/CommonHooks";
+import { token } from "../../../Utilities/Hooks/CommonHooks";
 
 const StaffUpdateForm = ({ active, item }) => {
   const [value, setValue] = useState(true);

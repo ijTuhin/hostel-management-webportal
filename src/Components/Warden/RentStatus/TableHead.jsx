@@ -26,6 +26,12 @@ const TableHead = () => {
           scope="col"
           class="px-6 py-4"
         >
+          Status
+        </th>
+        <th
+          scope="col"
+          class="px-6 py-4"
+        >
           Payment Date
         </th>
       </tr>

@@ -1,7 +1,7 @@
 import React from "react";
 import { FaPlus } from "react-icons/fa";
 import { ImBlocked } from "react-icons/im";
-import token from "../../../../Utilities/Hooks/CommonHooks";
+import { token } from "../../../../Utilities/Hooks/CommonHooks";
 const TableData = ({ item, data }) => {
   const abc = data;
   const cancelSeat = () => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { TbSearch } from "react-icons/tb";
 import { useOutletContext } from "react-router-dom";
-import token from "../../../Utilities/Hooks/CommonHooks";
+import { token } from "../../../Utilities/Hooks/CommonHooks";
 const SearchBar = ({ search }) => {
   const [user, setUser] = useOutletContext();
   const [input, setInput] = useState("");

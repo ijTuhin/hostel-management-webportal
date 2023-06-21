@@ -32,7 +32,25 @@ const TableHead = () => {
           scope="col"
           class="px-6 py-4"
         >
-          Coupons
+          Payment Date
+        </th>
+        <th
+          scope="col"
+          class="px-6 py-4"
+        >
+          Package
+        </th>
+        <th
+          scope="col"
+          class="px-6 py-4"
+        >
+          Total Bill
+        </th>
+        <th
+          scope="col"
+          class="px-6 py-4"
+        >
+          Total Coupons
         </th>
       </tr>
     </thead>

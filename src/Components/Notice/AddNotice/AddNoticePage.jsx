@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoSend } from "react-icons/io5";
 import DropdownBtn from "../../../Utilities/Dropdown/DropdownBtn";
-import token from "../../../Utilities/Hooks/CommonHooks";
+import { token } from "../../../Utilities/Hooks/CommonHooks";
 
 const AddNoticePage = () => {
   const data = [

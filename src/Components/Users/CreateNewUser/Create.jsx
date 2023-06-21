@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
 import { AuthContext } from "../../../Authentications/Authenticate/UserContext";
-import token from "../../../Utilities/Hooks/CommonHooks";
+import { token } from "../../../Utilities/Hooks/CommonHooks";
 
 const Create = () => {
   const [value, setValue] = useOutletContext();
