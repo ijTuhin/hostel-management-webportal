@@ -60,7 +60,7 @@ const UserContext = ({ children }) => {
     fetch("http://localhost:3001/admin/login", {
       method: "POST",
       headers: {
-        Authorization: "Bearer admin-access",
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),
@@ -77,7 +77,7 @@ const UserContext = ({ children }) => {
     fetch("http://localhost:3001/admin/meal/login", {
       method: "POST",
       headers: {
-        Authorization: "Bearer admin-access",
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -106,6 +106,27 @@ const UserContext = ({ children }) => {
     return signOut(auth);
   };
 
+  const createGroceryRecord = () => {
+    const date = new Date().toLocaleDateString();
+    fetch(`http://localhost:3001/grocery?date=${date}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((response) => response.json());
+  };
+
+  const createUtilityRecord = () => {
+    fetch(`http://localhost:3001/utility`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((response) => response.json());
+  };
+
   useEffect(() => {
     const checkToken = () => {
       const duration = (Date.now() - parseInt(loggedInAt)) / 1000;
@@ -116,30 +137,7 @@ const UserContext = ({ children }) => {
           ...authUser,
           user: null,
         });
-      }
-    };
-
-    const createGroceryRecord = () => {
-      fetch(
-        `http://localhost:3001/grocery?date=${new Date().toLocaleDateString()}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Beared ${token}`,
-          },
-        }
-      ).then((response) => response.json());
-    };
-
-    const createUtilityRecord = () => {
-      fetch(`http://localhost:3001/utility`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Beared ${token}`,
-        },
-      }).then((response) => response.json());
+      } else console.log("checkToken running");
     };
 
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -151,10 +149,8 @@ const UserContext = ({ children }) => {
     });
 
     return () => {
-      unSubscribe();
       checkToken();
-      createGroceryRecord();
-      createUtilityRecord();
+      unSubscribe();
     };
   }, []);
 
@@ -169,6 +165,8 @@ const UserContext = ({ children }) => {
     CreateUserWithDB,
     MealLoginWithDB,
     AdminLoginWithDB,
+    createGroceryRecord,
+    createUtilityRecord
   };
 
   return (
