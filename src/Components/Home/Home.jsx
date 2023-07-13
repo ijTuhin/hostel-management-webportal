@@ -20,22 +20,6 @@ const Home = () => {
   const [pageItem, setPageItem] = useState([]);
   const [page, setPage] = useState(1);
   useEffect(() => {
-    // Create new grocery daily record
-    fetch(`https://hms-server-side.onrender.com/grocery?date=${date}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Beared ${token}`,
-      },
-    }).then((response) => response.json());
-    // Create new Utility month record
-    fetch(`https://hms-server-side.onrender.com/utility`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Beared ${token}`,
-      },
-    }).then((response) => response.json());
     if (role === "warden") {
       // Get Current Attendance
       fetch(
@@ -52,7 +36,7 @@ const Home = () => {
           setPageItem(item);
         });
     } else if (role === "accountant") {
-      // Get Current Attendance
+      // Get BalanceSheet
       fetch(`https://hms-server-side.onrender.com/balanceSheet/finances`, {
         headers: { Authorization: `Beared ${token}` },
       })

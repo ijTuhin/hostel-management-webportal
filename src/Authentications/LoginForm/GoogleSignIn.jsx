@@ -1,37 +1,17 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../Authenticate/UserContext";
+import { useAuthUser } from "../Authenticate/UserContext";
 import { useNavigate } from "react-router-dom";
+import { token } from "../../Utilities/Hooks/CommonHooks";
 const GoogleSignIn = () => {
-  const { googleSignIn, provider } = useContext(AuthContext);
+  const { googleSignIn, MealLoginWithDB, provider } = useAuthUser();
   const navigate = useNavigate();
   let error;
   const handleLogin = () => {
     googleSignIn(provider)
       .then((userCredential) => {
         const email = userCredential.user.email;
-        /* ************************************ */
-        fetch("https://hms-server-side.onrender.com/admin/meal/login", {
-          method: "POST", // or 'PUT'
-          headers: {
-            Authorization: "Bearer admin-access",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: email,
-          }),
-        })
-          .then((response) => response.json())
-          .then((value) => {
-            localStorage.setItem("admin-access", value.token);
-            localStorage.setItem("admin-role", value.role);
-            if (value.token) {
-              navigate("/", { replace: true });
-            }
-          })
-          .catch(() => {
-            console.log("error");
-          });
-        /* ************************************ */
+        MealLoginWithDB(email);
+        if (token) navigate("/", { replace: true });
       })
       .catch(() => {
         error = (

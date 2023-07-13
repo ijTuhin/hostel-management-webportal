@@ -1,44 +1,20 @@
-import React, { useContext } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../Authenticate/UserContext";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuthUser } from "../Authenticate/UserContext";
 
 const LoginForm = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, AdminLoginWithDB } = useAuthUser();
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = /* location.state?.from?.pathname || */ "/";
 
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const value = {
-      email,
-      password,
-    };
 
     signIn(email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-
-        /* ************************************ */
-        fetch("https://hms-server-side.onrender.com/admin/login", {
-          method: "POST", // or 'PUT'
-          headers: {
-            Authorization: "Bearer admin-access",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(value),
-        })
-          .then((response) => response.json())
-          .then((value) => {
-            console.log(value.message, value.role, "Admin");
-            localStorage.setItem("admin-access", value.token);
-            localStorage.setItem("admin-role", value.role);
-          });
-        /* ************************************ */
-        navigate(from, { replace: true });
+      .then(() => {
+        AdminLoginWithDB(email, password);
+        navigate("/", { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;

@@ -1,12 +1,13 @@
+/* Changed Here */
 import React, { useContext } from "react";
 import { Outlet } from "react-router-dom";
-import { AuthContext } from "../Authentications/Authenticate/UserContext";
+import { useAuthUser } from "../Authentications/Authenticate/UserContext";
 import Footer from "../Components/Common/Footer/Footer";
 import Header from "../Components/Common/Header/Header";
 import Loading from "../Components/Common/Loading";
 
 const PageContainer = () => {
-  const { loading } = useContext(AuthContext);
+  const { loading } = useAuthUser();
   return (
     <>
       {loading ? (

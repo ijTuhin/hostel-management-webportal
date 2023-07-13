@@ -29,7 +29,7 @@ const Overview = () => {
           <p>
             Program:
             <span className="text-sm font-serif font-semibold text-gray-600 px-2">
-              {value.dept}
+              {value.program}
             </span>
             <span className="text-sm font-serif font-semibold text-gray-600 px-2">
               {value.dept}
@@ -38,7 +38,7 @@ const Overview = () => {
           <p>
             Gsuit:
             <span className="text-sm font-serif font-semibold text-gray-600 px-2">
-              {value.gsuit}
+              {value.email}
             </span>
           </p>
           <p>

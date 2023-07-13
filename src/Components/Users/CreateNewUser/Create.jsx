@@ -1,51 +1,26 @@
-import React, { useContext, useState } from "react";
-import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
-import { AuthContext } from "../../../Authentications/Authenticate/UserContext";
-import { token } from "../../../Utilities/Hooks/CommonHooks";
+import React from "react";
+import { useNavigate, useOutletContext } from "react-router-dom";
+import { useAuthUser } from "../../../Authentications/Authenticate/UserContext";
 
 const Create = () => {
   const [value, setValue] = useOutletContext();
-  const { createUser } = useContext(AuthContext);
+  const { createUser, CreateUserWithDB } = useAuthUser();
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = /* location.state?.from?.pathname || */ "/";
 
   const handleCreateUser = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     setValue({ ...value, password: password });
-    console.log(value, password);
-
-    /* ************************************ */
-    fetch("https://hms-server-side.onrender.com/user/signup", {
-      method: "POST", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Beared ${token}`,
-      },
-      body: JSON.stringify(value),
-    })
-      .then((response) => response.json())
-      .then((value) => {
-        console.log("DB Success:", value);
-      });
-    /* ************************************ */
-
-    // const displayName = e.target.displayName.value;
+    CreateUserWithDB(value)
     createUser(email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log("Signup Successfull: ", user);
-        navigate(from, { replace: true });
-        // ...
+      .then(() => {
+        navigate("/", { replace: true });
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
-        // ..
       });
   };
 

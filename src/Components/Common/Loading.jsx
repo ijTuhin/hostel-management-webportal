@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react";
-import { Audio } from "react-loader-spinner";
+import React, { useState } from "react";
 import { ClipLoader } from "react-spinners";
-import { AuthContext } from "../../Authentications/Authenticate/UserContext";
-import loadingLogo from '../../Images/iiuc-logo.png';
+import { useAuthUser } from "../../Authentications/Authenticate/UserContext";
+import loadingLogo from "../../Images/iiuc-logo.png";
 const override = {
   display: "block",
   margin: "0 auto",
@@ -10,7 +9,7 @@ const override = {
   borderWidth: "5px",
 };
 const Loading = () => {
-  const { loading } = useContext(AuthContext);
+  const { loading } = useAuthUser();
   const [color, setColor] = useState("#ffffff");
   return (
     <div className="sweet-loading w-screen h-screen text-blue-900 font-medium flex flex-col justify-center items-center gap-3">
