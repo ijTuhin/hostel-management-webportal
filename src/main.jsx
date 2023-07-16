@@ -42,6 +42,7 @@ import MyAllNoticePage from "./Components/Notice/MyAllNotice/MyAllNoticePage";
 import { token } from "./Utilities/Hooks/CommonHooks";
 import PostedNoticePage from "./Components/Notice/PostedNotice/PostedNoticePage";
 import UtilityRecordPage from "./Components/Common/Records/Page/UtilityRecordPage";
+import QRcode from "./Components/QRcode/QRcode";
 
 const months = [
   "Jan",
@@ -433,6 +434,11 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/qr-scanner",
+    element: <QRcode />,
     errorElement: <ErrorPage />,
   },
 ]);

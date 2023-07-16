@@ -9,7 +9,12 @@ import {
 } from "firebase/auth";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { app } from "../../../firebase.config";
-import { loggedInAt, token } from "../../Utilities/Hooks/CommonHooks";
+import {
+  loggedInAt,
+  meal,
+  role,
+  token,
+} from "../../Utilities/Hooks/CommonHooks";
 
 const AuthContext = createContext();
 const auth = getAuth(app);
@@ -127,11 +132,50 @@ const UserContext = ({ children }) => {
     }).then((response) => response.json());
   };
 
+  const qrCodeValueGenerator = () => {
+    /* =================== QR code generate ==================== */
+    let item;
+    if (role === "warden") item = "A";
+    else if (role === "meal") item = meal;
+    const time = new Date().toTimeString();
+    const random = Math.random().toString(36).substring(2, 7);
+    const qrCode =
+      time.split(":")[0] +
+      "#txr!" +
+      parseInt(time.split(":")[2]) +
+      "#txr!" +
+      time.split(":")[1] +
+      "#txr!" +
+      random +
+      ".@" +
+      "!.#" +
+      item +
+      "@.";
+    /* =================== How to decode qrCode ==================== */
+    // const a = parseInt(qrCode.split("#txr!")[0]) // ----- Hour
+    // const b = parseInt(qrCode.split("#txr!")[2]) // ----- Minute
+    // const c = parseInt(qrCode.split("#txr!")[1]) // ----- Second
+    // const x = qrCode.substring(qrCode.length-3, qrCode.length-2) // ----- Type of Scan (A), (B,L,D)
+
+    const [counter, setCounter] = useState(0);
+
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCounter((prevCounter) => prevCounter + 1);
+      }, 5000);
+
+      return () => clearInterval(interval);
+    }, []);
+    return qrCode;
+  };
+
   useEffect(() => {
     const checkToken = () => {
       const duration = (Date.now() - parseInt(loggedInAt)) / 1000;
       if (duration >= 36000) {
         localStorage.removeItem("admin-access");
+        localStorage.removeItem("admin-role");
+        localStorage.removeItem("login-time");
         // logOut();
         setAuthUser({
           ...authUser,
@@ -166,7 +210,8 @@ const UserContext = ({ children }) => {
     MealLoginWithDB,
     AdminLoginWithDB,
     createGroceryRecord,
-    createUtilityRecord
+    createUtilityRecord,
+    qrCodeValueGenerator
   };
 
   return (
