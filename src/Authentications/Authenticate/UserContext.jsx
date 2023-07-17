@@ -137,32 +137,35 @@ const UserContext = ({ children }) => {
     let item;
     if (role === "warden") item = "A";
     else if (role === "meal") item = meal;
-    const time = new Date().toTimeString();
+    const time = {
+      h: parseInt(new Date().toTimeString().split(":")[0])+15,
+      m: parseInt(new Date().toTimeString().split(":")[1])+35,
+      s: parseInt(new Date().toTimeString().split(":")[2])+35,
+    };
     const random = Math.random().toString(36).substring(2, 7);
     const qrCode =
-      time.split(":")[0] +
-      "#txr!" +
-      parseInt(time.split(":")[2]) +
-      "#txr!" +
-      time.split(":")[1] +
-      "#txr!" +
+    String.fromCharCode(time.h) +
+      "#t1hO" +
+      String.fromCharCode(time.s) +
+      "BjK" +
+      String.fromCharCode(time.m) +
+      "nJP" +
       random +
       ".@" +
       "!.#" +
       item +
       "@.";
     /* =================== How to decode qrCode ==================== */
-    // const a = parseInt(qrCode.split("#txr!")[0]) // ----- Hour
-    // const b = parseInt(qrCode.split("#txr!")[2]) // ----- Minute
-    // const c = parseInt(qrCode.split("#txr!")[1]) // ----- Second
-    // const x = qrCode.substring(qrCode.length-3, qrCode.length-2) // ----- Type of Scan (A), (B,L,D)
-
+    // const a = qrCode.charCodeAt(0) - 15 // ----- Hour
+    // const b = qrCode.charCodeAt(10) - 35 // ----- Minute
+    // const c = qrCode.charCodeAt(6) - 35 // ----- Second
+    // const x = qrCode[24] // ----- Type of Scan (A), (B,L,D)
     const [counter, setCounter] = useState(0);
 
     useEffect(() => {
       const interval = setInterval(() => {
         setCounter((prevCounter) => prevCounter + 1);
-      }, 5000);
+      }, 60000);
 
       return () => clearInterval(interval);
     }, []);
