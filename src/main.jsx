@@ -56,23 +56,23 @@ import {
   wardenChild,
 } from "./NEW/Hooks/RouteChildren";
 import { role } from "./NEW/Hooks/conditionData";
-import AddUser from "./NEW/Components/Warden/user/AddUser";
-import ManageUser from "./NEW/Components/Warden/user/ManageUser";
-import Attendance from "./NEW/Components/Warden/user/Attendance";
-import RoomDetails from "./NEW/Components/Warden/room/RoomDetails";
-import RoomAllocation from "./NEW/Components/Warden/room/RoomAllocation";
-import UserIssues from "./NEW/Components/Warden/issue/UserIssues";
-import EditRequests from "./NEW/Components/Warden/issue/EditRequests";
-import ReceivedNotices from "./NEW/Components/Warden/notice/ReceivedNotices";
-import AddNotice from "./NEW/Components/Warden/notice/AddNotice";
-import SentNotices from "./NEW/Components/Warden/notice/SentNotices";
-import AddStaff from "./NEW/Components/Warden/staff/AddStaff";
-import ManageStaff from "./NEW/Components/Warden/staff/ManageStaff";
+// import AddUser from "./NEW/Components/Warden/user/AddUser";
+// import ManageUser from "./NEW/Components/Warden/user/ManageUser";
+// import Attendance from "./NEW/Components/Warden/user/Attendance";
+// import RoomDetails from "./NEW/Components/Warden/room/RoomDetails";
+// import RoomAllocation from "./NEW/Components/Warden/room/RoomAllocation";
+// import UserIssues from "./NEW/Components/Warden/issue/UserIssues";
+// import EditRequests from "./NEW/Components/Warden/issue/EditRequests";
+// import ReceivedNotices from "./NEW/Components/Warden/notice/ReceivedNotices";
+// import AddNotice from "./NEW/Components/Warden/notice/AddNotice";
+// import SentNotices from "./NEW/Components/Warden/notice/SentNotices";
+// import AddStaff from "./NEW/Components/Warden/staff/AddStaff";
+// import ManageStaff from "./NEW/Components/Warden/staff/ManageStaff";
 import LoginPage from "./NEW/Pages/LoginPage";
 import AdminLogin from "./NEW/Components/Login/AdminLogin";
 import GoogleLogin from "./NEW/Components/Login/GoogleLogin";
-import '@fontsource/kalam/300.css';
-import '@fontsource/kalam/400.css';
+import "@fontsource/kalam/300.css";
+import "@fontsource/kalam/400.css";
 const months = [
   "Jan",
   "Feb",
@@ -154,7 +154,7 @@ const router = createBrowserRouter([
   //           errorElement: <ErrorPage />,
   //           loader: () => {
   //             return fetch(
-  //               `https://hms-server-side.onrender.com/user/meal-status`,
+  //               `http://localhost:3001/user/meal-status`,
   //               {
   //                 headers: { Authorization: `Beared ${token}` },
   //               }
@@ -168,7 +168,7 @@ const router = createBrowserRouter([
   //           errorElement: <ErrorPage />,
   //           loader: () => {
   //             return fetch(
-  //               `https://hms-server-side.onrender.com/grocery?date=${date}`,
+  //               `http://localhost:3001/grocery?date=${date}`,
   //               { headers: { Authorization: `Beared ${token}` } }
   //             );
   //           },
@@ -197,7 +197,7 @@ const router = createBrowserRouter([
   //           errorElement: <ErrorPage />,
   //           loader: () => {
   //             return fetch(
-  //               `https://hms-server-side.onrender.com/user/rent-status`,
+  //               `http://localhost:3001/user/rent-status`,
   //               { headers: { Authorization: `Beared ${token}` } }
   //             );
   //           },
@@ -207,7 +207,7 @@ const router = createBrowserRouter([
   //           path: "seat-details",
   //           element: <SeatDetailsPage />,
   //           loader: () => {
-  //             return fetch(`https://hms-server-side.onrender.com/seat`, {
+  //             return fetch(`http://localhost:3001/seat`, {
   //               headers: { Authorization: `Beared ${token}` },
   //             });
   //           },
@@ -219,7 +219,7 @@ const router = createBrowserRouter([
   //           element: <WardenUtilityBillPage />,
   //           loader: () => {
   //             return fetch(
-  //               `https://hms-server-side.onrender.com/utility?month=${month}`,
+  //               `http://localhost:3001/utility?month=${month}`,
   //               { headers: { Authorization: `Beared ${token}` } }
   //             );
   //           },
@@ -231,7 +231,7 @@ const router = createBrowserRouter([
   //           element: <AttendancePage />,
   //           loader: () => {
   //             return fetch(
-  //               `https://hms-server-side.onrender.com/user/attendance`,
+  //               `http://localhost:3001/user/attendance`,
   //               { headers: { Authorization: `Beared ${token}` } }
   //             );
   //           },
@@ -260,7 +260,7 @@ const router = createBrowserRouter([
   //           errorElement: <ErrorPage />,
   //           loader: () => {
   //             return fetch(
-  //               `https://hms-server-side.onrender.com/payment?month=${month}&item=meal`,
+  //               `http://localhost:3001/payment?month=${month}&item=meal`,
   //               { headers: { Authorization: `Beared ${token}` } }
   //             );
   //           },
@@ -272,7 +272,7 @@ const router = createBrowserRouter([
   //           errorElement: <ErrorPage />,
   //           loader: () => {
   //             return fetch(
-  //               `https://hms-server-side.onrender.com/payment?month=${month}&item=rent`,
+  //               `http://localhost:3001/payment?month=${month}&item=rent`,
   //               { headers: { Authorization: `Beared ${token}` } }
   //             );
   //           },
@@ -283,7 +283,7 @@ const router = createBrowserRouter([
   //           element: <GroceryCostPage />,
   //           loader: () => {
   //             return fetch(
-  //               `https://hms-server-side.onrender.com/grocery?month=${month}`,
+  //               `http://localhost:3001/grocery?month=${month}`,
   //               { headers: { Authorization: `Beared ${token}` } }
   //             );
   //           },
@@ -295,7 +295,7 @@ const router = createBrowserRouter([
   //           element: <UtilityBillPage />,
   //           loader: () => {
   //             return fetch(
-  //               `https://hms-server-side.onrender.com/utility?month=${month}`,
+  //               `http://localhost:3001/utility?month=${month}`,
   //               { headers: { Authorization: `Beared ${token}` } }
   //             );
   //           },
@@ -306,7 +306,7 @@ const router = createBrowserRouter([
   //           path: "salaries",
   //           element: <SalariesPage />,
   //           loader: () => {
-  //             return fetch(`https://hms-server-side.onrender.com/staff`, {
+  //             return fetch(`http://localhost:3001/staff`, {
   //               headers: { Authorization: `Beared ${token}` },
   //             });
   //           },
@@ -318,7 +318,7 @@ const router = createBrowserRouter([
   //           element: <BalanceSheetPage />,
   //           loader: () => {
   //             return fetch(
-  //               `https://hms-server-side.onrender.com/balanceSheet?month=${month}`,
+  //               `http://localhost:3001/balanceSheet?month=${month}`,
   //               { headers: { Authorization: `Beared ${token}` } }
   //             );
   //           },
@@ -346,7 +346,7 @@ const router = createBrowserRouter([
   //           element: <PostedNoticePage />,
   //           errorElement: <ErrorPage />,
   //           loader: async () => {
-  //             return fetch(`https://hms-server-side.onrender.com/notice`, {
+  //             return fetch(`http://localhost:3001/notice`, {
   //               headers: {
   //                 Authorization: `Bearer ${token}`,
   //               },
@@ -359,7 +359,7 @@ const router = createBrowserRouter([
   //           element: <MyAllNoticePage />,
   //           errorElement: <ErrorPage />,
   //           loader: async () => {
-  //             return fetch(`https://hms-server-side.onrender.com/notice/get`, {
+  //             return fetch(`http://localhost:3001/notice/get`, {
   //               headers: {
   //                 Authorization: `Bearer ${token}`,
   //               },
@@ -389,7 +389,7 @@ const router = createBrowserRouter([
   //           element: <ManageStaffPage />,
   //           errorElement: <ErrorPage />,
   //           loader: () => {
-  //             return fetch(`https://hms-server-side.onrender.com/staff`, {
+  //             return fetch(`http://localhost:3001/staff`, {
   //               headers: { Authorization: `Beared ${token}` },
   //             });
   //           },
@@ -400,7 +400,7 @@ const router = createBrowserRouter([
   //           element: <SalaryDetailPage />,
   //           errorElement: <ErrorPage />,
   //           loader: () => {
-  //             return fetch(`https://hms-server-side.onrender.com/staff`, {
+  //             return fetch(`http://localhost:3001/staff`, {
   //               headers: { Authorization: `Beared ${token}` },
   //             });
   //           },
@@ -423,7 +423,7 @@ const router = createBrowserRouter([
   //           element: <UserDetails />,
   //           errorElement: <ErrorPage />,
   //           loader: () => {
-  //             return fetch(`https://hms-server-side.onrender.com/user`, {
+  //             return fetch(`http://localhost:3001/user`, {
   //               headers: { Authorization: `Beared ${token}` },
   //             });
   //           },
@@ -464,7 +464,7 @@ const router = createBrowserRouter([
   //           element: <ManageUser />,
   //           errorElement: <ErrorPage />,
   //           loader: () => {
-  //             return fetch(`https://hms-server-side.onrender.com/user`, {
+  //             return fetch(`http://localhost:3001/user`, {
   //               headers: { Authorization: `Beared ${token}` },
   //             });
   //           },

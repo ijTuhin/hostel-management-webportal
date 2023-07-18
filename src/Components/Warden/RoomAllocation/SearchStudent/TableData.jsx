@@ -5,16 +5,13 @@ import { token } from "../../../../Utilities/Hooks/CommonHooks";
 const TableData = ({ item, data }) => {
   const abc = data;
   const cancelSeat = () => {
-    fetch(
-      `https://hms-server-side.onrender.com/seat/${item.room}/remove/${item.matric}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Beared ${token}`,
-        },
-      }
-    )
+    fetch(`http://localhost:3001/seat/${item.room}/remove/${item.matric}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Beared ${token}`,
+      },
+    })
       .then((res) => res.json())
       .then((i) => {
         console.log(i);
@@ -24,7 +21,7 @@ const TableData = ({ item, data }) => {
   };
   const fetchRoomData = () => {
     console.log("Room Data");
-    fetch(`https://hms-server-side.onrender.com/seat/vacant`, {
+    fetch(`http://localhost:3001/seat/vacant`, {
       headers: { Authorization: `Beared ${token}` },
     })
       .then((res) => res.json())

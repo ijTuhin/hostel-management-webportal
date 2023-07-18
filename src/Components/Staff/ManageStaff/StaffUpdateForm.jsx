@@ -9,7 +9,7 @@ const StaffUpdateForm = ({ active, item }) => {
     if (value.position === "") delete value.position;
     if (value.salary === "") delete value.salary;
     if (value.phone === "") delete value.phone;
-    fetch(`https://hms-server-side.onrender.com/staff/${item._id}`, {
+    fetch(`http://localhost:3001/staff/${item._id}`, {
       method: "PUT", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

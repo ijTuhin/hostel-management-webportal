@@ -7,7 +7,7 @@ const AddStaffPage = () => {
     if (!value) {
       return false;
     }
-    fetch(`https://hms-server-side.onrender.com/staff`, {
+    fetch(`http://localhost:3001/staff`, {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

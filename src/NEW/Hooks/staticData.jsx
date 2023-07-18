@@ -119,7 +119,7 @@ const financeMenu = [
   },
   {
     name: "View Payments",
-    link: "/MdPayments",
+    link: "/payment",
     icon: <FaUserFriends />,
     subMenu: [
       {
@@ -157,7 +157,7 @@ const mealMenu = [
       },
       {
         name: "Itemlist",
-        link: "/grocery/list",
+        link: "/grocery/lists",
       },
     ],
   },

@@ -23,7 +23,7 @@ const Home = () => {
     if (role === "warden") {
       // Get Current Attendance
       fetch(
-        `https://hms-server-side.onrender.com/attendance?page=${
+        `http://localhost:3001/attendance?page=${
           page - 1
         }&size=${8}&date=${date}`,
         {
@@ -37,7 +37,7 @@ const Home = () => {
         });
     } else if (role === "accountant") {
       // Get BalanceSheet
-      fetch(`https://hms-server-side.onrender.com/balanceSheet/finances`, {
+      fetch(`http://localhost:3001/balanceSheet/finances`, {
         headers: { Authorization: `Beared ${token}` },
       })
         .then((response) => response.json())

@@ -30,12 +30,9 @@ const MealOrdersPage = () => {
   /* ============================================= */
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch(
-      `https://hms-server-side.onrender.com/meal?meal=${meal}&date=${day}`,
-      {
-        headers: { Authorization: `Beared ${token}` },
-      }
-    )
+    fetch(`http://localhost:3001/meal?meal=${meal}&date=${day}`, {
+      headers: { Authorization: `Beared ${token}` },
+    })
       .then((res) => res.json())
       .then((data) => {
         setData(data);

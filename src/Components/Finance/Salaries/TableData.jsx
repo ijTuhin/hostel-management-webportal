@@ -5,7 +5,7 @@ import { token } from "../../../Utilities/Hooks/CommonHooks";
 const TableData = ({ item }) => {
   getCurrentMonthSalary(item);
   const paySalary = () => {
-    fetch(`https://hms-server-side.onrender.com/salary/${item._id}`, {
+    fetch(`http://localhost:3001/salary/${item._id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

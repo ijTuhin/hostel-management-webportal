@@ -4,7 +4,7 @@ import { token } from "../../../Utilities/Hooks/CommonHooks";
 const TableData = ({ item }) => {
   const total = item.bill + item.due.bill;
   const updatePayBill = () => {
-    fetch(`https://hms-server-side.onrender.com/utility/pay-due/${item._id}`, {
+    fetch(`http://localhost:3001/utility/pay-due/${item._id}`, {
       method: "PUT", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

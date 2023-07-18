@@ -19,7 +19,7 @@ const AddItemForm = () => {
     let data = {
       list: value,
     };
-    fetch(`https://hms-server-side.onrender.com/grocery?date=${date}`, {
+    fetch(`http://localhost:3001/grocery?date=${date}`, {
       method: "PUT", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

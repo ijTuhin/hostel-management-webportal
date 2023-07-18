@@ -6,7 +6,7 @@ export default function SubOutletBox({ menu }) {
   const grid = "grid-cols-" + menu.length;
   return (
     <>
-      <nav className={`grid ${grid}`}>
+      <nav className={`grid ${grid}  sticky top-28 bg-white pt-4 px-28`}>
         {menu.map((i, index) => {
           return (
             <NavLink
@@ -23,7 +23,9 @@ export default function SubOutletBox({ menu }) {
           );
         })}
       </nav>
-      <Outlet />
+      <section className="px-28">
+        <Outlet />
+      </section>
     </>
   );
 }

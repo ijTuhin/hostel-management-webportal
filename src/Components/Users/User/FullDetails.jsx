@@ -10,7 +10,7 @@ const FullDetails = () => {
   const matric = location?.state?.name;
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch(`https://hms-server-side.onrender.com/user/update?matric=${matric}`, {
+    fetch(`http://localhost:3001/user/update?matric=${matric}`, {
       headers: { Authorization: `Beared ${token}` },
     })
       .then((res) => res.json())

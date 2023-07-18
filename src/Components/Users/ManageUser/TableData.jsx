@@ -6,7 +6,7 @@ import { token } from "../../../Utilities/Hooks/CommonHooks";
 const TableData = ({ item, index }) => {
   const navigate = useNavigate();
   const makeMealManager = () => {
-    fetch("https://hms-server-side.onrender.com/admin/create-meal-manager", {
+    fetch("http://localhost:3001/admin/create-meal-manager", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,7 +23,7 @@ const TableData = ({ item, index }) => {
   };
   const changeAcountValidity = () => {
     console.log(item._id, token);
-    fetch(`https://hms-server-side.onrender.com/user/account/${item._id}`, {
+    fetch(`http://localhost:3001/user/account/${item._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

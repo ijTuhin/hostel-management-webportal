@@ -51,7 +51,7 @@ const UserContext = ({ children }) => {
   };
 
   const CreateUserWithDB = async (value) => {
-    return await fetch("https://hms-server-side.onrender.com/user/signup", {
+    return await fetch("http://localhost:3001/user/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

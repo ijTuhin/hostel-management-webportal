@@ -18,10 +18,9 @@ const SearchBar = ({ search }) => {
       } else {
         entity = "name";
       }
-      fetch(
-        `https://hms-server-side.onrender.com/user/search?${entity}=${input}`,
-        { headers: { Authorization: `Beared ${token}` } }
-      )
+      fetch(`http://localhost:3001/user/search?${entity}=${input}`, {
+        headers: { Authorization: `Beared ${token}` },
+      })
         .then((res) => res.json())
         .then((data) => {
           setUser(data);
@@ -29,7 +28,7 @@ const SearchBar = ({ search }) => {
     }
   };
   if (search && !input) {
-    fetch(`https://hms-server-side.onrender.com/user/search?matric=${search}`, {
+    fetch(`http://localhost:3001/user/search?matric=${search}`, {
       headers: { Authorization: `Beared ${token}` },
     })
       .then((res) => res.json())

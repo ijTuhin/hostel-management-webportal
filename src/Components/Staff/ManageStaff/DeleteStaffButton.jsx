@@ -4,7 +4,7 @@ import { token } from "../../../Utilities/Hooks/CommonHooks";
 
 const DeleteStaffButton = ({ item }) => {
   const deleteStaff = () => {
-    fetch(`https://hms-server-side.onrender.com/staff/${item._id}`, {
+    fetch(`http://localhost:3001/staff/${item._id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
