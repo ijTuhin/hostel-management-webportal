@@ -42,7 +42,7 @@ import LoginPage from "./Pages/LoginPage";
 // import PostedNoticePage from "./Components/Notice/PostedNotice/PostedNoticePage";
 // import UtilityRecordPage from "./Components/Common/Records/Page/UtilityRecordPage";
 import { token } from "./Utilities/Hooks/CommonHooks";
-import QRcode from "./Components/QRcode/QRcode";
+import QRcode from "./NEW/Components/Common/QRcode/QRcode";
 import HomePage from "./NEW/Pages/HomePage";
 import UtilityPageWarden from "./NEW/Pages/Warden/UtilityPageWarden";
 import UserPage from "./NEW/Pages/Warden/UserPage";
@@ -50,7 +50,11 @@ import RoomPage from "./NEW/Pages/Warden/RoomPage";
 import IssuesPage from "./NEW/Pages/Warden/IssuesPage";
 import NoticePage from "./NEW/Pages/Warden/NoticePage";
 import StaffPage from "./NEW/Pages/Warden/StaffPage";
-import { financeChild, mealChild, wardenChild } from "./NEW/Hooks/RouteChildren";
+import {
+  financeChild,
+  mealChild,
+  wardenChild,
+} from "./NEW/Hooks/RouteChildren";
 import { role } from "./NEW/Hooks/conditionData";
 import AddUser from "./NEW/Components/Warden/user/AddUser";
 import ManageUser from "./NEW/Components/Warden/user/ManageUser";

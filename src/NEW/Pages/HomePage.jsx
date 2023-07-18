@@ -5,10 +5,8 @@ import PrimaryMenu from "../Components/Common/PrimaryMenu";
 import OutletBox from "../Components/Common/OutletBox";
 import { role } from "../Hooks/conditionData";
 import { financeMenu, mealMenu, wardenMenu } from "../Hooks/staticData";
-import { useOutletContext } from "react-router-dom";
 
 export default function HomePage() {
-  const [value, setValue] = useState('');
   let data = {
     header: "",
   };
@@ -28,12 +26,13 @@ export default function HomePage() {
       primary: mealMenu,
     };
   }
+  const [value, setValue] = useState(data.primary[0].name);
   return (
     <main className="relative">
       <Header title={data.header} />
       <HomeBox />
       <PrimaryMenu set={setValue} menu={data.primary} />
-      <OutletBox outletHeader={value}/>
+      <OutletBox outletHeader={value} />
     </main>
   );
 }
