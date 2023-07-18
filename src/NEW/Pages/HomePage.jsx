@@ -5,8 +5,11 @@ import PrimaryMenu from "../Components/Common/PrimaryMenu";
 import OutletBox from "../Components/Common/OutletBox";
 import { role } from "../Hooks/conditionData";
 import { financeMenu, mealMenu, wardenMenu } from "../Hooks/staticData";
+import { useAuthUser } from "../../Authentications/Authenticate/UserContext";
+import Loader from "../Components/Common/Loader";
 
 export default function HomePage() {
+  const { loading } = useAuthUser();
   let data = {
     header: "",
   };
@@ -28,11 +31,17 @@ export default function HomePage() {
   }
   const [value, setValue] = useState(data.primary[0].name);
   return (
-    <main className="relative">
-      <Header title={data.header} />
-      <HomeBox />
-      <PrimaryMenu set={setValue} menu={data.primary} />
-      <OutletBox outletHeader={value} />
-    </main>
+    <>
+      {loading ? (
+        <Loader/>
+      ) : (
+        <main className="relative">
+          <Header title={data.header} />
+          <HomeBox />
+          <PrimaryMenu set={setValue} menu={data.primary} />
+          <OutletBox outletHeader={value} />
+        </main>
+      )}
+    </>
   );
 }

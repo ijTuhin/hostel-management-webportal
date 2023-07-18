@@ -4,7 +4,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import UserContext from "./Authentications/Authenticate/UserContext";
 import ErrorPage from "./Pages/ErrorPage";
-import LoginPage from "./Pages/LoginPage";
+// import LoginPage from "./Pages/LoginPage";
 // import HomePage from "./Pages/HomePage";
 // import PageContainer from "./Pages/PageContainer";
 // import Authenticate from "./Authentications/Authenticate/Authenticate";
@@ -58,7 +58,6 @@ import {
 import { role } from "./NEW/Hooks/conditionData";
 import AddUser from "./NEW/Components/Warden/user/AddUser";
 import ManageUser from "./NEW/Components/Warden/user/ManageUser";
-import MealOrder from "./NEW/Components/Warden/user/MealOrder";
 import Attendance from "./NEW/Components/Warden/user/Attendance";
 import RoomDetails from "./NEW/Components/Warden/room/RoomDetails";
 import RoomAllocation from "./NEW/Components/Warden/room/RoomAllocation";
@@ -69,7 +68,11 @@ import AddNotice from "./NEW/Components/Warden/notice/AddNotice";
 import SentNotices from "./NEW/Components/Warden/notice/SentNotices";
 import AddStaff from "./NEW/Components/Warden/staff/AddStaff";
 import ManageStaff from "./NEW/Components/Warden/staff/ManageStaff";
-
+import LoginPage from "./NEW/Pages/LoginPage";
+import AdminLogin from "./NEW/Components/Login/AdminLogin";
+import GoogleLogin from "./NEW/Components/Login/GoogleLogin";
+import '@fontsource/kalam/300.css';
+import '@fontsource/kalam/400.css';
 const months = [
   "Jan",
   "Feb",
@@ -101,6 +104,14 @@ const router = createBrowserRouter([
     path: "/login",
     element: <LoginPage />,
     errorElement: <ErrorPage />,
+    children: [
+      { index: true, element: <AdminLogin />, errorElement: <ErrorPage /> },
+      {
+        path: "non-admin",
+        element: <GoogleLogin />,
+        errorElement: <ErrorPage />,
+      },
+    ],
   },
   {
     path: "/qr-scanner",
