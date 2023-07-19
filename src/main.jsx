@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import UserContext from "./Authentications/Authenticate/UserContext";
-import ErrorPage from "./Pages/ErrorPage";
+// import ErrorPage from "./Pages/ErrorPage";
 // import LoginPage from "./Pages/LoginPage";
 // import HomePage from "./Pages/HomePage";
 // import PageContainer from "./Pages/PageContainer";
@@ -41,21 +41,21 @@ import ErrorPage from "./Pages/ErrorPage";
 // import MyAllNoticePage from "./Components/Notice/MyAllNotice/MyAllNoticePage";
 // import PostedNoticePage from "./Components/Notice/PostedNotice/PostedNoticePage";
 // import UtilityRecordPage from "./Components/Common/Records/Page/UtilityRecordPage";
-import { token } from "./Utilities/Hooks/CommonHooks";
+// import { token } from "./Utilities/Hooks/CommonHooks";
 import QRcode from "./NEW/Components/Common/QRcode/QRcode";
 import HomePage from "./NEW/Pages/HomePage";
-import UtilityPageWarden from "./NEW/Pages/Warden/UtilityPageWarden";
-import UserPage from "./NEW/Pages/Warden/UserPage";
-import RoomPage from "./NEW/Pages/Warden/RoomPage";
-import IssuesPage from "./NEW/Pages/Warden/IssuesPage";
-import NoticePage from "./NEW/Pages/Warden/NoticePage";
-import StaffPage from "./NEW/Pages/Warden/StaffPage";
+// import UtilityPageWarden from "./NEW/Pages/Warden/UtilityPageWarden";
+// import UserPage from "./NEW/Pages/Warden/UserPage";
+// import RoomPage from "./NEW/Pages/Warden/RoomPage";
+// import IssuesPage from "./NEW/Pages/Warden/IssuesPage";
+// import NoticePage from "./NEW/Pages/Warden/NoticePage";
+// import StaffPage from "./NEW/Pages/Warden/StaffPage";
 import {
   financeChild,
   mealChild,
   wardenChild,
 } from "./NEW/Hooks/RouteChildren";
-import { role } from "./NEW/Hooks/conditionData";
+import { role, token } from "./NEW/Hooks/conditionData";
 // import AddUser from "./NEW/Components/Warden/user/AddUser";
 // import ManageUser from "./NEW/Components/Warden/user/ManageUser";
 // import Attendance from "./NEW/Components/Warden/user/Attendance";
@@ -71,8 +71,29 @@ import { role } from "./NEW/Hooks/conditionData";
 import LoginPage from "./NEW/Pages/LoginPage";
 import AdminLogin from "./NEW/Components/Login/AdminLogin";
 import GoogleLogin from "./NEW/Components/Login/GoogleLogin";
-import "@fontsource/kalam/300.css";
-import "@fontsource/kalam/400.css";
+import Authenticate from "./Authentications/Authenticate/Authenticate";
+import ErrorPage from "./NEW/Components/Login/ErrorPage";
+import UtilityPageWarden from "./NEW/Pages/Warden/UtilityPageWarden";
+// import UserPage from "./NEW/Pages/Warden/UserPage";
+// import AddUser from "./NEW/Components/Warden/user/add/AddUser";
+// import ManageUser from "./NEW/Components/Warden/user/manage/ManageUser";
+// import OrdersPage from "./NEW/Components/Common/mealOrders/OrdersPage";
+// import Attendance from "./NEW/Components/Warden/user/attendance/Attendance";
+// import RoomPage from "./NEW/Pages/Warden/RoomPage";
+// import RoomDetails from "./NEW/Components/Warden/room/details/RoomDetails";
+// import RoomAllocation from "./NEW/Components/Warden/room/allocation/RoomAllocation";
+// import IssuesPage from "./NEW/Pages/Warden/IssuesPage";
+// import UserIssues from "./NEW/Components/Common/Issues/UserIssues";
+// import EditRequests from "./NEW/Components/Warden/issue/EditRequests";
+// import NoticePage from "./NEW/Components/Common/notice/NoticePage";
+// import ReceivedNotices from "./NEW/Components/Common/notice/received/ReceivedNotices";
+// import AddNotice from "./NEW/Components/Common/notice/add/AddNotice";
+// import SentNotices from "./NEW/Components/Common/notice/sent/SentNotices";
+// import StaffPage from "./NEW/Pages/Warden/StaffPage";
+// import AddStaff from "./NEW/Components/Warden/staff/add/AddStaff";
+// import ManageStaff from "./NEW/Components/Warden/staff/manage/ManageStaff";
+import UtilityPageFinance from "./NEW/Pages/Finance/UtilityPageFinance";
+import MealOrdersPage from "./NEW/Pages/Meal/MealOrdersPage";
 const months = [
   "Jan",
   "Feb",
@@ -89,7 +110,7 @@ const months = [
 ];
 const month = months[new Date().getMonth()] + "-" + new Date().getFullYear();
 const date = new Date().toLocaleDateString();
-let routeChild;
+let routeChild = 0;
 if (role === "warden") routeChild = wardenChild;
 else if (role === "accountant") routeChild = financeChild;
 else if (role === "meal") routeChild = mealChild;
@@ -98,7 +119,29 @@ const router = createBrowserRouter([
     path: "/",
     element: <HomePage />,
     errorElement: <ErrorPage />,
-    children: routeChild,
+    children: [
+      {
+        path: "/",
+        element: (
+          <Authenticate>
+            {role === "meal" ? (
+              <MealOrdersPage />
+            ) : role === "warden" ? (
+              <UtilityPageWarden />
+            ) : (
+              <UtilityPageFinance />
+            )}
+          </Authenticate>
+        ),
+        errorElement: <ErrorPage />,
+        loader: () => {
+          return fetch(`http://localhost:3001/utility?month=${month}`, {
+            headers: { Authorization: `Beared ${token}` },
+          }); // need to apply condition here as well
+        },
+      }, // Done
+      ...routeChild,
+    ],
   },
   {
     path: "/login",
@@ -115,7 +158,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/qr-scanner",
-    element: <QRcode />,
+    element: (
+      <Authenticate>
+        <QRcode />
+      </Authenticate>
+    ),
     errorElement: <ErrorPage />,
   },
   // {

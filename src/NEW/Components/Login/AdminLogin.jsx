@@ -10,16 +10,17 @@ export default function AdminLogin() {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    console.log(email, password)
 
     signIn(email, password)
       .then(() => {
         AdminLoginWithDB(email, password);
-        navigate("/", { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
       });
+      navigate("/", { replace: true });
   };
   return (
     <main className="flex items-center justify-center h-full text-gray-400 py-20 w-1/2">

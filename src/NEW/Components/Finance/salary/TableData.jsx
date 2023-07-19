@@ -1,7 +1,6 @@
 import React from "react";
 import { RxDoubleArrowRight } from "react-icons/rx";
-import getCurrentMonthSalary from "../../../../Utilities/Hooks/SalaryHook";
-import { token } from "../../../Hooks/conditionData";
+import { getCurrentMonthSalary, token } from "../../../Hooks/conditionData";
 const TableData = ({ item }) => {
   getCurrentMonthSalary(item);
   const paySalary = () => {

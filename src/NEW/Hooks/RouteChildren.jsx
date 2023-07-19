@@ -1,12 +1,7 @@
-import ErrorPage from "../../Pages/ErrorPage";
 import SeatRent from "../Components/Finance/payment/SeatRent";
 import AddGrocery from "../Components/Meal/grocery/AddGrocery";
 import Groceries from "../Components/Meal/grocery/Groceries";
 import EditRequests from "../Components/Warden/issue/EditRequests";
-import UserIssues from "../Components/Warden/issue/UserIssues";
-import AddNotice from "../Components/Warden/notice/add/AddNotice";
-import ReceivedNotices from "../Components/Warden/notice/received/ReceivedNotices";
-import SentNotices from "../Components/Warden/notice/sent/SentNotices";
 import RoomAllocation from "../Components/Warden/room/allocation/RoomAllocation";
 import RoomDetails from "../Components/Warden/room/details/RoomDetails";
 import AddStaff from "../Components/Warden/staff/add/AddStaff";
@@ -21,7 +16,6 @@ import UtilityPageFinance from "../Pages/Finance/UtilityPageFinance";
 import GroceryPageMeal from "../Pages/Meal/GroceryPageMeal";
 import OrdersPage from "../Components/Common/mealOrders/OrdersPage";
 import IssuesPage from "../Pages/Warden/IssuesPage";
-import NoticePage from "../Pages/Warden/NoticePage";
 import RoomPage from "../Pages/Warden/RoomPage";
 import StaffPage from "../Pages/Warden/StaffPage";
 import UserPage from "../Pages/Warden/UserPage";
@@ -30,22 +24,22 @@ import { month, token } from "./conditionData";
 import MealOrdersPage from "../Pages/Meal/MealOrdersPage";
 import MealPaymentPage from "../Pages/Meal/MealPaymentPage";
 import MealPayment from "../Components/Common/mealPayment/mealPayment";
+import NoticePage from "../Components/Common/notice/NoticePage";
+import AddNotice from "../Components/Common/notice/add/AddNotice";
+import ReceivedNotices from "../Components/Common/notice/received/ReceivedNotices";
+import SentNotices from "../Components/Common/notice/sent/SentNotices";
+import UserIssues from "../Components/Common/Issues/UserIssues";
+import Authenticate from "../../Authentications/Authenticate/Authenticate";
+import ErrorPage from "../Components/Login/ErrorPage";
 
 const wardenChild = [
   {
-    index: true,
-    path: "/",
-    element: <UtilityPageWarden />,
-    errorElement: <ErrorPage />,
-    loader: () => {
-      return fetch(`http://localhost:3001/utility?month=${month}`, {
-        headers: { Authorization: `Beared ${token}` },
-      });
-    },
-  }, // Done
-  {
     path: "/user",
-    element: <UserPage />,
+    element: (
+      <Authenticate>
+        <UserPage />
+      </Authenticate>
+    ),
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <AddUser />, errorElement: <ErrorPage /> },
@@ -83,7 +77,11 @@ const wardenChild = [
   },
   {
     path: "/room",
-    element: <RoomPage />,
+    element: (
+      <Authenticate>
+        <RoomPage />
+      </Authenticate>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {
@@ -105,7 +103,11 @@ const wardenChild = [
   },
   {
     path: "/issue",
-    element: <IssuesPage />,
+    element: (
+      <Authenticate>
+        <IssuesPage />
+      </Authenticate>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {
@@ -132,7 +134,158 @@ const wardenChild = [
   },
   {
     path: "/notice",
-    element: <NoticePage />,
+    element: (
+      <Authenticate>
+        <NoticePage />
+      </Authenticate>
+    ),
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <ReceivedNotices />,
+        errorElement: <ErrorPage />,
+        loader: () => {
+          return fetch(`http://localhost:3001/notice/get`, {
+            headers: { Authorization: `Beared ${token}` },
+          });
+        },
+      }, // change some design
+      {
+        path: "upload",
+        element: <AddNotice />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "sent",
+        element: <SentNotices />,
+        errorElement: <ErrorPage />,
+        loader: () => {
+          return fetch(`http://localhost:3001/notice`, {
+            headers: { Authorization: `Beared ${token}` },
+          });
+        },
+      }, // change some design
+    ],
+  },
+  {
+    path: "/staff",
+    element: (
+      <Authenticate>
+        <StaffPage />
+      </Authenticate>
+    ),
+    errorElement: <ErrorPage />,
+    children: [
+      { index: true, element: <AddStaff />, errorElement: <ErrorPage /> },
+      {
+        path: "manage",
+        element: <ManageStaff />,
+        errorElement: <ErrorPage />,
+        loader: () => {
+          return fetch(`http://localhost:3001/staff`, {
+            headers: { Authorization: `Beared ${token}` },
+          });
+        },
+      }, // Update form need to design with modal
+    ],
+  },
+];
+const financeChild = [
+  // {
+  //   index: true,
+  //   path: "/",
+  //   element: (
+  //     <Authenticate>
+  //       <UtilityPageFinance />
+  //     </Authenticate>
+  //   ),
+  //   errorElement: <ErrorPage />,
+  //   loader: () => {
+  //     return fetch(`http://localhost:3001/utility?month=${month}`, {
+  //       headers: { Authorization: `Beared ${token}` },
+  //     });
+  //   },
+  // },
+  {
+    path: "/grocery",
+    element: (
+      <Authenticate>
+        <GroceryPageFinance />
+      </Authenticate>
+    ),
+    errorElement: <ErrorPage />,
+    loader: () => {
+      return fetch(`http://localhost:3001/user`, {
+        headers: { Authorization: `Beared ${token}` },
+      });
+    },
+  },
+  {
+    path: "/payment",
+    element: (
+      <Authenticate>
+        <PaymentsPageFinance />
+      </Authenticate>
+    ),
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <SeatRent />,
+        errorElement: <ErrorPage />,
+        loader: () => {
+          return fetch(`http://localhost:3001/payment?month=${month}&item=rent`, {
+            headers: { Authorization: `Beared ${token}` },
+          });
+        },
+      },
+      {
+        path: "meal-bill",
+        element: <MealPayment />,
+        errorElement: <ErrorPage />,
+        loader: () => {
+          return fetch(
+            `http://localhost:3001/payment?month=${month}&item=meal`,
+            {
+              headers: { Authorization: `Beared ${token}` },
+            }
+          );
+        },
+      },
+      {
+        path: "issue",
+        element: <UserIssues />,
+        errorElement: <ErrorPage />,
+        loader: () => {
+          return fetch(`http://localhost:3001/user`, {
+            headers: { Authorization: `Beared ${token}` },
+          });
+        },
+      },
+    ],
+  },
+  {
+    path: "/salary",
+    element: (
+      <Authenticate>
+        <SalaryPage />
+      </Authenticate>
+    ),
+    errorElement: <ErrorPage />,
+    loader: () => {
+      return fetch(`http://localhost:3001/staff`, {
+        headers: { Authorization: `Beared ${token}` },
+      });
+    },
+  },
+  {
+    path: "/notice",
+    element: (
+      <Authenticate>
+        <NoticePage />
+      </Authenticate>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {
@@ -158,97 +311,19 @@ const wardenChild = [
       }, // change some design
     ],
   },
-  {
-    path: "/staff",
-    element: <StaffPage />,
-    errorElement: <ErrorPage />,
-    children: [
-      { index: true, element: <AddStaff />, errorElement: <ErrorPage /> },
-      {
-        path: "manage",
-        element: <ManageStaff />,
-        errorElement: <ErrorPage />,
-        loader: () => {
-          return fetch(`http://localhost:3001/staff`, {
-            headers: { Authorization: `Beared ${token}` },
-          });
-        },
-      }, // Update form need to design with modal
-    ],
-  },
-];
-const financeChild = [
-  {
-    index: true,
-    path: "/",
-    element: <UtilityPageFinance />,
-    errorElement: <ErrorPage />,
-    loader: () => {
-      return fetch(`http://localhost:3001/utility?month=${month}`, {
-        headers: { Authorization: `Beared ${token}` },
-      });
-    },
-  },
-  {
-    path: "/grocery",
-    element: <GroceryPageFinance />,
-    errorElement: <ErrorPage />,
-    loader: () => {
-      return fetch(`http://localhost:3001/user`, {
-        headers: { Authorization: `Beared ${token}` },
-      });
-    },
-  },
-  {
-    path: "/payment",
-    element: <PaymentsPageFinance />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        index: true,
-        element: <SeatRent />,
-        errorElement: <ErrorPage />,
-        loader: () => {
-          return fetch(`http://localhost:3001/user`, {
-            headers: { Authorization: `Beared ${token}` },
-          });
-        },
-      },
-      {
-        path: "meal-bill",
-        element: <MealPayment />,
-        errorElement: <ErrorPage />,
-        loader: () => {
-          return fetch(`http://localhost:3001/payment?month=${month}&item=meal`, {
-            headers: { Authorization: `Beared ${token}` },
-          });
-        },
-      },
-    ],
-  },
-  {
-    path: "/salary",
-    element: <SalaryPage />,
-    errorElement: <ErrorPage />,
-    loader: () => {
-      return fetch(`http://localhost:3001/staff`, {
-        headers: { Authorization: `Beared ${token}` },
-      });
-    },
-  },
 ];
 const mealChild = [
-  {
-    index: true,
-    path: "/",
-    element: <MealOrdersPage />,
-    errorElement: <ErrorPage />,
-    loader: () => {
-      return fetch(`http://localhost:3001/user`, {
-        headers: { Authorization: `Beared ${token}` },
-      });
-    },
-  },
+  // {
+  //   index: true,
+  //   path: "/",
+  //   element: <MealOrdersPage />,
+  //   errorElement: <ErrorPage />,
+  //   loader: () => {
+  //     return fetch(`http://localhost:3001/user`, {
+  //       headers: { Authorization: `Beared ${token}` },
+  //     });
+  //   },
+  // },
   {
     path: "/grocery",
     element: <GroceryPageMeal />,

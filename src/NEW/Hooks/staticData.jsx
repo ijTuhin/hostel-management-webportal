@@ -130,6 +130,10 @@ const financeMenu = [
         name: "Meal Bill",
         link: "/payment/meal-bill",
       },
+      {
+        name: "Check Issues",
+        link: "/payment/issue",
+      },
     ],
   },
   {
@@ -137,6 +141,25 @@ const financeMenu = [
     link: "/salary",
     icon: <FaHouseUser />,
     subMenu: null,
+  },
+  {
+    name: "Notice Section",
+    link: "/notice",
+    icon: <IoMailUnreadSharp />,
+    subMenu: [
+      {
+        name: "Notices",
+        link: "/notice",
+      },
+      {
+        name: "Upload",
+        link: "/notice/upload",
+      },
+      {
+        name: "Sent",
+        link: "/notice/sent",
+      },
+    ],
   },
 ];
 const mealMenu = [

@@ -2,6 +2,7 @@ import React from "react";
 import { useAuthUser } from "../../../Authentications/Authenticate/UserContext";
 import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
+import { token } from "../../Hooks/conditionData";
 const auth = getAuth();
 
 export default function LogOut() {
