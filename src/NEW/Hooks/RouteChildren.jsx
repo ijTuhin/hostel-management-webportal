@@ -23,7 +23,7 @@ import UtilityPageWarden from "../Pages/Warden/UtilityPageWarden";
 import { month, token } from "./conditionData";
 import MealOrdersPage from "../Pages/Meal/MealOrdersPage";
 import MealPaymentPage from "../Pages/Meal/MealPaymentPage";
-import MealPayment from "../Components/Common/mealPayment/mealPayment";
+import MealPayment from "../Components/Common/mealPayment/MealPayment";
 import NoticePage from "../Components/Common/notice/NoticePage";
 import ReceivedNotices from "../Components/Common/notice/received/ReceivedNotices";
 import SentNotices from "../Components/Common/notice/sent/SentNotices";
@@ -210,21 +210,6 @@ const wardenChild = [
   },
 ];
 const financeChild = [
-  // {
-  //   index: true,
-  //   path: "/",
-  //   element: (
-  //     <Authenticate>
-  //       <UtilityPageFinance />
-  //     </Authenticate>
-  //   ),
-  //   errorElement: <ErrorPage />,
-  //   loader: () => {
-  //     return fetch(`http://localhost:3001/utility?month=${month}`, {
-  //       headers: { Authorization: `Beared ${token}` },
-  //     });
-  //   },
-  // },
   {
     path: "/grocery",
     element: (
@@ -338,17 +323,6 @@ const financeChild = [
   },
 ];
 const mealChild = [
-  // {
-  //   index: true,
-  //   path: "/",
-  //   element: <MealOrdersPage />,
-  //   errorElement: <ErrorPage />,
-  //   loader: () => {
-  //     return fetch(`http://localhost:3001/user`, {
-  //       headers: { Authorization: `Beared ${token}` },
-  //     });
-  //   },
-  // },
   {
     path: "/grocery",
     element: <GroceryPageMeal />,

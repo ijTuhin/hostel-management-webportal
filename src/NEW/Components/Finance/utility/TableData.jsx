@@ -1,7 +1,9 @@
 import React from "react";
 import { RxDoubleArrowRight } from "react-icons/rx";
 import { token } from "../../../Hooks/conditionData";
+import { useOutletContext } from "react-router-dom";
 const TableData = ({ item }) => {
+  const [show, setShow, id, setID] = useOutletContext();
   const total = item.bill + item.due.bill;
   const updatePayBill = () => {
     fetch(`http://localhost:3001/utility/pay-due/${item._id}`, {
@@ -19,7 +21,15 @@ const TableData = ({ item }) => {
   };
   return (
     <>
-      <tr class="bg-white border-b border-zinc-200 transition duration-300 ease-in-out text-gray-900 hover:bg-zinc-50">
+      <tr
+        class={`bg-white  transition duration-300 ease-in-out border-b border-zinc-200  ${
+          show
+            ? id === item.name
+              ? "bg-zinc-100"
+              : "text-gray-900 hover:bg-zinc-50"
+            : "text-gray-900 hover:bg-zinc-50"
+        }`}
+      >
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium uppercase">
           {item.name}
         </td>
@@ -47,7 +57,17 @@ const TableData = ({ item }) => {
                   Pay
                 </button>
               ) : (
-                <p className="text-gray-300">Pending</p>
+                <p
+                  className={`${
+                    show
+                      ? id === item.name
+                        ? "text-gray-400"
+                        : "text-gray-300"
+                      : "text-gray-300"
+                  }`}
+                >
+                  Pending
+                </p>
               )}
             </div>
           )}
@@ -56,8 +76,20 @@ const TableData = ({ item }) => {
           {item.date}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          <button className="flex w-full justify-center items-center gap-x-1.5 hover:underline decoration-2 underline-offset-4">
-            <span className="mb-0.5">view record</span> <RxDoubleArrowRight />
+          <button
+            onClick={() => {
+              setID(item.name);
+              setShow((i) => !i);
+            }}
+            className="flex w-full justify-center items-center gap-x-1.5 hover:underline decoration-2 underline-offset-4"
+          >
+            <span className="mb-0.5">
+              {show
+                ? id === item.name
+                  ? "close"
+                  : "view record"
+                : "view record"}
+            </span>
           </button>
         </td>
       </tr>

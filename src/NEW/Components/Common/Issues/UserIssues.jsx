@@ -1,10 +1,11 @@
 import React from "react";
 import ModalToPost from "../Modals/ModalToPost";
 import { useOutletContext } from "react-router-dom";
+import { role } from "../../../Hooks/conditionData";
 export default function UserIssues() {
   const [open, setOpen, data, setData, upload, setUpload] = useOutletContext();
   // setUpload(null);
-  // setData(null);
+  setData(null);
   const handleUpload = () => {
     if (upload?.reply !== "") console.log(upload);
   };
@@ -13,7 +14,9 @@ export default function UserIssues() {
   const sortItems = () => {
     switch (selectedTab) {
       case 0:
-        return item;
+        if (role === "accountant")
+          return item.filter((i) => i.no === 5 || i.no === 6);
+        else return item;
       case 1:
         return item.filter((i) => i.no === 1);
       case 2:
@@ -31,7 +34,9 @@ export default function UserIssues() {
       case 8:
         return item.filter((i) => i.no === 8);
       default:
-        return item;
+        if (role === "accountant")
+          return item.filter((i) => i.no === 5 || i.no === 6);
+        else return item;
     }
   };
   const item = [
@@ -126,38 +131,58 @@ export default function UserIssues() {
         >
           All Issues
         </button>
-        <button
-          onClick={() => setSelectedTab(1)}
-          className={`w-full border text-start px-3 rounded-full hover:border-teal-800 hover:bg-teal-800 py-1.5 ${
-            selectedTab === 1 && "border-teal-800 bg-teal-800"
-          }`}
-        >
-          Profile Edited
-        </button>
-        <button
-          onClick={() => setSelectedTab(2)}
-          className={`w-full border text-start px-3 rounded-full hover:border-teal-800 hover:bg-teal-800 py-1.5 ${
-            selectedTab === 2 && "border-teal-800 bg-teal-800"
-          }`}
-        >
-          Account Feature
-        </button>
-        <button
-          onClick={() => setSelectedTab(3)}
-          className={`w-full border text-start px-3 rounded-full hover:border-teal-800 hover:bg-teal-800 py-1.5 ${
-            selectedTab === 3 && "border-teal-800 bg-teal-800"
-          }`}
-        >
-          Room Facility
-        </button>
-        <button
-          onClick={() => setSelectedTab(4)}
-          className={`w-full border text-start px-3 rounded-full hover:border-teal-800 hover:bg-teal-800 py-1.5 ${
-            selectedTab === 4 && "border-teal-800 bg-teal-800"
-          }`}
-        >
-          Meal Quality
-        </button>
+        {role === "warden" && (
+          <>
+            <button
+              onClick={() => setSelectedTab(1)}
+              className={`w-full border text-start px-3 rounded-full hover:border-teal-800 hover:bg-teal-800 py-1.5 ${
+                selectedTab === 1 && "border-teal-800 bg-teal-800"
+              }`}
+            >
+              Profile Edited
+            </button>
+            <button
+              onClick={() => setSelectedTab(2)}
+              className={`w-full border text-start px-3 rounded-full hover:border-teal-800 hover:bg-teal-800 py-1.5 ${
+                selectedTab === 2 && "border-teal-800 bg-teal-800"
+              }`}
+            >
+              Account Feature
+            </button>
+            <button
+              onClick={() => setSelectedTab(3)}
+              className={`w-full border text-start px-3 rounded-full hover:border-teal-800 hover:bg-teal-800 py-1.5 ${
+                selectedTab === 3 && "border-teal-800 bg-teal-800"
+              }`}
+            >
+              Room Facility
+            </button>
+            <button
+              onClick={() => setSelectedTab(4)}
+              className={`w-full border text-start px-3 rounded-full hover:border-teal-800 hover:bg-teal-800 py-1.5 ${
+                selectedTab === 4 && "border-teal-800 bg-teal-800"
+              }`}
+            >
+              Meal Quality
+            </button>
+            <button
+              onClick={() => setSelectedTab(7)}
+              className={`w-full border text-start px-3 rounded-full hover:border-teal-800 hover:bg-teal-800 py-1.5 ${
+                selectedTab === 7 && "border-teal-800 bg-teal-800"
+              }`}
+            >
+              User Behaviour
+            </button>
+            <button
+              onClick={() => setSelectedTab(8)}
+              className={`w-full border text-start px-3 rounded-full hover:border-teal-800 hover:bg-teal-800 py-1.5 ${
+                selectedTab === 8 && "border-teal-800 bg-teal-800"
+              }`}
+            >
+              Staff Behaviour
+            </button>
+          </>
+        )}
         <button
           onClick={() => setSelectedTab(5)}
           className={`w-full border text-start px-3 rounded-full hover:border-teal-800 hover:bg-teal-800 py-1.5 ${
@@ -173,22 +198,6 @@ export default function UserIssues() {
           }`}
         >
           Seat rent not added
-        </button>
-        <button
-          onClick={() => setSelectedTab(7)}
-          className={`w-full border text-start px-3 rounded-full hover:border-teal-800 hover:bg-teal-800 py-1.5 ${
-            selectedTab === 7 && "border-teal-800 bg-teal-800"
-          }`}
-        >
-          User Behaviour
-        </button>
-        <button
-          onClick={() => setSelectedTab(8)}
-          className={`w-full border text-start px-3 rounded-full hover:border-teal-800 hover:bg-teal-800 py-1.5 ${
-            selectedTab === 8 && "border-teal-800 bg-teal-800"
-          }`}
-        >
-          Staff Behaviour
         </button>
       </nav>
     </main>

@@ -6,7 +6,7 @@ export default function OutletBox({outletHeader}) {
   const [id, setID] = useState(null)
   return (
     <main className="absolute top-16 pl-48 w-full">
-      <header className="bg-stone-200 px-5 py-3 sticky top-16">{outletHeader}</header>
+      <header className="bg-stone-200 px-5 py-3 sticky z-20 top-16">{outletHeader}</header>
       <section className="bg-white">
         <Outlet context={[show, setShow, id, setID]} />
       </section>

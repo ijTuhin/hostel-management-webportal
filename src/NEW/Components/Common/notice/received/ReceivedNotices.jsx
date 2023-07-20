@@ -8,13 +8,13 @@ export default function ReceivedNotices() {
   return (
     <main className="py-10 flex justify-end items-start">
       <section className="border border-teal-600 bg-teal-700 rounded px-6 py-8 w-64 h-80 text-gray-300 space-y-3 fixed left-80">
-        <p className=" font-semibold">{data[num].title}</p>
+        <p className=" font-semibold">{data[num]?.title}</p>
         <p className="font-poppins text-sm text-justify">
-          {data[num].notice}
+          {data[num]?.notice}
         </p>
       </section>
       <section className=" w-1/2">
-        {data.map((i, index) => (
+        {data?.map((i, index) => (
           <div
             onClick={() => setNum(index)}
             className={`border-b p-2 cursor-pointer hover:border-teal-500 hover:text-teal-500 ${

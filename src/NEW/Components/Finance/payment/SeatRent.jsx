@@ -2,11 +2,13 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import TableHead from "./TableHead";
 import TableData from "./TableData";
+import SeatRentRecordModal from "../../Common/record/payment/SeatRentRecordModal";
 
 export default function SeatRent() {
   const data = useLoaderData();
   return (
     <div class="w-full flex flex-col">
+      <SeatRentRecordModal />
       <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
           <div class="overflow-hidden">

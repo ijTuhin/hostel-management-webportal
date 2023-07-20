@@ -1,7 +1,9 @@
 import React from "react";
 import { RxDoubleArrowRight } from "react-icons/rx";
 import { getCurrentMonthSalary, token } from "../../../Hooks/conditionData";
+import { useOutletContext } from "react-router-dom";
 const TableData = ({ item }) => {
+  const [show, setShow, id, setID] = useOutletContext();
   getCurrentMonthSalary(item);
   const paySalary = () => {
     fetch(`http://localhost:3001/salary/${item._id}`, {
@@ -19,7 +21,15 @@ const TableData = ({ item }) => {
   };
   return (
     <>
-      <tr class="bg-white border-b border-zinc-200 transition duration-300 ease-in-out text-gray-900 hover:bg-zinc-50">
+      <tr
+        class={`bg-white  transition duration-300 ease-in-out border-b border-zinc-200  ${
+          show
+            ? id === item.name
+              ? "bg-zinc-100"
+              : "text-gray-900 hover:bg-zinc-50"
+            : "text-gray-900 hover:bg-zinc-50"
+        }`}
+      >
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
           {item.name}
         </td>
@@ -38,19 +48,31 @@ const TableData = ({ item }) => {
             "Paid"
           ) : (
             <button
-                onClick={paySalary}
-                className="border px-5 py-1 rounded hover:bg-violet-600 hover:text-white"
-              >
-                Pay
-              </button>
+              onClick={paySalary}
+              className="border px-5 py-1 rounded hover:bg-violet-600 hover:text-white"
+            >
+              Pay
+            </button>
           )}
         </td>
         <td class="text-gray-500 px-6 py-4 whitespace-nowrap text-sm font-semibold flex justify-center">
           {!status ? "---" : <>{salary.date}</>}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          <button className="flex w-full justify-center items-center gap-x-1.5 hover:underline decoration-2 underline-offset-4">
-            <span className="mb-0.5">view record</span> <RxDoubleArrowRight />
+          <button
+            onClick={() => {
+              setID(item.name);
+              setShow((i) => !i);
+            }}
+            className="flex w-full justify-center items-center gap-x-1.5 hover:underline decoration-2 underline-offset-4"
+          >
+            <span className="mb-0.5">
+              {show
+                ? id === item.name
+                  ? "close"
+                  : "view record"
+                : "view record"}
+            </span>
           </button>
         </td>
       </tr>
