@@ -1,6 +1,5 @@
 import React from "react";
-import { SiFampay } from "react-icons/si";
-import { RxCross2 } from "react-icons/rx";
+import { FaCoins } from "react-icons/fa";
 import { role } from "../../../Hooks/conditionData";
 import { useOutletContext } from "react-router-dom";
 const TableData = ({ item }) => {
@@ -10,11 +9,15 @@ const TableData = ({ item }) => {
       <tr class="bg-white border-b border-blue-200 transition duration-300 ease-in-out text-gray-900 hover:bg-green-50">
         <td
           onClick={() => {
-            setOpen(true);
-            setData(item);
-            setUpload(null);
+            if (role !== "meal") {
+              setOpen(true);
+              setData(item);
+              setUpload(null);
+            }
           }}
-          class="px-6 py-4 whitespace-nowrap text-sm font-medium cursor-pointer"
+          class={`px-6 py-4 whitespace-nowrap text-sm font-medium ${
+            role === "warden" && "cursor-pointer"
+          }`}
         >
           {item.user.matric}
         </td>
@@ -32,6 +35,12 @@ const TableData = ({ item }) => {
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
           {item.transaction}
+        </td>
+        <td class="px-6 py-4 text-sm font-medium flex justify-center items-center gap-2">
+          <span>{item?.coupon ? item?.coupon : "0"}</span>
+          <span>
+            <FaCoins />
+          </span>
         </td>
         {role !== "meal" && (
           <td

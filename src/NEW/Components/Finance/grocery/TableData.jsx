@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TableData({ style }) {
+export default function TableData({ style, item }) {
   return (
     <>
       <tr
@@ -11,16 +11,16 @@ export default function TableData({ style }) {
         } border-b transition duration-300 ease-in-out`}
       >
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium uppercase">
-          Tomato
+          {item?.name}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium uppercase">
-          10Kg
+          {item?.amount}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium uppercase">
-          250/-
+          {item?.rate}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium uppercase">
-          2500/-
+          {item?.price}
         </td>
       </tr>
     </>

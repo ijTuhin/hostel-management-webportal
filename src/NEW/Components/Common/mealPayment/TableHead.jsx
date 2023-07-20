@@ -23,6 +23,9 @@ const TableHead = () => {
         <th scope="col" class="px-6 py-4 border border-white">
           Transaction ID
         </th>
+        <th scope="col" class="px-6 py-4 border border-white">
+          Coupons
+        </th>
         {role !== "meal" && (
           <th scope="col" class="px-6 py-4 border border-white">
             Payment Status

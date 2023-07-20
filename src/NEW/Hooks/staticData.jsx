@@ -173,16 +173,6 @@ const mealMenu = [
     name: "Grocery",
     link: "/grocery",
     icon: <FaShoppingCart />,
-    subMenu: [
-      {
-        name: "Add item",
-        link: "/grocery",
-      },
-      {
-        name: "Itemlist",
-        link: "/grocery/lists",
-      },
-    ],
   },
   {
     name: "Payment",

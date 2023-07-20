@@ -2,17 +2,16 @@ import React from "react";
 import CheckRecords from "../../Components/Common/record/CheckRecords";
 import GroceryTableHead from "../../Components/Common/record/grocery/GroceryTableHead";
 import GroceryTableData from "../../Components/Common/record/grocery/GroceryTableData";
-import { useOutletContext } from "react-router-dom";
+import { useLoaderData, useOutletContext } from "react-router-dom";
 import TableHead from "../../Components/Finance/grocery/TableHead";
 import TableData from "../../Components/Finance/grocery/TableData";
-import ModalView from "../../Components/Common/Modals/ModalView"
 import ViewItemsModal from "../../Components/Common/record/grocery/ViewItemsModal";
 export default function GroceryPageFinance() {
+  const data = useLoaderData();
   const [show, setShow, id, setID] = useOutletContext();
-  const [open, setOpen, data, setData, upload, setUpload] = useOutletContext();
   return (
     <div className={`py-10 flex justify-evenly px-4`}>
-      <ViewItemsModal/>
+      <ViewItemsModal />
       <div className="block h-[35rem] overflow-x-hidden overflow-y-auto no-scrollbar w-1/3">
         <CheckRecords
           head={<GroceryTableHead />}
@@ -29,7 +28,10 @@ export default function GroceryPageFinance() {
                 <table class="min-w-full text-center">
                   <TableHead />
                   <tbody>
-                    <TableData />
+                    {data &&
+                      data[0]?.list.map((item) => (
+                        <TableData key={item._id} item={item} />
+                      ))}
                   </tbody>
                 </table>
               </div>

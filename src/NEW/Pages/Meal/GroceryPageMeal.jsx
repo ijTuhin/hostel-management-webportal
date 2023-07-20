@@ -1,7 +1,6 @@
-import React from 'react'
-import { mealMenu } from '../../Hooks/staticData'
-import SubOutletBox from '../../Components/Common/SubOutletBox'
+import React from "react";
+import Groceries from "../../Components/Meal/grocery/Groceries";
 
 export default function GroceryPageMeal() {
-  return <SubOutletBox menu={mealMenu[1].subMenu}/>
+  return <Groceries />;
 }

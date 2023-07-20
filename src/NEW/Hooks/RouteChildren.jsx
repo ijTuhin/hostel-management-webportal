@@ -1,6 +1,4 @@
 import SeatRent from "../Components/Finance/payment/SeatRent";
-import AddGrocery from "../Components/Meal/grocery/AddGrocery";
-import Groceries from "../Components/Meal/grocery/Groceries";
 import EditRequests from "../Components/Warden/issue/EditRequests";
 import RoomAllocationPage from "../Components/Warden/room/allocation/RoomAllocationPage";
 import RoomDetails from "../Components/Warden/room/details/RoomDetails";
@@ -12,16 +10,13 @@ import ManageUser from "../Components/Warden/user/manage/ManageUser";
 import GroceryPageFinance from "../Pages/Finance/GroceryPageFinance";
 import PaymentsPageFinance from "../Pages/Finance/PaymentsPageFinance";
 import SalaryPage from "../Pages/Finance/SalaryPage";
-import UtilityPageFinance from "../Pages/Finance/UtilityPageFinance";
 import GroceryPageMeal from "../Pages/Meal/GroceryPageMeal";
 import OrdersPage from "../Components/Common/mealOrders/OrdersPage";
 import IssuesPage from "../Pages/Warden/IssuesPage";
 import RoomPage from "../Pages/Warden/RoomPage";
 import StaffPage from "../Pages/Warden/StaffPage";
 import UserPage from "../Pages/Warden/UserPage";
-import UtilityPageWarden from "../Pages/Warden/UtilityPageWarden";
 import { month, token } from "./conditionData";
-import MealOrdersPage from "../Pages/Meal/MealOrdersPage";
 import MealPaymentPage from "../Pages/Meal/MealPaymentPage";
 import MealPayment from "../Components/Common/mealPayment/MealPayment";
 import NoticePage from "../Components/Common/notice/NoticePage";
@@ -33,6 +28,7 @@ import ErrorPage from "../Components/Login/ErrorPage";
 import AddNoticePage from "../Components/Common/notice/add/AddNoticePage";
 import CreateAccount from "../Components/Warden/user/add/CreateAccount";
 import AddUserPage from "../Components/Warden/user/add/AddUserPage";
+const date = new Date().toLocaleDateString();
 
 const wardenChild = [
   {
@@ -219,7 +215,7 @@ const financeChild = [
     ),
     errorElement: <ErrorPage />,
     loader: () => {
-      return fetch(`http://localhost:3001/user`, {
+      return fetch(`http://localhost:3001/grocery?date=${date}`, {
         headers: { Authorization: `Beared ${token}` },
       });
     },
@@ -327,19 +323,11 @@ const mealChild = [
     path: "/grocery",
     element: <GroceryPageMeal />,
     errorElement: <ErrorPage />,
-    children: [
-      { index: true, element: <AddGrocery />, errorElement: <ErrorPage /> },
-      {
-        path: "lists",
-        element: <Groceries />,
-        errorElement: <ErrorPage />,
-        loader: () => {
-          return fetch(`http://localhost:3001/user`, {
-            headers: { Authorization: `Beared ${token}` },
-          });
-        },
-      },
-    ],
+    loader: () => {
+      return fetch(`http://localhost:3001/grocery?date=${date}`, {
+        headers: { Authorization: `Beared ${token}` },
+      });
+    },
   },
   {
     path: "/payment",

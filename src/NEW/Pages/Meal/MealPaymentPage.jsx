@@ -1,5 +1,5 @@
 import React from "react";
-import MealPayment from "../../Components/Common/mealPayment/mealPayment";
+import MealPayment from "../../Components/Common/mealPayment/MealPayment";
 
 export default function MealPaymentPage() {
   return (
