@@ -1,6 +1,5 @@
 import React from "react";
 import { useScrollPosition } from "../../../../../Utilities/ScrollStyleHook/useScrollPosition";
-// import { useScrollPosition } from "../../../Utilities/ScrollStyleHook/useScrollPosition";
 import SearchBar from "./SearchBar";
 import SortingDropdown from "./SortingDropdown";
 
@@ -29,7 +28,6 @@ const Heading = ({ total }) => {
       >
         <SearchBar />
       </div>
-      <SortingDropdown />
     </div>
   );
 };

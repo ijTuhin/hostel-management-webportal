@@ -23,11 +23,11 @@ const wardenMenu = [
     subMenu: [
       {
         name: "Add new",
-        link: "/user",
+        link: "/user/add",
       },
       {
         name: "Manage User",
-        link: "/user/manage",
+        link: "/user",
       },
       {
         name: "Meal Orders",

@@ -1,9 +1,10 @@
 import React from "react";
 import { FcCancel } from "react-icons/fc";
 import { GiCheckMark } from "react-icons/gi";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import { token } from "../../../../Hooks/conditionData";
 const TableData = ({ item, index }) => {
+  const [open, setOpen, data, setData, upload, setUpload] = useOutletContext();
   const navigate = useNavigate();
   const makeMealManager = () => {
     fetch("http://localhost:3001/admin/create-meal-manager", {
@@ -35,7 +36,6 @@ const TableData = ({ item, index }) => {
         window.location.reload();
       });
   };
-  console.log(item.room)
   return (
     <>
       <tr
@@ -56,12 +56,12 @@ const TableData = ({ item, index }) => {
           <button
             onClick={() =>
               navigate(
-                "/warden",
+                "/room/allocation",
                 { state: { id: 1, name: item.matric } },
                 { replace: true }
               )
             }
-            className="hover:bg-red-500 hover:text-white border border-red-400 rounded px-2 py-1.5 text-red-400"
+            className="hover:bg-teal-600 hover:text-white border border-teal-500 rounded px-2 py-1.5 text-teal-500"
           >
             Change
           </button>
@@ -74,39 +74,42 @@ const TableData = ({ item, index }) => {
             Mess manager
           </button>
         </td>
-        <td class="px-6 py-4 whitespace-nowrap text-xl flex justify-center group">
-          {item.account ? (
-            <div className="text-green-500 flex justify-center items-center">
-              <GiCheckMark />
-              <button
-                onClick={changeAcountValidity}
-                className="px-3.5 py-2 text-2xl invisible group-hover:visible hover:text-red-500 text-red-400"
-              >
-                <FcCancel />
-              </button>
-            </div>
-          ) : (
-            <div className="text-green-500 flex justify-center items-center">
-              <FcCancel />
-              <button
-                onClick={changeAcountValidity}
-                className="px-3.5 py-2 text-2xl invisible group-hover:visible hover:text-green-500 text-green-400"
-              >
-                <GiCheckMark />
-              </button>
-            </div>
-            // <FcCancel />
-          )}
+        <td class="px-6 py-4 whitespace-nowrap text-xl flex justify-center">
+          <div className="group">
+            {item.account ? (
+              <div className="text-green-500 flex justify-center items-center">
+                <p className="px-3.5 py-2 text-2xl visible group-hover:hidden text-green-400">
+                  <GiCheckMark />
+                </p>
+                <button
+                  onClick={changeAcountValidity}
+                  className="px-3.5 py-2 text-2xl hidden group-hover:block hover:text-red-500 text-red-400"
+                >
+                  <FcCancel />
+                </button>
+              </div>
+            ) : (
+              <div className="text-green-500 flex justify-center items-center">
+                <p className="px-3.5 py-2 text-2xl visible group-hover:hidden text-red-400">
+                  <FcCancel />
+                </p>
+                <button
+                  onClick={changeAcountValidity}
+                  className="px-3.5 py-2 text-2xl hidden group-hover:block hover:text-green-500 text-green-400"
+                >
+                  <GiCheckMark />
+                </button>
+              </div>
+            )}
+          </div>
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-center text-sm">
           <button
-            onClick={() =>
-              navigate(
-                "/users/manage-user/update",
-                { state: { id: 2, name: item.matric } },
-                { replace: true }
-              )
-            }
+            onClick={() => {
+              setOpen(true);
+              setData(item);
+              setUpload(null);
+            }}
             className="hover:bg-green-500 border-green-500 hover:text-white py-1.5 text-green-500 border rounded px-3"
           >
             Update

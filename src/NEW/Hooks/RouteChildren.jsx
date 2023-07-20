@@ -2,9 +2,9 @@ import SeatRent from "../Components/Finance/payment/SeatRent";
 import AddGrocery from "../Components/Meal/grocery/AddGrocery";
 import Groceries from "../Components/Meal/grocery/Groceries";
 import EditRequests from "../Components/Warden/issue/EditRequests";
-import RoomAllocation from "../Components/Warden/room/allocation/RoomAllocation";
+import RoomAllocationPage from "../Components/Warden/room/allocation/RoomAllocationPage";
 import RoomDetails from "../Components/Warden/room/details/RoomDetails";
-import AddStaff from "../Components/Warden/staff/add/AddStaff";
+import AddStaffPage from "../Components/Warden/staff/add/AddStaffPage";
 import ManageStaff from "../Components/Warden/staff/manage/ManageStaff";
 import AddUser from "../Components/Warden/user/add/AddUser";
 import Attendance from "../Components/Warden/user/attendance/Attendance";
@@ -25,12 +25,14 @@ import MealOrdersPage from "../Pages/Meal/MealOrdersPage";
 import MealPaymentPage from "../Pages/Meal/MealPaymentPage";
 import MealPayment from "../Components/Common/mealPayment/mealPayment";
 import NoticePage from "../Components/Common/notice/NoticePage";
-import AddNotice from "../Components/Common/notice/add/AddNotice";
 import ReceivedNotices from "../Components/Common/notice/received/ReceivedNotices";
 import SentNotices from "../Components/Common/notice/sent/SentNotices";
 import UserIssues from "../Components/Common/Issues/UserIssues";
 import Authenticate from "../../Authentications/Authenticate/Authenticate";
 import ErrorPage from "../Components/Login/ErrorPage";
+import AddNoticePage from "../Components/Common/notice/add/AddNoticePage";
+import CreateAccount from "../Components/Warden/user/add/CreateAccount";
+import AddUserPage from "../Components/Warden/user/add/AddUserPage";
 
 const wardenChild = [
   {
@@ -42,9 +44,8 @@ const wardenChild = [
     ),
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <AddUser />, errorElement: <ErrorPage /> },
       {
-        path: "manage",
+        index: true,
         element: <ManageUser />,
         errorElement: <ErrorPage />,
         loader: () => {
@@ -53,16 +54,6 @@ const wardenChild = [
           });
         },
       }, // search, sort & update data
-      {
-        path: "orders",
-        element: <OrdersPage />,
-        errorElement: <ErrorPage />,
-        // loader: () => {
-        //   return fetch(`http://localhost:3001/user`, {
-        //     headers: { Authorization: `Beared ${token}` },
-        //   });
-        // },
-      }, // check the meal time condition
       {
         path: "attendance",
         element: <Attendance />,
@@ -73,6 +64,33 @@ const wardenChild = [
           });
         },
       },
+      {
+        path: "add",
+        element: <AddUserPage />,
+        errorElement: <ErrorPage />,
+        children: [
+          {
+            index: true,
+            element: <AddUser />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "new",
+            element: <CreateAccount />,
+            errorElement: <ErrorPage />,
+          },
+        ],
+      },
+      {
+        path: "orders",
+        element: <OrdersPage />,
+        errorElement: <ErrorPage />,
+        // loader: () => {
+        //   return fetch(`http://localhost:3001/user`, {
+        //     headers: { Authorization: `Beared ${token}` },
+        //   });
+        // },
+      }, // check the meal time condition
     ],
   },
   {
@@ -96,7 +114,7 @@ const wardenChild = [
       }, // Done
       {
         path: "allocation",
-        element: <RoomAllocation />,
+        element: <RoomAllocationPage />,
         errorElement: <ErrorPage />,
       },
     ],
@@ -153,7 +171,7 @@ const wardenChild = [
       }, // change some design
       {
         path: "upload",
-        element: <AddNotice />,
+        element: <AddNoticePage />,
         errorElement: <ErrorPage />,
       },
       {
@@ -177,7 +195,7 @@ const wardenChild = [
     ),
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <AddStaff />, errorElement: <ErrorPage /> },
+      { index: true, element: <AddStaffPage />, errorElement: <ErrorPage /> },
       {
         path: "manage",
         element: <ManageStaff />,
@@ -235,9 +253,12 @@ const financeChild = [
         element: <SeatRent />,
         errorElement: <ErrorPage />,
         loader: () => {
-          return fetch(`http://localhost:3001/payment?month=${month}&item=rent`, {
-            headers: { Authorization: `Beared ${token}` },
-          });
+          return fetch(
+            `http://localhost:3001/payment?month=${month}&item=rent`,
+            {
+              headers: { Authorization: `Beared ${token}` },
+            }
+          );
         },
       },
       {
@@ -298,7 +319,11 @@ const financeChild = [
           });
         },
       }, // change some design
-      { path: "upload", element: <AddNotice />, errorElement: <ErrorPage /> },
+      {
+        path: "upload",
+        element: <AddNoticePage />,
+        errorElement: <ErrorPage />,
+      },
       {
         path: "sent",
         element: <SentNotices />,

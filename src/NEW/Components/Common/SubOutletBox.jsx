@@ -3,10 +3,16 @@ import { wardenMenu } from "../../Hooks/staticData";
 import { NavLink, Outlet } from "react-router-dom";
 
 export default function SubOutletBox({ menu }) {
+  const [open, setOpen] = React.useState(false);
+  const [upload, setUpload] = React.useState(null);
+  const [data, setData] = React.useState(null);
+  const [error, setError] = React.useState(<></>);
   const grid = "grid-cols-" + menu.length;
   return (
     <>
-      <nav className={`grid ${grid}  sticky top-28 bg-white pt-4 px-28`}>
+      <nav
+        className={`grid ${grid}  sticky top-28 bg-white pt-4 px-28 font-poppins`}
+      >
         {menu.map((i, index) => {
           return (
             <NavLink
@@ -24,7 +30,7 @@ export default function SubOutletBox({ menu }) {
         })}
       </nav>
       <section className="px-28">
-        <Outlet />
+        <Outlet context={[open, setOpen, upload, setUpload, data, setData, error, setError]} />
       </section>
     </>
   );

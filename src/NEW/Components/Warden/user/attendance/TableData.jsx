@@ -15,7 +15,7 @@ const TableData = ({ item, date }) => {
           {item.dept}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.dept}
+          {item?.room?.room}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
           {

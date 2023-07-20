@@ -1,13 +1,15 @@
-import React from 'react'
-import { useLoaderData } from 'react-router-dom';
-import Heading from './Heading';
-import TableData from './TableData';
-import TableHead from './TableHead';
+import React from "react";
+import { useLoaderData } from "react-router-dom";
+import Heading from "./Heading";
+import TableData from "./TableData";
+import TableHead from "./TableHead";
+import UpdateUserModal from "./UpdateUserModal";
 
 export default function ManageUser() {
-  const data = useLoaderData()
+  const data = useLoaderData();
   return (
     <div class="w-full flex flex-col py-4">
+      <UpdateUserModal />
       <Heading total={data.length} />
       <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
@@ -15,9 +17,10 @@ export default function ManageUser() {
             <table class="min-w-full">
               <TableHead />
               <tbody>
-                {data && data?.map((item, index) => (
-                  <TableData key={item._id} index={index + 1} item={item} />
-                ))}
+                {data &&
+                  data?.map((item, index) => (
+                    <TableData key={item._id} index={index + 1} item={item} />
+                  ))}
               </tbody>
             </table>
           </div>
@@ -25,4 +28,4 @@ export default function ManageUser() {
       </div>
     </div>
   );
-};
+}
