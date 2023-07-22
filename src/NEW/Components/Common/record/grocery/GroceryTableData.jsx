@@ -1,16 +1,16 @@
 import React from "react";
 import { useOutletContext } from "react-router-dom";
 
-export default function GroceryTableData() {
-  const [open, setOpen, data, setData, upload, setUpload] = useOutletContext();
+export default function GroceryTableData({item, set}) {
+  const [open, setOpen, data, setData, upload, setUpload, setID] = useOutletContext();
   return (
     <>
       <tr class="bg-white border-b border-zinc-200 transition duration-300 ease-in-out text-gray-900 hover:bg-zinc-50">
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium uppercase">
-          02-08-2023
+          {item?.date}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium uppercase">
-          2500/-
+          {item?.total}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium uppercase">
           <button
@@ -18,6 +18,7 @@ export default function GroceryTableData() {
               setOpen(true);
               setData(item);
               setUpload(null);
+              // setID(`http://localhost:3001/grocery?date=${item?.date}`)
             }}
             className="font-semibold"
           >

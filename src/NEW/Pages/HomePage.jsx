@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../Components/Common/Header";
 import HomeBox from "../Components/Common/HomeBox";
 import PrimaryMenu from "../Components/Common/PrimaryMenu";
@@ -9,7 +9,11 @@ import { useAuthUser } from "../../Authentications/Authenticate/UserContext";
 import Loader from "../Components/Common/Loader";
 
 export default function HomePage() {
-  const { loading } = useAuthUser();
+  const { loading, createGroceryRecord, createUtilityRecord } = useAuthUser();
+  useEffect(() => {
+    createGroceryRecord();
+    createUtilityRecord();
+  }, []);
   let data = {
     header: "",
   };
@@ -29,16 +33,17 @@ export default function HomePage() {
       primary: mealMenu,
     };
   }
-  const [value, setValue] = useState(data.primary[0].name);
+  console.log(role);
+  const [value, setValue] = useState(data?.primary[0]?.name);
   return (
     <>
       {loading ? (
-        <Loader/>
+        <Loader />
       ) : (
         <main className="relative">
-          <Header title={data.header} />
+          <Header title={data?.header} />
           <HomeBox />
-          <PrimaryMenu set={setValue} menu={data.primary} />
+          <PrimaryMenu set={setValue} menu={data?.primary} />
           <OutletBox outletHeader={value} />
         </main>
       )}

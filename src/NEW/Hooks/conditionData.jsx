@@ -20,6 +20,7 @@ const month = months[new Date().getMonth()] + "-" + new Date().getFullYear();
 
 /* ================== Meal Conditions ================== */
 const time = parseInt(new Date().toTimeString().split(":")[0]);
+const date = new Date().toLocaleDateString();
 let meal;
 let QRmeal;
 if (time > 4 && time < 12) {
@@ -56,4 +57,4 @@ function getCurrentMonthSalary({item}) {
   if (salary?.month === month) status = 1;
 }
 
-export { token, month, loggedInAt, role, meal, QRmeal, getCurrentMonthSalary, authHeader };
+export { token, month,date, loggedInAt, role, meal, QRmeal, getCurrentMonthSalary, authHeader };

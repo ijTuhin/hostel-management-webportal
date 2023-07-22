@@ -1,21 +1,24 @@
 import React, { useState } from 'react'
 import { FaCartPlus } from "react-icons/fa";
 import { token } from '../../../Hooks/conditionData';
+import { useNavigate } from 'react-router-dom';
 
 export default function AddGrocery() {
+  const navigate = useNavigate()
   const date = new Date().toLocaleDateString();
   const [price, setPrice] = useState(0);
   const [value, setValue] = useState({
     name: "",
     rate: 0,
     amount: 0,
-    unit: "",
+    unit: "pcs",
     price: 0,
   });
   value.rate = parseInt(value.rate);
   value.amount = parseFloat(value.amount);
   value.price = value.amount * value.rate;
-  const updateData = () => {
+  const updateData = (e) => {
+    e.preventDefault()
     let data = {
       list: value,
     };
@@ -30,8 +33,9 @@ export default function AddGrocery() {
       }),
     })
       .then((response) => response.json())
-      .then((value) => {
+      .then((data) => {
         console.log("DB Success:", value);
+        navigate("/", { replace: true });
       });
     console.log(data);
   };

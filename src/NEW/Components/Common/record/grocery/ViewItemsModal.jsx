@@ -2,8 +2,10 @@ import React from "react";
 import ModalView from "../../Modals/ModalView";
 import TableHead from "../../../Finance/grocery/TableHead";
 import TableData from "../../../Finance/grocery/TableData";
+import ModalTableData from "../../../Finance/grocery/ModalTableData";
 
-export default function ViewItemsModal() {
+export default function ViewItemsModal({ item }) {
+console.log(item)
   return (
     <ModalView
       modalComponent={
@@ -15,7 +17,13 @@ export default function ViewItemsModal() {
                   <table class="min-w-full text-center">
                     <TableHead style={"bg-teal-700"} />
                     <tbody>
-                      <TableData style={"bg-transparent text-teal-400"} />
+                      {item?.map((i, index) => (
+                        <ModalTableData
+                          style={"bg-transparent text-teal-400"}
+                          key={index}
+                          data={i}
+                        />
+                      ))}
                     </tbody>
                   </table>
                 </div>

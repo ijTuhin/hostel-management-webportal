@@ -3,6 +3,7 @@ import TableData from "../../Finance/grocery/TableData";
 import TableHead from "../../Finance/grocery/TableHead";
 import AddGrocery from "./AddGrocery";
 import { useLoaderData } from "react-router-dom";
+import { date } from "../../../Hooks/conditionData";
 
 export default function Groceries() {
   const data = useLoaderData();
@@ -26,7 +27,7 @@ export default function Groceries() {
                   <table class="min-w-full text-center">
                     <TableHead />
                     <tbody>
-                      {data &&
+                      {data[0].date === date &&
                         data[0]?.list.map((item) => (
                           <TableData key={item._id} item={item} />
                         ))}

@@ -176,7 +176,7 @@ const mealMenu = [
   },
   {
     name: "Payment",
-    link: "/payment",
+    link: "/meal-payment",
     icon: <MdPayments />,
     subMenu: null,
   },
