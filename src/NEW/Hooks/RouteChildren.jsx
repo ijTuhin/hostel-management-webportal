@@ -129,7 +129,7 @@ const wardenChild = [
         element: <UserIssues />,
         errorElement: <ErrorPage />,
         loader: () => {
-          return fetch(`http://localhost:3001/user`, {
+          return fetch(`http://localhost:3001/message`, {
             headers: { Authorization: `Beared ${token}` },
           });
         },
@@ -139,7 +139,7 @@ const wardenChild = [
         element: <EditRequests />,
         errorElement: <ErrorPage />,
         loader: () => {
-          return fetch(`http://localhost:3001/user`, {
+          return fetch(`http://localhost:3001/admin/edit-request`, {
             headers: { Authorization: `Beared ${token}` },
           });
         },

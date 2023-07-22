@@ -1,8 +1,9 @@
 import React from "react";
 import ModalToPost from "../Modals/ModalToPost";
-import { useOutletContext } from "react-router-dom";
+import { useLoaderData, useOutletContext } from "react-router-dom";
 import { role } from "../../../Hooks/conditionData";
 export default function UserIssues() {
+  const item = useLoaderData();
   const [open, setOpen, data, setData, upload, setUpload] = useOutletContext();
   // setUpload(null);
   setData(null);
@@ -39,17 +40,17 @@ export default function UserIssues() {
         else return item;
     }
   };
-  const item = [
-    { no: 1 },
-    { no: 2 },
-    { no: 3 },
-    { no: 4 },
-    { no: 5 },
-    { no: 5 },
-    { no: 6 },
-    { no: 7 },
-    { no: 8 },
-  ];
+  // const item = [
+  //   { no: 1 },
+  //   { no: 2 },
+  //   { no: 3 },
+  //   { no: 4 },
+  //   { no: 5 },
+  //   { no: 5 },
+  //   { no: 6 },
+  //   { no: 7 },
+  //   { no: 8 },
+  // ];
 
   return (
     <main className="py-4 text-gray-300 lg:grid lg:grid-cols-8 flex flex-col-reverse item-center gap-5">
@@ -75,7 +76,7 @@ export default function UserIssues() {
         }
       ></ModalToPost>
       <section className="col-span-6">
-        {sortItems().map((i, index) => (
+        {sortItems()?.map((i, index) => (
           <div
             key={index}
             className={`w-full flex lg:flex-row flex-col justify-between place-items-center p-3.5 border font-poppins ${
