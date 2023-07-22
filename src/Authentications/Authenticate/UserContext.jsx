@@ -9,11 +9,6 @@ import {
 } from "firebase/auth";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { app } from "../../../firebase.config";
-// import {
-//   loggedInAt,
-//   role,
-//   token,
-// } from "../../Utilities/Hooks/CommonHooks";
 import {
   loggedInAt,
   role,
@@ -117,37 +112,15 @@ const UserContext = ({ children }) => {
     return signOut(auth);
   };
 
-  const createGroceryRecord = () => {
-    const date = new Date().toLocaleDateString();
-    fetch(`http://localhost:3001/grocery?date=${date}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    }).then((response) => response.json());
-  };
-
-  const createUtilityRecord = () => {
-    fetch(`http://localhost:3001/utility`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    }).then((response) => response.json());
-  };
-
   const qrCodeValueGenerator = () => {
     /* =================== QR code generate ==================== */
     let item;
     if (role === "warden") item = "A";
     else if (role === "meal") item = QRmeal;
-    console.log(meal, item);
     const time = {
-      h: parseInt(new Date().toTimeString().split(":")[0]) + 35,
-      m: parseInt(new Date().toTimeString().split(":")[1]) + 35,
-      s: parseInt(new Date().toTimeString().split(":")[2]) + 35,
+      h: parseInt(new Date().getHours()) + 35,
+      m: parseInt(new Date().getMinutes()) + 35,
+      s: parseInt(new Date().getSeconds()) + 35,
     };
     const random = Math.random().toString(36).substring(2, 7);
     const qrCode =
@@ -178,7 +151,6 @@ const UserContext = ({ children }) => {
     }, []);
     return qrCode;
   };
-
   useEffect(() => {
     const checkToken = () => {
       const duration = (Date.now() - parseInt(loggedInAt)) / 1000;
@@ -208,6 +180,126 @@ const UserContext = ({ children }) => {
     };
   }, []);
 
+  /* ==================== Functions to Perform ===================== */
+
+  const createGroceryRecord = () => {
+    const date = new Date().toLocaleDateString();
+    fetch(`http://localhost:3001/grocery?date=${date}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((response) => response.json());
+  };
+
+  const createUtilityRecord = () => {
+    fetch(`http://localhost:3001/utility`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((response) => response.json());
+  };
+
+  const uploadUtilityBill = () => {
+    console.log("Upload Utility Bill");
+  };
+
+  const makeMealManager = () => {
+    console.log("Make Meal Manager");
+  };
+
+  const UpdateUser = () => {
+    console.log("Change Account activity");
+  };
+  const allocateUser = () => {
+    console.log("Change Account activity");
+  };
+
+  const uploadNewNotice = () => {
+    console.log("Change Account activity");
+  };
+
+  const handleAccountActivity = () => {
+    console.log("Change Account activity");
+  };
+
+  const approveEditRequest = () => {
+    console.log("Change Account activity");
+  };
+
+  const solveIssue = () => {
+    console.log("Change Account activity");
+  };
+
+  const replyToIssue = () => {
+    console.log("Change Account activity");
+  };
+
+  const addNewStaff = () => {
+    console.log("Change Account activity");
+  };
+
+  const updateStaffDetails = () => {
+    console.log("Change Account activity");
+  };
+
+  const payStaffSalary = () => {
+    console.log("Change Account activity");
+  };
+
+  const uploadGroceryList = () => {
+    console.log("Change Account activity");
+  };
+  
+  const confirmUtilityBillPay = () => {
+    console.log("Change Account activity");
+  }
+
+  /* ==================== Functions to get data ===================== */
+  const viewUtilityRecord = () => {
+    console.log("Change Account activity");
+  }
+  const getUtilityCurrentMonth = () => {
+    console.log("Change Account activity");
+  }
+  const getMealOrder = () => {
+    console.log("Change Account activity");
+  }
+  const getAttendance = () => {
+    console.log("Change Account activity");
+  }
+  const getRoomMemberDetail = () => {
+    console.log("Change Account activity");
+  }
+  const getNotice = () => {
+    console.log("Change Account activity");
+  }
+  const checkSentNotice = () => {
+    console.log("Change Account activity");
+  }
+  const getAllIssue = () => {
+    console.log("Change Account activity");
+  }
+  const getStaffDetails = () => {
+    console.log("Change Account activity");
+  }
+  const getCurrentDayGroceries = () => {
+    console.log("Change Account activity");
+  }
+  const getCurrentMonthGroceries = () => {
+    console.log("Change Account activity");
+  }
+  const viewSalaryRecord = () => {
+    console.log("Change Account activity");
+  }
+  const getUserPaymentStatus = () => {
+    console.log("Change Account activity");
+  }
+
+
   const authInfo = {
     authUser,
     loading,
@@ -222,6 +314,33 @@ const UserContext = ({ children }) => {
     createGroceryRecord,
     createUtilityRecord,
     qrCodeValueGenerator,
+    uploadUtilityBill,
+    updateStaffDetails,
+    uploadGroceryList,
+    uploadNewNotice,
+    UpdateUser,
+    handleAccountActivity,
+    makeMealManager,
+    approveEditRequest,
+    allocateUser,
+    payStaffSalary,
+    addNewStaff,
+    replyToIssue,
+    solveIssue,
+    confirmUtilityBillPay,
+    getAllIssue,
+    getAttendance,
+    getCurrentDayGroceries,
+    getCurrentMonthGroceries,
+    getMealOrder,
+    getNotice,
+    getRoomMemberDetail,
+    getStaffDetails,
+    getUserPaymentStatus,
+    getUtilityCurrentMonth,
+    checkSentNotice,
+    viewSalaryRecord,
+    viewUtilityRecord
   };
 
   return (

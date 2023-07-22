@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLoaderData, useOutletContext } from "react-router-dom";
 import TableHead from "./TableHead";
 import TableData from "./TableData";
 import CheckRecords from "../../Common/record/CheckRecords";
 import UtilityTableData from "../../Common/record/utility/UtilityTableData";
 import UtilityTableHead from "../../Common/record/utility/UtilityTableHead";
+import { useAuthUser } from "../../../../Authentications/Authenticate/UserContext";
+import { authHeader, token } from "../../../Hooks/conditionData";
 
 export default function UtilityWarden() {
   const data = useLoaderData();
-  const [show, setShow, id, setID] = useOutletContext();
+  const [show, setShow, id, setID, record, setRecord] = useOutletContext();
+  useEffect(() => {
+    console.log(id);
+    fetch(id, { headers: { Authorization: `Beared ${token}` } })
+      .then((res) => res.json())
+      .then((i) => setRecord(i));
+    console.log(record);
+  }, [id]);
   return (
     <div className={` ${show ? "flex justify-evenly px-4" : "px-36"}`}>
       <div
@@ -21,7 +30,9 @@ export default function UtilityWarden() {
         {show && (
           <CheckRecords
             head={<UtilityTableHead />}
-            data={<UtilityTableData />}
+            data={record?.map((i, index) => (
+              <UtilityTableData key={index} record={i} />
+            ))}
             name={id}
           />
         )}

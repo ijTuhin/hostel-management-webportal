@@ -48,14 +48,14 @@ const TableData = ({ item }) => {
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
           <button
             onClick={() => {
-              setID(item.name);
+              setID(link);
               setShow((i) => !i);
             }}
             className="flex w-full justify-center items-center gap-x-1.5 hover:underline decoration-2 underline-offset-4"
           >
             <span className="mb-0.5">
               {show
-                ? id === item.name
+                ? id.split("=")[1] === item.name
                   ? "close"
                   : "view record"
                 : "view record"}

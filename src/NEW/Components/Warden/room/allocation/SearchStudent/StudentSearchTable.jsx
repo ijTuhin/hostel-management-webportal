@@ -11,12 +11,16 @@ const StudentSearchTable = ({ passData, refresh, set, user }) => {
             <table class="min-w-full text-center">
               {user && (
                 <tbody className="">
-                  {user.length && (
+                  {user.length > 0 ? (
                     <>
                       {user?.map((item) => (
                         <TableData key={item._id} data={passData} item={item} />
                       ))}
                     </>
+                  ) : (
+                    <tr>
+                      <td>No data found.</td>
+                    </tr>
                   )}
                 </tbody>
               )}

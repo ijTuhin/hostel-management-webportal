@@ -1,16 +1,17 @@
 import React from "react";
-const UtilityTableData = () => {
+const UtilityTableData = (record) => {
+  console.log(record.record,"Table")
   return (
     <>
       <tr class="bg-white border-b border-zinc-200 transition duration-300 ease-in-out text-gray-900 hover:bg-zinc-50">
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium uppercase">
-          August
+          {record?.record?.month}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium uppercase">
-          2500
+          {record?.record?.bill}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium uppercase">
-          02-08-2023
+          {record?.record?.date}
         </td>
       </tr>
     </>

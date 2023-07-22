@@ -159,9 +159,7 @@ const router = createBrowserRouter([
   {
     path: "/qr-scanner",
     element: (
-      <Authenticate>
-        <QRcode />
-      </Authenticate>
+      <QRcode />
     ),
     errorElement: <ErrorPage />,
   },

@@ -1,4 +1,5 @@
 const token = localStorage.getItem("admin-access");
+const authHeader = { headers: { Authorization: `Beared ${token}` }}
 const role = localStorage.getItem("admin-role");
 const loggedInAt = localStorage.getItem("login-time");
 const months = [
@@ -55,4 +56,4 @@ function getCurrentMonthSalary({item}) {
   if (salary?.month === month) status = 1;
 }
 
-export { token, month, loggedInAt, role, meal, QRmeal, getCurrentMonthSalary };
+export { token, month, loggedInAt, role, meal, QRmeal, getCurrentMonthSalary, authHeader };
