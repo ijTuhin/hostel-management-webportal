@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLoaderData, useOutletContext } from "react-router-dom";
 import TableHead from "./TableHead";
 import TableData from "./TableData";
 import UtilityTableHead from "../../Common/record/utility/UtilityTableHead";
 import UtilityTableData from "../../Common/record/utility/UtilityTableData";
 import CheckRecords from "../../Common/record/CheckRecords";
+import { token } from "../../../Hooks/conditionData";
 export default function PayUtilityBills() {
   const data = useLoaderData();
-  const [show, setShow, id, setID] = useOutletContext();
+  const [show, setShow, id, setID, record, setRecord] = useOutletContext();
+  useEffect(() => {
+    console.log(id);
+    fetch(id, { headers: { Authorization: `Beared ${token}` } })
+      .then((res) => res.json())
+      .then((i) => setRecord(i));
+    console.log(record);
+  }, [id]);
   return (
     <div className={` ${show ? "flex justify-evenly px-4" : "px-36"}`}>
       <div
@@ -20,8 +28,9 @@ export default function PayUtilityBills() {
         {show && (
           <CheckRecords
             head={<UtilityTableHead />}
-            data={<UtilityTableData />}
-            type={"Total Bill"}
+            data={record?.map((i, index) => (
+              <UtilityTableData key={index} record={i} />
+            ))}
             name={id}
           />
         )}

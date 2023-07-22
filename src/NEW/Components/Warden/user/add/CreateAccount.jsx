@@ -18,16 +18,18 @@ export default function CreateAccount() {
     const password = e.target.password.value;
     if (passwordValid(password)) {
       setValue({ ...value, password: password });
-      /* CreateUserWithDB(value);
-    createUser(value.email, password)
-      .then(() => {
-        navigate("/", { replace: true });
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-      }); */
+      CreateUserWithDB({
+        ...value,
+        password: password,
+      });
+      createUser(value.email, password)
+        .then(() => {})
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+        });
+      navigate("/", { replace: true });
     }
   };
   return (

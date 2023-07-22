@@ -15,10 +15,13 @@ const TableData = ({ item, index }) => {
       body: JSON.stringify({
         name: item.name,
         email: item.email,
+        password: item.password,
+        // matric: item.matric,
       }),
     })
       .then((response) => response.json())
       .then((value) => {
+        if (value.message) alert(value.message);
         console.log(value.message);
       });
   };
@@ -67,12 +70,27 @@ const TableData = ({ item, index }) => {
           </button>
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-center text-sm">
-          <button
+          <div className="text-green-500 flex justify-center items-center group">
+            <p
+              className={`px-3.5 py-2 font-semibold visible group-hover:hidden ${
+                item.role ? "text-teal-700" : "text-gray-300"
+              }`}
+            >
+              {!item.role ? "None" : "Mess manager"}
+            </p>
+            <button
+              onClick={makeMealManager}
+              className="hover:bg-red-600 hover:text-white border border-red-500 rounded px-2 py-1.5 hidden group-hover:block"
+            >
+              {!item.role ? "Change" : "Cancel role"}
+            </button>
+          </div>
+          {/* <button
             onClick={makeMealManager}
             className="hover:border-green-500 hover:text-green-500 border border-gray-300 rounded px-2 py-1.5 text-gray-400"
           >
-            Mess manager
-          </button>
+            {item.role ? "None" : "Mess manager"}
+          </button> */}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-xl flex justify-center">
           <div className="group">
