@@ -14,7 +14,7 @@ const RoomAllocationPage = () => {
   if (!refreshData) {
     navigated = location?.state?.name;
   }
-  console.log(navigated);
+  // console.log(navigated);
   return (
     <div className="space-y-3 py-10">
       <div className="flex justify-between">

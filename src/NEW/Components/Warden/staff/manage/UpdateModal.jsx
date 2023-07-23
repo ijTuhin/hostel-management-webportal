@@ -1,30 +1,31 @@
 import React, { useState } from "react";
 import ModalToPost from "../../../Common/Modals/ModalToPost";
 import { useOutletContext } from "react-router-dom";
+import { token } from "../../../../Hooks/conditionData";
 
 export default function UpdateModal() {
   const [open, setOpen, data, setData, upload, setUpload] = useOutletContext();
   // setUpload(null);
   // console.log(data)
-    const handleUpdate = () => {
-      if (upload?.name === "") delete upload.name;
-      if (upload?.position === "") delete upload.position;
-      if (upload?.salary === "") delete upload.salary;
-      if (upload?.phone === "") delete upload.phone;
-      console.log(upload)
-    //   fetch(`http://localhost:3001/staff/${data?._id}`, {
-    //     method: "PUT", // or 'PUT'
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Authorization: `Beared ${token}`,
-    //     },
-    //     body: JSON.stringify(value),
-    //   })
-    //     .then((response) => response.json())
-    //     .then((value) => {
-    //       console.log("DB Success:", value);
-    //     });
-    };
+  const handleUpdate = () => {
+    if (upload?.name === "") delete upload.name;
+    if (upload?.position === "") delete upload.position;
+    if (upload?.salary === "") delete upload.salary;
+    if (upload?.phone === "") delete upload.phone;
+    console.log(upload);
+    fetch(`http://localhost:3001/staff/${data?._id}`, {
+      method: "PUT", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Beared ${token}`,
+      },
+      body: JSON.stringify(upload),
+    })
+      .then((response) => response.json())
+      .then((value) => {
+        console.log("DB Success:", value);
+      });
+  };
   return (
     <ModalToPost
       operate={handleUpdate}

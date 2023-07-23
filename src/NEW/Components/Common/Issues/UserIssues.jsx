@@ -1,14 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ModalToPost from "../Modals/ModalToPost";
 import { useLoaderData, useOutletContext } from "react-router-dom";
-import { role } from "../../../Hooks/conditionData";
+import { role, token } from "../../../Hooks/conditionData";
 export default function UserIssues() {
   const item = useLoaderData();
   const [open, setOpen, data, setData, upload, setUpload] = useOutletContext();
   // setUpload(null);
   setData(null);
+  const handleReplyClick = (i) => {
+    setData(i._id);
+    setUpload(null);
+    handleOpen();
+  };
+  useEffect(() => {}, []);
   const handleUpload = () => {
-    if (upload?.reply !== "") console.log(upload);
+    if (upload?.reply !== "") {
+      console.log(upload, data);
+      // fetch(`http://localhost:3001/message/reply/${date}`, {
+      //   method: "PUT",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     Authorization: `Bearer ${token}`,
+      //   },
+      // }).then((response) => response.json());
+    }
   };
   const [selectedTab, setSelectedTab] = React.useState(0);
   const handleOpen = () => setOpen(true);
@@ -40,17 +55,6 @@ export default function UserIssues() {
         else return item;
     }
   };
-  // const item = [
-  //   { no: 1 },
-  //   { no: 2 },
-  //   { no: 3 },
-  //   { no: 4 },
-  //   { no: 5 },
-  //   { no: 5 },
-  //   { no: 6 },
-  //   { no: 7 },
-  //   { no: 8 },
-  // ];
 
   return (
     <main className="py-4 text-gray-300 lg:grid lg:grid-cols-8 flex flex-col-reverse item-center gap-5">
@@ -97,17 +101,32 @@ export default function UserIssues() {
                 : "bg-indigo-800"
             }`}
           >
-            <p className="space-x-5 text-xs">
-              <span className="text-sm font-semibold">Issue {i.no}</span>
-              <span>c183275</span>
-              <span>Room No.401</span>
-            </p>
+            <div
+            // className="tooltip tooltip-open tooltip-bottom"
+            // data-tip="hello"
+            >
+              <p
+                data-tip={i.note !== "N/A" ? i.note : null}
+                className="tooltip tooltip-bottom space-x-5 text-xs"
+              >
+                <span className="text-sm font-semibold">
+                  {i.no}. {i.topic}
+                </span>
+                <span>c183275</span>
+                <span>Room No.401</span>
+              </p>
+              {/* <p className="text-sm text-gray-300 w-1/3">{i.note}</p>
+              <div
+                className="tooltip tooltip-open tooltip-bottom"
+                data-tip="hello"
+              >
+                <button className="btn">Bottom</button>
+              </div> */}
+            </div>
             <div>
               <button
                 onClick={() => {
-                  setData(i.no);
-                  setUpload(null);
-                  handleOpen();
+                  handleReplyClick(i);
                 }}
                 className="px-3 py-1.5 text-xs hover:font-semibold"
               >

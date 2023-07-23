@@ -124,9 +124,14 @@ const TableData = ({ item, index }) => {
         <td class="px-6 py-4 whitespace-nowrap text-center text-sm">
           <button
             onClick={() => {
-              setOpen(true);
-              setData(item);
-              setUpload(null);
+              // setOpen(true);
+              // setData(item);
+              // setUpload(null);
+              navigate(
+                "/user/update",
+                { state: { id: 1, name: item._id } },
+                { replace: true }
+              );
             }}
             className="hover:bg-green-500 border-green-500 hover:text-white py-1.5 text-green-500 border rounded px-3"
           >

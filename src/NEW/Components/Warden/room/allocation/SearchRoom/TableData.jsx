@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { token } from "../../../../../Hooks/conditionData";
+import { useNavigate } from "react-router-dom";
 const TableData = ({ item, matric, previous }) => {
   const [btn, setBtn] = useState(false);
+  const navigate= useNavigate()
   const selectRoom = () => {
+    console.log(previous, matric, item._id, item.room)
     fetch(`http://localhost:3001/seat/${matric}/allocate/${item.room}`, {
       method: "PUT",
       headers: {
@@ -13,9 +16,10 @@ const TableData = ({ item, matric, previous }) => {
     })
       .then((res) => res.json())
       .then((i) => {
-        console.log(i);
+        console.log(i, matric, item.room);
       });
     setBtn(true);
+    navigate("/room", { replace: true });
   };
   return (
     <>

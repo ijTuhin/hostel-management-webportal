@@ -9,7 +9,7 @@ export default function ManageUser() {
   const data = useLoaderData();
   return (
     <div class="w-full flex flex-col py-4">
-      <UpdateUserModal />
+      {/* <UpdateUserModal /> */}
       <Heading total={data.length} />
       <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">

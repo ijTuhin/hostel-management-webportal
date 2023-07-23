@@ -1,10 +1,19 @@
 import React from "react";
 import { RxDoubleArrowRight } from "react-icons/rx";
-import { getCurrentMonthSalary, token } from "../../../Hooks/conditionData";
+import {
+  getCurrentMonthSalary,
+  month,
+  token,
+} from "../../../Hooks/conditionData";
 import { useOutletContext } from "react-router-dom";
 const TableData = ({ item }) => {
   const [show, setShow, id, setID] = useOutletContext();
-  getCurrentMonthSalary(item);
+  // getCurrentMonthSalary(item);
+  let status;
+  if (item?.record[0]?.month === month) {
+    status = 1;
+  }
+  const link = `http://localhost:3001/salary/${item._id}`;
   const paySalary = () => {
     fetch(`http://localhost:3001/salary/${item._id}`, {
       method: "POST",
@@ -56,19 +65,19 @@ const TableData = ({ item }) => {
           )}
         </td>
         <td class="text-gray-500 px-6 py-4 whitespace-nowrap text-sm font-semibold flex justify-center">
-          {!status ? "---" : <>{salary.date}</>}
+          {!status ? "---" : <>{item?.record[0]?.month}</>}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
           <button
             onClick={() => {
-              setID(item.name);
+              setID(link);
               setShow((i) => !i);
             }}
             className="flex w-full justify-center items-center gap-x-1.5 hover:underline decoration-2 underline-offset-4"
           >
             <span className="mb-0.5">
               {show
-                ? id === item.name
+                ? id.split("salary/")[1] === item._id
                   ? "close"
                   : "view record"
                 : "view record"}

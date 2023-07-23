@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TableHead from "../../Components/Finance/salary/TableHead";
 import TableData from "../../Components/Finance/salary/TableData";
 import { useLoaderData, useOutletContext } from "react-router-dom";
 import SalaryTableHead from "../../Components/Common/record/salary/SalaryTableHead";
 import SalaryTableData from "../../Components/Common/record/salary/SalaryTableData";
 import CheckRecords from "../../Components/Common/record/CheckRecords";
+import { token } from "../../Hooks/conditionData";
 export default function SalaryPage() {
   const data = useLoaderData();
-  const [show, setShow, id, setID] = useOutletContext();
+  const [show, setShow, id, setID, record, setRecord] = useOutletContext();
+  useEffect(() => {
+    console.log(id);
+    fetch(id, { headers: { Authorization: `Beared ${token}` } })
+      .then((res) => res.json())
+      .then((i) => setRecord(i));
+    console.log(record, id);
+  }, [id]);
   return (
     <div className={`py-10 ${show ? "flex justify-between px-14" : "px-36"}`}>
       <div
@@ -20,7 +28,9 @@ export default function SalaryPage() {
         {show && (
           <CheckRecords
             head={<SalaryTableHead />}
-            data={<SalaryTableData />}
+            data={record?.map((i, index) => (
+              <SalaryTableData key={index} record={i} />
+            ))}
             name={id}
           />
         )}
@@ -38,8 +48,6 @@ export default function SalaryPage() {
                     {data &&
                       data?.map((item) => (
                         <>
-                          <TableData key={item.name} item={item} />
-                          <TableData key={item.name} item={item} />
                           <TableData key={item.name} item={item} />
                         </>
                       ))}

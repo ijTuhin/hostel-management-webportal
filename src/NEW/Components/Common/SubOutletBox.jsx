@@ -4,7 +4,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 export default function SubOutletBox({ menu }) {
   const [open, setOpen] = React.useState(false);
-  const [upload, setUpload] = React.useState(null);
+  const [upload, setUpload] = React.useState("");
   const [data, setData] = React.useState(null);
   const [error, setError] = React.useState(<></>);
   const grid = "grid-cols-" + menu.length;

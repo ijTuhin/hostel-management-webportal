@@ -123,6 +123,7 @@ import GroceryPageFinance from "./NEW/Pages/Finance/GroceryPageFinance";
 import MealPaymentPage from "./NEW/Pages/Meal/MealPaymentPage";
 import GroceryPageMeal from "./NEW/Pages/Meal/GroceryPageMeal";
 import Groceries from "./NEW/Components/Meal/grocery/Groceries";
+import UpdateUserModal from "./NEW/Components/Warden/user/manage/UpdateUserModal";
 const months = [
   "Jan",
   "Feb",
@@ -146,7 +147,11 @@ else if (role === "meal") routeChild = mealChild;
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    element: (
+      <Authenticate>
+        <HomePage />
+      </Authenticate>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {
@@ -296,6 +301,16 @@ const router = createBrowserRouter([
             path: "orders",
             element: <OrdersPage />,
             errorElement: <ErrorPage />,
+          }, // check the meal time condition
+          {
+            path: "update",
+            element: <UpdateUserModal />,
+            errorElement: <ErrorPage />,
+            loader: () => {
+              return fetch(`http://localhost:3001/user`, {
+                headers: { Authorization: `Beared ${token}` },
+              });
+            },
           }, // check the meal time condition
         ],
       },

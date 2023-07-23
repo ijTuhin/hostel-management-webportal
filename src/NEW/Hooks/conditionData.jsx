@@ -53,7 +53,7 @@ function getCurrentMonthSalary({item}) {
   const month = months[new Date().getMonth()] + "-" + new Date().getFullYear();
   let status = 0;
   let salary = item?.record[item?.record?.length - 1];
-  console.log(salary);
+  // console.log(salary);
   if (salary?.month === month) status = 1;
 }
 

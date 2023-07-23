@@ -36,7 +36,7 @@ const TableData = ({ item, data }) => {
           previous = item.room;
         }
         abc({
-          user: item.matric,
+          user: item._id,
           room: value,
           previous,
         });
