@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuthUser } from "../../../Authentications/Authenticate/UserContext";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function AdminLogin() {
   const { signIn, AdminLoginWithDB } = useAuthUser();
@@ -10,20 +10,26 @@ export default function AdminLogin() {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password)
-
+    console.log(email, password);
     signIn(email, password)
-      .then(() => {
+      .then((i) => {
         AdminLoginWithDB(email, password);
+        // console.log(i.user.uid)
+        localStorage.setItem("user-auth", i.user.uid);
+        return navigate("/", { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
       });
-      navigate("/", { replace: true });
   };
+  useEffect(() => {
+    if (localStorage.getItem("user-auth")) {
+      navigate("/", { replace: true });
+    }
+  }, []);
   return (
-    <main className="flex items-center justify-center h-full text-gray-400 py-20 w-1/2">
+    <main className="flex items-center justify-center text-gray-400 w-1/2">
       <section className="flex flex-col items-end justify-center w-1/2">
         <button className="text-xs text-gray-600 hover:text-gray-400">
           Forgot password?

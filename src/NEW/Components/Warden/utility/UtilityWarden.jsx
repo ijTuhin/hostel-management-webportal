@@ -12,11 +12,11 @@ export default function UtilityWarden() {
   const data = useLoaderData();
   const [show, setShow, id, setID, record, setRecord] = useOutletContext();
   useEffect(() => {
-    console.log(id);
+    // console.log(id);
     fetch(id, { headers: { Authorization: `Beared ${token}` } })
       .then((res) => res.json())
       .then((i) => setRecord(i));
-    console.log(record);
+    // console.log(record);
   }, [id]);
   return (
     <div className={` ${show ? "flex justify-evenly px-4" : "px-36"}`}>

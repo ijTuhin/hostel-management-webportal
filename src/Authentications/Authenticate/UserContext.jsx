@@ -16,6 +16,7 @@ import {
   QRmeal,
   meal,
 } from "../../NEW/Hooks/conditionData";
+import axios from "axios";
 
 const AuthContext = createContext();
 const auth = getAuth(app);
@@ -62,21 +63,29 @@ const UserContext = ({ children }) => {
       .catch((e) => console.log(e, token, value));
   };
 
-  const AdminLoginWithDB = (email, password) => {
-    fetch("http://localhost:3001/admin/login", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    })
-      .then((response) => response.json())
-      .then((value) => {
-        localStorage.setItem("admin-access", value.token);
-        localStorage.setItem("admin-role", value.role);
-        localStorage.setItem("login-time", value.time);
-      });
+  const AdminLoginWithDB = async (email, password) => {
+    try {
+      const result = await axios
+        .post(`http://localhost:3001/admin/login`, {
+          email,
+          password,
+        })
+        .then((res) => {
+          console.log(res?.data);
+          if (res?.data?.token) {
+            setAuthUser({
+              ...authUser,
+              token: res?.data?.token,
+            });
+            localStorage.setItem("admin-access", res?.data?.token);
+            localStorage.setItem("admin-role", res?.data?.role);
+            localStorage.setItem("login-time", Date.now());
+          }
+        });
+      return result;
+    } catch (err) {
+      console.log(err?.response);
+    }
   };
 
   const MealLoginWithDB = (email) => {
@@ -109,6 +118,7 @@ const UserContext = ({ children }) => {
     localStorage.removeItem("admin-access");
     localStorage.removeItem("admin-role");
     localStorage.removeItem("login-time");
+    localStorage.removeItem("user-auth");
     return signOut(auth);
   };
 
@@ -152,30 +162,16 @@ const UserContext = ({ children }) => {
     return qrCode;
   };
   useEffect(() => {
-    const checkToken = () => {
-      const duration = (Date.now() - parseInt(loggedInAt)) / 1000;
-      if (duration >= 36000) {
-        localStorage.removeItem("admin-access");
-        localStorage.removeItem("admin-role");
-        localStorage.removeItem("login-time");
-        // logOut();
-        setAuthUser({
-          ...authUser,
-          user: null,
-        });
-      } else console.log("checkToken running");
-    };
-
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setAuthUser({
         ...authUser,
         user: currentUser,
       });
-      setLoading(false);
+      localStorage.setItem("user-auth", currentUser.uid);
+      console.log("Auth User changed", currentUser.uid);
     });
 
     return () => {
-      checkToken();
       unSubscribe();
     };
   }, []);
@@ -203,103 +199,6 @@ const UserContext = ({ children }) => {
     }).then((response) => response.json());
   };
 
-  const uploadUtilityBill = () => {
-    console.log("Upload Utility Bill");
-  };
-
-  const makeMealManager = () => {
-    console.log("Make Meal Manager");
-  };
-
-  const UpdateUser = () => {
-    console.log("Change Account activity");
-  };
-  const allocateUser = () => {
-    console.log("Change Account activity");
-  };
-
-  const uploadNewNotice = () => {
-    console.log("Change Account activity");
-  };
-
-  const handleAccountActivity = () => {
-    console.log("Change Account activity");
-  };
-
-  const approveEditRequest = () => {
-    console.log("Change Account activity");
-  };
-
-  const solveIssue = () => {
-    console.log("Change Account activity");
-  };
-
-  const replyToIssue = () => {
-    console.log("Change Account activity");
-  };
-
-  const addNewStaff = () => {
-    console.log("Change Account activity");
-  };
-
-  const updateStaffDetails = () => {
-    console.log("Change Account activity");
-  };
-
-  const payStaffSalary = () => {
-    console.log("Change Account activity");
-  };
-
-  const uploadGroceryList = () => {
-    console.log("Change Account activity");
-  };
-  
-  const confirmUtilityBillPay = () => {
-    console.log("Change Account activity");
-  }
-
-  /* ==================== Functions to get data ===================== */
-  const viewUtilityRecord = () => {
-    console.log("Change Account activity");
-  }
-  const getUtilityCurrentMonth = () => {
-    console.log("Change Account activity");
-  }
-  const getMealOrder = () => {
-    console.log("Change Account activity");
-  }
-  const getAttendance = () => {
-    console.log("Change Account activity");
-  }
-  const getRoomMemberDetail = () => {
-    console.log("Change Account activity");
-  }
-  const getNotice = () => {
-    console.log("Change Account activity");
-  }
-  const checkSentNotice = () => {
-    console.log("Change Account activity");
-  }
-  const getAllIssue = () => {
-    console.log("Change Account activity");
-  }
-  const getStaffDetails = () => {
-    console.log("Change Account activity");
-  }
-  const getCurrentDayGroceries = () => {
-    console.log("Change Account activity");
-  }
-  const getCurrentMonthGroceries = () => {
-    console.log("Change Account activity");
-  }
-  const viewSalaryRecord = () => {
-    console.log("Change Account activity");
-  }
-  const getUserPaymentStatus = () => {
-    console.log("Change Account activity");
-  }
-
-
   const authInfo = {
     authUser,
     loading,
@@ -314,33 +213,6 @@ const UserContext = ({ children }) => {
     createGroceryRecord,
     createUtilityRecord,
     qrCodeValueGenerator,
-    uploadUtilityBill,
-    updateStaffDetails,
-    uploadGroceryList,
-    uploadNewNotice,
-    UpdateUser,
-    handleAccountActivity,
-    makeMealManager,
-    approveEditRequest,
-    allocateUser,
-    payStaffSalary,
-    addNewStaff,
-    replyToIssue,
-    solveIssue,
-    confirmUtilityBillPay,
-    getAllIssue,
-    getAttendance,
-    getCurrentDayGroceries,
-    getCurrentMonthGroceries,
-    getMealOrder,
-    getNotice,
-    getRoomMemberDetail,
-    getStaffDetails,
-    getUserPaymentStatus,
-    getUtilityCurrentMonth,
-    checkSentNotice,
-    viewSalaryRecord,
-    viewUtilityRecord
   };
 
   return (

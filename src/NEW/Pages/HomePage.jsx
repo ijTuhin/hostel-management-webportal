@@ -33,20 +33,16 @@ export default function HomePage() {
       primary: mealMenu,
     };
   }
-  console.log(role);
+  // console.log(role);
   const [value, setValue] = useState(data?.primary[0]?.name);
   return (
     <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <main className="relative">
-          <Header title={data?.header} />
-          <HomeBox />
-          <PrimaryMenu set={setValue} menu={data?.primary} />
-          <OutletBox outletHeader={value} />
-        </main>
-      )}
+      <main className="relative">
+        <Header title={data?.header} />
+        <HomeBox />
+        <PrimaryMenu set={setValue} menu={data?.primary} />
+        <OutletBox outletHeader={value} />
+      </main>
     </>
   );
 }

@@ -6,8 +6,16 @@ import { loggedInAt, token } from "../../NEW/Hooks/conditionData";
 const Authenticate = ({ children }) => {
   const { authUser, loading } = useAuthUser();
   const location = useLocation();
-  const duration = (Date.now() - parseInt(loggedInAt)) / 1000;
-  if ((authUser.user && authUser.user.uid) || (token && duration <= 36000)) {
+  const user = localStorage.getItem("user-auth");
+  const time = localStorage.getItem("login-time");
+  const duration = (parseInt(Date.now()) - parseInt(time)) / 1000;
+  console.log(user, duration);
+  if (duration > 36000) {
+    localStorage.removeItem("admin-access");
+    localStorage.removeItem("admin-role");
+    localStorage.removeItem("login-time");
+    localStorage.removeItem("user-auth");
+  } else if (user && token && duration <= 36000) {
     return children;
   }
   return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
