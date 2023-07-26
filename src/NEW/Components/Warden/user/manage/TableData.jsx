@@ -25,6 +25,22 @@ const TableData = ({ item, index }) => {
         console.log(value.message);
       });
   };
+  const removeMealManager = () => {
+    fetch("http://localhost:3001/admin/remove-meal-manager", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        matric: item.matric,
+      }),
+    })
+      .then((response) => response.json())
+      .then((value) => {
+        if (value.message) alert(value.message);
+        console.log(value.message);
+      });
+  };
   const changeAcountValidity = () => {
     console.log(item._id, token);
     fetch(`http://localhost:3001/user/account/${item._id}`, {
@@ -79,18 +95,12 @@ const TableData = ({ item, index }) => {
               {!item.role ? "None" : "Mess manager"}
             </p>
             <button
-              onClick={makeMealManager}
+              onClick={item.role ? removeMealManager : makeMealManager}
               className="hover:bg-red-600 hover:text-white border border-red-500 rounded px-2 py-1.5 hidden group-hover:block"
             >
               {!item.role ? "Change" : "Cancel role"}
             </button>
           </div>
-          {/* <button
-            onClick={makeMealManager}
-            className="hover:border-green-500 hover:text-green-500 border border-gray-300 rounded px-2 py-1.5 text-gray-400"
-          >
-            {item.role ? "None" : "Mess manager"}
-          </button> */}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-xl flex justify-center">
           <div className="group">
@@ -124,9 +134,6 @@ const TableData = ({ item, index }) => {
         <td class="px-6 py-4 whitespace-nowrap text-center text-sm">
           <button
             onClick={() => {
-              // setOpen(true);
-              // setData(item);
-              // setUpload(null);
               navigate(
                 "/user/update",
                 { state: { id: 1, name: item._id } },
