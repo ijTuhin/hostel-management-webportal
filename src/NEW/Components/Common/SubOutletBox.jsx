@@ -17,6 +17,7 @@ export default function SubOutletBox({ menu }) {
           return (
             <NavLink
               to={i.link}
+              end
               key={index}
               className={({ isActive }) =>
                 isActive
@@ -30,7 +31,18 @@ export default function SubOutletBox({ menu }) {
         })}
       </nav>
       <section className="px-28">
-        <Outlet context={[open, setOpen, upload, setUpload, data, setData, error, setError]} />
+        <Outlet
+          context={[
+            open,
+            setOpen,
+            upload,
+            setUpload,
+            data,
+            setData,
+            error,
+            setError,
+          ]}
+        />
       </section>
     </>
   );
