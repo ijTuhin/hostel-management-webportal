@@ -1,5 +1,5 @@
 import React from "react";
-import { useScrollPosition } from "../../../../../Utilities/ScrollStyleHook/useScrollPosition";
+import { useScrollPosition } from "./useScrollPosition";
 import SearchBar from "./SearchBar";
 import SortingDropdown from "./SortingDropdown";
 

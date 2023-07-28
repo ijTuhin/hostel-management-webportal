@@ -4,7 +4,6 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
-  signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
 import React, { createContext, useContext, useEffect, useState } from "react";
@@ -24,17 +23,9 @@ export const useAuthUser = () => {
   return useContext(AuthContext);
 };
 const UserContext = ({ children }) => {
-  const [authUser, setAuthUser] = useState({
-    user: null,
-    data: null,
-  });
+  const [authUser, setAuthUser] = useState();
   const [loading, setLoading] = useState(true);
   const provider = new GoogleAuthProvider();
-
-  const googleSignIn = (provider) => {
-    setLoading(true);
-    return signInWithPopup(auth, provider);
-  };
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -63,13 +54,10 @@ const UserContext = ({ children }) => {
       .catch((e) => console.log(e, token, value));
   };
 
-  const AdminLoginWithDB = async (email, password) => {
+  const AdminLoginWithDB = async (email) => {
     try {
       const result = await axios
-        .post(`http://localhost:3001/admin/login`, {
-          email,
-          password,
-        })
+        .post(`http://localhost:3001/admin/login`, { email })
         .then((res) => {
           console.log(res?.data);
           if (res?.data?.token) {
@@ -86,31 +74,6 @@ const UserContext = ({ children }) => {
     } catch (err) {
       console.log(err?.response);
     }
-  };
-
-  const MealLoginWithDB = (email) => {
-    fetch("http://localhost:3001/admin/meal/login", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-      }),
-    })
-      .then((response) => response.json())
-      .then((value) => {
-        localStorage.setItem("admin-access", value.token);
-        localStorage.setItem("admin-role", value.role);
-        localStorage.setItem("login-time", value.time);
-        if (value.token) {
-          navigate("/", { replace: true });
-        }
-      })
-      .catch(() => {
-        console.log("error");
-      });
   };
 
   const logOut = () => {
@@ -145,11 +108,6 @@ const UserContext = ({ children }) => {
       "!.#" +
       item +
       "@.";
-    /* =================== How to decode qrCode ==================== */
-    // const a = qrCode.charCodeAt(0) - 35 // ----- Hour
-    // const b = qrCode.charCodeAt(10) - 35 // ----- Minute
-    // const c = qrCode.charCodeAt(6) - 35 // ----- Second
-    // const x = qrCode[24] // ----- Type of Scan (A), (B,L,D)
     const [counter, setCounter] = useState(0);
 
     useEffect(() => {
@@ -163,16 +121,12 @@ const UserContext = ({ children }) => {
   };
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setAuthUser({
-        ...authUser,
-        user: currentUser,
-      });
-      localStorage.setItem("user-auth", currentUser.uid);
-      console.log("Auth User changed", currentUser.uid);
+      setAuthUser(currentUser);
+      setLoading(false);
     });
 
     return () => {
-      unSubscribe();
+      return unSubscribe();
     };
   }, []);
 
@@ -206,9 +160,7 @@ const UserContext = ({ children }) => {
     createUser,
     signIn,
     logOut,
-    googleSignIn,
     CreateUserWithDB,
-    MealLoginWithDB,
     AdminLoginWithDB,
     createGroceryRecord,
     createUtilityRecord,

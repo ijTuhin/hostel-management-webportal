@@ -30,7 +30,7 @@ const TableData = ({ item, index }) => {
           {item.salary}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-center">
-          {item?.record[0]?.month === month ? i.record[0].date : "---"}
+          {item?.record[0]?.month === month ? item?.record[0].date : "---"}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 flex items-center justify-center text-center">
           <button

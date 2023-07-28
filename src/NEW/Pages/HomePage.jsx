@@ -7,6 +7,7 @@ import { role } from "../Hooks/conditionData";
 import { financeMenu, mealMenu, wardenMenu } from "../Hooks/staticData";
 import { useAuthUser } from "../../Authentications/Authenticate/UserContext";
 import Loader from "../Components/Common/Loader";
+import LogOut from "../Components/Login/LogOut";
 
 export default function HomePage() {
   const { loading, createGroceryRecord, createUtilityRecord } = useAuthUser();
@@ -33,16 +34,13 @@ export default function HomePage() {
       primary: mealMenu,
     };
   }
-  // console.log(role);
   const [value, setValue] = useState(data?.primary[0]?.name);
   return (
-    <>
-      <main className="relative">
-        <Header title={data?.header} />
-        <HomeBox />
-        <PrimaryMenu set={setValue} menu={data?.primary} />
-        <OutletBox outletHeader={value} />
-      </main>
-    </>
+    <div className="relative">
+      <Header title={data?.header} />
+      <HomeBox />
+      <PrimaryMenu set={setValue} menu={data?.primary} />
+      <OutletBox outletHeader={value} />
+    </div>
   );
 }
