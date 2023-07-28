@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useAuthUser } from "../../../Authentications/Authenticate/UserContext";
 import { Navigate, useNavigate } from "react-router-dom";
-import LogOut from "./LogOut";
 
 export default function AdminLogin() {
   const { signIn, authUser, AdminLoginWithDB } = useAuthUser();
@@ -14,9 +13,6 @@ export default function AdminLogin() {
     console.log(email, password);
     signIn(email, password)
       .then((i) => {
-        // AdminLoginWithDB(email, password);
-        // console.log(i.user.uid)
-        // localStorage.setItem("user-auth", i.user.uid);
         if (i.user.email) {
           const email = i.user.email;
           AdminLoginWithDB(email);
@@ -29,11 +25,6 @@ export default function AdminLogin() {
         console.log(errorMessage);
       });
   };
-  // useEffect(() => {
-  //   if (localStorage.getItem("user-auth")) {
-  //     navigate("/", { replace: true });
-  //   }
-  // }, []);
   return (
     <main className="flex items-center justify-center text-gray-400 w-1/2">
       <section className="flex flex-col items-end justify-center w-1/2">
@@ -41,7 +32,6 @@ export default function AdminLogin() {
         <button className="text-xs text-gray-600 hover:text-gray-400">
           Forgot password?
         </button>
-        <LogOut />
         <form onSubmit={handleLogin} className="w-full flex flex-col gap-2">
           <label className="" htmlFor="email">
             Email

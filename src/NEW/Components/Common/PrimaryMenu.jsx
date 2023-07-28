@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import {BsQrCodeScan} from "react-icons/bs"
 export default function PrimaryMenu({ menu, set }) {
   return (
     <main className="text-gray-600 fixed bottom-1 px-5 flex flex-col gap-y-2 z-40">
@@ -26,7 +27,7 @@ export default function PrimaryMenu({ menu, set }) {
           </button>
         );
       })}
-      <p className="h-28 border-l border-green-500 ml-3.5"></p>
+      <p className="h-28 border-l border-gray-700 ml-3.5"></p>
     </main>
   );
 }

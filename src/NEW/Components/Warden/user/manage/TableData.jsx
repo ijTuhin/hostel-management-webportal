@@ -96,7 +96,7 @@ const TableData = ({ item, index }) => {
             </p>
             <button
               onClick={item.role ? removeMealManager : makeMealManager}
-              className="hover:bg-red-600 hover:text-white border border-red-500 rounded px-2 py-1.5 hidden group-hover:block"
+              className={`hover:bg-red-600 hover:text-white border border-red-500 rounded hidden group-hover:block ${item?.role ? "px-[1.6rem] py-1.5 " : "px-2 py-1.5 "}`}
             >
               {!item.role ? "Change" : "Cancel role"}
             </button>

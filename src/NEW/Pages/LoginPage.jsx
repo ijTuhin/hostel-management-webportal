@@ -1,6 +1,4 @@
 import React from "react";
-import GoogleLogin from "../Components/Login/GoogleLogin";
-import { NavLink, Outlet } from "react-router-dom";
 import logo from "../../Images/NavLogo.png";
 import AdminLogin from "../Components/Login/AdminLogin";
 
@@ -12,28 +10,6 @@ export default function LoginPage() {
           <img className="w-8 h-8 rounded-full" src={logo} alt="" />
           <p className="font-handlee font-semibold text-xl mt-[3px]">Ostello</p>
         </div>
-        {/* <nav className="flex justify-end">
-            <NavLink
-              to="/login"
-              className={({ isActive }) =>
-                isActive
-                  ? "border px-3 py-2 rounded-lg rounded-tr-none rounded-br-none border-green-500 text-green-800 bg-green-500 border-l-0"
-                  : "border px-3 py-2 rounded-lg rounded-tr-none rounded-br-none border-gray-600 text-gray-600"
-              }
-            >
-              Admin
-            </NavLink>
-            <NavLink
-              to="/login/non-admin"
-              className={({ isActive }) =>
-                isActive
-                  ? "border px-3 py-2 rounded-lg rounded-tl-none rounded-bl-none border-green-500 text-green-800 bg-green-500 border-l-0"
-                  : "border px-3 py-2 rounded-lg rounded-tl-none rounded-bl-none border-gray-600 text-gray-600"
-              }
-            >
-              non-Admin
-            </NavLink>
-          </nav> */}
       </header>
       <section className="px-10 flex justify-center mt-40">
         <AdminLogin />

@@ -13,7 +13,6 @@ import {
 import { role, token } from "./NEW/Hooks/conditionData";
 import LoginPage from "./NEW/Pages/LoginPage";
 import AdminLogin from "./NEW/Components/Login/AdminLogin";
-import GoogleLogin from "./NEW/Components/Login/GoogleLogin";
 import Authenticate from "./Authentications/Authenticate/Authenticate";
 import ErrorPage from "./NEW/Components/Login/ErrorPage";
 import UtilityPageWarden from "./NEW/Pages/Warden/UtilityPageWarden";
@@ -380,14 +379,6 @@ const router = createBrowserRouter([
     path: "/login",
     element: <LoginPage />,
     errorElement: <ErrorPage />,
-    children: [
-      { index: true, element: <AdminLogin />, errorElement: <ErrorPage /> },
-      {
-        path: "non-admin",
-        element: <GoogleLogin />,
-        errorElement: <ErrorPage />,
-      },
-    ],
   },
   {
     path: "/qr-scanner",
