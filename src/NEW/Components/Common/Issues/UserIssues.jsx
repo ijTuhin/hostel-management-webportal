@@ -5,7 +5,6 @@ import { role, token } from "../../../Hooks/conditionData";
 export default function UserIssues() {
   const item = useLoaderData();
   const [open, setOpen, data, setData, upload, setUpload] = useOutletContext();
-  // setUpload(null);
   setData(null);
   const handleReplyClick = (i) => {
     setData(i._id);
@@ -24,6 +23,16 @@ export default function UserIssues() {
       //   },
       // }).then((response) => response.json());
     }
+  };
+  const markIssueSolved = (id) => {
+    console.log(`http://localhost:3001/message/solve/${id}`);
+    fetch(`http://localhost:3001/message/solve/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((response) => response.json());
   };
   const [selectedTab, setSelectedTab] = React.useState(0);
   const handleOpen = () => setOpen(true);
@@ -101,10 +110,7 @@ export default function UserIssues() {
                 : "bg-indigo-800"
             }`}
           >
-            <div
-            // className="tooltip tooltip-open tooltip-bottom"
-            // data-tip="hello"
-            >
+            <div>
               <p
                 data-tip={i.note !== "N/A" ? i.note : null}
                 className="tooltip tooltip-bottom space-x-5 text-xs"
@@ -115,13 +121,6 @@ export default function UserIssues() {
                 <span>c183275</span>
                 <span>Room No.401</span>
               </p>
-              {/* <p className="text-sm text-gray-300 w-1/3">{i.note}</p>
-              <div
-                className="tooltip tooltip-open tooltip-bottom"
-                data-tip="hello"
-              >
-                <button className="btn">Bottom</button>
-              </div> */}
             </div>
             <div>
               <button
@@ -133,7 +132,7 @@ export default function UserIssues() {
                 Reply
               </button>
               <button
-                // onClick={handleOpen}
+                onClick={() => markIssueSolved(i._id)}
                 className="px-3 py-1.5 border rounded text-sm hover:bg-teal-900"
               >
                 Solve
