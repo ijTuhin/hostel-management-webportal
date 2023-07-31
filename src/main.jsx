@@ -46,6 +46,7 @@ import GroceryPageFinance from "./NEW/Pages/Finance/GroceryPageFinance";
 import MealPaymentPage from "./NEW/Pages/Meal/MealPaymentPage";
 import Groceries from "./NEW/Components/Meal/grocery/Groceries";
 import UpdateUserModal from "./NEW/Components/Warden/user/manage/UpdateUserModal";
+import ForgotPass from "./NEW/Components/Login/ForgotPass";
 const months = [
   "Jan",
   "Feb",
@@ -379,7 +380,20 @@ const router = createBrowserRouter([
     path: "/login",
     element: <LoginPage />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <AdminLogin />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "forget-password",
+        element: <ForgotPass />,
+        errorElement: <ErrorPage />,
+      },
+    ],
   },
+
   {
     path: "/qr-scanner",
     element: (

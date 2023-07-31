@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../Images/NavLogo.png";
-import AdminLogin from "../Components/Login/AdminLogin";
+import { Outlet } from "react-router-dom";
 
 export default function LoginPage() {
   return (
@@ -12,7 +12,7 @@ export default function LoginPage() {
         </div>
       </header>
       <section className="px-10 flex justify-center mt-40">
-        <AdminLogin />
+        <Outlet/>
       </section>
     </main>
   );

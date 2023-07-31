@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useAuthUser } from "../../../Authentications/Authenticate/UserContext";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 export default function AdminLogin() {
   const { signIn, authUser, AdminLoginWithDB } = useAuthUser();
@@ -28,10 +28,9 @@ export default function AdminLogin() {
   return (
     <main className="flex items-center justify-center text-gray-400 w-1/2">
       <section className="flex flex-col items-end justify-center w-1/2">
-        {authUser?.email}
-        <button className="text-xs text-gray-600 hover:text-gray-400">
+        <Link to="/login/forget-password" className="text-xs text-gray-600 hover:text-gray-400">
           Forgot password?
-        </button>
+        </Link>
         <form onSubmit={handleLogin} className="w-full flex flex-col gap-2">
           <label className="" htmlFor="email">
             Email
