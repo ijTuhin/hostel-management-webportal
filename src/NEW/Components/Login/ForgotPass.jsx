@@ -3,35 +3,27 @@ import { useAuthUser } from "../../../Authentications/Authenticate/UserContext";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function ForgotPass() {
-  const { signIn, authUser, AdminLoginWithDB } = useAuthUser();
+  const { resetPasswordRequest } = useAuthUser();
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
-    //   const password = e.target.password.value;
-    //   console.log(email, password);
-    //   signIn(email, password)
-    //     .then((i) => {
-    //       if (i.user.email) {
-    //         const email = i.user.email;
-    //         AdminLoginWithDB(email);
-    //         navigate("/", { replace: true });
-    //       }
-    //       console.log(i.user.email);
-    //     })
-    //     .catch((error) => {
-    //       const errorMessage = error.message;
-    //       console.log(errorMessage);
-    //     });
+    console.log(email);
+    resetPasswordRequest(email)
+      .then((i) => {
+        console.log(email);
+        navigate("/login", { replace: true });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
   };
   return (
     <main className="flex items-center justify-center text-gray-400 w-1/2">
       <section className="flex flex-col items-end justify-center gap-y-8 w-1/2">
-        <Link
-          to="/login"
-          className="text-xs text-gray-600 hover:text-gray-400"
-        >
+        <Link to="/login" className="text-xs text-gray-600 hover:text-gray-400">
           Remember Password?
         </Link>
         <form onSubmit={handleLogin} className="w-full flex flex-col gap-2">

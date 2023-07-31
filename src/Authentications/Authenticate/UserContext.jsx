@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   GoogleAuthProvider,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { app } from "../../../firebase.config";
@@ -35,6 +36,11 @@ const UserContext = ({ children }) => {
   const signIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const resetPasswordRequest = (email) => {
+    setLoading(true);
+    return sendPasswordResetEmail(auth, email);
   };
 
   const CreateUserWithDB = async (value) => {
@@ -159,6 +165,7 @@ const UserContext = ({ children }) => {
     provider,
     createUser,
     signIn,
+    resetPasswordRequest,
     logOut,
     CreateUserWithDB,
     AdminLoginWithDB,
