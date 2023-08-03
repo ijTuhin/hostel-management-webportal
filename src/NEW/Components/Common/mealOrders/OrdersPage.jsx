@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 import MealHeading from "./MealHeading";
 import TableData from "./TableData";
 import TableHead from "./TableHead";
-import { token } from "../../../Hooks/conditionData";
+import { date, token } from "../../../Hooks/conditionData";
 
 export default function OrdersPage() {
   /* ================================================
                 Set Time Condition
   ================================================ */
-  const date = new Date();
-  let time = date.toTimeString().split(":")[0];
+  const checkDate = new Date();
+  let time = checkDate.toTimeString().split(":")[0];
   time = parseInt(time);
-  const today = date.toLocaleDateString();
-  date.setDate(date.getDate() + 1);
-  const tomorrow = date.toLocaleDateString();
+  const today = checkDate.toLocaleDateString();
+  checkDate.setDate(checkDate.getDate() + 1);
+  const tomorrow = checkDate.toLocaleDateString();
   console.log(today, time, tomorrow);
   let meal;
   let day = today;
@@ -30,7 +30,7 @@ export default function OrdersPage() {
   /* ============================================= */
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:3001/meal?meal=${meal}&date=${day}`, {
+    fetch(`http://localhost:3001/meal?date=${new Date().getDate()}`, {
       headers: { Authorization: `Beared ${token}` },
     })
       .then((res) => res.json())

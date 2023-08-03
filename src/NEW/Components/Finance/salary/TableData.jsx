@@ -8,9 +8,8 @@ import {
 import { useOutletContext } from "react-router-dom";
 const TableData = ({ item }) => {
   const [show, setShow, id, setID] = useOutletContext();
-  // getCurrentMonthSalary(item);
   let status;
-  if (item?.record[0]?.month === month) {
+  if (item?.record[item?.record?.length - 1]?.month === month) {
     status = 1;
   }
   const link = `http://localhost:3001/salary/${item._id}`;

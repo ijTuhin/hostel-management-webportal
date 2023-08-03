@@ -15,9 +15,11 @@ export default function OutletBox({ outletHeader }) {
         }`}
       >
         <p>{role} Panel</p>
-        <NavLink to="/qr-scanner" className="px-5 text-xl hover:text-2xl">
-          <ImQrcode />
-        </NavLink>
+        {role !== "accountant" && (
+          <NavLink to="/qr-scanner" className="px-5 text-xl hover:text-2xl">
+            <ImQrcode />
+          </NavLink>
+        )}
       </header>
       <section className="bg-white">
         <Outlet context={[show, setShow, id, setID, record, setRecord]} />

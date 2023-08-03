@@ -3,7 +3,7 @@ import TableHead from './TableHead';
 import TableData from './TableData';
 import { useLoaderData } from 'react-router-dom';
 
-const TableAttendance = ({date}) => {
+const TableAttendance = () => {
   const data = useLoaderData()
   console.log(data)
     return (
@@ -15,7 +15,7 @@ const TableAttendance = ({date}) => {
                 <TableHead />
                 <tbody>
                   {data && data?.map((item) => (
-                    <TableData key={item._id} item={item} date={date} />
+                    <TableData key={item._id} item={item} />
                   ))}
                 </tbody>
               </table>

@@ -92,7 +92,11 @@ const router = createBrowserRouter([
         ),
         errorElement: <ErrorPage />,
         loader: () => {
-          return fetch(`http://localhost:3001/utility?month=${month}`, {
+          let link;
+          if (role === "meal")
+            link = `http://localhost:3001/meal?date=${new Date().getDate()}`;
+          else link = `http://localhost:3001/utility?month=${month}`;
+          return fetch(link, {
             headers: { Authorization: `Beared ${token}` },
           });
         },

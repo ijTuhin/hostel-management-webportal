@@ -13,7 +13,7 @@ export default function Attendance() {
           Previous record
         </button>
       </div>
-      <TableAttendance date={date} />
+      <TableAttendance />
     </div>
   );
 };

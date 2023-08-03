@@ -34,10 +34,10 @@ const TableData = ({ item }) => {
           {item.date}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.transaction}
+          {item.trxID}
         </td>
         <td class="px-6 py-4 text-sm font-medium flex justify-center items-center gap-2">
-          <span>{item?.coupon ? item?.coupon : "0"}</span>
+          <span>{item?.user?.coupon ? item?.user?.coupon : "0"}</span>
           <span>
             <FaCoins />
           </span>

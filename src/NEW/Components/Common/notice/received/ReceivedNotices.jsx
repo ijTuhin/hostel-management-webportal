@@ -18,7 +18,7 @@ export default function ReceivedNotices() {
           <div
             onClick={() => setNum(index)}
             className={`border-b p-2 cursor-pointer hover:border-teal-500 hover:text-teal-500 ${
-              index === num && "border-teal-500 text-teal-500"
+              index === num ? "border-teal-500 text-teal-500" : "text-gray-300"
             }`}
           >
             <div className={`flex justify-between font-poppins`}>
