@@ -176,6 +176,22 @@ const router = createBrowserRouter([
             headers: { Authorization: `Beared ${token}` },
           });
         },
+        children: [
+          {
+            path: ":id",
+            element: (
+              <Authenticate>
+                <SalaryPage />
+              </Authenticate>
+            ),
+            errorElement: <ErrorPage />,
+            loader: () => {
+              return fetch(`http://localhost:3001/staff`, {
+                headers: { Authorization: `Beared ${token}` },
+              });
+            },
+          },
+        ],
       },
       /* ==============================Warden============================== */
       {
