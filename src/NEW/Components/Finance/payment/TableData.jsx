@@ -25,7 +25,7 @@ const TableData = ({ item }) => {
           {item.bill}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-          {item.date}
+          {new Date( parseInt( item?._id.toString().substring(0,8), 16 ) * 1000 ).toLocaleDateString()}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
           {item.trxID}

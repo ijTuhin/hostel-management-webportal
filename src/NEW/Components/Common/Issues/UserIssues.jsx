@@ -4,6 +4,7 @@ import { useLoaderData, useOutletContext } from "react-router-dom";
 import { role, token } from "../../../Hooks/conditionData";
 export default function UserIssues() {
   const item = useLoaderData();
+  console.log(item)
   const [open, setOpen, data, setData, upload, setUpload] = useOutletContext();
   setData(null);
   const handleReplyClick = (i) => {
@@ -33,6 +34,7 @@ export default function UserIssues() {
         Authorization: `Bearer ${token}`,
       },
     }).then((response) => response.json());
+    window.location.reload();
   };
   const [selectedTab, setSelectedTab] = React.useState(0);
   const handleOpen = () => setOpen(true);
@@ -118,8 +120,8 @@ export default function UserIssues() {
                 <span className="text-sm font-semibold">
                   {i.no}. {i.topic}
                 </span>
-                <span>c183275</span>
-                <span>Room No.401</span>
+                <span>{i?.sender?.matric}</span>
+                <span>Room No.{i?.sender?.room?.room}</span>
               </p>
             </div>
             <div>

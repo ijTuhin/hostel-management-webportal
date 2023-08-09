@@ -23,7 +23,6 @@ const TableData = ({ item }) => {
     })
       .then((response) => response.json())
       .then((item) => {
-        console.log(item);
         window.location.replace(item.url);
       });
   };
@@ -64,7 +63,20 @@ const TableData = ({ item }) => {
           )}
         </td>
         <td class="text-gray-500 px-6 py-4 whitespace-nowrap text-sm font-semibold flex justify-center">
-          {!status ? "---" : <>{item?.record[0]?.month}</>}
+          {!status ? (
+            "---"
+          ) : (
+            <>
+              {new Date(
+                parseInt(
+                  item?.record[item?.record?.length - 1]?._id
+                    .toString()
+                    .substring(0, 8),
+                  16
+                ) * 1000
+              ).toLocaleDateString()}
+            </>
+          )}
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
           <button

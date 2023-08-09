@@ -10,12 +10,6 @@ export default function Header({ title }) {
       <div className="flex items-center gap-1">
         <img className="w-8 h-8 rounded-full" src={logo} alt="" />
         <p className="font-handlee font-semibold text-xl mt-[3px]">Ostello</p>
-        {/* <button
-          onClick={() => navigate("/qr-scanner", { replace: true })}
-          className="italic font-semibold"
-        >
-          {title}
-        </button> */}
       </div>
       <div className="flex items-center px-5">
         <LogOut />

@@ -15,7 +15,7 @@ export default function SentNotices() {
       </section>
       <section className=" w-1/2">
         {data?.map((i, index) => (
-          <div
+          <div key={index}
             onClick={() => setNum(index)}
             className={`border-b p-2 cursor-pointer hover:border-gray-500 hover:text-gray-500 ${
               index === num ? "border-gray-500 text-gray-500" : "text-gray-300"

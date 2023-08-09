@@ -35,8 +35,8 @@ const DropdownBtn = ({ setSelect, data }) => {
           isOpen ? "block bg-stone-100 text-gray-600" : "hidden"
         }`}
       >
-        {items.map((item) => (
-          <div
+        {items.map((item,index) => (
+          <div key={index}
             className="hover:cursor-pointer hover:bg-stone-200 border px-3 py-2 text-xs"
             onClick={(e) => {
               handleItemClick(e.target.id);
