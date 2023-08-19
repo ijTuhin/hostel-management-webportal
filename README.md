@@ -15,8 +15,12 @@
 - **Code Editor/ IDE:** VS code <br/>
 - **Authentication/Hosting:** Firebase, Render  
 
+**Credentials:**
+> - ***Warden*** <br/> **email:** warden2023@gmail.com **password:** warden2023 <br/>
+> - ***Accountant*** <br/> **email:** finance2023@gmail.com **password:** finance2023 <br/>
+> - ***Meal Manager*** <br/> **email:** mealmanager2023@gmail.com **password:** mealmanager2023 <br/>
 ___________________________________________________________
 ### Important links ###
->*Hostel Management [Server](https://github.com/ijTuhin/hostel-management-server)*<br/>
+>*Hostel Management [Server](https://github.com/ijTuhin/hostel-management-server-mongoose)*<br/>
 >*Hostel [User App](https://github.com/ijTuhin/hostelServiceAppReactNative)*<br/>
 >*View [Web Portal](https://mess-meal-management-7b408.web.app/)*<br/>
