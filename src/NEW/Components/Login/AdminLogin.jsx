@@ -14,11 +14,11 @@ export default function AdminLogin() {
     signIn(email, password)
       .then((i) => {
         if (i.user.email) {
+          console.log(i.user.email);
           const email = i.user.email;
           AdminLoginWithDB(email);
           navigate("/", { replace: true });
         }
-        console.log(i.user.email);
       })
       .catch((error) => {
         const errorMessage = error.message;

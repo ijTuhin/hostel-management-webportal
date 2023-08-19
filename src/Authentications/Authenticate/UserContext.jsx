@@ -61,6 +61,7 @@ const UserContext = ({ children }) => {
   };
 
   const AdminLoginWithDB = async (email) => {
+    console.log("Context 64", email);
     try {
       const result = await axios
         .post(`https://hms-server-side.onrender.com/admin/login`, { email })

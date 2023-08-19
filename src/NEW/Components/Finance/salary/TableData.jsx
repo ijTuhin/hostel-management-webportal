@@ -24,6 +24,7 @@ const TableData = ({ item }) => {
       .then((response) => response.json())
       .then((item) => {
         window.location.replace(item.url);
+        console.log(item.url);
       });
   };
   return (

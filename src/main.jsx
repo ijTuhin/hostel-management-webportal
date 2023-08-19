@@ -172,6 +172,22 @@ const router = createBrowserRouter([
           </Authenticate>
         ),
         errorElement: <ErrorPage />,
+        children: [
+          {
+            path: ":trxId",
+            element: (
+              <Authenticate>
+                <SalaryPage />
+              </Authenticate>
+            ),
+            errorElement: <ErrorPage />,
+            loader: () => {
+              return fetch(`https://hms-server-side.onrender.com/staff`, {
+                headers: { Authorization: `Beared ${token}` },
+              });
+            },
+          },
+        ],
         loader: () => {
           return fetch(`https://hms-server-side.onrender.com/staff`, {
             headers: { Authorization: `Beared ${token}` },
