@@ -16,9 +16,12 @@ const SearchBar = ({ search, set }) => {
       } else {
         entity = "name";
       }
-      fetch(`http://localhost:3001/user/search?${entity}=${event.target.value}`, {
-        headers: { Authorization: `Beared ${token}` },
-      })
+      fetch(
+        `https://hms-server-side.onrender.com/user/search?${entity}=${event.target.value}`,
+        {
+          headers: { Authorization: `Beared ${token}` },
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           set(data);
@@ -26,7 +29,7 @@ const SearchBar = ({ search, set }) => {
     }
   };
   if (search && !input) {
-    fetch(`http://localhost:3001/user/search?matric=${search}`, {
+    fetch(`https://hms-server-side.onrender.com/user/search?matric=${search}`, {
       headers: { Authorization: `Beared ${token}` },
     })
       .then((res) => res.json())

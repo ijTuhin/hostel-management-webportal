@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
-import { token } from '../../../Hooks/conditionData';
-import { useNavigate } from 'react-router-dom';
+import { token } from "../../../Hooks/conditionData";
+import { useNavigate } from "react-router-dom";
 
 export default function AddGrocery() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const date = new Date().toLocaleDateString();
   const [price, setPrice] = useState(0);
   const [value, setValue] = useState({
@@ -18,11 +18,11 @@ export default function AddGrocery() {
   value.amount = parseFloat(value.amount);
   value.price = value.amount * value.rate;
   const updateData = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     let data = {
       list: value,
     };
-    fetch(`http://localhost:3001/grocery?date=${date}`, {
+    fetch(`https://hms-server-side.onrender.com/grocery?date=${date}`, {
       method: "PUT", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -127,5 +127,5 @@ export default function AddGrocery() {
         </div>
       </form>
     </div>
-  )
+  );
 }

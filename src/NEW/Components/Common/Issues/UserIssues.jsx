@@ -4,7 +4,7 @@ import { useLoaderData, useOutletContext } from "react-router-dom";
 import { role, token } from "../../../Hooks/conditionData";
 export default function UserIssues() {
   const item = useLoaderData();
-  console.log(item)
+  console.log(item);
   const [open, setOpen, data, setData, upload, setUpload] = useOutletContext();
   setData(null);
   const handleReplyClick = (i) => {
@@ -16,7 +16,7 @@ export default function UserIssues() {
   const handleUpload = () => {
     if (upload?.reply !== "") {
       console.log(upload, data);
-      // fetch(`http://localhost:3001/message/reply/${date}`, {
+      // fetch(`https://hms-server-side.onrender.com/message/reply/${date}`, {
       //   method: "PUT",
       //   headers: {
       //     "Content-Type": "application/json",
@@ -26,8 +26,8 @@ export default function UserIssues() {
     }
   };
   const markIssueSolved = (id) => {
-    console.log(`http://localhost:3001/message/solve/${id}`);
-    fetch(`http://localhost:3001/message/solve/${id}`, {
+    console.log(`https://hms-server-side.onrender.com/message/solve/${id}`);
+    fetch(`https://hms-server-side.onrender.com/message/solve/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

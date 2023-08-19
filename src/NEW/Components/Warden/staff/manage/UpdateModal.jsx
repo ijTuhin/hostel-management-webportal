@@ -13,7 +13,7 @@ export default function UpdateModal() {
     if (upload?.salary === "") delete upload.salary;
     if (upload?.phone === "") delete upload.phone;
     console.log(upload);
-    fetch(`http://localhost:3001/staff/${data?._id}`, {
+    fetch(`https://hms-server-side.onrender.com/staff/${data?._id}`, {
       method: "PUT", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

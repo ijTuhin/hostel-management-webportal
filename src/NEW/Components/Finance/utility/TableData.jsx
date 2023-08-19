@@ -4,10 +4,10 @@ import { token } from "../../../Hooks/conditionData";
 import { useOutletContext } from "react-router-dom";
 const TableData = ({ item }) => {
   const [show, setShow, id, setID] = useOutletContext();
-  const link = `http://localhost:3001/utility?name=${item.name}`;
+  const link = `https://hms-server-side.onrender.com/utility?name=${item.name}`;
   const total = item.bill + item.due.bill;
   const updatePayBill = () => {
-    fetch(`http://localhost:3001/utility/pay-due/${item._id}`, {
+    fetch(`https://hms-server-side.onrender.com/utility/pay-due/${item._id}`, {
       method: "PUT", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

@@ -8,23 +8,23 @@ export default function EditRequests() {
   const [open, setOpen, data, setData, upload, setUpload] = useOutletContext();
   console.log(item);
   const handleUpload = () => {
-    const link = `http://localhost:3001/admin/request-approve/${data?.user?._id}`;
-      console.log(upload,data?.user?._id, link);
-      fetch(link, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
+    const link = `https://hms-server-side.onrender.com/admin/request-approve/${data?.user?._id}`;
+    console.log(upload, data?.user?._id, link);
+    fetch(link, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => {
+        response.json();
       })
-        .then((response) => {
-          response.json();
-        })
-        .then((data) => {
-          console.log("DB Success", data);
-        })
-        .catch((e) => console.log(e));
-        console.log(upload,data?.user?._id, link, data);
+      .then((data) => {
+        console.log("DB Success", data);
+      })
+      .catch((e) => console.log(e));
+    console.log(upload, data?.user?._id, link, data);
   };
   const handleOpen = () => setOpen(true);
 
@@ -62,7 +62,7 @@ export default function EditRequests() {
             className="w-full flex justify-between place-items-center p-3.5 border font-poppins bg-teal-800"
           >
             <p className="space-x-5 text-sm">
-              <span>{index+1}</span>
+              <span>{index + 1}</span>
               <span>{i?.user?.matric}</span>
               <span>Room No.{i?.user?.room?.room}</span>
             </p>
@@ -70,7 +70,7 @@ export default function EditRequests() {
               onClick={() => {
                 setOpen(true);
                 setUpload(null);
-                setData(i)
+                setData(i);
               }}
               className="px-3 py-1.5 border rounded hover:bg-teal-900"
             >

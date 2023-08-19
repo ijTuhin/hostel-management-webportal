@@ -30,9 +30,12 @@ export default function OrdersPage() {
   /* ============================================= */
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:3001/meal?date=${new Date().getDate()}`, {
-      headers: { Authorization: `Beared ${token}` },
-    })
+    fetch(
+      `https://hms-server-side.onrender.com/meal?date=${new Date().getDate()}`,
+      {
+        headers: { Authorization: `Beared ${token}` },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setData(data);

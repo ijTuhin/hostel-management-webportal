@@ -10,7 +10,7 @@ import ModalView from "../../Components/Common/Modals/ModalView";
 export default function GroceryPageFinance() {
   const data = useLoaderData();
   const [show, setShow, id, setID, record, setRecord] = useOutletContext();
-  // const link = `http://localhost:3001/grocery?date=${id}`;
+  // const link = `https://hms-server-side.onrender.com/grocery?date=${id}`;
   useEffect(() => {
     console.log(id);
 

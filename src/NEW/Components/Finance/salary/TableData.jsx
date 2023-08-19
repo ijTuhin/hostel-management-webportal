@@ -12,9 +12,9 @@ const TableData = ({ item }) => {
   if (item?.record[item?.record?.length - 1]?.month === month) {
     status = 1;
   }
-  const link = `http://localhost:3001/salary/${item._id}`;
+  const link = `https://hms-server-side.onrender.com/salary/${item._id}`;
   const paySalary = () => {
-    fetch(`http://localhost:3001/salary/${item._id}`, {
+    fetch(`https://hms-server-side.onrender.com/salary/${item._id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

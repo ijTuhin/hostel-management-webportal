@@ -44,7 +44,7 @@ const UserContext = ({ children }) => {
   };
 
   const CreateUserWithDB = async (value) => {
-    return await fetch("http://localhost:3001/user/signup", {
+    return await fetch("https://hms-server-side.onrender.com/user/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -63,7 +63,7 @@ const UserContext = ({ children }) => {
   const AdminLoginWithDB = async (email) => {
     try {
       const result = await axios
-        .post(`http://localhost:3001/admin/login`, { email })
+        .post(`https://hms-server-side.onrender.com/admin/login`, { email })
         .then((res) => {
           console.log(res?.data);
           if (res?.data?.token) {
@@ -140,7 +140,7 @@ const UserContext = ({ children }) => {
 
   const createGroceryRecord = () => {
     const date = new Date().toLocaleDateString();
-    fetch(`http://localhost:3001/grocery?date=${date}`, {
+    fetch(`https://hms-server-side.onrender.com/grocery?date=${date}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -150,7 +150,7 @@ const UserContext = ({ children }) => {
   };
 
   const createUtilityRecord = () => {
-    fetch(`http://localhost:3001/utility`, {
+    fetch(`https://hms-server-side.onrender.com/utility`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

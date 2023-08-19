@@ -7,7 +7,7 @@ const TableData = ({ item }) => {
   const navigate = useNavigate();
   const [show, setShow, id, setID] = useOutletContext();
   const [billInput, setBillInput] = useState(false);
-  const link = `http://localhost:3001/utility?name=${item.name}`;
+  const link = `https://hms-server-side.onrender.com/utility?name=${item.name}`;
   return (
     <>
       <tr
@@ -37,7 +37,13 @@ const TableData = ({ item }) => {
         </td>
         <td
           class={`${
-            !item.status ? "text-green-500" : (show ? (id === item.name ? "text-gray-400" : "text-gray-300") : "text-gray-300")
+            !item.status
+              ? "text-green-500"
+              : show
+              ? id === item.name
+                ? "text-gray-400"
+                : "text-gray-300"
+              : "text-gray-300"
           } px-6 py-4 whitespace-nowrap text-sm font-semibold`}
         >
           {!item.status ? "Paid" : "Pending"}

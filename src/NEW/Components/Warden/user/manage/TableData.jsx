@@ -7,7 +7,7 @@ const TableData = ({ item, index }) => {
   const [open, setOpen, data, setData, upload, setUpload] = useOutletContext();
   const navigate = useNavigate();
   const makeMealManager = () => {
-    fetch("http://localhost:3001/admin/create-meal-manager", {
+    fetch("https://hms-server-side.onrender.com/admin/create-meal-manager", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +26,7 @@ const TableData = ({ item, index }) => {
       });
   };
   const removeMealManager = () => {
-    fetch("http://localhost:3001/admin/remove-meal-manager", {
+    fetch("https://hms-server-side.onrender.com/admin/remove-meal-manager", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const TableData = ({ item, index }) => {
   };
   const changeAcountValidity = () => {
     console.log(item._id, token);
-    fetch(`http://localhost:3001/user/account/${item._id}`, {
+    fetch(`https://hms-server-side.onrender.com/user/account/${item._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -96,7 +96,9 @@ const TableData = ({ item, index }) => {
             </p>
             <button
               onClick={item.role ? removeMealManager : makeMealManager}
-              className={`hover:bg-red-600 hover:text-white border border-red-500 rounded hidden group-hover:block ${item?.role ? "px-[1.6rem] py-1.5 " : "px-2 py-1.5 "}`}
+              className={`hover:bg-red-600 hover:text-white border border-red-500 rounded hidden group-hover:block ${
+                item?.role ? "px-[1.6rem] py-1.5 " : "px-2 py-1.5 "
+              }`}
             >
               {!item.role ? "Change" : "Cancel role"}
             </button>

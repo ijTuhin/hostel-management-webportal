@@ -7,7 +7,7 @@ const AddStaffPage = () => {
     if (!value) {
       return false;
     }
-    fetch(`http://localhost:3001/staff`, {
+    fetch(`https://hms-server-side.onrender.com/staff`, {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -82,7 +82,8 @@ const AddStaffPage = () => {
           <p className="text-gray-600">Choose Position:</p>
           <div className="flex items-center gap-x-3">
             <input
-              type="radio" className="w-3"
+              type="radio"
+              className="w-3"
               onChange={(e) => {
                 setValue({
                   ...value,
@@ -97,7 +98,8 @@ const AddStaffPage = () => {
           </div>
           <div className="flex items-center gap-x-3">
             <input
-              type="radio" className="w-3"
+              type="radio"
+              className="w-3"
               onChange={(e) => {
                 setValue({
                   ...value,
@@ -112,7 +114,8 @@ const AddStaffPage = () => {
           </div>
           <div className="flex items-center gap-x-3">
             <input
-              type="radio" className="w-3"
+              type="radio"
+              className="w-3"
               onChange={(e) => {
                 setValue({
                   ...value,
@@ -127,7 +130,8 @@ const AddStaffPage = () => {
           </div>
           <div className="flex items-center gap-x-3">
             <input
-              type="radio" className="w-3"
+              type="radio"
+              className="w-3"
               onChange={(e) => {
                 setValue({
                   ...value,
@@ -142,7 +146,8 @@ const AddStaffPage = () => {
           </div>
           <div className="flex items-center gap-x-3">
             <input
-              type="radio" className="w-3"
+              type="radio"
+              className="w-3"
               onChange={(e) => {
                 setValue({
                   ...value,

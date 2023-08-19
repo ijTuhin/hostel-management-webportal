@@ -20,7 +20,7 @@ const AddNoticePage = () => {
     if (!value) {
       return false;
     }
-    fetch(`http://localhost:3001/notice`, {
+    fetch(`https://hms-server-side.onrender.com/notice`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -31,7 +31,7 @@ const AddNoticePage = () => {
       .then((response) => response.json())
       .then((value) => {
         console.log("DB Success:", value);
-        window.location.reload()
+        window.location.reload();
       });
     console.log(value, token);
   };
