@@ -16,7 +16,7 @@ export default function UserIssues() {
   const handleUpload = () => {
     if (upload?.reply !== "") {
       console.log(upload, data);
-      // fetch(`https://hms-server-side.onrender.com/message/reply/${date}`, {
+      // fetch(`http://localhost:3001/message/reply/${date}`, {
       //   method: "PUT",
       //   headers: {
       //     "Content-Type": "application/json",
@@ -26,8 +26,8 @@ export default function UserIssues() {
     }
   };
   const markIssueSolved = (id) => {
-    console.log(`https://hms-server-side.onrender.com/message/solve/${id}`);
-    fetch(`https://hms-server-side.onrender.com/message/solve/${id}`, {
+    console.log(`http://localhost:3001/message/solve/${id}`);
+    fetch(`http://localhost:3001/message/solve/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

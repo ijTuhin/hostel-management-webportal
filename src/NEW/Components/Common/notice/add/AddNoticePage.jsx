@@ -20,7 +20,7 @@ const AddNoticePage = () => {
     if (!value) {
       return false;
     }
-    fetch(`https://hms-server-side.onrender.com/notice`, {
+    fetch(`http://localhost:3001/notice`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,

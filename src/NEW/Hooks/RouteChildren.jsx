@@ -45,7 +45,7 @@ const wardenChild = [
         element: <ManageUser />,
         errorElement: <ErrorPage />,
         loader: () => {
-          return fetch(`https://hms-server-side.onrender.com/user`, {
+          return fetch(`http://localhost:3001/user`, {
             headers: { Authorization: `Beared ${token}` },
           });
         },
@@ -55,7 +55,7 @@ const wardenChild = [
         element: <Attendance />,
         errorElement: <ErrorPage />,
         loader: () => {
-          return fetch(`https://hms-server-side.onrender.com/user/attendance`, {
+          return fetch(`http://localhost:3001/user/attendance`, {
             headers: { Authorization: `Beared ${token}` },
           });
         },
@@ -82,7 +82,7 @@ const wardenChild = [
         element: <OrdersPage />,
         errorElement: <ErrorPage />,
         // loader: () => {
-        //   return fetch(`https://hms-server-side.onrender.com/user`, {
+        //   return fetch(`http://localhost:3001/user`, {
         //     headers: { Authorization: `Beared ${token}` },
         //   });
         // },
@@ -103,7 +103,7 @@ const wardenChild = [
         element: <RoomDetails />,
         errorElement: <ErrorPage />,
         loader: () => {
-          return fetch(`https://hms-server-side.onrender.com/seat`, {
+          return fetch(`http://localhost:3001/seat`, {
             headers: { Authorization: `Beared ${token}` },
           });
         },
@@ -129,7 +129,7 @@ const wardenChild = [
         element: <UserIssues />,
         errorElement: <ErrorPage />,
         loader: () => {
-          return fetch(`https://hms-server-side.onrender.com/message`, {
+          return fetch(`http://localhost:3001/message`, {
             headers: { Authorization: `Beared ${token}` },
           });
         },
@@ -139,12 +139,9 @@ const wardenChild = [
         element: <EditRequests />,
         errorElement: <ErrorPage />,
         loader: () => {
-          return fetch(
-            `https://hms-server-side.onrender.com/admin/edit-request`,
-            {
-              headers: { Authorization: `Beared ${token}` },
-            }
-          );
+          return fetch(`http://localhost:3001/admin/edit-request`, {
+            headers: { Authorization: `Beared ${token}` },
+          });
         },
       },
     ],
@@ -163,7 +160,7 @@ const wardenChild = [
         element: <ReceivedNotices />,
         errorElement: <ErrorPage />,
         loader: () => {
-          return fetch(`https://hms-server-side.onrender.com/notice/get`, {
+          return fetch(`http://localhost:3001/notice/get`, {
             headers: { Authorization: `Beared ${token}` },
           });
         },
@@ -178,7 +175,7 @@ const wardenChild = [
         element: <SentNotices />,
         errorElement: <ErrorPage />,
         loader: () => {
-          return fetch(`https://hms-server-side.onrender.com/notice`, {
+          return fetch(`http://localhost:3001/notice`, {
             headers: { Authorization: `Beared ${token}` },
           });
         },
@@ -200,7 +197,7 @@ const wardenChild = [
         element: <ManageStaff />,
         errorElement: <ErrorPage />,
         loader: () => {
-          return fetch(`https://hms-server-side.onrender.com/staff`, {
+          return fetch(`http://localhost:3001/staff`, {
             headers: { Authorization: `Beared ${token}` },
           });
         },
@@ -218,12 +215,9 @@ const financeChild = [
     ),
     errorElement: <ErrorPage />,
     loader: () => {
-      return fetch(
-        `https://hms-server-side.onrender.com/grocery?date=${date}`,
-        {
-          headers: { Authorization: `Beared ${token}` },
-        }
-      );
+      return fetch(`http://localhost:3001/grocery?date=${date}`, {
+        headers: { Authorization: `Beared ${token}` },
+      });
     },
   },
   {
@@ -241,7 +235,7 @@ const financeChild = [
         errorElement: <ErrorPage />,
         loader: () => {
           return fetch(
-            `https://hms-server-side.onrender.com/payment?month=${month}&item=rent`,
+            `http://localhost:3001/payment?month=${month}&item=rent`,
             {
               headers: { Authorization: `Beared ${token}` },
             }
@@ -254,7 +248,7 @@ const financeChild = [
         errorElement: <ErrorPage />,
         loader: () => {
           return fetch(
-            `https://hms-server-side.onrender.com/payment?month=${month}&item=meal`,
+            `http://localhost:3001/payment?month=${month}&item=meal`,
             {
               headers: { Authorization: `Beared ${token}` },
             }
@@ -266,7 +260,7 @@ const financeChild = [
         element: <UserIssues />,
         errorElement: <ErrorPage />,
         loader: () => {
-          return fetch(`https://hms-server-side.onrender.com/user`, {
+          return fetch(`http://localhost:3001/user`, {
             headers: { Authorization: `Beared ${token}` },
           });
         },
@@ -282,7 +276,7 @@ const financeChild = [
     ),
     errorElement: <ErrorPage />,
     loader: () => {
-      return fetch(`https://hms-server-side.onrender.com/staff`, {
+      return fetch(`http://localhost:3001/staff`, {
         headers: { Authorization: `Beared ${token}` },
       });
     },
@@ -301,7 +295,7 @@ const financeChild = [
         element: <ReceivedNotices />,
         errorElement: <ErrorPage />,
         loader: () => {
-          return fetch(`https://hms-server-side.onrender.com/notice/get`, {
+          return fetch(`http://localhost:3001/notice/get`, {
             headers: { Authorization: `Beared ${token}` },
           });
         },
@@ -316,7 +310,7 @@ const financeChild = [
         element: <SentNotices />,
         errorElement: <ErrorPage />,
         loader: () => {
-          return fetch(`https://hms-server-side.onrender.com/notice`, {
+          return fetch(`http://localhost:3001/notice`, {
             headers: { Authorization: `Beared ${token}` },
           });
         },
@@ -330,12 +324,9 @@ const mealChild = [
     element: <GroceryPageMeal />,
     errorElement: <ErrorPage />,
     loader: () => {
-      return fetch(
-        `https://hms-server-side.onrender.com/grocery?date=${date}`,
-        {
-          headers: { Authorization: `Beared ${token}` },
-        }
-      );
+      return fetch(`http://localhost:3001/grocery?date=${date}`, {
+        headers: { Authorization: `Beared ${token}` },
+      });
     },
   },
   {
@@ -343,12 +334,9 @@ const mealChild = [
     element: <MealPaymentPage />,
     errorElement: <ErrorPage />,
     loader: () => {
-      return fetch(
-        `https://hms-server-side.onrender.com/payment?month=${month}&item=meal`,
-        {
-          headers: { Authorization: `Beared ${token}` },
-        }
-      );
+      return fetch(`http://localhost:3001/payment?month=${month}&item=meal`, {
+        headers: { Authorization: `Beared ${token}` },
+      });
     },
   },
 ];

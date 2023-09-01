@@ -6,17 +6,14 @@ const TableData = ({ item, matric, previous }) => {
   const navigate = useNavigate();
   const selectRoom = () => {
     console.log(previous, matric, item._id, item.room);
-    fetch(
-      `https://hms-server-side.onrender.com/seat/${matric}/allocate/${item.room}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Beared ${token}`,
-        },
-        body: JSON.stringify({ previous }),
-      }
-    )
+    fetch(`http://localhost:3001/seat/${matric}/allocate/${item.room}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Beared ${token}`,
+      },
+      body: JSON.stringify({ previous }),
+    })
       .then((res) => res.json())
       .then((i) => {
         console.log(i, matric, item.room);

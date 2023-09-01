@@ -94,9 +94,8 @@ const router = createBrowserRouter([
         loader: () => {
           let link;
           if (role === "meal")
-            link = `https://hms-server-side.onrender.com/meal?date=${new Date().getDate()}`;
-          else
-            link = `https://hms-server-side.onrender.com/utility?month=${month}`;
+            link = `http://localhost:3001/meal?date=${new Date().getDate()}`;
+          else link = `http://localhost:3001/utility?month=${month}`;
           return fetch(link, {
             headers: { Authorization: `Beared ${token}` },
           });
@@ -109,7 +108,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         loader: () => {
           return fetch(
-            `https://hms-server-side.onrender.com/payment?month=${month}&item=meal`,
+            `http://localhost:3001/payment?month=${month}&item=meal`,
             {
               headers: { Authorization: `Beared ${token}` },
             }
@@ -132,7 +131,7 @@ const router = createBrowserRouter([
             errorElement: <ErrorPage />,
             loader: () => {
               return fetch(
-                `https://hms-server-side.onrender.com/payment?month=${month}&item=rent`,
+                `http://localhost:3001/payment?month=${month}&item=rent`,
                 {
                   headers: { Authorization: `Beared ${token}` },
                 }
@@ -145,7 +144,7 @@ const router = createBrowserRouter([
             errorElement: <ErrorPage />,
             loader: () => {
               return fetch(
-                `https://hms-server-side.onrender.com/payment?month=${month}&item=meal`,
+                `http://localhost:3001/payment?month=${month}&item=meal`,
                 {
                   headers: { Authorization: `Beared ${token}` },
                 }
@@ -157,7 +156,7 @@ const router = createBrowserRouter([
             element: <UserIssues />,
             errorElement: <ErrorPage />,
             loader: () => {
-              return fetch(`https://hms-server-side.onrender.com/message`, {
+              return fetch(`http://localhost:3001/message`, {
                 headers: { Authorization: `Beared ${token}` },
               });
             },
@@ -182,14 +181,14 @@ const router = createBrowserRouter([
             ),
             errorElement: <ErrorPage />,
             loader: () => {
-              return fetch(`https://hms-server-side.onrender.com/staff`, {
+              return fetch(`http://localhost:3001/staff`, {
                 headers: { Authorization: `Beared ${token}` },
               });
             },
           },
         ],
         loader: () => {
-          return fetch(`https://hms-server-side.onrender.com/staff`, {
+          return fetch(`http://localhost:3001/staff`, {
             headers: { Authorization: `Beared ${token}` },
           });
         },
@@ -209,7 +208,7 @@ const router = createBrowserRouter([
             element: <ManageUser />,
             errorElement: <ErrorPage />,
             loader: () => {
-              return fetch(`https://hms-server-side.onrender.com/user`, {
+              return fetch(`http://localhost:3001/user`, {
                 headers: { Authorization: `Beared ${token}` },
               });
             },
@@ -219,12 +218,9 @@ const router = createBrowserRouter([
             element: <Attendance />,
             errorElement: <ErrorPage />,
             loader: () => {
-              return fetch(
-                `https://hms-server-side.onrender.com/user/attendance`,
-                {
-                  headers: { Authorization: `Beared ${token}` },
-                }
-              );
+              return fetch(`http://localhost:3001/user/attendance`, {
+                headers: { Authorization: `Beared ${token}` },
+              });
             },
           },
           {
@@ -254,7 +250,7 @@ const router = createBrowserRouter([
             element: <UpdateUserModal />,
             errorElement: <ErrorPage />,
             loader: () => {
-              return fetch(`https://hms-server-side.onrender.com/user`, {
+              return fetch(`http://localhost:3001/user`, {
                 headers: { Authorization: `Beared ${token}` },
               });
             },
@@ -275,7 +271,7 @@ const router = createBrowserRouter([
             element: <RoomDetails />,
             errorElement: <ErrorPage />,
             loader: () => {
-              return fetch(`https://hms-server-side.onrender.com/seat`, {
+              return fetch(`http://localhost:3001/seat`, {
                 headers: { Authorization: `Beared ${token}` },
               });
             },
@@ -301,7 +297,7 @@ const router = createBrowserRouter([
             element: <UserIssues />,
             errorElement: <ErrorPage />,
             loader: () => {
-              return fetch(`https://hms-server-side.onrender.com/message`, {
+              return fetch(`http://localhost:3001/message`, {
                 headers: { Authorization: `Beared ${token}` },
               });
             },
@@ -311,12 +307,9 @@ const router = createBrowserRouter([
             element: <EditRequests />,
             errorElement: <ErrorPage />,
             loader: () => {
-              return fetch(
-                `https://hms-server-side.onrender.com/admin/edit-request`,
-                {
-                  headers: { Authorization: `Beared ${token}` },
-                }
-              );
+              return fetch(`http://localhost:3001/admin/edit-request`, {
+                headers: { Authorization: `Beared ${token}` },
+              });
             },
           },
         ],
@@ -340,7 +333,7 @@ const router = createBrowserRouter([
             element: <ManageStaff />,
             errorElement: <ErrorPage />,
             loader: () => {
-              return fetch(`https://hms-server-side.onrender.com/staff`, {
+              return fetch(`http://localhost:3001/staff`, {
                 headers: { Authorization: `Beared ${token}` },
               });
             },
@@ -359,7 +352,7 @@ const router = createBrowserRouter([
           ),
         errorElement: <ErrorPage />,
         loader: () => {
-          return fetch(`https://hms-server-side.onrender.com/grocery`, {
+          return fetch(`http://localhost:3001/grocery`, {
             headers: { Authorization: `Beared ${token}` },
           });
         },
@@ -379,7 +372,7 @@ const router = createBrowserRouter([
             element: <ReceivedNotices />,
             errorElement: <ErrorPage />,
             loader: () => {
-              return fetch(`https://hms-server-side.onrender.com/notice/get`, {
+              return fetch(`http://localhost:3001/notice/get`, {
                 headers: { Authorization: `Beared ${token}` },
               });
             },
@@ -394,7 +387,7 @@ const router = createBrowserRouter([
             element: <SentNotices />,
             errorElement: <ErrorPage />,
             loader: () => {
-              return fetch(`https://hms-server-side.onrender.com/notice`, {
+              return fetch(`http://localhost:3001/notice`, {
                 headers: { Authorization: `Beared ${token}` },
               });
             },

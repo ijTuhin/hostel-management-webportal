@@ -8,7 +8,7 @@ export default function EditRequests() {
   const [open, setOpen, data, setData, upload, setUpload] = useOutletContext();
   console.log(item);
   const handleUpload = () => {
-    const link = `https://hms-server-side.onrender.com/admin/request-approve/${data?.user?._id}`;
+    const link = `http://localhost:3001/admin/request-approve/${data?.user?._id}`;
     console.log(upload, data?.user?._id, link);
     fetch(link, {
       method: "PUT",

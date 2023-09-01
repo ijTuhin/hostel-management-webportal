@@ -7,7 +7,7 @@ const TableData = ({ item }) => {
   const navigate = useNavigate();
   const [show, setShow, id, setID] = useOutletContext();
   const [billInput, setBillInput] = useState(false);
-  const link = `https://hms-server-side.onrender.com/utility?name=${item.name}`;
+  const link = `http://localhost:3001/utility?name=${item.name}`;
   return (
     <>
       <tr

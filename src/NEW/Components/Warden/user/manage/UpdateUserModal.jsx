@@ -26,7 +26,7 @@ export default function UpdateUserModal() {
     if (upload?.address === "") delete upload.address;
     if (upload?.thana === "") delete upload.thana;
     if (upload?.district === "") delete upload.district;
-    const link = `https://hms-server-side.onrender.com/user/update/${navigated?._id}`;
+    const link = `http://localhost:3001/user/update/${navigated?._id}`;
     console.log(upload, link);
     fetch(link, {
       method: "PUT",

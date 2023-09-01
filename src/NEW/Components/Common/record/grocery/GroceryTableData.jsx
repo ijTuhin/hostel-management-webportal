@@ -19,7 +19,7 @@ export default function GroceryTableData({ item, set }) {
               setOpen(true);
               setData(item);
               setUpload(null);
-              // setID(`https://hms-server-side.onrender.com/grocery?date=${item?.date}`)
+              // setID(`http://localhost:3001/grocery?date=${item?.date}`)
             }}
             className="font-semibold"
           >
